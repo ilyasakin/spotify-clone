@@ -1,8 +1,48 @@
+html {
+  height: 100vh;
+  max-height: 100vh;
+}
+
 body {
+  background-color: #212121;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.applyFont {
+  font-family: "Inconsolata", monospace;
+}
+
+.green {
+  color: #4CAF50;
+}
+
+.red {
+  color: #f44336;
+}
+
+.outerContainer {
+  height: 100vh;
+  max-height: 100%;
+  width: 100vw;
+  max-width: 100%;
+}
+
+.sideBar {
+  width: 20%;
+  height: 100%;
+  max-height: 100vh;
+  display: inline-block;
+  position: absolute;
   background-color: #212121;
 }
 
-.test {
-  font-family: "Inconsolata", monospace;
+.musicList {
+  display: inline-block;
+  height: 100%;
+  width: 80%;
+  overflow: scroll;
+  float: right;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,9 +1,52 @@
 $main-font: 'Inconsolata', monospace;
 $backgroundColor: #212121;
+$green: #4CAF50;
+$red: #f44336;
+$sidebarWidth: 20%;
 
+html {
+    height: 100vh;
+    max-height: 100vh;
+}
 body {
     background-color: $backgroundColor;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
 }
-.test {
+
+.applyFont {
     font-family: $main-font;
+}
+
+.green {
+    color: $green;
+}
+
+.red {
+    color: $red;
+}
+
+.outerContainer {
+    height: 100vh;
+    max-height: 100%;
+    width: 100vw;
+    max-width: 100%;
+}
+
+.sideBar {
+    width: $sidebarWidth;
+    height: 100%;
+    max-height: 100vh;
+    display: inline-block;
+    position: absolute;
+    background-color: $backgroundColor;
+}
+
+.musicList {
+    display: inline-block;
+    height: 100%;
+    width: 100% - $sidebarWidth;
+    overflow: scroll;
+    float: right;
 }
