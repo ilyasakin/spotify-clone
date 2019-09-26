@@ -1,0 +1,9 @@
+$main-font: 'Inconsolata', monospace;
+$backgroundColor: #212121;
+
+body {
+    background-color: $backgroundColor;
+}
+.test {
+    font-family: $main-font;
+}
