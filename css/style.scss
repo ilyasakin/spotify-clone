@@ -88,7 +88,13 @@ body {
     display: inline-block;
     text-align: center;
     width: 100%;
-    letter-spacing: 2vmax;
+    letter-spacing: 2vw;
+}
+
+@media screen and (orientation: portrait) {
+    .navCenter {
+        letter-spacing: 10vw;
+    }
 }
 
 .hoverScalePoint1:hover {
@@ -101,5 +107,24 @@ body {
 .navRadius {
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
+}
+
+.linkMobile {
+    display: none;
+}
+
+@media screen and (orientation: portrait) {
+    .linkMobile {
+        display: block;
+    }
+}
+
+.navbarMaxH {
+    max-height: 100vh;
+    overflow-y: scroll;
+}
+
+.filler {
+    visibility: hidden;
 }
 
