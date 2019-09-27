@@ -77,11 +77,23 @@ body {
   background-color: #212121;
 }
 
+@media screen and (orientation: portrait) {
+  .sideBar {
+    visibility: hidden;
+  }
+}
+
 .musicList {
   height: 100%;
   width: 80%;
   overflow: scroll;
   float: right;
+}
+
+@media screen and (orientation: portrait) {
+  .musicList {
+    width: 100vw;
+  }
 }
 
 .navHeight {
