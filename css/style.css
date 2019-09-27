@@ -97,8 +97,14 @@ body {
 }
 
 .navHeight {
-  height: 10vh;
+  height: 12vh;
   text-align: center;
+}
+
+@media screen and (orientation: portrait) {
+  .navHeight {
+    height: 18vh;
+  }
 }
 
 .navCenter {
@@ -151,5 +157,13 @@ body {
 
 .filler {
   visibility: hidden;
+}
+
+.musicInfo {
+  color: white;
+  letter-spacing: 0;
+  margin-bottom: 1vh;
+  font-family: "Inconsolata", monospace;
+  font-size: 1.2em;
 }
 /*# sourceMappingURL=style.css.map */
