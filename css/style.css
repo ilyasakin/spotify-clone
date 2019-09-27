@@ -39,10 +39,41 @@ body {
 }
 
 .musicList {
-  display: inline-block;
   height: 100%;
   width: 80%;
   overflow: scroll;
   float: right;
+}
+
+.navHeight {
+  height: 10vh;
+  text-align: center;
+}
+
+.navCenter {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  letter-spacing: 2vmax;
+}
+
+.hoverScalePoint1:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+  -webkit-transition: -webkit-filter 1s;
+  transition: -webkit-filter 1s;
+  transition: filter 1s;
+  transition: filter 1s, -webkit-filter 1s;
+  -webkit-filter: invert(37%) sepia(84%) saturate(3914%) hue-rotate(344deg) brightness(101%) contrast(91%);
+          filter: invert(37%) sepia(84%) saturate(3914%) hue-rotate(344deg) brightness(101%) contrast(91%);
+}
+
+.navRadius {
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
 /*# sourceMappingURL=style.css.map */

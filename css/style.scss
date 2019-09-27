@@ -44,9 +44,33 @@ body {
 }
 
 .musicList {
-    display: inline-block;
     height: 100%;
     width: 100% - $sidebarWidth;
     overflow: scroll;
     float: right;
 }
+
+.navHeight {
+    height: 10vh;
+    text-align: center;
+}
+
+.navCenter {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    letter-spacing: 2vmax;
+}
+
+.hoverScalePoint1:hover {
+    transform: scale(1.1);
+    transition: transform 1s;
+    transition: filter 1s;
+    filter: invert(37%) sepia(84%) saturate(3914%) hue-rotate(344deg) brightness(101%) contrast(91%);
+}
+
+.navRadius {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
