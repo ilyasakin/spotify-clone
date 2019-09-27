@@ -1,6 +1,18 @@
 document.addEventListener("DOMContentLoaded", function() {
 let play = true;
 let audio = new Audio("");
+let width = document.getElementById("progress").offsetWidth;
+
+document.getElementById("progress").addEventListener("click", function(e) {
+    let xPos = e.offsetX;
+    console.log("DEBUG: total witdh:", width);
+    console.log("DEBUG: clicked x position:", xPos);
+    let clickedPercentage = xPos * 100 / width;
+    console.log("DEBUG: clicked percentage:", clickedPercentage);
+    let jump = audio.duration * clickedPercentage / 100;
+    audio.currentTime = jump;
+});
+
 function changeAudioTo(src) {
     audio = new Audio(src);
     audio.addEventListener("loadedmetadata", function() {
@@ -13,8 +25,9 @@ function changeAudioTo(src) {
         if (play == true) {
             audio.play();
             audio.addEventListener("timeupdate", function() {
+                console.log("DEBUG: duration:", audio.duration);
                 percentage = audio.currentTime * 100 / audio.duration;
-                console.log(percentage.toFixed(1));
+                console.log("DEBUG: playback percentage:", percentage.toFixed(1));
                 document.getElementById("progressBar").style.width = percentage.toFixed(1) + "%";
             });
             console.log("pause");
