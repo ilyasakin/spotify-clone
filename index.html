@@ -11,11 +11,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="js/clientScript.js"></script>
     <title>SpotMusic</title>
 </head>
 
 <body>
-
+        
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <a class="navbar-brand applyFont" href="#"><span class="green">Spot</span><span class="red">Music</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -128,30 +129,13 @@
             <li class="list-group-item">Third item</li>
         </ul>
     </div>
-    
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom navHeight navRadius">
         <div class="navCenter">
             <a id="leftControl" class="hoverScalePoint1" href="#"><img class="hoverScalePoint1" src="images/previous.svg"></a>
             <a id="playPause" class="hoverScalePoint1" href="#"><img id="playPauseImg" class="hoverScalePoint1" src="images/play.svg"></a>
             <a id="rightControl" class="hoverScalePoint1" href="#"><img class="hoverScalePoint1" src="images/next.svg"></a>
-            <script>
-                let play = true;
-                document.getElementById("playPause").addEventListener("click", function() {
-                    if (play == true) {
-                        console.log("pause");
-                        document.getElementById("playPauseImg").src="images/pause.svg";
-                        play = false;
-                    } else {
-                        document.getElementById("playPauseImg").src="images/play.svg";
-                        play = true;
-                    }
-
-                });
-            </script>
         </div>
     </nav>
-    
-
 </body>
 
 </html>
