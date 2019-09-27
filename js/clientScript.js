@@ -1,11 +1,27 @@
 document.addEventListener("DOMContentLoaded", function() {
 let play = true;
+let audio = new Audio("");
+function changeAudioTo(src) {
+    audio = new Audio(src);
+    audio.addEventListener("loadedmetadata", function() {
+        didle = document.createTextNode(audio.src);
+        document.getElementById("musicInfoID").appendChild(didle);
+    }); 
+    
+}
     document.getElementById("playPause").addEventListener("click", function() {
         if (play == true) {
+            audio.play();
+            audio.addEventListener("timeupdate", function() {
+                percentage = audio.currentTime * 100 / audio.duration;
+                console.log(percentage.toFixed(1));
+                document.getElementById("progressBar").style.width = percentage.toFixed(1) + "%";
+            });
             console.log("pause");
             document.getElementById("playPauseImg").src="images/pause.svg";
             play = false;
             } else {
+                audio.pause();
                 document.getElementById("playPauseImg").src="images/play.svg";
                 play = true;
             }
@@ -23,11 +39,5 @@ let play = true;
     for (i=1; i<10; i++) {
         createListItem("Test " + i);
     }
-
-
-    
-//  var write = document.createTextNode("Test");
-// listElement.classList.add("list-group-item");
-//listElement.appendChild(write);
-    musicList.appendChild(listElement); 
+    changeAudioTo("to-the-light.m4a");
 });
