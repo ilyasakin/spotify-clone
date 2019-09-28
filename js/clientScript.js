@@ -1,22 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
 let play = true;
 let audio = new Audio("");
-let width = document.getElementById("progress").offsetWidth;
-
-// TODO: CORRECT SEEKING
-function jumpToPercent(percent) {
-    newPercent = (audio.duration / 100) * percent;
-    audio.currentTime = newPercent;
-}
-
 document.getElementById("progress").addEventListener("click", function(e) {
-    let xPos = e.offsetX;
-    console.log("DEBUG: total witdh:", width);
+    let xPos = event.clientX - event.currentTarget.offsetLeft;
     console.log("DEBUG: clicked x position:", xPos);
-    clickedPercentage = (xPos * 100 / width);
-    console.log("DEBUG: clicked percentage:", clickedPercentage);
-    console.log("DEBUG:", "width:", width, "x pos:", xPos, "clicked percentage:", clickedPercentage);
-    jumpToPercent(clickedPercentage);
+    audio.currentTime = (xPos / event.target.offsetWidth) * audio.duration;
 });
 
 function changeAudioTo(src) {
@@ -53,9 +41,9 @@ function changeAudioTo(src) {
                 if (/^\d$/.test(currentSecond))  {
                     currentSecond = "0" + currentSecond;
                   }
-                document.getElementById("curTime").innerHTML=currentMinute + ':' + currentSecond;
+                document.getElementById("curTime").innerHTML = currentMinute + ':' + currentSecond;
                 percentage = audio.currentTime * 100 / audio.duration;
-               // console.log("DEBUG: playback percentage:", percentage);
+                console.log("DEBUG: playback percentage:", percentage, "duration: ", audio.duration);
                 document.getElementById("progressBar").style.width = percentage + "%";
                 if (audio.currentTime >= audio.duration) {
                     play = true;
