@@ -3,14 +3,20 @@ let play = true;
 let audio = new Audio("");
 let width = document.getElementById("progress").offsetWidth;
 
+// TODO: CORRECT SEEKING
+function jumpToPercent(percent) {
+    newPercent = (audio.duration / 100) * percent;
+    audio.currentTime = newPercent;
+}
+
 document.getElementById("progress").addEventListener("click", function(e) {
     let xPos = e.offsetX;
     console.log("DEBUG: total witdh:", width);
     console.log("DEBUG: clicked x position:", xPos);
-    let clickedPercentage = xPos * 100 / width;
+    clickedPercentage = (xPos * 100 / width);
     console.log("DEBUG: clicked percentage:", clickedPercentage);
-    let jump = audio.duration * clickedPercentage / 100;
-    audio.currentTime = jump;
+    console.log("DEBUG:", "width:", width, "x pos:", xPos, "clicked percentage:", clickedPercentage);
+    jumpToPercent(clickedPercentage);
 });
 
 function changeAudioTo(src) {
@@ -28,6 +34,10 @@ function changeAudioTo(src) {
         total = document.createTextNode(minutes + ":" + seconds);
         document.getElementById("musicInfoID").appendChild(didle);
         document.getElementById("totalTime").appendChild(total);
+        ImgEl = document.createElement("img");
+        ImgEl.src="cover.jpg";
+        ImgEl.classList.add("songCoverImgCls");
+        document.getElementById("songCoverID").appendChild(ImgEl);
     }); 
     
 }
@@ -44,10 +54,13 @@ function changeAudioTo(src) {
                     currentSecond = "0" + currentSecond;
                   }
                 document.getElementById("curTime").innerHTML=currentMinute + ':' + currentSecond;
-                console.log("DEBUG: duration:", audio.duration);
                 percentage = audio.currentTime * 100 / audio.duration;
-                console.log("DEBUG: playback percentage:", Math.floor(percentage));
-                document.getElementById("progressBar").style.width = Math.floor(percentage) + "%";
+               // console.log("DEBUG: playback percentage:", percentage);
+                document.getElementById("progressBar").style.width = percentage + "%";
+                if (audio.currentTime >= audio.duration) {
+                    play = true;
+                    document.getElementById("playPauseImg").src="images/play.svg";
+                }
             });
             console.log("pause");
             document.getElementById("playPauseImg").src="images/pause.svg";
@@ -59,12 +72,12 @@ function changeAudioTo(src) {
             }
         });
     function createListItem(text) {
-    var musicList = document.getElementById("actualMusicList");
-    var listElement = document.createElement("li");
-    listElement.classList.add("list-group-item");
-    var write = document.createTextNode(text);
-    listElement.appendChild(write);
-    musicList.appendChild(listElement);
+        var musicList = document.getElementById("actualMusicList");
+        var listElement = document.createElement("li");
+        listElement.classList.add("list-group-item");
+        var write = document.createTextNode(text);
+        listElement.appendChild(write);
+        musicList.appendChild(listElement);
     
     }
 
