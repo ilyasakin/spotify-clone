@@ -164,6 +164,25 @@ body {
   letter-spacing: 0;
   margin-bottom: 1vh;
   font-family: "Inconsolata", monospace;
-  font-size: 1.2em;
+  font-size: 1.5vmax;
+}
+
+.titleAndDurationCls {
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
+.currentTime {
+  letter-spacing: 0;
+  color: white;
+  text-align: left;
+  float: left;
+}
+
+.duration {
+  letter-spacing: 0;
+  color: white;
+  float: right;
+  text-align: right;
 }
 /*# sourceMappingURL=style.css.map */

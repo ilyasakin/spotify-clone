@@ -17,7 +17,17 @@ function changeAudioTo(src) {
     audio = new Audio(src);
     audio.addEventListener("loadedmetadata", function() {
         didle = document.createTextNode(audio.src);
+        minutes = Math.floor(audio.duration / 60);
+        if (/^\d$/.test(minutes))  {
+            minutes = "0" + minutes;
+          }
+        seconds = Math.floor(audio.duration - minutes * 60);
+        if (/^\d$/.test(seconds))  {
+            seconds = "0" + seconds;
+          }
+        total = document.createTextNode(minutes + ":" + seconds);
         document.getElementById("musicInfoID").appendChild(didle);
+        document.getElementById("totalTime").appendChild(total);
     }); 
     
 }
@@ -25,10 +35,19 @@ function changeAudioTo(src) {
         if (play == true) {
             audio.play();
             audio.addEventListener("timeupdate", function() {
+                currentMinute = Math.floor(audio.currentTime / 60);
+                currentSecond = Math.floor(audio.currentTime - currentMinute * 60);
+                if (/^\d$/.test(currentMinute))  {
+                    currentMinute = "0" + currentMinute;
+                  }
+                if (/^\d$/.test(currentSecond))  {
+                    currentSecond = "0" + currentSecond;
+                  }
+                document.getElementById("curTime").innerHTML=currentMinute + ':' + currentSecond;
                 console.log("DEBUG: duration:", audio.duration);
                 percentage = audio.currentTime * 100 / audio.duration;
-                console.log("DEBUG: playback percentage:", percentage.toFixed(1));
-                document.getElementById("progressBar").style.width = percentage.toFixed(1) + "%";
+                console.log("DEBUG: playback percentage:", Math.floor(percentage));
+                document.getElementById("progressBar").style.width = Math.floor(percentage) + "%";
             });
             console.log("pause");
             document.getElementById("playPauseImg").src="images/pause.svg";
