@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
   let play = true;
   let audio = new Audio("");
-  
+
   document.getElementById("progress").addEventListener("click", function(e) {
     let xPos = event.clientX - event.currentTarget.offsetLeft;
     console.log("DEBUG: clicked x position:", xPos);
@@ -22,7 +22,8 @@ document.addEventListener("DOMContentLoaded", function() {
       }
       total = document.createTextNode(minutes + ":" + seconds);
       document.getElementById("musicInfoID").appendChild(didle);
-      document.getElementById("totalTime").appendChild(total);
+      document.getElementById("totalTime").innerHTML = 
+        minutes + ":" + seconds;
       ImgEl = document.createElement("img");
       ImgEl.src = "cover.jpg";
       ImgEl.classList.add("songCoverImgCls");
