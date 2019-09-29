@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let musicList = document.getElementById("actualMusicList");
     let listElement = document.createElement("li");
     listElement.classList.add("list-group-item");
+    listElement.classList.add("list-group-item-dark");
     let coverElement = document.createElement("img");
     coverElement.classList.add("coverSmall");
     if (coverLocation != undefined) {
