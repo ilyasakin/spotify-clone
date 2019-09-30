@@ -10,10 +10,19 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-function changeAudioTo(src) {
+function stopAudio(audioOb) {
+  if (document.getElementById("progressBar") != null) {
+    document.getElementById("progressBar").style.width = "0%";
+    document.getElementById("playPauseImg").src = "images/play.svg";
+  }
+  play = true;
+  audioOb.currentTime = 0;
+  audioOb.pause();
+}
+function changeAudioTo(src, cover, artist, title) {
+  stopAudio(audio);
   audio = new Audio(src);
   audio.addEventListener("loadedmetadata", function() {
-    didle = document.createTextNode(audio.src);
     minutes = Math.floor(audio.duration / 60);
     if (/^\d$/.test(minutes)) {
       minutes = "0" + minutes;
@@ -23,12 +32,10 @@ function changeAudioTo(src) {
       seconds = "0" + seconds;
     }
     total = document.createTextNode(minutes + ":" + seconds);
-    document.getElementById("musicInfoID").appendChild(didle);
+    document.getElementById("songTitle").innerHTML = `${artist} - ${title}`;
     document.getElementById("totalTime").innerHTML = minutes + ":" + seconds;
-    ImgEl = document.createElement("img");
-    ImgEl.src = "cover.jpg";
-    ImgEl.classList.add("songCoverImgCls");
-    document.getElementById("songCoverID").appendChild(ImgEl);
+    ImgEl = document.getElementById("songCoverID");
+    ImgEl.innerHTML = `<img src="${cover}" class="songCoverImgCls">`;
   });
 }
 
@@ -70,9 +77,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
-function createListItem(text, coverLocation) {
+function createListItem(idNum, text, coverLocation) {
   let musicList = document.getElementById("actualMusicList");
   let listElement = document.createElement("li");
+  listElement.id = idNum;
   listElement.classList.add("list-group-item");
   listElement.classList.add("list-group-item-dark");
   listElement.classList.add("dummyClass");
@@ -94,6 +102,7 @@ fetchLenght.then(response => {
     fetchSongs = fetchAsync(targetUrl + "api/music/" + i);
     fetchSongs.then(responseSong => {
       createListItem(
+        responseSong.id,
         `${responseSong.artist} - ${responseSong.name}`,
         responseSong.cover
       );
@@ -102,10 +111,27 @@ fetchLenght.then(response => {
   }
 });
 
-changeAudioTo("to-the-light.m4a");
-
 async function fetchAsync(url) {
   let response = await fetch(url);
   let data = await response.json();
   return data;
 }
+
+window.addEventListener("load", function() {
+  [...document.querySelectorAll(".dummyClass")].forEach(function(item) {
+    item.addEventListener("click", function() {
+      console.log(item.id, item.innerHTML);
+      fetchItem = fetchAsync(targetUrl + "api/music/" + item.id);
+      fetchItem.then(responseUrl => {
+        changeAudioTo(
+          responseUrl.location,
+          responseUrl.cover,
+          responseUrl.artist,
+          responseUrl.name
+        );
+      });
+    });
+  });
+});
+
+changeAudioTo("to-the-light.m4a", "cover.jpg", "A.CHAL", "To The Light");
