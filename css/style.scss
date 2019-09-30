@@ -216,3 +216,10 @@ body {
     height: 50px;
     margin-right: 10px;
 }
+
+.dummyClass {
+  cursor: pointer;
+  :hover {
+    transform: scale(1.1);
+  }
+}

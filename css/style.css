@@ -222,4 +222,13 @@ body {
   height: 50px;
   margin-right: 10px;
 }
+
+.dummyClass {
+  cursor: pointer;
+}
+
+.dummyClass :hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
 /*# sourceMappingURL=style.css.map */
