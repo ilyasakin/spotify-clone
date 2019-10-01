@@ -113,6 +113,7 @@ body {
   text-align: center;
   width: 100%;
   letter-spacing: 2vw;
+  user-select: none;
 }
 
 @media screen and (orientation: portrait) {
@@ -219,6 +220,7 @@ body {
 
 .dummyClass {
   cursor: pointer;
+  user-select: none;
   :hover {
     transform: scale(1.1);
   }

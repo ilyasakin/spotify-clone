@@ -113,6 +113,10 @@ body {
   text-align: center;
   width: 100%;
   letter-spacing: 2vw;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 @media screen and (orientation: portrait) {
@@ -225,6 +229,10 @@ body {
 
 .dummyClass {
   cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .dummyClass :hover {
