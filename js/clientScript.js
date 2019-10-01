@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
 function createListItem(idNum, text, coverLocation) {
   const musicList = document.getElementById('actualMusicList');
   const listElement = document.createElement('li');
@@ -120,7 +121,7 @@ fetchLenght.then(response => {
   }
 });
 
-window.addEventListener('load', function() {
+setTimeout(function() {
   [...document.querySelectorAll('.dummyClass')].forEach(function(item) {
     item.addEventListener('click', function() {
       console.log(item.id, item.innerHTML);
@@ -135,6 +136,5 @@ window.addEventListener('load', function() {
       });
     });
   });
-});
-
+}, 400);
 changeAudioTo('to-the-light.m4a', 'cover.jpg', 'A.CHAL', 'To The Light');

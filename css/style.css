@@ -198,6 +198,12 @@ body {
   cursor: pointer;
 }
 
+@media screen and (orientation: portrait) {
+  .signOut {
+    display: none;
+  }
+}
+
 .songCover {
   position: absolute;
   left: 0;
