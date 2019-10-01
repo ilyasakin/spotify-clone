@@ -1,19 +1,19 @@
 let play = true;
-let audio = new Audio("");
-let targetUrl = "http://192.168.1.40:3500/";
+let audio = new Audio('');
+const targetUrl = 'http://192.168.1.40:3500/';
 
-document.addEventListener("DOMContentLoaded", function() {
-  document.getElementById("progress").addEventListener("click", function(e) {
-    let xPos = event.clientX - event.currentTarget.offsetLeft;
-    console.log("DEBUG: clicked x position:", xPos);
-    audio.currentTime = (xPos / event.target.offsetWidth) * audio.duration;
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('progress').addEventListener('click', function(e) {
+    const xPos = e.clientX - e.currentTarget.offsetLeft;
+    console.log('DEBUG: clicked x position:', xPos);
+    audio.currentTime = (xPos / e.target.offsetWidth) * audio.duration;
   });
 });
 
 function stopAudio(audioOb) {
-  if (document.getElementById("progressBar") != null) {
-    document.getElementById("progressBar").style.width = "0%";
-    document.getElementById("playPauseImg").src = "images/play.svg";
+  if (document.getElementById('progressBar') != null) {
+    document.getElementById('progressBar').style.width = '0%';
+    document.getElementById('playPauseImg').src = 'images/play.svg';
   }
   play = true;
   audioOb.currentTime = 0;
@@ -22,84 +22,90 @@ function stopAudio(audioOb) {
 function changeAudioTo(src, cover, artist, title) {
   stopAudio(audio);
   audio = new Audio(src);
-  audio.addEventListener("loadedmetadata", function() {
-    minutes = Math.floor(audio.duration / 60);
+  audio.addEventListener('loadedmetadata', function() {
+    let minutes = Math.floor(audio.duration / 60);
     if (/^\d$/.test(minutes)) {
-      minutes = "0" + minutes;
+      minutes = `0${minutes}`;
     }
-    seconds = Math.floor(audio.duration - minutes * 60);
+    let seconds = Math.floor(audio.duration - minutes * 60);
     if (/^\d$/.test(seconds)) {
-      seconds = "0" + seconds;
+      seconds = `0${seconds}`;
     }
-    total = document.createTextNode(minutes + ":" + seconds);
-    document.getElementById("songTitle").innerHTML = `${artist} - ${title}`;
-    document.getElementById("totalTime").innerHTML = minutes + ":" + seconds;
-    ImgEl = document.getElementById("songCoverID");
+    document.getElementById('songTitle').innerHTML = `${artist} - ${title}`;
+    document.getElementById('totalTime').innerHTML = `${minutes}:${seconds}`;
+    const ImgEl = document.getElementById('songCoverID');
     ImgEl.innerHTML = `<img src="${cover}" class="songCoverImgCls">`;
   });
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  document.getElementById("playPause").addEventListener("click", function() {
-    if (play == true) {
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('playPause').addEventListener('click', function() {
+    if (play === true) {
       audio.play();
-      audio.addEventListener("timeupdate", function() {
-        currentMinute = Math.floor(audio.currentTime / 60);
-        currentSecond = Math.floor(audio.currentTime - currentMinute * 60);
+      audio.addEventListener('timeupdate', function() {
+        let currentMinute = Math.floor(audio.currentTime / 60);
+        let currentSecond = Math.floor(audio.currentTime - currentMinute * 60);
         if (/^\d$/.test(currentMinute)) {
-          currentMinute = "0" + currentMinute;
+          currentMinute = `0${currentMinute}`;
         }
         if (/^\d$/.test(currentSecond)) {
-          currentSecond = "0" + currentSecond;
+          currentSecond = `0${currentSecond}`;
         }
-        document.getElementById("curTime").innerHTML =
-          currentMinute + ":" + currentSecond;
-        percentage = (audio.currentTime * 100) / audio.duration;
+        document.getElementById(
+          'curTime'
+        ).innerHTML = `${currentMinute}:${currentSecond}`;
+        const percentage = (audio.currentTime * 100) / audio.duration;
         console.log(
-          "DEBUG: playback percentage:",
+          'DEBUG: playback percentage:',
           percentage,
-          "duration: ",
+          'duration: ',
           audio.duration
         );
-        document.getElementById("progressBar").style.width = percentage + "%";
+        document.getElementById('progressBar').style.width = `${percentage}%`;
         if (audio.currentTime >= audio.duration) {
           play = true;
-          document.getElementById("playPauseImg").src = "images/play.svg";
+          document.getElementById('playPauseImg').src = 'images/play.svg';
         }
       });
-      console.log("pause");
-      document.getElementById("playPauseImg").src = "images/pause.svg";
+      console.log('pause');
+      document.getElementById('playPauseImg').src = 'images/pause.svg';
       play = false;
     } else {
       audio.pause();
-      document.getElementById("playPauseImg").src = "images/play.svg";
+      document.getElementById('playPauseImg').src = 'images/play.svg';
       play = true;
     }
   });
 });
 function createListItem(idNum, text, coverLocation) {
-  let musicList = document.getElementById("actualMusicList");
-  let listElement = document.createElement("li");
+  const musicList = document.getElementById('actualMusicList');
+  const listElement = document.createElement('li');
   listElement.id = idNum;
-  listElement.classList.add("list-group-item");
-  listElement.classList.add("list-group-item-dark");
-  listElement.classList.add("dummyClass");
-  let coverElement = document.createElement("img");
-  coverElement.classList.add("coverSmall");
-  if (coverLocation != undefined) {
+  listElement.classList.add('list-group-item');
+  listElement.classList.add('list-group-item-dark');
+  listElement.classList.add('dummyClass');
+  const coverElement = document.createElement('img');
+  coverElement.classList.add('coverSmall');
+  if (coverLocation !== undefined) {
     coverElement.src = coverLocation;
   }
   listElement.appendChild(coverElement);
-  let write = document.createTextNode(text);
+  const write = document.createTextNode(text);
   listElement.appendChild(write);
   musicList.appendChild(listElement);
 }
 
-fetchLenght = fetchAsync(targetUrl + "api/music/lenght");
+async function fetchAsync(url) {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
+}
+
+const fetchLenght = fetchAsync(`${targetUrl}api/music/lenght`);
 fetchLenght.then(response => {
   console.log(response);
-  for (i = 1; i <= response; i++) {
-    fetchSongs = fetchAsync(targetUrl + "api/music/" + i);
+  for (let i = 1; i <= response; i += 1) {
+    const fetchSongs = fetchAsync(`${targetUrl}api/music/${i}`);
     fetchSongs.then(responseSong => {
       createListItem(
         responseSong.id,
@@ -111,17 +117,11 @@ fetchLenght.then(response => {
   }
 });
 
-async function fetchAsync(url) {
-  let response = await fetch(url);
-  let data = await response.json();
-  return data;
-}
-
-window.addEventListener("load", function() {
-  [...document.querySelectorAll(".dummyClass")].forEach(function(item) {
-    item.addEventListener("click", function() {
+window.addEventListener('load', function() {
+  [...document.querySelectorAll('.dummyClass')].forEach(function(item) {
+    item.addEventListener('click', function() {
       console.log(item.id, item.innerHTML);
-      fetchItem = fetchAsync(targetUrl + "api/music/" + item.id);
+      const fetchItem = fetchAsync(`${targetUrl}api/music/${item.id}`);
       fetchItem.then(responseUrl => {
         changeAudioTo(
           responseUrl.location,
@@ -134,4 +134,4 @@ window.addEventListener("load", function() {
   });
 });
 
-changeAudioTo("to-the-light.m4a", "cover.jpg", "A.CHAL", "To The Light");
+changeAudioTo('to-the-light.m4a', 'cover.jpg', 'A.CHAL', 'To The Light');
