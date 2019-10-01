@@ -19,6 +19,7 @@ function stopAudio(audioOb) {
   audioOb.currentTime = 0;
   audioOb.pause();
 }
+
 function changeAudioTo(src, cover, artist, title) {
   stopAudio(audio);
   audio = new Audio(src);
@@ -35,6 +36,7 @@ function changeAudioTo(src, cover, artist, title) {
     document.getElementById('totalTime').innerHTML = `${minutes}:${seconds}`;
     const ImgEl = document.getElementById('songCoverID');
     ImgEl.innerHTML = `<img src="${cover}" class="songCoverImgCls">`;
+    document.getElementById('slideSeek').value = `0`;
   });
 }
 
@@ -62,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
           audio.duration
         );
         document.getElementById('progressBar').style.width = `${percentage}%`;
+        document.getElementById('slideSeek').value = `${percentage}`;
         if (audio.currentTime >= audio.duration) {
           play = true;
           document.getElementById('playPauseImg').src = 'images/play.svg';
