@@ -114,7 +114,7 @@ fetchLenght.then(response => {
       createListItem(
         responseSong.id,
         `${responseSong.artist} - ${responseSong.name}`,
-        responseSong.cover
+        targetUrl + responseSong.cover
       );
       // console.log(responseSong.name);
     });
@@ -128,8 +128,8 @@ setTimeout(function() {
       const fetchItem = fetchAsync(`${targetUrl}api/music/${item.id}`);
       fetchItem.then(responseUrl => {
         changeAudioTo(
-          responseUrl.location,
-          responseUrl.cover,
+          targetUrl + responseUrl.location,
+          targetUrl + responseUrl.cover,
           responseUrl.artist,
           responseUrl.name
         );
@@ -137,4 +137,9 @@ setTimeout(function() {
     });
   });
 }, 400);
-changeAudioTo('to-the-light.m4a', 'cover.jpg', 'A.CHAL', 'To The Light');
+changeAudioTo(
+  `${targetUrl}assets/music/to-the-light.m4a`,
+  `${targetUrl}assets/images/cover.jpg`,
+  'A.CHAL',
+  'To The Light'
+);
