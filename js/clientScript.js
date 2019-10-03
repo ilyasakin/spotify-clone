@@ -111,10 +111,11 @@ fetchLenght.then(response => {
   for (let i = 1; i <= response; i += 1) {
     const fetchSongs = fetchAsync(`${targetUrl}api/music/${i}`);
     fetchSongs.then(responseSong => {
+      console.log(responseSong[0]);
       createListItem(
-        responseSong.id,
-        `${responseSong.artist} - ${responseSong.name}`,
-        targetUrl + responseSong.cover
+        responseSong[0].id,
+        `${responseSong[0].artist} - ${responseSong[0].name}`,
+        targetUrl + responseSong[0].cover
       );
       // console.log(responseSong.name);
     });
@@ -127,16 +128,18 @@ setTimeout(function() {
       console.log(item.id, item.innerHTML);
       const fetchItem = fetchAsync(`${targetUrl}api/music/${item.id}`);
       fetchItem.then(responseUrl => {
+        console.log(responseUrl);
         changeAudioTo(
-          targetUrl + responseUrl.location,
-          targetUrl + responseUrl.cover,
-          responseUrl.artist,
-          responseUrl.name
+          targetUrl + responseUrl[0].location,
+          targetUrl + responseUrl[0].cover,
+          responseUrl[0].artist,
+          responseUrl[0].name
         );
       });
     });
   });
-}, 400);
+}, 1000);
+
 changeAudioTo(
   `${targetUrl}assets/music/to-the-light.m4a`,
   `${targetUrl}assets/images/cover.jpg`,
