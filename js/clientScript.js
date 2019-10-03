@@ -138,7 +138,7 @@ setTimeout(function() {
       });
     });
   });
-}, 1000);
+}, 400);
 
 changeAudioTo(
   `${targetUrl}assets/music/to-the-light.m4a`,
