@@ -368,4 +368,13 @@ input[type="range"]:focus::-ms-fill-upper {
   -webkit-transition: width .3s ease;
   transition: width .3s ease;
 }
+
+.list-group-item-dark:hover {
+  background-color: #6A6A6A;
+  color: white;
+  -webkit-transition: color 200ms ease-in;
+  transition: color 200ms ease-in;
+  -webkit-transition: background-color 200ms ease-in;
+  transition: background-color 200ms ease-in;
+}
 /*# sourceMappingURL=style.css.map */

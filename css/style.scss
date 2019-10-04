@@ -352,3 +352,10 @@ input[type="range"]:focus::-ms-fill-upper {
 #progressBar {
   transition: width .3s ease;
 }
+
+.list-group-item-dark:hover {
+  background-color: #6A6A6A;
+  color: white;
+  transition: color 200ms ease-in;
+  transition: background-color 200ms ease-in;
+}
