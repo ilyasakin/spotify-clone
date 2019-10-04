@@ -98,7 +98,7 @@ body {
 }
 
 .navHeight {
-  height: 12vh;
+  height: 14vh;
   text-align: center;
 }
 
@@ -152,8 +152,8 @@ body {
 }
 
 .navRadius {
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
 .linkMobile {
@@ -224,7 +224,7 @@ body {
 
 @media screen and (orientation: portrait) {
   .signOut {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -244,10 +244,10 @@ body {
 
 @media screen and (orientation: portrait) {
   .songCover {
-    display: none;
+    display: none !important;
   }
   .songCoverImgCls {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -503,6 +503,7 @@ input[type="range"]:focus::-ms-fill-upper {
 
 #navbarTop {
   background-color: #222629;
+  overflow: hidden !important;
 }
 
 #navBottom {
