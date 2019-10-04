@@ -382,7 +382,7 @@ input[type="range"]:focus::-ms-fill-upper {
 .volumeBlock {
   display: block;
   width: 5vw;
-  height: 10px;
+  height: 7px;
   background-color: #c6c8ca;
   position: absolute;
   right: 0;
