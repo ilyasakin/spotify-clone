@@ -359,3 +359,30 @@ input[type="range"]:focus::-ms-fill-upper {
   transition: color 200ms ease-in;
   transition: background-color 200ms ease-in;
 }
+
+.volumeBlock {
+  display: block;
+  width: 5vw;
+  height: 10px;
+  background-color: #c6c8ca; 
+  position: absolute;
+  right: 0;
+  margin-right: 2.5vw;
+  margin-top: 0.5vh;
+  overflow: hidden;
+  border-radius: .25rem;
+}
+
+@media screen and (orientation: portrait) {
+  .volumeBlock {
+    display: none;
+  }
+}
+
+.rangeVolume {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
