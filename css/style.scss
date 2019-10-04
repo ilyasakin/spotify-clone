@@ -1,8 +1,12 @@
 $main-font: "Inconsolata", monospace;
-$backgroundColor: #212121;
-$green: #4caf50;
-$red: #f44336;
+$backgroundColor: #302f2f;
+$green: #86C232;
+$red: #C96567;
 $sidebarWidth: 20%;
+$sidebarColor: #272727;
+$navTop: #222629;
+$listColor: #777777;
+$listColorTransition: #999999;
 
 html {
   height: 100vh;
@@ -74,7 +78,7 @@ body {
   max-height: 100vh;
   display: inline-block;
   position: absolute;
-  background-color: $backgroundColor;
+  background-color: $sidebarColor;
 }
 
 @media screen and (orientation: portrait) {
@@ -88,7 +92,7 @@ body {
   width: 100% - $sidebarWidth;
   overflow: scroll;
   float: right;
-  background-color: #424242;
+  background-color: $backgroundColor;
 }
 
 @media screen and (orientation: portrait) {
@@ -195,6 +199,7 @@ body {
 }
 
 #signOutButton {
+  background-color: transparent;
   transition: color 200ms ease-in;
 }
 
@@ -379,13 +384,14 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 .list-group-item-dark {
+  background-color: $listColor!important;
   transition: color 200ms ease-in;
   transition: background-color 200ms ease-in;
 }
 
 .list-group-item-dark:hover {
-  background-color: #6A6A6A;
-  color: white;
+  background-color: $listColorTransition!important;
+  color: black;
   transition: color 200ms ease-in;
   transition: background-color 200ms ease-in;
 }
@@ -434,6 +440,7 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 .nav-item {
+  background-color: $sidebarColor;
   transition: background-color 200ms ease-in;
 }
 
@@ -458,4 +465,12 @@ input[type="range"]:focus::-ms-fill-upper {
 #myPlaylist:hover {
   color: black;
   transition: color 200ms ease-in;
+}
+
+#navbarTop {
+  background-color: $navTop;
+}
+
+#navBottom {
+  background-color: #444444!important;
 }
