@@ -125,6 +125,17 @@ body {
   }
 }
 
+.hoverScalePoint1 {
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+  -webkit-transition: -webkit-filter 1s;
+  transition: -webkit-filter 1s;
+  transition: filter 1s;
+  transition: filter 1s, -webkit-filter 1s;
+}
+
 .hoverScalePoint1:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
@@ -195,7 +206,19 @@ body {
   position: absolute;
   right: 0;
   margin-right: 1vw;
+  border-radius: 30px;
   cursor: pointer;
+}
+
+#signOutButton {
+  -webkit-transition: color 200ms ease-in;
+  transition: color 200ms ease-in;
+}
+
+#signOutButton:hover {
+  color: black;
+  -webkit-transition: color 200ms ease-in;
+  transition: color 200ms ease-in;
 }
 
 @media screen and (orientation: portrait) {
@@ -370,6 +393,24 @@ input[type="range"]:focus::-ms-fill-upper {
   transition: width .3s ease;
 }
 
+#progress {
+  -webkit-transition: background-color 200ms ease-out;
+  transition: background-color 200ms ease-out;
+}
+
+#progress:hover {
+  background-color: #f44336;
+  -webkit-transition: background-color 200ms ease-in;
+  transition: background-color 200ms ease-in;
+}
+
+.list-group-item-dark {
+  -webkit-transition: color 200ms ease-in;
+  transition: color 200ms ease-in;
+  -webkit-transition: background-color 200ms ease-in;
+  transition: background-color 200ms ease-in;
+}
+
 .list-group-item-dark:hover {
   background-color: #6A6A6A;
   color: white;
@@ -390,6 +431,14 @@ input[type="range"]:focus::-ms-fill-upper {
   margin-top: 0.5vh;
   overflow: hidden;
   border-radius: .25rem;
+  -webkit-transition: background-color 200ms ease-in;
+  transition: background-color 200ms ease-in;
+}
+
+.volumeBlock:hover {
+  background-color: #f44336;
+  -webkit-transition: background-color 200ms ease-in;
+  transition: background-color 200ms ease-in;
 }
 
 @media screen and (orientation: portrait) {
@@ -404,5 +453,48 @@ input[type="range"]:focus::-ms-fill-upper {
   right: 0;
   left: 0;
   bottom: 0;
+}
+
+.navLeftConf {
+  display: block;
+  padding: 0;
+  width: 100%;
+}
+
+.navLeftItemConf {
+  margin-left: 1.5vw;
+}
+
+.nav-item {
+  -webkit-transition: background-color 200ms ease-in;
+  transition: background-color 200ms ease-in;
+}
+
+.nav-item:hover {
+  background-color: #c6c8ca;
+  -webkit-transition: background-color 200ms ease-in;
+  transition: background-color 200ms ease-in;
+}
+
+#likedSongs {
+  -webkit-transition: color 200ms ease-in;
+  transition: color 200ms ease-in;
+}
+
+#likedSongs:hover {
+  color: black;
+  -webkit-transition: color 200ms ease-in;
+  transition: color 200ms ease-in;
+}
+
+#myPlaylist {
+  -webkit-transition: color 200ms ease-in;
+  transition: color 200ms ease-in;
+}
+
+#myPlaylist:hover {
+  color: black;
+  -webkit-transition: color 200ms ease-in;
+  transition: color 200ms ease-in;
 }
 /*# sourceMappingURL=style.css.map */
