@@ -136,38 +136,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-function createListItem(idNum, text, coverLocation) {
-  const musicList = document.getElementById('actualMusicList');
-  const listElement = document.createElement('li');
-  const listAElement = document.createElement('a');
-  listAElement.id = idNum;
-  listElement.classList.add('list-group-item');
-  listElement.classList.add('list-group-item-dark');
-  listAElement.classList.add('dummyClass');
-  const coverElement = document.createElement('img');
-  coverElement.classList.add('coverSmall');
-  if (coverLocation !== undefined) {
-    coverElement.src = coverLocation;
-  }
-  listAElement.appendChild(coverElement);
-  const write = document.createTextNode(text);
-  listAElement.appendChild(write);
-  listAElement.onclick = function() {
-    const fetchThis = fetchAsync(`${targetUrl}api/music/${listAElement.id}`);
-    fetchThis.then(responseUrl => {
-      console.log(responseUrl);
-      changeAudioTo(
-        targetUrl + responseUrl[0].location,
-        targetUrl + responseUrl[0].cover,
-        responseUrl[0].artist,
-        responseUrl[0].name
-      );
-    });
-  };
-  listElement.appendChild(listAElement);
-  musicList.appendChild(listElement);
-}
-
 changeAudioTo(
   `${targetUrl}assets/music/to-the-light.m4a`,
   `${targetUrl}assets/images/cover.jpg`,
