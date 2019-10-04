@@ -16,23 +16,6 @@ async function fetchAsync(url) {
   return data;
 }
 
-const fetchLenght = fetchAsync(`${targetUrl}api/music/lenght`);
-fetchLenght.then(response => {
-  console.log(response);
-  for (let i = 1; i <= response; i += 1) {
-    const fetchSongs = fetchAsync(`${targetUrl}api/music/${i}`);
-    fetchSongs.then(responseSong => {
-      console.log(responseSong[0]);
-      createListItem(
-        responseSong[0].id,
-        `${responseSong[0].artist} - ${responseSong[0].name}`,
-        targetUrl + responseSong[0].cover
-      );
-      // console.log(responseSong.name);
-    });
-  }
-});
-
 function stopAudio(audioOb) {
   if (document.getElementById('progressBar') != null) {
     document.getElementById('progressBar').style.width = '0%';
@@ -62,6 +45,55 @@ function changeAudioTo(src, cover, artist, title) {
     document.getElementById('slideSeek').value = `0`;
   });
 }
+
+function createListItem(idNum, text, coverLocation) {
+  const musicList = document.getElementById('actualMusicList');
+  const listElement = document.createElement('li');
+  const listAElement = document.createElement('a');
+  listAElement.id = idNum;
+  listElement.classList.add('list-group-item');
+  listElement.classList.add('list-group-item-dark');
+  listAElement.classList.add('dummyClass');
+  const coverElement = document.createElement('img');
+  coverElement.classList.add('coverSmall');
+  if (coverLocation !== undefined) {
+    coverElement.src = coverLocation;
+  }
+  listAElement.appendChild(coverElement);
+  const write = document.createTextNode(text);
+  listAElement.appendChild(write);
+  listAElement.onclick = function() {
+    const fetchThis = fetchAsync(`${targetUrl}api/music/${listAElement.id}`);
+    fetchThis.then(responseUrl => {
+      console.log(responseUrl);
+      changeAudioTo(
+        targetUrl + responseUrl[0].location,
+        targetUrl + responseUrl[0].cover,
+        responseUrl[0].artist,
+        responseUrl[0].name
+      );
+    });
+  };
+  listElement.appendChild(listAElement);
+  musicList.appendChild(listElement);
+}
+
+const fetchLenght = fetchAsync(`${targetUrl}api/music/lenght`);
+fetchLenght.then(response => {
+  console.log(response);
+  for (let i = 1; i <= response; i += 1) {
+    const fetchSongs = fetchAsync(`${targetUrl}api/music/${i}`);
+    fetchSongs.then(responseSong => {
+      console.log(responseSong[0]);
+      createListItem(
+        responseSong[0].id,
+        `${responseSong[0].artist} - ${responseSong[0].name}`,
+        targetUrl + responseSong[0].cover
+      );
+      // console.log(responseSong.name);
+    });
+  }
+});
 
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('playPause').addEventListener('click', function() {
