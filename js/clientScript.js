@@ -10,6 +10,29 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+async function fetchAsync(url) {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
+}
+
+const fetchLenght = fetchAsync(`${targetUrl}api/music/lenght`);
+fetchLenght.then(response => {
+  console.log(response);
+  for (let i = 1; i <= response; i += 1) {
+    const fetchSongs = fetchAsync(`${targetUrl}api/music/${i}`);
+    fetchSongs.then(responseSong => {
+      console.log(responseSong[0]);
+      createListItem(
+        responseSong[0].id,
+        `${responseSong[0].artist} - ${responseSong[0].name}`,
+        targetUrl + responseSong[0].cover
+      );
+      // console.log(responseSong.name);
+    });
+  }
+});
+
 function stopAudio(audioOb) {
   if (document.getElementById('progressBar') != null) {
     document.getElementById('progressBar').style.width = '0%';
@@ -84,61 +107,34 @@ document.addEventListener('DOMContentLoaded', function() {
 function createListItem(idNum, text, coverLocation) {
   const musicList = document.getElementById('actualMusicList');
   const listElement = document.createElement('li');
-  listElement.id = idNum;
+  const listAElement = document.createElement('a');
+  listAElement.id = idNum;
   listElement.classList.add('list-group-item');
   listElement.classList.add('list-group-item-dark');
-  listElement.classList.add('dummyClass');
+  listAElement.classList.add('dummyClass');
   const coverElement = document.createElement('img');
   coverElement.classList.add('coverSmall');
   if (coverLocation !== undefined) {
     coverElement.src = coverLocation;
   }
-  listElement.appendChild(coverElement);
+  listAElement.appendChild(coverElement);
   const write = document.createTextNode(text);
-  listElement.appendChild(write);
+  listAElement.appendChild(write);
+  listAElement.onclick = function() {
+    const fetchThis = fetchAsync(`${targetUrl}api/music/${listAElement.id}`);
+    fetchThis.then(responseUrl => {
+      console.log(responseUrl);
+      changeAudioTo(
+        targetUrl + responseUrl[0].location,
+        targetUrl + responseUrl[0].cover,
+        responseUrl[0].artist,
+        responseUrl[0].name
+      );
+    });
+  };
+  listElement.appendChild(listAElement);
   musicList.appendChild(listElement);
 }
-
-async function fetchAsync(url) {
-  const response = await fetch(url);
-  const data = await response.json();
-  return data;
-}
-
-const fetchLenght = fetchAsync(`${targetUrl}api/music/lenght`);
-fetchLenght.then(response => {
-  console.log(response);
-  for (let i = 1; i <= response; i += 1) {
-    const fetchSongs = fetchAsync(`${targetUrl}api/music/${i}`);
-    fetchSongs.then(responseSong => {
-      console.log(responseSong[0]);
-      createListItem(
-        responseSong[0].id,
-        `${responseSong[0].artist} - ${responseSong[0].name}`,
-        targetUrl + responseSong[0].cover
-      );
-      // console.log(responseSong.name);
-    });
-  }
-});
-
-setTimeout(function() {
-  [...document.querySelectorAll('.dummyClass')].forEach(function(item) {
-    item.addEventListener('click', function() {
-      console.log(item.id, item.innerHTML);
-      const fetchItem = fetchAsync(`${targetUrl}api/music/${item.id}`);
-      fetchItem.then(responseUrl => {
-        console.log(responseUrl);
-        changeAudioTo(
-          targetUrl + responseUrl[0].location,
-          targetUrl + responseUrl[0].cover,
-          responseUrl[0].artist,
-          responseUrl[0].name
-        );
-      });
-    });
-  });
-}, 400);
 
 changeAudioTo(
   `${targetUrl}assets/music/to-the-light.m4a`,

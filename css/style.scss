@@ -227,6 +227,8 @@ body {
 .dummyClass {
   cursor: pointer;
   user-select: none;
+  display: block;
+  height: 100%;
   :hover {
     transform: scale(1.1);
   }
