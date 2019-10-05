@@ -2,7 +2,14 @@ let play = true;
 let audio = new Audio('');
 let currentVolume = 1;
 
+// probably there is some better way to store server url but,
+// since this application won't be published corporately,
+// there is no need for security features.
+
 const targetUrl = 'http://192.168.1.40:3500/';
+
+// function that start the song and change icon of the button
+
 function playSong() {
   audio.play();
   console.log('pause');
@@ -10,11 +17,15 @@ function playSong() {
   play = false;
 }
 
+// function that stop the song and change icon of the button
+
 function pauseSong() {
   audio.pause();
   document.getElementById('playPauseImg').src = 'images/play.svg';
   play = true;
 }
+
+// function that tracks the time and manipulate some elements
 
 function trackTime() {
   audio.addEventListener('timeupdate', function() {
@@ -45,6 +56,9 @@ function trackTime() {
   });
 }
 
+// calculate percentage of the position that user clicked,
+// and jump to the calculated time
+
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('progress').addEventListener('click', function(e) {
     const xPos = e.clientX - e.currentTarget.offsetLeft;
@@ -52,44 +66,61 @@ document.addEventListener('DOMContentLoaded', function() {
     audio.currentTime = (xPos / e.target.offsetWidth) * audio.duration;
   });
 
+  // same thing above but for volume
+
   document
     .getElementById('volumeBlockID')
     .addEventListener('click', function(e) {
       const xPos = e.clientX - e.currentTarget.offsetLeft;
-      const volumeX = (xPos / e.target.offsetWidth) * 1;
-      if (volumeX < 0) {
+      const calculatedVolume = (xPos / e.target.offsetWidth) * 1;
+
+      // if x position is below or above range
+      // set volume to min or max level
+
+      if (calculatedVolume < 0) {
         audio.volume = 0;
-      } else if (volumeX > 1) {
+      } else if (calculatedVolume > 1) {
         audio.volume = 1;
       } else {
-        audio.volume = volumeX;
+        audio.volume = calculatedVolume;
       }
     });
 
+  // listen keys
   document.onkeydown = function(event) {
     if (event.keyCode === 32) {
+      // space key
       if (play === true) {
         playSong();
       } else {
         pauseSong();
       }
     } else if (event.keyCode === 37) {
-      audio.currentTime -= 3;
+      // left arrow
+      audio.currentTime -= 3; // jump 3 seconds back
     } else if (event.keyCode === 39) {
-      audio.currentTime += 3;
+      // right arrow
+      audio.currentTime += 3; // jump 3 seconds forward
     } else if (event.keyCode === 38) {
-      audio.volume += 0.1;
+      // up key
+      audio.volume += 0.1; // volume up by %10
     } else if (event.keyCode === 40) {
-      audio.volume -= 0.1;
+      // down key
+      audio.volume -= 0.1; // volume down by %10
     }
   };
 });
+
+// function that fetch & process promise
 
 async function fetchAsync(url) {
   const response = await fetch(url);
   const data = await response.json();
   return data;
 }
+
+// go back to 0 percent
+// seems unnecessary will change later
 
 function stopAudio(audioOb) {
   if (document.getElementById('progressBar') != null) {
@@ -100,6 +131,10 @@ function stopAudio(audioOb) {
   audioOb.currentTime = 0;
   audioOb.pause();
 }
+
+// as the name suggests when triggered with given arguments,
+// it manipulates certain elements and changes source of the,
+// audio element
 
 function changeAudioTo(src, cover, artist, title) {
   stopAudio(audio);
@@ -121,6 +156,8 @@ function changeAudioTo(src, cover, artist, title) {
   });
   trackTime();
 }
+
+// function that creates music list with given arguments
 
 function createListItem(idNum, text, coverLocation) {
   const musicList = document.getElementById('actualMusicList');
@@ -154,12 +191,15 @@ function createListItem(idNum, text, coverLocation) {
   musicList.appendChild(listElement);
 }
 
+// fetch count of songs
 const fetchLenght = fetchAsync(`${targetUrl}api/music/lenght`);
 fetchLenght.then(response => {
   console.log(response);
+  // create list items as many as given response
   for (let i = 1; i <= response; i += 1) {
     const fetchSongs = fetchAsync(`${targetUrl}api/music/${i}`);
     fetchSongs.then(responseSong => {
+      // responseSong strangely gives an array with an object inside, thats why indexes are 0
       console.log(responseSong[0]);
       createListItem(
         responseSong[0].id,
@@ -171,6 +211,7 @@ fetchLenght.then(response => {
   }
 });
 
+// wait for content to load then add event listeners
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('playPause').addEventListener('click', function() {
     if (play === true) {
@@ -189,6 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// initial song
 changeAudioTo(
   `${targetUrl}assets/music/to-the-light.m4a`,
   `${targetUrl}assets/images/cover.jpg`,
