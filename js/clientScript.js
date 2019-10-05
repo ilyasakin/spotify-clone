@@ -2,12 +2,72 @@ let play = true;
 let audio = new Audio('');
 const targetUrl = 'http://192.168.1.40:3500/';
 
+function playSong() {
+  audio.play();
+  console.log('pause');
+  document.getElementById('playPauseImg').src = 'images/pause.svg';
+  play = false;
+}
+
+function pauseSong() {
+  audio.pause();
+  document.getElementById('playPauseImg').src = 'images/play.svg';
+  play = true;
+}
+
+function trackTime() {
+  audio.addEventListener('timeupdate', function() {
+    let currentMinute = Math.floor(audio.currentTime / 60);
+    let currentSecond = Math.floor(audio.currentTime - currentMinute * 60);
+    if (/^\d$/.test(currentMinute)) {
+      currentMinute = `0${currentMinute}`;
+    }
+    if (/^\d$/.test(currentSecond)) {
+      currentSecond = `0${currentSecond}`;
+    }
+    document.getElementById(
+      'curTime'
+    ).innerHTML = `${currentMinute}:${currentSecond}`;
+    const percentage = (audio.currentTime * 100) / audio.duration;
+    console.log(
+      'DEBUG: playback percentage:',
+      percentage,
+      'duration: ',
+      audio.duration
+    );
+    document.getElementById('progressBar').style.width = `${percentage}%`;
+    document.getElementById('slideSeek').value = `${percentage}`;
+    if (audio.currentTime >= audio.duration) {
+      play = true;
+      document.getElementById('playPauseImg').src = 'images/play.svg';
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('progress').addEventListener('click', function(e) {
     const xPos = e.clientX - e.currentTarget.offsetLeft;
     console.log('DEBUG: clicked x position:', xPos);
     audio.currentTime = (xPos / e.target.offsetWidth) * audio.duration;
   });
+
+  document.onkeydown = function(event) {
+    if (event.keyCode === 32) {
+      if (play === true) {
+        playSong();
+      } else {
+        pauseSong();
+      }
+    } else if (event.keyCode === 37) {
+      audio.currentTime -= 3;
+    } else if (event.keyCode === 39) {
+      audio.currentTime += 3;
+    } else if (event.keyCode === 38) {
+      console.log('upKey');
+    } else if (event.keyCode === 40) {
+      console.log('downKey');
+    }
+  };
 });
 
 async function fetchAsync(url) {
@@ -98,40 +158,9 @@ fetchLenght.then(response => {
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('playPause').addEventListener('click', function() {
     if (play === true) {
-      audio.play();
-      audio.addEventListener('timeupdate', function() {
-        let currentMinute = Math.floor(audio.currentTime / 60);
-        let currentSecond = Math.floor(audio.currentTime - currentMinute * 60);
-        if (/^\d$/.test(currentMinute)) {
-          currentMinute = `0${currentMinute}`;
-        }
-        if (/^\d$/.test(currentSecond)) {
-          currentSecond = `0${currentSecond}`;
-        }
-        document.getElementById(
-          'curTime'
-        ).innerHTML = `${currentMinute}:${currentSecond}`;
-        const percentage = (audio.currentTime * 100) / audio.duration;
-        console.log(
-          'DEBUG: playback percentage:',
-          percentage,
-          'duration: ',
-          audio.duration
-        );
-        document.getElementById('progressBar').style.width = `${percentage}%`;
-        document.getElementById('slideSeek').value = `${percentage}`;
-        if (audio.currentTime >= audio.duration) {
-          play = true;
-          document.getElementById('playPauseImg').src = 'images/play.svg';
-        }
-      });
-      console.log('pause');
-      document.getElementById('playPauseImg').src = 'images/pause.svg';
-      play = false;
+      playSong();
     } else {
-      audio.pause();
-      document.getElementById('playPauseImg').src = 'images/play.svg';
-      play = true;
+      pauseSong();
     }
   });
 });
@@ -142,3 +171,5 @@ changeAudioTo(
   'A.CHAL',
   'To The Light'
 );
+
+trackTime();
