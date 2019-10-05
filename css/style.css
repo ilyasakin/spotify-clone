@@ -84,7 +84,7 @@ body {
 }
 
 .musicList {
-  height: 100%;
+  height: 79vh;
   width: 80%;
   overflow: scroll;
   float: right;
@@ -94,6 +94,7 @@ body {
 @media screen and (orientation: portrait) {
   .musicList {
     width: 100vw;
+    height: 72vh;
   }
 }
 
@@ -214,6 +215,7 @@ body {
   background-color: transparent;
   -webkit-transition: color 200ms ease-in;
   transition: color 200ms ease-in;
+  font-size: 1.7vh;
 }
 
 #signOutButton:hover {
@@ -504,6 +506,13 @@ input[type="range"]:focus::-ms-fill-upper {
 #navbarTop {
   background-color: #222629;
   overflow: hidden !important;
+  height: 7vh;
+}
+
+@media screen and (orientation: portrait) {
+  #navbarTop {
+    height: 10vh;
+  }
 }
 
 #navBottom {

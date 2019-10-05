@@ -7,6 +7,10 @@ $sidebarColor: #272727;
 $navTop: #222629;
 $listColor: #777777;
 $listColorTransition: #999999;
+$navH: 14vh;
+$navTopH: 7vh;
+$navTopMobileH: 10vh;
+$navMobileH: 18vh;
 
 html {
   height: 100vh;
@@ -88,7 +92,7 @@ body {
 }
 
 .musicList {
-  height: 100%;
+  height: 100vh - ($navH + $navTopH);
   width: 100% - $sidebarWidth;
   overflow: scroll;
   float: right;
@@ -98,17 +102,18 @@ body {
 @media screen and (orientation: portrait) {
   .musicList {
     width: 100vw;
+    height: 100vh - ($navMobileH + $navTopMobileH);
   }
 }
 
 .navHeight {
-  height: 14vh;
+  height: $navH;
   text-align: center;
 }
 
 @media screen and (orientation: portrait) {
   .navHeight {
-    height: 18vh;
+    height: $navMobileH;
   }
 }
 
@@ -201,7 +206,7 @@ body {
 #signOutButton {
   background-color: transparent;
   transition: color 200ms ease-in;
-  
+  font-size: 1.7vh;
 }
 
 #signOutButton:hover {
@@ -471,6 +476,13 @@ input[type="range"]:focus::-ms-fill-upper {
 #navbarTop {
   background-color: $navTop;
   overflow: hidden!important;
+  height: $navTopH;
+}
+
+@media screen and (orientation: portrait) {
+  #navbarTop {
+    height: $navTopMobileH;
+  }
 }
 
 #navBottom {
