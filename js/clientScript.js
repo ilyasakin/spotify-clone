@@ -25,6 +25,19 @@ function pauseSong() {
   play = true;
 }
 
+// function that tracks the volume of the song and updates the elements width
+
+function trackVolume() {
+  audio.addEventListener('volumechange', function() {
+    currentVolume = audio.volume;
+    const volumePercentage = (currentVolume * 100) / 1;
+    document.getElementById(
+      'volumeProgress'
+    ).style.width = `${volumePercentage}%`;
+    document.getElementById('volume').value = currentVolume * 10;
+  });
+}
+
 // function that tracks the time and manipulate some elements
 
 function trackTime() {
@@ -155,6 +168,7 @@ function changeAudioTo(src, cover, artist, title) {
     document.getElementById('slideSeek').value = `0`;
   });
   trackTime();
+  trackVolume();
 }
 
 // function that creates music list with given arguments
@@ -211,7 +225,7 @@ fetchLenght.then(response => {
   }
 });
 
-// wait for content to load then add event listeners
+// wait for content to load then add event listener
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('playPause').addEventListener('click', function() {
     if (play === true) {
@@ -219,14 +233,6 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       pauseSong();
     }
-  });
-  audio.addEventListener('volumechange', function() {
-    currentVolume = audio.volume;
-    const volumePercentage = (currentVolume * 100) / 1;
-    document.getElementById(
-      'volumeProgress'
-    ).style.width = `${volumePercentage}%`;
-    document.getElementById('volume').value = currentVolume * 10;
   });
 });
 
