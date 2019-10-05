@@ -415,6 +415,7 @@ input[type="range"]:focus::-ms-fill-upper {
   overflow: hidden;
   border-radius: .25rem;
   transition: background-color 200ms ease-in;
+  cursor: pointer;
 }
 
 .volumeBlock:hover {
@@ -495,4 +496,12 @@ input[type="range"]:focus::-ms-fill-upper {
 #collapsibleNavbar {
   position: relative;
   z-index: 999;
+}
+
+
+#volumeProgress {
+  height: 100%;
+  width: 100%;
+  background-color: $green;
+  pointer-events: none;
 }

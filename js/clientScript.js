@@ -1,7 +1,8 @@
 let play = true;
 let audio = new Audio('');
-const targetUrl = 'http://192.168.1.40:3500/';
+let currentVolume = 1;
 
+const targetUrl = 'http://192.168.1.40:3500/';
 function playSong() {
   audio.play();
   console.log('pause');
@@ -51,6 +52,19 @@ document.addEventListener('DOMContentLoaded', function() {
     audio.currentTime = (xPos / e.target.offsetWidth) * audio.duration;
   });
 
+  document
+    .getElementById('volumeBlockID')
+    .addEventListener('click', function(e) {
+      const xPos = e.clientX - e.currentTarget.offsetLeft;
+      if (xPos < 0) {
+        audio.volume = 0;
+      } else if (xPos > 1) {
+        audio.volume = 1;
+      } else {
+        audio.volume = (xPos / e.target.offsetWidth) * 1;
+      }
+    });
+
   document.onkeydown = function(event) {
     if (event.keyCode === 32) {
       if (play === true) {
@@ -63,9 +77,9 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (event.keyCode === 39) {
       audio.currentTime += 3;
     } else if (event.keyCode === 38) {
-      console.log('upKey');
+      audio.volume += 0.1;
     } else if (event.keyCode === 40) {
-      console.log('downKey');
+      audio.volume -= 0.1;
     }
   };
 });
@@ -104,6 +118,7 @@ function changeAudioTo(src, cover, artist, title) {
     ImgEl.innerHTML = `<img src="${cover}" class="songCoverImgCls">`;
     document.getElementById('slideSeek').value = `0`;
   });
+  trackTime();
 }
 
 function createListItem(idNum, text, coverLocation) {
@@ -163,6 +178,14 @@ document.addEventListener('DOMContentLoaded', function() {
       pauseSong();
     }
   });
+  audio.addEventListener('volumechange', function() {
+    currentVolume = audio.volume;
+    const volumePercentage = (currentVolume * 100) / 1;
+    document.getElementById(
+      'volumeProgress'
+    ).style.width = `${volumePercentage}%`;
+    document.getElementById('volume').value = currentVolume * 10;
+  });
 });
 
 changeAudioTo(
@@ -171,5 +194,3 @@ changeAudioTo(
   'A.CHAL',
   'To The Light'
 );
-
-trackTime();
