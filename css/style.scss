@@ -87,7 +87,7 @@ body {
 
 @media screen and (orientation: portrait) {
   .sideBar {
-    visibility: hidden;
+    display: none;
   }
 }
 
@@ -97,6 +97,7 @@ body {
   overflow: scroll;
   float: right;
   background-color: $backgroundColor;
+  overflow-x: hidden;
 }
 
 @media screen and (orientation: portrait) {
@@ -476,15 +477,22 @@ input[type="range"]:focus::-ms-fill-upper {
 #navbarTop {
   background-color: $navTop;
   overflow: hidden!important;
-  height: $navTopH;
+  min-height: $navTopH;
 }
 
 @media screen and (orientation: portrait) {
   #navbarTop {
-    height: $navTopMobileH;
+    min-height: $navTopMobileH;
+    position: relative;
+    z-index: 9999;
   }
 }
 
 #navBottom {
   background-color: #444444!important;
+}
+
+#collapsibleNavbar {
+  position: relative;
+  z-index: 999;
 }
