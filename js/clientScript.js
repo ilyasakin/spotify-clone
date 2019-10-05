@@ -56,12 +56,13 @@ document.addEventListener('DOMContentLoaded', function() {
     .getElementById('volumeBlockID')
     .addEventListener('click', function(e) {
       const xPos = e.clientX - e.currentTarget.offsetLeft;
-      if (xPos < 0) {
+      const volumeX = (xPos / e.target.offsetWidth) * 1;
+      if (volumeX < 0) {
         audio.volume = 0;
-      } else if (xPos > 1) {
+      } else if (volumeX > 1) {
         audio.volume = 1;
       } else {
-        audio.volume = (xPos / e.target.offsetWidth) * 1;
+        audio.volume = volumeX;
       }
     });
 
