@@ -1,6 +1,8 @@
 let play = true;
 let audio = new Audio('');
 let currentVolume = 1;
+let currentSong;
+let fetchedLenght;
 
 // probably there is some better way to store server url but,
 // since this application won't be published corporately,
@@ -192,6 +194,8 @@ function createListItem(idNum, text, coverLocation) {
   listAElement.onclick = function() {
     const fetchThis = fetchAsync(`${targetUrl}api/music/${listAElement.id}`);
     fetchThis.then(responseUrl => {
+      currentSong = responseUrl[0].id;
+      console.log('Current Song:', currentSong);
       console.log(responseUrl);
       changeAudioTo(
         targetUrl + responseUrl[0].location,
@@ -208,6 +212,7 @@ function createListItem(idNum, text, coverLocation) {
 // fetch count of songs
 const fetchLenght = fetchAsync(`${targetUrl}api/music/lenght`);
 fetchLenght.then(response => {
+  fetchedLenght = response;
   console.log(response);
   // create list items as many as given response
   for (let i = 1; i <= response; i += 1) {
@@ -234,9 +239,42 @@ document.addEventListener('DOMContentLoaded', function() {
       pauseSong();
     }
   });
+  document.getElementById('leftControl').addEventListener('click', function() {
+    if (currentSong <= 1) {
+      console.log('do not exceed');
+    } else {
+      currentSong -= 1;
+      const previous = fetchAsync(`${targetUrl}api/music/${currentSong}`);
+      previous.then(previousSong => {
+        changeAudioTo(
+          targetUrl + previousSong[0].location,
+          targetUrl + previousSong[0].cover,
+          previousSong[0].artist,
+          previousSong[0].name
+        );
+      });
+    }
+  });
+  document.getElementById('rightControl').addEventListener('click', function() {
+    if (currentSong >= fetchedLenght) {
+      console.log('do not exceed');
+    } else {
+      currentSong += 1;
+      const next = fetchAsync(`${targetUrl}api/music/${currentSong}`);
+      next.then(nextSong => {
+        changeAudioTo(
+          targetUrl + nextSong[0].location,
+          targetUrl + nextSong[0].cover,
+          nextSong[0].artist,
+          nextSong[0].name
+        );
+      });
+    }
+  });
 });
 
 // initial song
+currentSong = 1;
 changeAudioTo(
   `${targetUrl}assets/music/to-the-light.m4a`,
   `${targetUrl}assets/images/cover.jpg`,
