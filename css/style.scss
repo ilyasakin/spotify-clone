@@ -145,6 +145,14 @@ body {
     brightness(101%) contrast(91%);
 }
 
+@media (hover: none) {
+  .hoverScalePoint1:hover {
+    filter: none;
+    transition: none;
+  }
+                          
+}
+
 .navRadius {
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
@@ -379,6 +387,8 @@ input[type="range"]:focus::-ms-fill-upper {
 
 #progressBar {
   transition: width .3s ease;
+  background-color: #2a6495;
+  transition: background-color .3s ease;
 }
 
 #progress {

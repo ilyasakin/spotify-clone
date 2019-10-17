@@ -153,6 +153,15 @@ body {
           filter: invert(37%) sepia(84%) saturate(3914%) hue-rotate(344deg) brightness(101%) contrast(91%);
 }
 
+@media (hover: none) {
+  .hoverScalePoint1:hover {
+    -webkit-filter: none;
+            filter: none;
+    -webkit-transition: none;
+    transition: none;
+  }
+}
+
 .navRadius {
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
@@ -395,6 +404,9 @@ input[type="range"]:focus::-ms-fill-upper {
 #progressBar {
   -webkit-transition: width .3s ease;
   transition: width .3s ease;
+  background-color: #2a6495;
+  -webkit-transition: background-color .3s ease;
+  transition: background-color .3s ease;
 }
 
 #progress {
