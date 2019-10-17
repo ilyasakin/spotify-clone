@@ -10,6 +10,27 @@ let fetchedLenght;
 
 const targetUrl = 'http://192.168.1.40:3500/';
 
+// function that fetch & process promise
+
+async function fetchAsync(url) {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
+}
+
+// go back to 0 percent
+// seems unnecessary will change later
+
+function stopAudio(audioOb) {
+  if (document.getElementById('progressBar') != null) {
+    document.getElementById('progressBar').style.width = '0%';
+    document.getElementById('playPauseImg').src = 'images/play.svg';
+  }
+  play = true;
+  audioOb.currentTime = 0;
+  audioOb.pause();
+}
+
 // function that start the song and change icon of the button
 
 function playSong() {
@@ -24,6 +45,67 @@ function pauseSong() {
   audio.pause();
   document.getElementById('playPauseImg').src = 'images/play.svg';
   play = true;
+}
+
+// as the name suggests when triggered with given arguments,
+// it manipulates certain elements and changes source of the,
+// audio element
+
+function changeAudioTo(src, cover, artist, title) {
+  if (play === false) {
+    stopAudio(audio);
+    play = false;
+  } else {
+    stopAudio(audio);
+  }
+  audio = new Audio(src);
+  audio.volume = currentVolume;
+  audio.addEventListener('loadedmetadata', function() {
+    let minutes = Math.floor(audio.duration / 60);
+    if (/^\d$/.test(minutes)) {
+      minutes = `0${minutes}`;
+    }
+    let seconds = Math.floor(audio.duration - minutes * 60);
+    if (/^\d$/.test(seconds)) {
+      seconds = `0${seconds}`;
+    }
+    document.getElementById('songTitle').innerHTML = `${artist} - ${title}`;
+    document.getElementById('totalTime').innerHTML = `${minutes}:${seconds}`;
+    const ImgEl = document.getElementById('songCoverID');
+    ImgEl.innerHTML = `<img src="${cover}" class="songCoverImgCls">`;
+    document.getElementById('slideSeek').value = `0`;
+    if (play === false) {
+      playSong();
+    }
+  });
+  trackTime();
+  trackVolume();
+}
+
+function fNextSong() {
+  currentSong += 1;
+  const next = fetchAsync(`${targetUrl}api/music/${currentSong}`);
+  next.then(nextSong => {
+    changeAudioTo(
+      targetUrl + nextSong[0].location,
+      targetUrl + nextSong[0].cover,
+      nextSong[0].artist,
+      nextSong[0].name
+    );
+  });
+}
+
+function fPrevSong() {
+  currentSong -= 1;
+  const next = fetchAsync(`${targetUrl}api/music/${currentSong}`);
+  next.then(prevSong => {
+    changeAudioTo(
+      targetUrl + prevSong[0].location,
+      targetUrl + prevSong[0].cover,
+      prevSong[0].artist,
+      prevSong[0].name
+    );
+  });
 }
 
 // function that tracks the volume of the song and updates the elements width
@@ -64,8 +146,17 @@ function trackTime() {
     document.getElementById('progressBar').style.width = `${percentage}%`;
     document.getElementById('slideSeek').value = `${percentage}`;
     if (audio.currentTime >= audio.duration) {
-      play = true;
-      document.getElementById('playPauseImg').src = 'images/play.svg';
+      if (play === false) {
+        stopAudio(audio);
+        play = false;
+      } else {
+        stopAudio(audio);
+      }
+      if (currentSong < fetchedLenght && currentSong >= 1) {
+        fNextSong();
+      } else {
+        console.log('do not exceed');
+      }
     }
   });
 }
@@ -124,61 +215,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
 });
-
-// function that fetch & process promise
-
-async function fetchAsync(url) {
-  const response = await fetch(url);
-  const data = await response.json();
-  return data;
-}
-
-// go back to 0 percent
-// seems unnecessary will change later
-
-function stopAudio(audioOb) {
-  if (document.getElementById('progressBar') != null) {
-    document.getElementById('progressBar').style.width = '0%';
-    document.getElementById('playPauseImg').src = 'images/play.svg';
-  }
-  play = true;
-  audioOb.currentTime = 0;
-  audioOb.pause();
-}
-
-// as the name suggests when triggered with given arguments,
-// it manipulates certain elements and changes source of the,
-// audio element
-
-function changeAudioTo(src, cover, artist, title) {
-  if (play === false) {
-    stopAudio(audio);
-    play = false;
-  } else {
-    stopAudio(audio);
-  }
-  audio = new Audio(src);
-  audio.addEventListener('loadedmetadata', function() {
-    let minutes = Math.floor(audio.duration / 60);
-    if (/^\d$/.test(minutes)) {
-      minutes = `0${minutes}`;
-    }
-    let seconds = Math.floor(audio.duration - minutes * 60);
-    if (/^\d$/.test(seconds)) {
-      seconds = `0${seconds}`;
-    }
-    document.getElementById('songTitle').innerHTML = `${artist} - ${title}`;
-    document.getElementById('totalTime').innerHTML = `${minutes}:${seconds}`;
-    const ImgEl = document.getElementById('songCoverID');
-    ImgEl.innerHTML = `<img src="${cover}" class="songCoverImgCls">`;
-    document.getElementById('slideSeek').value = `0`;
-    if (play === false) {
-      playSong();
-    }
-  });
-  trackTime();
-  trackVolume();
-}
 
 // function that creates music list with given arguments
 
@@ -250,32 +286,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (currentSong <= 1) {
       console.log('do not exceed');
     } else {
-      currentSong -= 1;
-      const previous = fetchAsync(`${targetUrl}api/music/${currentSong}`);
-      previous.then(previousSong => {
-        changeAudioTo(
-          targetUrl + previousSong[0].location,
-          targetUrl + previousSong[0].cover,
-          previousSong[0].artist,
-          previousSong[0].name
-        );
-      });
+      fPrevSong();
     }
   });
   document.getElementById('rightControl').addEventListener('click', function() {
     if (currentSong >= fetchedLenght) {
       console.log('do not exceed');
     } else {
-      currentSong += 1;
-      const next = fetchAsync(`${targetUrl}api/music/${currentSong}`);
-      next.then(nextSong => {
-        changeAudioTo(
-          targetUrl + nextSong[0].location,
-          targetUrl + nextSong[0].cover,
-          nextSong[0].artist,
-          nextSong[0].name
-        );
-      });
+      fNextSong();
     }
   });
 });
