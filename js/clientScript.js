@@ -14,7 +14,6 @@ const targetUrl = 'http://192.168.1.40:3500/';
 
 function playSong() {
   audio.play();
-  console.log('pause');
   document.getElementById('playPauseImg').src = 'images/pause.svg';
   play = false;
 }
@@ -152,7 +151,12 @@ function stopAudio(audioOb) {
 // audio element
 
 function changeAudioTo(src, cover, artist, title) {
-  stopAudio(audio);
+  if (play === false) {
+    stopAudio(audio);
+    play = false;
+  } else {
+    stopAudio(audio);
+  }
   audio = new Audio(src);
   audio.addEventListener('loadedmetadata', function() {
     let minutes = Math.floor(audio.duration / 60);
@@ -168,6 +172,9 @@ function changeAudioTo(src, cover, artist, title) {
     const ImgEl = document.getElementById('songCoverID');
     ImgEl.innerHTML = `<img src="${cover}" class="songCoverImgCls">`;
     document.getElementById('slideSeek').value = `0`;
+    if (play === false) {
+      playSong();
+    }
   });
   trackTime();
   trackVolume();
