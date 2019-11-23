@@ -280,7 +280,7 @@ body {
   height: 100%;
 }
 
-.dummyClass :hover {
+.dummyClass:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }

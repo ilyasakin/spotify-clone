@@ -135,14 +135,13 @@ body {
 .hoverScalePoint1 {
   transition: transform 1s;
   transition: filter 1s;
-}
-
-.hoverScalePoint1:hover {
-  transform: scale(1.1);
-  transition: transform 1s;
-  transition: filter 1s;
-  filter: invert(37%) sepia(84%) saturate(3914%) hue-rotate(344deg)
-    brightness(101%) contrast(91%);
+  &:hover {
+    transform: scale(1.1);
+    transition: transform 1s;
+    transition: filter 1s;
+    filter: invert(37%) sepia(84%) saturate(3914%) hue-rotate(344deg)
+      brightness(101%) contrast(91%);
+  }
 }
 
 @media (hover: none) {
@@ -216,11 +215,10 @@ body {
   background-color: transparent;
   transition: color 200ms ease-in;
   font-size: 1.7vh;
-}
-
-#signOutButton:hover {
-  color:black;
-  transition: color 200ms ease-in;
+  &:hover {
+    color:black;
+    transition: color 200ms ease-in;
+  }
 }
 
 @media screen and (orientation: portrait) {
@@ -265,7 +263,7 @@ body {
   user-select: none;
   display: block;
   height: 100%;
-  :hover {
+  &:hover {
     transform: scale(1.1);
   }
 }
@@ -393,24 +391,22 @@ input[type="range"]:focus::-ms-fill-upper {
 
 #progress {
   transition: background-color 200ms ease-out;
-}
-
-#progress:hover {
-  background-color: $red;
-  transition: background-color 200ms ease-in;
+  &:hover {
+    background-color: $red;
+    transition: background-color 200ms ease-in;
+  }
 }
 
 .list-group-item-dark {
   background-color: $listColor!important;
   transition: color 200ms ease-in;
   transition: background-color 200ms ease-in;
-}
-
-.list-group-item-dark:hover {
-  background-color: $listColorTransition!important;
-  color: black;
-  transition: color 200ms ease-in;
-  transition: background-color 200ms ease-in;
+  &:hover {
+    background-color: $listColorTransition!important;
+    color: black;
+    transition: color 200ms ease-in;
+    transition: background-color 200ms ease-in;
+  }
 }
 
 .volumeBlock {
@@ -426,11 +422,10 @@ input[type="range"]:focus::-ms-fill-upper {
   border-radius: .25rem;
   transition: background-color 200ms ease-in;
   cursor: pointer;
-}
-
-.volumeBlock:hover {
-  background-color: $red;
-  transition: background-color 200ms ease-in;
+  &:hover {
+    background-color: $red;
+    transition: background-color 200ms ease-in;
+  }
 }
 
 @media screen and (orientation: portrait) {
@@ -460,29 +455,27 @@ input[type="range"]:focus::-ms-fill-upper {
 .nav-item {
   background-color: $sidebarColor;
   transition: background-color 200ms ease-in;
-}
-
-.nav-item:hover {
-  background-color: #c6c8ca;
-  transition: background-color 200ms ease-in;
+  &:hover {
+    background-color: #c6c8ca;
+    transition: background-color 200ms ease-in;
+  }
 }
 
 #likedSongs {
   transition: color 200ms ease-in;
-}
-
-#likedSongs:hover {
-  color: black;
-  transition: color 200ms ease-in;
+  &:hover {
+    color: black;
+    transition: color 200ms ease-in;
+  }
+  
 }
 
 #myPlaylist {
   transition: color 200ms ease-in;
-}
-
-#myPlaylist:hover {
-  color: black;
-  transition: color 200ms ease-in;
+  &:hover {
+    color: black;
+    transition: color 200ms ease-in;
+  }
 }
 
 #navbarTop {
