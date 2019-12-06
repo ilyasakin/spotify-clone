@@ -8,7 +8,7 @@ let fetchedLenght;
 // since this application won't be published corporately,
 // there is no need for security features.
 
-const targetUrl = 'http://192.168.1.40:3500/';
+const targetUrl = 'https://spotify-clone-server.herokuapp.com/';
 
 // function that fetch & process promise
 
