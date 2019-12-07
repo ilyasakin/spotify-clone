@@ -90,6 +90,7 @@ body {
   float: right;
   background-color: #302f2f;
   overflow-x: hidden;
+  position: relative;
 }
 
 @media screen and (orientation: portrait) {
@@ -543,5 +544,16 @@ input[type="range"]:focus::-ms-fill-upper {
   width: 100%;
   background-color: #86C232;
   pointer-events: none;
+}
+
+#loader {
+  display: block;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -30px;
+  margin-top: -30px;
 }
 /*# sourceMappingURL=style.css.map */

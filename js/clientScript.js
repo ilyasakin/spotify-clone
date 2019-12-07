@@ -219,6 +219,11 @@ document.addEventListener('DOMContentLoaded', function() {
 // function that creates music list with given arguments
 
 function createListItem(idNum, text, coverLocation) {
+  // if this function executed it means server responded
+  // if server responded there is no need for loader
+  // it is not the best practice to execute everytime
+  // but its works for now
+  document.getElementById('loader').style.display = 'none';
   const musicList = document.getElementById('actualMusicList');
   const listElement = document.createElement('li');
   const listAElement = document.createElement('a');
