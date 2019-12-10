@@ -1,9 +1,9 @@
-let play = true;
+let isPlaying = false;
+let isLoading = true;
 let audio = new Audio('');
 let currentVolume = 1;
 let currentSong;
 let fetchedLenght;
-let isLoading = true;
 
 // probably there is some better way to store server url but,
 // since this application won't be published corporately,
@@ -27,7 +27,7 @@ function stopAudio(audioOb) {
     document.getElementById('progressBar').style.width = '0%';
     document.getElementById('playPauseImg').src = 'images/play.svg';
   }
-  play = true;
+  isPlaying = false;
   audioOb.currentTime = 0;
   audioOb.pause();
 }
@@ -37,7 +37,7 @@ function stopAudio(audioOb) {
 function playSong() {
   audio.play();
   document.getElementById('playPauseImg').src = 'images/pause.svg';
-  play = false;
+  isPlaying = true;
 }
 
 // function that stop the song and change icon of the button
@@ -45,7 +45,7 @@ function playSong() {
 function pauseSong() {
   audio.pause();
   document.getElementById('playPauseImg').src = 'images/play.svg';
-  play = true;
+  isPlaying = false;
 }
 
 // as the name suggests when triggered with given arguments,
@@ -53,9 +53,9 @@ function pauseSong() {
 // audio element
 
 function changeAudioTo(src, cover, artist, title) {
-  if (play === false) {
+  if (isPlaying === true) {
     stopAudio(audio);
-    play = false;
+    isPlaying = true;
   } else {
     stopAudio(audio);
   }
@@ -75,7 +75,7 @@ function changeAudioTo(src, cover, artist, title) {
     const ImgEl = document.getElementById('songCoverID');
     ImgEl.innerHTML = `<img src="${cover}" class="songCoverImgCls">`;
     document.getElementById('slideSeek').value = `0`;
-    if (play === false) {
+    if (isPlaying === true) {
       playSong();
     }
   });
@@ -147,9 +147,9 @@ function trackTime() {
     document.getElementById('progressBar').style.width = `${percentage}%`;
     document.getElementById('slideSeek').value = `${percentage}`;
     if (audio.currentTime >= audio.duration) {
-      if (play === false) {
+      if (isPlaying === true) {
         stopAudio(audio);
-        play = false;
+        isPlaying = true;
       } else {
         stopAudio(audio);
       }
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.onkeydown = function(event) {
     if (event.keyCode === 32) {
       // space key
-      if (play === true) {
+      if (isPlaying === false) {
         playSong();
       } else {
         pauseSong();
@@ -285,7 +285,7 @@ fetchLenght.then(response => {
 // wait for content to load then add event listener
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('playPause').addEventListener('click', function() {
-    if (play === true) {
+    if (isPlaying === false) {
       playSong();
     } else {
       pauseSong();
