@@ -79,7 +79,9 @@ function changeAudioTo(src, cover, artist, title) {
       playSong();
     }
   });
+  // eslint-disable-next-line no-use-before-define
   trackTime();
+  // eslint-disable-next-line no-use-before-define
   trackVolume();
 }
 
