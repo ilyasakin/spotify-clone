@@ -3,6 +3,7 @@ let audio = new Audio('');
 let currentVolume = 1;
 let currentSong;
 let fetchedLenght;
+let isLoading = true;
 
 // probably there is some better way to store server url but,
 // since this application won't be published corporately,
@@ -223,7 +224,10 @@ function createListItem(idNum, text, coverLocation) {
   // if server responded there is no need for loader
   // it is not the best practice to execute everytime
   // but its works for now
-  document.getElementById('loader').style.display = 'none';
+  if (isLoading === true) {
+    document.getElementById('loader').style.display = 'none';
+    isLoading = false;
+  }
   const musicList = document.getElementById('actualMusicList');
   const listElement = document.createElement('li');
   const listAElement = document.createElement('a');
