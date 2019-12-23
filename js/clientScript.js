@@ -257,6 +257,9 @@ function createListItem(idNum, text, coverLocation) {
         responseUrl[0].artist,
         responseUrl[0].name
       );
+      if (isPlaying === false) {
+        playSong();
+      }
     });
   };
   listElement.appendChild(listAElement);
