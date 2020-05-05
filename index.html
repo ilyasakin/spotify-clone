@@ -31,6 +31,10 @@
 			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 			crossorigin="anonymous"
 		></script>
+		<script
+			src="https://kit.fontawesome.com/7ee046245d.js"
+			crossorigin="anonymous"
+		></script>
 
 		<script src="js/clientScript.js"></script>
 		<title>SpotMusic</title>
@@ -139,21 +143,31 @@
 						style="position:relative; z-index: -1; height: 10px; pointer-events: none;"
 					></div>
 				</div>
-				<a id="leftControl" class="hoverScalePoint1" href="#"
-					><img
-						id="leftControlImg"
-						class="hoverScalePoint1"
-						src="images/previous.svg"
-				/></a>
-				<a id="playPause" class="hoverScalePoint1" href="#"
-					><img
-						id="playPauseImg"
-						class="hoverScalePoint1"
-						src="images/play.svg"
-				/></a>
-				<a id="rightControl" class="hoverScalePoint1" href="#"
-					><img class="hoverScalePoint1" src="images/next.svg"
-				/></a>
+				<button
+					id="leftControl"
+					type="button"
+					class="btn btn-dark"
+					style="border-radius: 100%; width: 40px; height: 40px;"
+				>
+					<i class="fas fa-chevron-left"></i>
+				</button>
+				<button
+					id="playPause"
+					type="button"
+					class="btn btn-dark"
+					style="border-radius: 100%; width: 50px; height: 50px;"
+				>
+					<i id="playPauseImg" class="fas fa-play"></i>
+				</button>
+
+				<button
+					id="rightControl"
+					type="button"
+					class="btn btn-dark"
+					style="border-radius: 100%; width: 40px; height: 40px;"
+				>
+					<i class="fas fa-chevron-right"></i>
+				</button>
 			</div>
 			<div id="volumeBlockID" class="volumeBlock">
 				<div id="volumeProgress"></div>

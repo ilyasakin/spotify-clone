@@ -36,7 +36,8 @@ function stopAudio(audioOb) {
 
 function playSong() {
 	audio.play();
-	document.getElementById('playPauseImg').src = 'images/pause.svg';
+	document.getElementById('playPauseImg').classList.remove('fa-play');
+	document.getElementById('playPauseImg').classList.add('fa-pause');
 	isPlaying = true;
 }
 
@@ -44,7 +45,8 @@ function playSong() {
 
 function pauseSong() {
 	audio.pause();
-	document.getElementById('playPauseImg').src = 'images/play.svg';
+	document.getElementById('playPauseImg').classList.remove('fa-pause');
+	document.getElementById('playPauseImg').classList.add('fa-play');
 	isPlaying = false;
 }
 
