@@ -54,11 +54,11 @@ body {
 }
 
 .green {
-  color: #86C232;
+  color: #86c232;
 }
 
 .red {
-  color: #C96567;
+  color: #c96567;
 }
 
 .outerContainer {
@@ -293,17 +293,17 @@ body {
   bottom: 0;
 }
 
-input[type="range"] {
+input[type='range'] {
   -webkit-appearance: none;
   width: 100%;
   margin: 12.5px 0;
 }
 
-input[type="range"]:focus {
+input[type='range']:focus {
   outline: none;
 }
 
-input[type="range"]::-webkit-slider-runnable-track {
+input[type='range']::-webkit-slider-runnable-track {
   width: 100%;
   height: 0px;
   cursor: pointer;
@@ -314,7 +314,7 @@ input[type="range"]::-webkit-slider-runnable-track {
   border: 0px solid #010101;
 }
 
-input[type="range"]::-webkit-slider-thumb {
+input[type='range']::-webkit-slider-thumb {
   border: 0px solid #000000;
   height: 25px;
   width: 20px;
@@ -325,15 +325,15 @@ input[type="range"]::-webkit-slider-thumb {
   margin-top: -12.5px;
 }
 
-#slideSeek:hover input[type="range"]::-webkit-slider-thumb {
+#slideSeek:hover input[type='range']::-webkit-slider-thumb {
   background: #367ebd;
 }
 
-input[type="range"]:focus::-webkit-slider-runnable-track {
+input[type='range']:focus::-webkit-slider-runnable-track {
   background: #367ebd;
 }
 
-input[type="range"]::-moz-range-track {
+input[type='range']::-moz-range-track {
   width: 100%;
   height: 0px;
   cursor: pointer;
@@ -344,7 +344,7 @@ input[type="range"]::-moz-range-track {
   display: none;
 }
 
-input[type="range"]::-moz-range-thumb {
+input[type='range']::-moz-range-thumb {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
   border: 0px solid #000000;
   height: 25px;
@@ -354,7 +354,7 @@ input[type="range"]::-moz-range-thumb {
   cursor: pointer;
 }
 
-input[type="range"]::-ms-track {
+input[type='range']::-ms-track {
   width: 100%;
   height: 0px;
   cursor: pointer;
@@ -364,14 +364,14 @@ input[type="range"]::-ms-track {
   display: none;
 }
 
-input[type="range"]::-ms-fill-lower {
+input[type='range']::-ms-fill-lower {
   background: #2a6495;
   border: 0px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 
-input[type="range"]::-ms-fill-upper {
+input[type='range']::-ms-fill-upper {
   background: #3071a9;
   border: 0px solid #010101;
   border-radius: 2.6px;
@@ -379,7 +379,7 @@ input[type="range"]::-ms-fill-upper {
   display: none;
 }
 
-input[type="range"]::-ms-thumb {
+input[type='range']::-ms-thumb {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
   border: 0px solid #000000;
   height: 25px;
@@ -390,22 +390,22 @@ input[type="range"]::-ms-thumb {
   height: 0px;
 }
 
-input[type="range"]:focus::-ms-fill-lower {
+input[type='range']:focus::-ms-fill-lower {
   background: #3071a9;
   display: none;
 }
 
-input[type="range"]:focus::-ms-fill-upper {
+input[type='range']:focus::-ms-fill-upper {
   background: #367ebd;
   display: none;
 }
 
 #progressBar {
-  -webkit-transition: width .3s ease;
-  transition: width .3s ease;
+  -webkit-transition: width 0.3s ease;
+  transition: width 0.3s ease;
   background-color: #2a6495;
-  -webkit-transition: background-color .3s ease;
-  transition: background-color .3s ease;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 #progress {
@@ -414,7 +414,7 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 #progress:hover {
-  background-color: #C96567;
+  background-color: #c96567;
   -webkit-transition: background-color 200ms ease-in;
   transition: background-color 200ms ease-in;
 }
@@ -446,14 +446,14 @@ input[type="range"]:focus::-ms-fill-upper {
   margin-right: 2.5vw;
   margin-top: 0.5vh;
   overflow: hidden;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   -webkit-transition: background-color 200ms ease-in;
   transition: background-color 200ms ease-in;
   cursor: pointer;
 }
 
 .volumeBlock:hover {
-  background-color: #C96567;
+  background-color: #c96567;
   -webkit-transition: background-color 200ms ease-in;
   transition: background-color 200ms ease-in;
 }
@@ -542,7 +542,7 @@ input[type="range"]:focus::-ms-fill-upper {
 #volumeProgress {
   height: 100%;
   width: 100%;
-  background-color: #86C232;
+  background-color: #86c232;
   pointer-events: none;
 }
 
