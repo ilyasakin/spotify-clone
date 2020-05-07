@@ -13,16 +13,16 @@ const targetUrl = 'https://spotify-clone-server.herokuapp.com/';
 
 // function that fetch & process promise
 
-async function fetchAsync(url) {
+const fetchAsync = async url => {
 	const response = await fetch(url);
 	const data = await response.json();
 	return data;
-}
+};
 
 // go back to 0 percent
 // seems unnecessary will change later
 
-function stopAudio(audioOb) {
+const stopAudio = audioOb => {
 	if (document.getElementById('progressBar') != null) {
 		document.getElementById('progressBar').style.width = '0%';
 		document.getElementById('playPauseImg').src = 'images/play.svg';
@@ -30,31 +30,31 @@ function stopAudio(audioOb) {
 	isPlaying = false;
 	audioOb.currentTime = 0;
 	audioOb.pause();
-}
+};
 
 // function that start the song and change icon of the button
 
-function playSong() {
+const playSong = () => {
 	audio.play();
 	document.getElementById('playPauseImg').classList.remove('fa-play');
 	document.getElementById('playPauseImg').classList.add('fa-pause');
 	isPlaying = true;
-}
+};
 
 // function that stop the song and change icon of the button
 
-function pauseSong() {
+const pauseSong = () => {
 	audio.pause();
 	document.getElementById('playPauseImg').classList.remove('fa-pause');
 	document.getElementById('playPauseImg').classList.add('fa-play');
 	isPlaying = false;
-}
+};
 
 // as the name suggests when triggered with given arguments,
 // it manipulates certain elements and changes source of the,
 // audio element
 
-function changeAudioTo(src, cover, artist, title) {
+const changeAudioTo = (src, cover, artist, title) => {
 	if (isPlaying === true) {
 		stopAudio(audio);
 		isPlaying = true;
@@ -63,7 +63,7 @@ function changeAudioTo(src, cover, artist, title) {
 	}
 	audio = new Audio(src);
 	audio.volume = currentVolume;
-	audio.addEventListener('loadedmetadata', function() {
+	audio.addEventListener('loadedmetadata', () => {
 		let minutes = Math.floor(audio.duration / 60);
 		if (/^\d$/.test(minutes)) {
 			minutes = `0${minutes}`;
@@ -87,9 +87,9 @@ function changeAudioTo(src, cover, artist, title) {
 	trackTime();
 	// eslint-disable-next-line no-use-before-define
 	trackVolume();
-}
+};
 
-function fNextSong() {
+const fNextSong = () => {
 	currentSong += 1;
 	const next = fetchAsync(`${targetUrl}api/music/${currentSong}`);
 	next.then(nextSong => {
@@ -100,9 +100,9 @@ function fNextSong() {
 			nextSong[0].name
 		);
 	});
-}
+};
 
-function fPrevSong() {
+const fPrevSong = () => {
 	currentSong -= 1;
 	const next = fetchAsync(`${targetUrl}api/music/${currentSong}`);
 	next.then(prevSong => {
@@ -113,12 +113,12 @@ function fPrevSong() {
 			prevSong[0].name
 		);
 	});
-}
+};
 
 // function that tracks the volume of the song and updates the elements width
 
-function trackVolume() {
-	audio.addEventListener('volumechange', function() {
+const trackVolume = () => {
+	audio.addEventListener('volumechange', () => {
 		currentVolume = audio.volume;
 		const volumePercentage = (currentVolume * 100) / 1;
 		document.getElementById(
@@ -126,12 +126,12 @@ function trackVolume() {
 		).style.width = `${volumePercentage}%`;
 		document.getElementById('volume').value = currentVolume * 10;
 	});
-}
+};
 
 // function that tracks the time and manipulate some elements
 
-function trackTime() {
-	audio.addEventListener('timeupdate', function() {
+const trackTime = () => {
+	audio.addEventListener('timeupdate', () => {
 		let currentMinute = Math.floor(audio.currentTime / 60);
 		let currentSecond = Math.floor(audio.currentTime - currentMinute * 60);
 		if (/^\d$/.test(currentMinute)) {
@@ -166,13 +166,13 @@ function trackTime() {
 			}
 		}
 	});
-}
+};
 
 // calculate percentage of the position that user clicked,
 // and jump to the calculated time
 
-document.addEventListener('DOMContentLoaded', function() {
-	document.getElementById('progress').addEventListener('click', function(e) {
+document.addEventListener('DOMContentLoaded', () => {
+	document.getElementById('progress').addEventListener('click', e => {
 		const xPos = e.clientX - e.currentTarget.offsetLeft;
 		console.log('DEBUG: clicked x position:', xPos);
 		audio.currentTime = (xPos / e.target.offsetWidth) * audio.duration;
@@ -180,26 +180,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// same thing above but for volume
 
-	document
-		.getElementById('volumeBlockID')
-		.addEventListener('click', function(e) {
-			const xPos = e.clientX - e.currentTarget.offsetLeft;
-			const calculatedVolume = (xPos / e.target.offsetWidth) * 1;
+	document.getElementById('volumeBlockID').addEventListener('click', e => {
+		const xPos = e.clientX - e.currentTarget.offsetLeft;
+		const calculatedVolume = (xPos / e.target.offsetWidth) * 1;
 
-			// if x position is below or above range
-			// set volume to min or max level
+		// if x position is below or above range
+		// set volume to min or max level
 
-			if (calculatedVolume < 0) {
-				audio.volume = 0;
-			} else if (calculatedVolume > 1) {
-				audio.volume = 1;
-			} else {
-				audio.volume = calculatedVolume;
-			}
-		});
+		if (calculatedVolume < 0) {
+			audio.volume = 0;
+		} else if (calculatedVolume > 1) {
+			audio.volume = 1;
+		} else {
+			audio.volume = calculatedVolume;
+		}
+	});
 
 	// listen keys
-	document.onkeydown = function(event) {
+	document.onkeydown = event => {
 		if (event.keyCode === 32) {
 			// space key
 			if (isPlaying === false) {
@@ -225,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // function that creates music list with given arguments
 
-function createListItem(idNum, text, coverLocation) {
+const createListItem = (idNum, text, coverLocation) => {
 	// if this function executed it means server responded
 	// if server responded there is no need for loader
 	// it is not the best practice to execute everytime
@@ -249,7 +247,7 @@ function createListItem(idNum, text, coverLocation) {
 	listAElement.appendChild(coverElement);
 	const write = document.createTextNode(text);
 	listAElement.appendChild(write);
-	listAElement.onclick = function() {
+	listAElement.onclick = () => {
 		const fetchThis = fetchAsync(
 			`${targetUrl}api/music/${listAElement.id}`
 		);
@@ -270,7 +268,7 @@ function createListItem(idNum, text, coverLocation) {
 	};
 	listElement.appendChild(listAElement);
 	musicList.appendChild(listElement);
-}
+};
 
 const cleanList = () => {
 	document.getElementById('actualMusicList').innerHTML = '';
@@ -282,7 +280,7 @@ const mainMenu = () => {
 	try {
 		cleanList();
 	} catch {
-		document.addEventListener('DOMContentLoaded', function() {
+		document.addEventListener('DOMContentLoaded', () => {
 			cleanList();
 		});
 	}
@@ -314,32 +312,28 @@ const myPlaylist = () => {
 };
 
 // wait for content to load then add event listener
-document.addEventListener('DOMContentLoaded', function() {
-	document.getElementById('playPause').addEventListener('click', function() {
+document.addEventListener('DOMContentLoaded', () => {
+	document.getElementById('playPause').addEventListener('click', () => {
 		if (isPlaying === false) {
 			playSong();
 		} else {
 			pauseSong();
 		}
 	});
-	document
-		.getElementById('leftControl')
-		.addEventListener('click', function() {
-			if (currentSong <= 1) {
-				console.log('do not exceed');
-			} else {
-				fPrevSong();
-			}
-		});
-	document
-		.getElementById('rightControl')
-		.addEventListener('click', function() {
-			if (currentSong >= fetchedLenght) {
-				console.log('do not exceed');
-			} else {
-				fNextSong();
-			}
-		});
+	document.getElementById('leftControl').addEventListener('click', () => {
+		if (currentSong <= 1) {
+			console.log('do not exceed');
+		} else {
+			fPrevSong();
+		}
+	});
+	document.getElementById('rightControl').addEventListener('click', () => {
+		if (currentSong >= fetchedLenght) {
+			console.log('do not exceed');
+		} else {
+			fNextSong();
+		}
+	});
 
 	document.getElementById('mainMenu').addEventListener('click', () => {
 		mainMenu();
