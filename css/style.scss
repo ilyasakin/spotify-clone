@@ -461,6 +461,13 @@ input[type='range']:focus::-ms-fill-upper {
 		transition: background-color 200ms ease-in;
 	}
 }
+#mainMenu {
+	transition: color 200ms ease-in;
+	&:hover {
+		color: black;
+		transition: color 200ms ease-in;
+	}
+}
 
 #likedSongs {
 	transition: color 200ms ease-in;

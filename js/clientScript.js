@@ -272,26 +272,46 @@ function createListItem(idNum, text, coverLocation) {
 	musicList.appendChild(listElement);
 }
 
-// fetch count of songs
-const fetchLenght = fetchAsync(`${targetUrl}api/music/lenght`);
-fetchLenght.then(response => {
-	fetchedLenght = response;
-	console.log(response);
-	// create list items as many as given response
-	for (let i = 1; i <= response; i += 1) {
-		const fetchSongs = fetchAsync(`${targetUrl}api/music/${i}`);
-		fetchSongs.then(responseSong => {
-			// responseSong strangely gives an array with an object inside, thats why indexes are 0
-			console.log(responseSong[0]);
-			createListItem(
-				responseSong[0].id,
-				`${responseSong[0].artist} - ${responseSong[0].name}`,
-				targetUrl + responseSong[0].cover
-			);
-			// console.log(responseSong.name);
+const cleanList = () => {
+	document.getElementById('actualMusicList').innerHTML = '';
+};
+
+const mainMenu = () => {
+	// will give an error at first start because page isn't loaded yet
+	// so when it gave an error it will wait to content to loaded
+	try {
+		cleanList();
+	} catch {
+		document.addEventListener('DOMContentLoaded', function() {
+			cleanList();
 		});
 	}
-});
+
+	// fetch count of songs
+	const fetchLenght = fetchAsync(`${targetUrl}api/music/lenght`);
+	fetchLenght.then(response => {
+		fetchedLenght = response;
+		console.log(response);
+		// create list items as many as given response
+		for (let i = 1; i <= response; i += 1) {
+			const fetchSongs = fetchAsync(`${targetUrl}api/music/${i}`);
+			fetchSongs.then(responseSong => {
+				// responseSong strangely gives an array with an object inside, thats why indexes are 0
+				console.log(responseSong[0]);
+				createListItem(
+					responseSong[0].id,
+					`${responseSong[0].artist} - ${responseSong[0].name}`,
+					targetUrl + responseSong[0].cover
+				);
+				// console.log(responseSong.name);
+			});
+		}
+	});
+};
+
+const myPlaylist = () => {
+	cleanList();
+};
 
 // wait for content to load then add event listener
 document.addEventListener('DOMContentLoaded', function() {
@@ -320,8 +340,15 @@ document.addEventListener('DOMContentLoaded', function() {
 				fNextSong();
 			}
 		});
-});
 
+	document.getElementById('mainMenu').addEventListener('click', () => {
+		mainMenu();
+	});
+	document.getElementById('myPlaylist').addEventListener('click', () => {
+		myPlaylist();
+	});
+});
+mainMenu();
 // initial song
 currentSong = 1;
 changeAudioTo(

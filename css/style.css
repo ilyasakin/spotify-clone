@@ -494,6 +494,17 @@ input[type='range']:focus::-ms-fill-upper {
   transition: background-color 200ms ease-in;
 }
 
+#mainMenu {
+  -webkit-transition: color 200ms ease-in;
+  transition: color 200ms ease-in;
+}
+
+#mainMenu:hover {
+  color: black;
+  -webkit-transition: color 200ms ease-in;
+  transition: color 200ms ease-in;
+}
+
 #likedSongs {
   -webkit-transition: color 200ms ease-in;
   transition: color 200ms ease-in;
