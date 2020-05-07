@@ -346,12 +346,20 @@ document.addEventListener('DOMContentLoaded', () => {
 		myPlaylist();
 	});
 });
-mainMenu();
+
 // initial song
-currentSong = 1;
-changeAudioTo(
-	`${targetUrl}assets/music/to-the-light.m4a`,
-	`${targetUrl}assets/images/cover.jpg`,
-	'A.CHAL',
-	'To The Light'
-);
+const getFirstSong = () => {
+	currentSong = 1;
+	const fetchSong = fetchAsync(`${targetUrl}api/music/1`);
+	fetchSong.then(responseSong => {
+		changeAudioTo(
+			targetUrl + responseSong[0].location,
+			targetUrl + responseSong[0].cover,
+			responseSong[0].artist,
+			responseSong[0].name
+		);
+	});
+};
+
+mainMenu();
+getFirstSong();
