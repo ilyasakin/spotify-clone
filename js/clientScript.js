@@ -272,6 +272,10 @@ const createListItem = (idNum, text, coverLocation) => {
 
 const cleanList = () => {
 	document.getElementById('actualMusicList').innerHTML = '';
+	if (isLoading === false) {
+		document.getElementById('loader').style.display = 'initial';
+		isLoading = true;
+	}
 };
 
 const mainMenu = () => {
