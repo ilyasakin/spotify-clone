@@ -238,7 +238,7 @@ const createListItem = (idNum, text, coverLocation) => {
 	listAElement.id = idNum;
 	listElement.classList.add('list-group-item');
 	listElement.classList.add('list-group-item-dark');
-	listAElement.classList.add('dummyClass');
+	listAElement.classList.add('dummyClass', 'd-flex');
 	const coverElement = document.createElement('img');
 	coverElement.classList.add('coverSmall');
 	if (coverLocation !== undefined) {
@@ -266,6 +266,24 @@ const createListItem = (idNum, text, coverLocation) => {
 			}
 		});
 	};
+	const rightContainer = document.createElement('div');
+	rightContainer.classList.add('ml-auto', 'd-flex', 'align-items-center');
+	const heart = document.createElement('i');
+	heart.classList.add('far', 'fa-heart', 'mr-2');
+	heart.addEventListener('mouseover', () => {
+		heart.classList.replace('far', 'fas');
+	});
+	heart.addEventListener('mouseout', () => {
+		heart.classList.replace('fas', 'far');
+	});
+	const threeDotBtn = document.createElement('button');
+	threeDotBtn.classList.add('btn', 'btn-dark', 'btn-circle');
+	const threeDotImg = document.createElement('i');
+	threeDotImg.classList.add('fas', 'fa-ellipsis-v');
+	threeDotBtn.appendChild(threeDotImg);
+	rightContainer.appendChild(heart);
+	rightContainer.appendChild(threeDotBtn);
+	listAElement.appendChild(rightContainer);
 	listElement.appendChild(listAElement);
 	musicList.appendChild(listElement);
 };

@@ -214,27 +214,28 @@ body {
   text-align: right;
 }
 
-.signOut {
+.topRightCornerBtn {
   border-radius: 30px;
   cursor: pointer;
   color: rgba(255, 255, 255, 0.5);
-}
-
-#signOutButton {
   background-color: transparent;
   -webkit-transition: color 200ms ease-in;
   transition: color 200ms ease-in;
   font-size: 1.7vh;
 }
 
-#signOutButton:hover {
+.topRightCornerBtn:hover {
   color: black;
   -webkit-transition: color 200ms ease-in;
   transition: color 200ms ease-in;
 }
 
+#settingsButton {
+  margin-right: 1em;
+}
+
 @media screen and (orientation: portrait) {
-  .signOut {
+  .topRightCornerBtn {
     display: none !important;
   }
 }
@@ -574,5 +575,14 @@ input[type='range']:focus::-ms-fill-upper {
 
 .list-group-item:last-child {
   border-radius: 0 !important;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  line-height: 45px;
+  text-align: center;
+  padding: 0 !important;
+  border-radius: 50% !important;
 }
 /*# sourceMappingURL=style.css.map */
