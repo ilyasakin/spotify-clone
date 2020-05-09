@@ -4,6 +4,7 @@ let audio = new Audio('');
 let currentVolume = 1;
 let currentSong;
 let fetchedLenght;
+let isReqLocked = false;
 
 // probably there is some better way to store server url but,
 // since this application won't be published corporately,
@@ -224,6 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // function that creates music list with given arguments
 
 const createListItem = (idNum, text, coverLocation) => {
+	if (isReqLocked) return;
 	// if this function executed it means server responded
 	// if server responded there is no need for loader
 	// it is not the best practice to execute everytime
@@ -297,6 +299,7 @@ const cleanList = () => {
 };
 
 const mainMenu = () => {
+	isReqLocked = true;
 	// will give an error at first start because page isn't loaded yet
 	// so when it gave an error it will wait to content to loaded
 	try {
@@ -326,6 +329,7 @@ const mainMenu = () => {
 				// console.log(responseSong.name);
 			});
 		}
+		isReqLocked = false;
 	});
 };
 
@@ -358,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 	document.getElementById('mainMenu').addEventListener('click', () => {
-		mainMenu();
+		if (!isReqLocked) mainMenu();
 	});
 	document.getElementById('myPlaylist').addEventListener('click', () => {
 		myPlaylist();
