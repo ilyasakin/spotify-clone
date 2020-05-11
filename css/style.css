@@ -569,6 +569,13 @@ input[type='range']:focus::-ms-fill-upper {
   margin-top: -30px;
 }
 
+.loader-cover {
+  width: 40px !important;
+  height: 40px !important;
+  margin-left: -20px !important;
+  margin-top: -20px !important;
+}
+
 .list-group-item:first-child {
   border-radius: 0 !important;
 }
