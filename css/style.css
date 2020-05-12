@@ -495,6 +495,12 @@ input[type='range']:focus::-ms-fill-upper {
   transition: background-color 200ms ease-in;
 }
 
+@media screen and (orientation: portrait) {
+  .nav-item {
+    background-color: #222629;
+  }
+}
+
 #mainMenu {
   -webkit-transition: color 200ms ease-in;
   transition: color 200ms ease-in;
