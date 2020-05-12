@@ -337,6 +337,14 @@ const myPlaylist = () => {
 	cleanList();
 };
 
+const likedSongs = () => {
+	cleanList();
+};
+
+const settings = () => {
+	cleanList();
+};
+
 // wait for content to load then add event listener
 document.addEventListener('DOMContentLoaded', () => {
 	document.getElementById('playPause').addEventListener('click', () => {
@@ -361,12 +369,45 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	});
 
-	document.getElementById('mainMenu').addEventListener('click', () => {
-		if (!isReqLocked) mainMenu();
-	});
-	document.getElementById('myPlaylist').addEventListener('click', () => {
-		myPlaylist();
-	});
+	Array.from(document.getElementsByClassName('main-menu-button')).forEach(
+		element => {
+			element.addEventListener('click', () => {
+				if (!isReqLocked) mainMenu();
+			});
+		}
+	);
+
+	Array.from(document.getElementsByClassName('my-playlist-button')).forEach(
+		element => {
+			element.addEventListener('click', () => {
+				if (!isReqLocked) myPlaylist();
+			});
+		}
+	);
+
+	Array.from(document.getElementsByClassName('liked-songs-button')).forEach(
+		element => {
+			element.addEventListener('click', () => {
+				if (!isReqLocked) likedSongs();
+			});
+		}
+	);
+
+	Array.from(document.getElementsByClassName('settings-button')).forEach(
+		element => {
+			element.addEventListener('click', () => {
+				if (!isReqLocked) settings();
+			});
+		}
+	);
+
+	Array.from(document.getElementsByClassName('sign-out-button')).forEach(
+		element => {
+			element.addEventListener('click', () => {
+				console.log('sign-out-button clicked');
+			});
+		}
+	);
 });
 
 // initial song
