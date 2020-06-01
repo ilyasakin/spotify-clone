@@ -56,7 +56,7 @@ const pauseSong = () => {
 // audio element
 
 const changeAudioTo = (src, cover, artist, title) => {
-	if (isPlaying === true) {
+	if (isPlaying) {
 		stopAudio(audio);
 		isPlaying = true;
 	} else {
@@ -66,13 +66,9 @@ const changeAudioTo = (src, cover, artist, title) => {
 	audio.volume = currentVolume;
 	audio.addEventListener('loadedmetadata', () => {
 		let minutes = Math.floor(audio.duration / 60);
-		if (/^\d$/.test(minutes)) {
-			minutes = `0${minutes}`;
-		}
+		if (/^\d$/.test(minutes)) minutes = `0${minutes}`;
 		let seconds = Math.floor(audio.duration - minutes * 60);
-		if (/^\d$/.test(seconds)) {
-			seconds = `0${seconds}`;
-		}
+		if (/^\d$/.test(seconds)) seconds = `0${seconds}`;
 		document.getElementById('songTitle').innerHTML = `${artist} - ${title}`;
 		document.getElementById(
 			'totalTime'
@@ -80,9 +76,7 @@ const changeAudioTo = (src, cover, artist, title) => {
 		const ImgEl = document.getElementById('songCoverID');
 		ImgEl.innerHTML = `<img src="${cover}" class="songCoverImgCls">`;
 		document.getElementById('slideSeek').value = `0`;
-		if (isPlaying === true) {
-			playSong();
-		}
+		if (isPlaying) playSong();
 	});
 	// eslint-disable-next-line no-use-before-define
 	trackTime();
@@ -135,12 +129,8 @@ const trackTime = () => {
 	audio.addEventListener('timeupdate', () => {
 		let currentMinute = Math.floor(audio.currentTime / 60);
 		let currentSecond = Math.floor(audio.currentTime - currentMinute * 60);
-		if (/^\d$/.test(currentMinute)) {
-			currentMinute = `0${currentMinute}`;
-		}
-		if (/^\d$/.test(currentSecond)) {
-			currentSecond = `0${currentSecond}`;
-		}
+		if (/^\d$/.test(currentMinute)) currentMinute = `0${currentMinute}`;
+		if (/^\d$/.test(currentSecond)) currentSecond = `0${currentSecond}`;
 		document.getElementById(
 			'curTime'
 		).innerHTML = `${currentMinute}:${currentSecond}`;
@@ -154,7 +144,7 @@ const trackTime = () => {
 		document.getElementById('progressBar').style.width = `${percentage}%`;
 		document.getElementById('slideSeek').value = `${percentage}`;
 		if (audio.currentTime >= audio.duration) {
-			if (isPlaying === true) {
+			if (isPlaying) {
 				stopAudio(audio);
 				isPlaying = true;
 			} else {
@@ -201,11 +191,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.onkeydown = event => {
 		if (event.keyCode === 32) {
 			// space key
-			if (isPlaying === false) {
-				playSong();
-			} else {
-				pauseSong();
-			}
+			/* eslint no-unused-expressions: ["error", { "allowTernary": true }] */
+			!isPlaying ? playSong() : pauseSong();
 		} else if (event.keyCode === 37) {
 			// left arrow
 			audio.currentTime -= 3; // jump 3 seconds back
@@ -230,7 +217,7 @@ const createListItem = (idNum, text, coverLocation) => {
 	// if server responded there is no need for loader
 	// it is not the best practice to execute everytime
 	// but its works for now
-	if (isLoading === true) {
+	if (isLoading) {
 		document.getElementById('loader').style.display = 'none';
 		isLoading = false;
 	}
@@ -263,21 +250,19 @@ const createListItem = (idNum, text, coverLocation) => {
 				responseUrl[0].artist,
 				responseUrl[0].name
 			);
-			if (isPlaying === false) {
-				playSong();
-			}
+			if (!isPlaying) playSong();
 		});
 	};
 	const rightContainer = document.createElement('div');
 	rightContainer.classList.add('ml-auto', 'd-flex', 'align-items-center');
 	const heart = document.createElement('i');
 	heart.classList.add('far', 'fa-heart', 'mr-2');
-	heart.addEventListener('mouseover', () => {
-		heart.classList.replace('far', 'fas');
-	});
-	heart.addEventListener('mouseout', () => {
-		heart.classList.replace('fas', 'far');
-	});
+	heart.addEventListener('mouseover', () =>
+		heart.classList.replace('far', 'fas')
+	);
+	heart.addEventListener('mouseout', () =>
+		heart.classList.replace('fas', 'far')
+	);
 	const threeDotBtn = document.createElement('button');
 	threeDotBtn.classList.add('btn', 'btn-dark', 'btn-circle');
 	const threeDotImg = document.createElement('i');
@@ -292,7 +277,7 @@ const createListItem = (idNum, text, coverLocation) => {
 
 const cleanList = () => {
 	document.getElementById('actualMusicList').innerHTML = '';
-	if (isLoading === false) {
+	if (!isLoading) {
 		document.getElementById('loader').style.display = 'initial';
 		isLoading = true;
 	}
@@ -305,9 +290,7 @@ const mainMenu = () => {
 	try {
 		cleanList();
 	} catch {
-		document.addEventListener('DOMContentLoaded', () => {
-			cleanList();
-		});
+		document.addEventListener('DOMContentLoaded', () => cleanList());
 	}
 
 	// fetch count of songs
@@ -333,40 +316,22 @@ const mainMenu = () => {
 	});
 };
 
-const myPlaylist = () => {
-	cleanList();
-};
-
-const likedSongs = () => {
-	cleanList();
-};
-
-const settings = () => {
-	cleanList();
-};
+const myPlaylist = () => cleanList();
+const likedSongs = () => cleanList();
+const settings = () => cleanList();
 
 // wait for content to load then add event listener
 document.addEventListener('DOMContentLoaded', () => {
 	document.getElementById('playPause').addEventListener('click', () => {
-		if (isPlaying === false) {
-			playSong();
-		} else {
-			pauseSong();
-		}
+		!isPlaying ? playSong() : pauseSong();
 	});
 	document.getElementById('leftControl').addEventListener('click', () => {
-		if (currentSong <= 1) {
-			console.log('do not exceed');
-		} else {
-			fPrevSong();
-		}
+		currentSong <= 1 ? console.log('do not exceed') : fPrevSong();
 	});
 	document.getElementById('rightControl').addEventListener('click', () => {
-		if (currentSong >= fetchedLenght) {
-			console.log('do not exceed');
-		} else {
-			fNextSong();
-		}
+		currentSong >= fetchedLenght
+			? console.log('do not exceed')
+			: fNextSong();
 	});
 
 	Array.from(document.getElementsByClassName('main-menu-button')).forEach(
