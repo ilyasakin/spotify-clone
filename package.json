@@ -27,7 +27,28 @@
     "lint:eslint": "eslint 'src/**/*.{ts,tsx}'",
     "format:ts": "prettier --write 'src/**/*.{ts,tsx}' && yarn lint:eslint --fix",
     "lint:css": "stylelint --syntax scss \"src/**/*.scss\"",
-    "format:css": "stylelint --fix --syntax scss \"src/**/*.scss\""
+    "format:css": "stylelint --fix --syntax scss \"src/**/*.scss\"",
+    "coverage": "yarn run test --coverage"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/index.tsx",
+      "!src/setupTests.ts",
+      "!src/components/**/index.{ts,tsx}",
+      "!src/components/**/*.stories.{ts,tsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -47,9 +68,15 @@
   "devDependencies": {
     "@atolye15/eslint-config": "^1.1.1",
     "@atolye15/stylelint-config": "^1.3.0",
+    "@types/enzyme": "^3.10.5",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.5.0",
     "eslint": "^7.2.0",
     "node-sass": "^4.14.1",
     "prettier": "^2.0.5",
+    "react-test-renderer": "^16.13.1",
     "stylelint": "^13.6.0",
     "stylelint-config-prettier": "^8.0.1",
     "stylelint-prettier": "^1.1.2"
