@@ -45,6 +45,7 @@
   "devDependencies": {
     "@atolye15/eslint-config": "^1.1.1",
     "eslint": "^7.2.0",
+    "node-sass": "^4.14.1",
     "prettier": "^2.0.5"
   }
 }
