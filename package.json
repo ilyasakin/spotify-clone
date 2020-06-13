@@ -31,7 +31,8 @@
     "format:css": "stylelint --fix --syntax scss \"src/**/*.scss\"",
     "coverage": "yarn run test --coverage",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "gen-icon-components": "svgr src/img --icon --replace-attr-values \"#000=currentColor\" -d src/components "
   },
   "jest": {
     "snapshotSerializers": [
@@ -78,6 +79,7 @@
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addons": "^5.3.19",
     "@storybook/react": "^5.3.19",
+    "@svgr/cli": "^5.4.0",
     "@types/enzyme": "^3.10.5",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "babel-loader": "^8.1.0",
