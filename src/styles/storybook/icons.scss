@@ -1,0 +1,6 @@
+.view {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  row-gap: 40px;
+  font-size: 40px;
+}

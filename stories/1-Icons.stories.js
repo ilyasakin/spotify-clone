@@ -1,17 +1,14 @@
 import React from 'react';
 
 import * as Icons from '../src/components/icons';
+import '../src/styles/storybook/icons.scss';
 
 export default {
   title: 'Icons',
 };
 
 export const Icon = () => (
-  <div>
-    <div style={{ backgroundColor: '#000', display: 'inline-block' }}>
-      <Icons.Logo style={{ height: '40px', width: '131px' }} />
-      <Icons.TopbarPp />
-    </div>
+  <div className="view">
     <Icons.Back />
     <Icons.Forward />
     <Icons.Home />

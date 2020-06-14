@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './styles/index.scss';
 import { setConfig } from 'react-hot-loader';
+// eslint-disable-next-line import/extensions
 import App from './App';
 
 setConfig({
