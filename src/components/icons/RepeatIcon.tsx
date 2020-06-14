@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-function SvgRepeatIcon(props) {
+function SvgRepeatIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 9 9" fill="none" {...props}>
       <path

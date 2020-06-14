@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-function SvgPlayIcon(props) {
+function SvgPlayIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 32 32" fill="none" {...props}>
       <path

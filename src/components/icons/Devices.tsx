@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-function SvgDevices(props) {
+function SvgDevices(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 22 17" fill="none" {...props}>
       <path

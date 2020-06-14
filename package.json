@@ -32,7 +32,7 @@
     "coverage": "yarn run test --coverage",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "gen-icon-components": "svgr src/img --icon --replace-attr-values \"#000=currentColor\" -d src/components "
+    "gen-icon-components": "svgr --typescript src/img --icon --replace-attr-values \"#000=currentColor\" -d src/components "
   },
   "jest": {
     "snapshotSerializers": [
