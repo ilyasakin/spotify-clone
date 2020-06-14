@@ -1,0 +1,42 @@
+.btn-container {
+  position: relative;
+  width: 216px;
+  height: 40px;
+
+  background: #040404;
+  border-radius: 4px;
+}
+
+.active {
+  background: #282828;
+}
+
+.text {
+  position: absolute;
+  width: 37px;
+  height: 16px;
+  left: 56px;
+  top: calc(50% - 16px / 2);
+
+  font-family: Segoe UI;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height */
+
+  color: #b3b3b3;
+}
+
+.text-active {
+  color: #ffffff;
+}
+
+.icon {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 16px;
+  top: calc(50% - 24px / 2);
+  color: white;
+}
