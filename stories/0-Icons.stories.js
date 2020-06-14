@@ -8,8 +8,10 @@ export default {
 
 export const Icon = () => (
   <div>
-    <Icons.Logo style={{ height: '40px', width: '131px', color: '#000' }} />
-    <Icons.TopbarPp />
+    <div style={{ backgroundColor: '#000', display: 'inline-block' }}>
+      <Icons.Logo style={{ height: '40px', width: '131px' }} />
+      <Icons.TopbarPp />
+    </div>
     <Icons.Back />
     <Icons.Forward />
     <Icons.Home />
