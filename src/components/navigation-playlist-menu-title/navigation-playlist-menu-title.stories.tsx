@@ -1,6 +1,6 @@
 import React from 'react';
-import NavigationMenuTitle from './navigation-menu-title';
-import './navigation-menu-title.scss';
+import NavigationPlaylistMenuTitle from './navigation-playlist-menu-title';
+import './navigation-playlist-menu-title.scss';
 
 export default {
   title: 'NavigationMenuTitle',
@@ -9,7 +9,7 @@ export default {
 export const navigationMenuTitle = () => {
   return (
     <div className="story">
-      <NavigationMenuTitle />
+      <NavigationPlaylistMenuTitle />
     </div>
   );
 };
