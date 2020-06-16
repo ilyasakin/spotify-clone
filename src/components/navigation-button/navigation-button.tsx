@@ -10,7 +10,7 @@ interface Props {
 const NavigationButton: React.FC<Props> = ({ Icon, text, active }) => {
   return (
     <div className={`btn-container ${active && 'active'}`}>
-      <Icon className="icon" />
+      <Icon className={`icon ${active && 'icon-active'}`} />
       <span className={`text ${active && 'text-active'}`}>{text}</span>
     </div>
   );
