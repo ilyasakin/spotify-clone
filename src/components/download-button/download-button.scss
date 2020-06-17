@@ -10,12 +10,7 @@ $color-white-inactive: #b3b3b3;
   background: #040404;
   cursor: pointer;
 
-  &:hover .download-button-icon-container {
-    color: $color-white-active;
-    transition: color 200ms linear;
-  }
-
-  &:hover .download-button-text {
+  &:hover * {
     color: $color-white-active;
     transition: color 200ms linear;
   }
