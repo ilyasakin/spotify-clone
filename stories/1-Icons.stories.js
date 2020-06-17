@@ -18,7 +18,8 @@ export const Icon = () => (
     <Icons.Search />
     <Icons.SearchActive />
     <Icons.PlaylistPlus />
-    <Icons.PlaylistHeart />
+    <Icons.PlaylistHeart style={{ backgroundColor: '#000' }} />
+    <Icons.DownloadIcon />
     <Icons.ShuffleIcon />
     <Icons.PreviousIcon />
     <Icons.PlayIcon />
