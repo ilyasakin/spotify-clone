@@ -1,9 +1,10 @@
 import React from 'react';
 import { hot } from 'react-hot-loader/root';
 import './styles/App.scss';
+import Navbar from './components/navbar/navbar';
 
 function App() {
-  return <h1>Hello world!</h1>;
+  return <Navbar />;
 }
 
 export default hot(App);

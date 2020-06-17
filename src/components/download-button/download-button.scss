@@ -2,11 +2,12 @@ $color-white-active: #fff;
 $color-white-inactive: #b3b3b3;
 
 .download-button-container {
-  position: relative;
-  bottom: 0;
+  position: absolute;
+  bottom: -0.35px;
   left: 0;
   width: 232px;
   height: 40px;
+
   background: #040404;
   cursor: pointer;
 
