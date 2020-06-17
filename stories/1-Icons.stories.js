@@ -17,6 +17,8 @@ export const Icon = () => (
     <Icons.LibraryActive />
     <Icons.Search />
     <Icons.SearchActive />
+    <Icons.PlaylistPlus />
+    <Icons.PlaylistHeart />
     <Icons.ShuffleIcon />
     <Icons.PreviousIcon />
     <Icons.PlayIcon />
