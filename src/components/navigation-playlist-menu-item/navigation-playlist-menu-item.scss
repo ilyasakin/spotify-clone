@@ -17,12 +17,12 @@ $color-navbar-black: #040404;
   cursor: pointer;
   &:hover .playlist-menu-icon-container {
     opacity: 1;
-    transition: opacity 200ms ease-in;
+    transition: opacity 200ms linear;
   }
 
   &:hover .playlist-menu-text {
     color: $color-white-active;
-    transition: color 200ms ease-in;
+    transition: color 200ms linear;
   }
 }
 
@@ -40,7 +40,7 @@ $color-navbar-black: #040404;
   height: 32px;
   background: $color-white-active;
   opacity: 0.7;
-  transition: opacity 200ms ease-out;
+  transition: opacity 200ms linear;
 }
 
 .playlist-menu-icon {
@@ -68,5 +68,5 @@ $color-navbar-black: #040404;
   font-style: normal;
   font-weight: 700;
   line-height: 16px;
-  transition: color 200ms ease-out;
+  transition: color 200ms linear;
 }
