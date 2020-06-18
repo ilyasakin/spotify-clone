@@ -2,7 +2,12 @@ import React from 'react';
 import './nowplaying-center.scss';
 import { ShuffleIcon, PreviousIcon, PlayIcon, NextIcon, RepeatIcon } from '../icons';
 
-const NowplayingCenter = () => {
+interface Props {
+  currentTime: string;
+  totalTime: string;
+}
+
+const NowplayingCenter: React.FC<Props> = ({ currentTime, totalTime }) => {
   return (
     <div className="nowplaying-center-container">
       <div className="nowplaying-center-inner-container">
@@ -25,11 +30,11 @@ const NowplayingCenter = () => {
         </div>
         <div className="nowplaying-center-progress">
           <div className="nowplaying-center-progress-current-container">
-            <span className="nowplaying-center-progress-text">0:00</span>
+            <span className="nowplaying-center-progress-text">{currentTime}</span>
           </div>
           <div className="nowplaying-center-progressbar" />
           <div className="nowplaying-center-progress-total-container">
-            <span className="nowplaying-center-progress-text">0:00</span>
+            <span className="nowplaying-center-progress-text">{totalTime}</span>
           </div>
         </div>
       </div>
