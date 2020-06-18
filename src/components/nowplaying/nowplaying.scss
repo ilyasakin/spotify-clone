@@ -1,0 +1,17 @@
+.nowplaying {
+  position: absolute;
+  right: 0%;
+  bottom: 1px;
+  left: 0%;
+  height: 90px;
+
+  background: #282828;
+}
+
+.nowplaying-padding {
+  position: absolute;
+  top: calc(50% - 90px / 2);
+  right: 16px;
+  left: 16px;
+  height: 90px;
+}
