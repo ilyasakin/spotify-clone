@@ -3,7 +3,7 @@ $color-white-inactive: #b3b3b3;
 
 .nowplaying-right-container {
   position: absolute;
-  top: 1px;
+  top: calc(50% - 90px / 2);
   right: 0.04%;
   left: 69.96%;
   height: 90px;
