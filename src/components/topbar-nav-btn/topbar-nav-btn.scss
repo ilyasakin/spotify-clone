@@ -1,0 +1,40 @@
+$color-active: #fff;
+$color-inactive: #b3b3b3;
+
+.topbar-nav-back {
+  position: absolute;
+  top: 16px;
+  left: 32px;
+  width: 28px;
+  height: 28px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 16px;
+  cursor: pointer;
+  &:hover .topbar-nav-icon {
+    color: $color-active;
+  }
+}
+
+.topbar-nav-forward {
+  position: absolute;
+  top: 16px;
+  left: 76px;
+  width: 28px;
+  height: 28px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 16px;
+  cursor: pointer;
+  &:hover .topbar-nav-icon {
+    color: $color-active;
+  }
+}
+
+.topbar-nav-icon {
+  position: absolute;
+  top: calc(50% - 16.35px / 2 + 0.18px);
+  left: calc(50% - 10.17px / 2 + 0.09px);
+  width: 10.17px;
+  height: 16.35px;
+  color: $color-inactive;
+  transition: color 200ms linear;
+}
