@@ -56,9 +56,15 @@ $color-inactive: #b3b3b3;
   width: 40px;
   height: 40px;
   background-color: #1db954;
-  border-radius: 20px;
+  border-radius: 500px;
   cursor: pointer;
   opacity: 0;
+  &:hover {
+    right: 14.6px;
+    bottom: 14.6px;
+    width: 42.4px;
+    height: 42.4px;
+  }
 }
 
 .card-fab-icon {
