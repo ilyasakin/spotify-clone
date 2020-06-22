@@ -1,4 +1,5 @@
 export { default as Back } from './Back'
+export { default as CardPlay } from './CardPlay'
 export { default as Devices } from './Devices'
 export { default as DownloadIcon } from './DownloadIcon'
 export { default as Forward } from './Forward'

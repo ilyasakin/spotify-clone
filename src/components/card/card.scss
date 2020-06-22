@@ -1,0 +1,71 @@
+$color-active: #fff;
+$color-inactive: #b3b3b3;
+
+.card-container {
+  position: relative;
+  width: 174px;
+  height: 251px;
+  background: #282828;
+  border-radius: 8px;
+  &:hover .card-fab {
+    opacity: 1;
+  }
+}
+
+.card-img-container {
+  position: absolute;
+  top: 7.97%;
+  right: 11.49%;
+  bottom: 38.65%;
+  left: 11.49%;
+  background: $color-active;
+}
+
+.card-title {
+  position: absolute;
+  top: 161px;
+  left: 20px;
+  width: 44px;
+  height: 24px;
+  color: $color-active;
+  font-family: 'Segoe UI';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.card-artist {
+  position: absolute;
+  top: 180px;
+  left: 20px;
+  width: 56px;
+  height: 16px;
+  color: $color-inactive;
+  font-family: 'Segoe UI';
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+}
+
+.card-fab {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 40px;
+  height: 40px;
+  background-color: #1db954;
+  border-radius: 20px;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.card-fab-icon {
+  position: absolute;
+  top: calc(50% - 16px / 2);
+  left: calc(50% - 16px / 2);
+  width: 16px;
+  height: 16px;
+  color: $color-active;
+}
