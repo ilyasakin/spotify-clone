@@ -2,7 +2,7 @@ import React from 'react';
 import './topbar.scss';
 import TopbarNavBtn from '../topbar-nav-btn/topbar-nav-btn';
 
-const Topbar = () => {
+const Topbar: React.FC = () => {
   return (
     <div className="topbar">
       <TopbarNavBtn direction="left" />

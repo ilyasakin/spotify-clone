@@ -5,7 +5,7 @@ import NavigationPlaylistMenuItem from '../navigation-playlist-menu-item/navigat
 import NavigationDivider from '../navigation-divider/navigation-divider';
 import { PlaylistHeart, PlaylistPlus } from '../icons';
 
-const PlaylistMenu = () => {
+const PlaylistMenu: React.FC = () => {
   return (
     <div className="playlist-menu">
       <NavigationPlaylistMenuTitle />

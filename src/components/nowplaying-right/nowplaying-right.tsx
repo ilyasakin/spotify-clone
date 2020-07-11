@@ -2,7 +2,7 @@ import React from 'react';
 import './nowplaying-right.scss';
 import { Playlist, Devices, Volume } from '../icons';
 
-const NowplayingRight = () => {
+const NowplayingRight: React.FC = () => {
   return (
     <div className="nowplaying-right-container">
       <div className="nowplaying-right-playlist">

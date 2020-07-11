@@ -3,7 +3,7 @@ import { DownloadIcon } from '../icons';
 
 import './download-button.scss';
 
-const DownloadButton = () => {
+const DownloadButton: React.FC = () => {
   return (
     <div className="download-button-container">
       <div className="download-button-inner-container">

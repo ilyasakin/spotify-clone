@@ -4,7 +4,7 @@ import NowplayingLeft from '../nowplaying-left/nowplaying-left';
 import NowplayingRight from '../nowplaying-right/nowplaying-right';
 import NowplayingCenter from '../nowplaying-center/nowplaying-center';
 
-const Nowplaying = () => {
+const Nowplaying: React.FC = () => {
   return (
     <div className="nowplaying">
       <div className="nowplaying-padding">

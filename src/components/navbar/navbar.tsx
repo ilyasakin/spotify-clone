@@ -6,7 +6,7 @@ import PlaylistMenu from '../playlist-menu/playlist-menu';
 import PlaylistList from '../playlist-list/playlist-list';
 import DownloadButton from '../download-button/download-button';
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   return (
     <div className="navbar">
       <LogoContainer />

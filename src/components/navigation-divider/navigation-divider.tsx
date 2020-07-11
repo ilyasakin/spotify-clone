@@ -1,7 +1,7 @@
 import React from 'react';
 import './navigation-divider.scss';
 
-const NavigationDivider = () => {
+const NavigationDivider: React.FC = () => {
   return <div className="divider" />;
 };
 

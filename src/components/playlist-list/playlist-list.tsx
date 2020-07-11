@@ -2,7 +2,7 @@ import React from 'react';
 import './playlist-list.scss';
 import NavigationPlaylistListItem from '../navigation-playlist-list-item/navigation-playlist-list-item';
 
-const PlaylistList = () => {
+const PlaylistList: React.FC = () => {
   return (
     <div className="playlist-list">
       <NavigationPlaylistListItem text="playlist placeholder" />

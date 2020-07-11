@@ -3,7 +3,7 @@ import './navigation-menu.scss';
 import NavigationButton from '../navigation-button/navigation-button';
 import { HomeActive, Search, Library } from '../icons';
 
-const NavigationMenu = () => {
+const NavigationMenu: React.FC = () => {
   return (
     <div className="navigation-menu">
       <NavigationButton Icon={HomeActive} text="Home" active />
