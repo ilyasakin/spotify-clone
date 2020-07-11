@@ -6,8 +6,7 @@ const Main: React.FC = () => {
   return (
     <div className="main">
       <div className="main-padding">
-        <Section />
-        <Section />
+        <Section title="Songs" data={[{ title: 'test title', artist: 'test artist' }]} />
       </div>
     </div>
   );

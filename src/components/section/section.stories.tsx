@@ -6,5 +6,5 @@ export default {
 };
 
 export const section = () => {
-  return <Section />;
+  return <Section title="Songs" data={[]} />;
 };
