@@ -8,7 +8,7 @@ const Nowplaying: React.FC = () => {
   return (
     <div className="nowplaying">
       <div className="nowplaying-padding">
-        <NowplayingLeft songName="song name" artistName="artist name" />
+        <NowplayingLeft />
         <NowplayingCenter currentTime="0:00" totalTime="0:00" />
         <NowplayingRight />
       </div>
