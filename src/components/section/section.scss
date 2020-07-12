@@ -69,7 +69,10 @@ $color-inactive: #b3b3b3;
   bottom: 0;
   left: 0;
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  overflow: hidden;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(164px, 1fr));
+  grid-auto-rows: 0;
   background: #121212;
   column-gap: 20px;
 }
