@@ -8,9 +8,9 @@ export default {
 export const card = () => {
   return (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(10, 1fr)', columnGap: 16 }}>
-      <Card title="Title" artist="Artist" />
-      <Card title="Title" artist="Artist" />
-      <Card title="Title" artist="Artist" />
+      <Card title="Title" artist="Artist" imgsrc="https://via.placeholder.com/150" />
+      <Card title="Title" artist="Artist" imgsrc="https://via.placeholder.com/150" />
+      <Card title="Title" artist="Artist" imgsrc="https://via.placeholder.com/150" />
     </div>
   );
 };

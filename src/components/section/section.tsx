@@ -4,12 +4,13 @@ import Card from '../card/card';
 
 interface Props {
   title: string;
-  data: Array<{ title: string; artist: string }>;
+  data: Array<Songs>;
 }
 
 interface Songs {
-  title: string;
+  name: string;
   artist: string;
+  cover: string;
 }
 
 const Section: React.FC<Props> = ({ title, data }) => {
@@ -25,7 +26,7 @@ const Section: React.FC<Props> = ({ title, data }) => {
       </div>
       <div className="section-content">
         {data.map((song: Songs) => {
-          return <Card title={song.title} artist={song.artist} />;
+          return <Card title={song.name} artist={song.artist} imgsrc={song.cover} />;
         })}
       </div>
     </div>
