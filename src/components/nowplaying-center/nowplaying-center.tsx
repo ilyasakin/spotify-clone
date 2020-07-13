@@ -13,6 +13,14 @@ interface Props {
   totalTime: string;
 }
 
+const formatTime = (duration) => {
+  let minutes = Math.floor(duration / 60);
+  if (/^\d$/.test(minutes)) minutes = `0${minutes}`;
+  let seconds = Math.floor(duration - minutes * 60);
+  if (/^\d$/.test(seconds)) seconds = `0${seconds}`;
+  return `${minutes}:${seconds}`;
+};
+
 const NowplayingCenter: React.FC<Props> = ({ currentTime, totalTime }) => {
   const { currentSong } = useContext(CurrentSong);
   const [isPlaying, setPlaying] = useState(false);
@@ -69,11 +77,11 @@ const NowplayingCenter: React.FC<Props> = ({ currentTime, totalTime }) => {
         </div>
         <div className="nowplaying-center-progress">
           <div className="nowplaying-center-progress-current-container">
-            <span className="nowplaying-center-progress-text">{curTime}</span>
+            <span className="nowplaying-center-progress-text">{formatTime(curTime)}</span>
           </div>
           <div className="nowplaying-center-progressbar" />
           <div className="nowplaying-center-progress-total-container">
-            <span className="nowplaying-center-progress-text">{duration}</span>
+            <span className="nowplaying-center-progress-text">{formatTime(duration)}</span>
           </div>
         </div>
       </div>
