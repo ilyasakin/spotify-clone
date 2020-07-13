@@ -5,7 +5,7 @@
 import React, { useContext, useState, useRef, useEffect } from 'react';
 import './nowplaying-center.scss';
 import ReactHowler from 'react-howler';
-import { ShuffleIcon, PreviousIcon, PlayIcon, NextIcon, RepeatIcon } from '../icons';
+import { ShuffleIcon, PreviousIcon, PlayIcon, NextIcon, RepeatIcon, PauseIcon } from '../icons';
 import { CurrentSong } from '../../context/CurrentSong';
 
 interface Props {
@@ -66,7 +66,11 @@ const NowplayingCenter: React.FC<Props> = ({ currentTime, totalTime }) => {
               if (isPlaying) setPlaying(false);
             }}
           >
-            <PlayIcon className="nowplaying-center-controls-big-button" />
+            {!isPlaying ? (
+              <PlayIcon className="nowplaying-center-controls-big-button" />
+            ) : (
+              <PauseIcon className="nowplaying-center-controls-big-button" />
+            )}
           </div>
           <div className="nowplaying-center-controls-next">
             <NextIcon className="nowplaying-center-controls-small-button" />
