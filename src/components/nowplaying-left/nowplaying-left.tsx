@@ -10,12 +10,12 @@ const NowplayingLeft: React.FC = () => {
       <div className="nowplaying-left-cover-art">
         <img
           style={{ width: '100%' }}
-          src={`${process.env.REACT_APP_BASE_URL}/${currentSong?.imgsrc}`}
+          src={`${process.env.REACT_APP_BASE_URL}/${currentSong?.cover}`}
           alt=""
         />
       </div>
       <div className="nowplaying-left-info">
-        <span className="nowplaying-left-song-name">{currentSong?.title}</span>
+        <span className="nowplaying-left-song-name">{currentSong?.name}</span>
         <span className="nowplaying-left-artist-name">{currentSong?.artist}</span>
         <PlaylistHeart className="nowplaying-left-like-button" />
       </div>

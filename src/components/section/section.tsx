@@ -26,7 +26,7 @@ const Section: React.FC<Props> = ({ title, data }) => {
       </div>
       <div className="section-content">
         {data.map((song: Songs) => {
-          return <Card title={song.name} artist={song.artist} imgsrc={song.cover} />;
+          return <Card song={song} />;
         })}
       </div>
     </div>
