@@ -2310,7 +2310,7 @@
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.6.tgz#ed8fc802c45b8e8f54419c2d054e55c9ea344356"
   integrity sha512-GRTZLeLJ8ia00ZH8mxMO8t0aC9M1N9bN461Z2eaRurJo6Fpa+utgCwLzI4jQHcrdzuzp5WPN9jRwpsCQ1VhJ5w==
 
-"@types/howler@^2.2.1":
+"@types/howler@*", "@types/howler@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@types/howler/-/howler-2.2.1.tgz#c95314724a8e970b1b29a731861975f39987b9ca"
   integrity sha512-1MiSldngr+eAO4lDPtjzl4Nf2GmRh8VDHIpNBIkyd25L22JExVlI6w3fjSM7+FNc1e1WZAPNq7/flkw685byfg==
@@ -2420,6 +2420,14 @@
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.9.8.tgz#fe4c1e11dfc67155733dfa6aa65108b4971cb423"
   integrity sha512-ykkPQ+5nFknnlU6lDd947WbQ6TE3NNzbQAkInC2EKY1qeYdTKp7onFusmYZb+ityzx2YviqT6BXSu+LyWWJwcA==
   dependencies:
+    "@types/react" "*"
+
+"@types/react-howler@^3.7.1":
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/@types/react-howler/-/react-howler-3.7.1.tgz#6c32dfc8555174ef832eb0579eeb90934f6da92b"
+  integrity sha512-qqPmkVm0iUWzEcQ20csCTs1rrhCZkiMtPjmeRogQrd8Q2nVALb7Bs7nazlNePmd+9I8kKlsOK5EEV2BZKCXN/Q==
+  dependencies:
+    "@types/howler" "*"
     "@types/react" "*"
 
 "@types/react-syntax-highlighter@11.0.4":

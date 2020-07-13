@@ -9,7 +9,7 @@ const Nowplaying: React.FC = () => {
     <div className="nowplaying">
       <div className="nowplaying-padding">
         <NowplayingLeft />
-        <NowplayingCenter currentTime="0:00" totalTime="0:00" />
+        <NowplayingCenter />
         <NowplayingRight />
       </div>
     </div>

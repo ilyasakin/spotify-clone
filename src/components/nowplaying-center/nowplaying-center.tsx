@@ -1,37 +1,32 @@
-/* eslint-disable jsx-a11y/media-has-caption */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-// @ts-nocheck
 import React, { useContext, useState, useRef, useEffect } from 'react';
 import './nowplaying-center.scss';
 import ReactHowler from 'react-howler';
 import { ShuffleIcon, PreviousIcon, PlayIcon, NextIcon, RepeatIcon, PauseIcon } from '../icons';
 import { CurrentSong } from '../../context/CurrentSong';
 
-interface Props {
-  currentTime: string;
-  totalTime: string;
-}
-
-const formatTime = (duration) => {
-  let minutes = Math.floor(duration / 60);
-  if (/^\d$/.test(minutes)) minutes = `0${minutes}`;
-  let seconds = Math.floor(duration - minutes * 60);
-  if (/^\d$/.test(seconds)) seconds = `0${seconds}`;
-  return `${minutes}:${seconds}`;
+const formatTime = (duration: number): string => {
+  const minutes: number = Math.floor(duration / 60);
+  let formattedMinutes: string = minutes.toString();
+  const seconds: number = Math.floor(duration - minutes * 60);
+  let formattedSeconds: string = seconds.toString();
+  if (/^\d$/.test(minutes.toString())) formattedMinutes = `0${minutes}`;
+  if (/^\d$/.test(seconds.toString())) formattedSeconds = `0${seconds}`;
+  return `${formattedMinutes}:${formattedSeconds}`;
 };
 
-const NowplayingCenter: React.FC<Props> = ({ currentTime, totalTime }) => {
+const NowplayingCenter: React.FC = () => {
   const { currentSong } = useContext(CurrentSong);
   const [isPlaying, setPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [curTime, setCurTime] = useState(0);
-  const player = useRef();
+  const player = useRef<ReactHowler>();
 
   useEffect(() => {
     const interval = setInterval(() => {
       try {
-        if (typeof player.current.seek() === 'number') setCurTime(player.current.seek());
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore
+        if (typeof player.current?.seek() === 'number') setCurTime(player.current?.seek());
       } catch {
         setCurTime(0);
       }
@@ -47,10 +42,16 @@ const NowplayingCenter: React.FC<Props> = ({ currentTime, totalTime }) => {
             src={`${process.env.REACT_APP_BASE_URL}/${currentSong?.location}`}
             playing={isPlaying}
             html5
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore
             ref={player}
             onLoad={() => {
-              setDuration(player.current.duration());
-              if (typeof player.current.seek() === 'number') setCurTime(player.current.seek());
+              // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+              // @ts-ignore
+              setDuration(player.current?.duration());
+              // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+              // @ts-ignore
+              if (typeof player.current?.seek() === 'number') setCurTime(player.current?.seek());
             }}
           />
           <div className="nowplaying-center-controls-shuffle">
@@ -65,6 +66,8 @@ const NowplayingCenter: React.FC<Props> = ({ currentTime, totalTime }) => {
               if (!isPlaying) setPlaying(true);
               if (isPlaying) setPlaying(false);
             }}
+            role="button"
+            aria-hidden="true"
           >
             {!isPlaying ? (
               <PlayIcon className="nowplaying-center-controls-big-button" />

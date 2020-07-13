@@ -8,7 +8,7 @@ export default {
 export const nowplayingCenter = () => {
   return (
     <div style={{ position: 'relative', top: 40 }}>
-      <NowplayingCenter currentTime="0:00" totalTime="0:00" />
+      <NowplayingCenter />
     </div>
   );
 };
