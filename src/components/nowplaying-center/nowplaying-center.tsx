@@ -4,28 +4,29 @@ import ReactHowler from 'react-howler';
 import { ShuffleIcon, PreviousIcon, PlayIcon, NextIcon, RepeatIcon, PauseIcon } from '../icons';
 import { CurrentSong } from '../../context/CurrentSong';
 
-const formatTime = (duration: number): string => {
-  const minutes: number = Math.floor(duration / 60);
-  let formattedMinutes: string = minutes.toString();
-  const seconds: number = Math.floor(duration - minutes * 60);
-  let formattedSeconds: string = seconds.toString();
-  if (/^\d$/.test(minutes.toString())) formattedMinutes = `0${minutes}`;
-  if (/^\d$/.test(seconds.toString())) formattedSeconds = `0${seconds}`;
-  return `${formattedMinutes}:${formattedSeconds}`;
+const formatTime = (duration: number | undefined): string => {
+  if (duration) {
+    const minutes: number = Math.floor(duration / 60);
+    let formattedMinutes: string = minutes.toString();
+    const seconds: number = Math.floor(duration - minutes * 60);
+    let formattedSeconds: string = seconds.toString();
+    if (/^\d$/.test(minutes.toString())) formattedMinutes = `0${minutes}`;
+    if (/^\d$/.test(seconds.toString())) formattedSeconds = `0${seconds}`;
+    return `${formattedMinutes}:${formattedSeconds}`;
+  }
+  return '00:00';
 };
 
 const NowplayingCenter: React.FC = () => {
   const { currentSong } = useContext(CurrentSong);
   const [isPlaying, setPlaying] = useState(false);
-  const [duration, setDuration] = useState(0);
+  const [duration, setDuration] = useState<number | undefined>(0);
   const [curTime, setCurTime] = useState(0);
-  const player = useRef<ReactHowler>();
+  const player = useRef<ReactHowler | undefined>();
 
   useEffect(() => {
     const interval = setInterval(() => {
       try {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-        // @ts-ignore
         if (typeof player.current?.seek() === 'number') setCurTime(player.current?.seek());
       } catch {
         setCurTime(0);
@@ -46,11 +47,7 @@ const NowplayingCenter: React.FC = () => {
             // @ts-ignore
             ref={player}
             onLoad={() => {
-              // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-              // @ts-ignore
               setDuration(player.current?.duration());
-              // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-              // @ts-ignore
               if (typeof player.current?.seek() === 'number') setCurTime(player.current?.seek());
             }}
           />
