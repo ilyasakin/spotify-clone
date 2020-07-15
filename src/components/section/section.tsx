@@ -8,6 +8,7 @@ interface Props {
 }
 
 interface Songs {
+  id: number;
   name: string;
   artist: string;
   cover: string;
@@ -26,7 +27,7 @@ const Section: React.FC<Props> = ({ title, data }) => {
       </div>
       <div className="section-content">
         {data.map((song: Songs) => {
-          return <Card song={song} />;
+          return <Card song={song} key={song.id} />;
         })}
       </div>
     </div>
