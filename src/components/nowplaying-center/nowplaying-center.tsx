@@ -93,7 +93,12 @@ const NowplayingCenter: React.FC = () => {
           </div>
           {/* TODO: Fix this properly */}
           {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
-          <Slider value={(curTime * 100) / duration!} onChange={handleChange} />
+          <Slider
+            value={(curTime * 100) / duration!}
+            onChange={handleChange}
+            onMouseDown={() => setPlaying(false)}
+            onChangeCommitted={() => setPlaying(true)}
+          />
           <div className="nowplaying-center-progress-total-container">
             <span className="nowplaying-center-progress-text">{formatTime(duration)}</span>
           </div>
