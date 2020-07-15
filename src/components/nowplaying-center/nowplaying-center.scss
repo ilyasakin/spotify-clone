@@ -1,5 +1,9 @@
+/* stylelint-disable declaration-no-important */
+/* stylelint-disable declaration-property-value-blacklist */
+
 $color-white-active: #fff;
 $color-white-inactive: #b3b3b3;
+$color-gray: #535353;
 
 .nowplaying-center-container {
   position: absolute;
@@ -145,4 +149,25 @@ $color-white-inactive: #b3b3b3;
   left: 0;
   width: 32px;
   height: 32px;
+}
+
+.MuiSlider-rail {
+  height: 4px !important;
+  border-radius: 2px !important;
+}
+
+.MuiSlider-root {
+  position: absolute !important;
+  top: 6px;
+  right: 7.1%;
+  left: 7.1%;
+  width: initial !important;
+  height: 4px !important;
+  padding: 0 !important;
+  color: $color-gray !important;
+}
+
+.MuiSlider-track {
+  height: 4px !important;
+  border-radius: 2px !important;
 }

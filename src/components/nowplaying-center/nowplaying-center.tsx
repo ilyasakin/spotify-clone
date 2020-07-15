@@ -1,6 +1,7 @@
 import React, { useContext, useState, useRef, useEffect } from 'react';
 import './nowplaying-center.scss';
 import ReactHowler from 'react-howler';
+import Slider from '@material-ui/core/Slider';
 import { ShuffleIcon, PreviousIcon, PlayIcon, NextIcon, RepeatIcon, PauseIcon } from '../icons';
 import { CurrentSong } from '../../context/CurrentSong';
 
@@ -83,7 +84,7 @@ const NowplayingCenter: React.FC = () => {
           <div className="nowplaying-center-progress-current-container">
             <span className="nowplaying-center-progress-text">{formatTime(curTime)}</span>
           </div>
-          <div className="nowplaying-center-progressbar" />
+          <Slider />
           <div className="nowplaying-center-progress-total-container">
             <span className="nowplaying-center-progress-text">{formatTime(duration)}</span>
           </div>
