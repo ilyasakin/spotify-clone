@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef, useEffect } from 'react';
+import React, { useContext, useState, useRef, useEffect, ChangeEvent } from 'react';
 import './nowplaying-center.scss';
 import ReactHowler from 'react-howler';
 import Slider from '@material-ui/core/Slider';
@@ -35,6 +35,13 @@ const NowplayingCenter: React.FC = () => {
     }, 1000);
     return () => clearInterval(interval);
   }, []);
+
+  // TODO: slide seeking
+  const handleChange = (event: ChangeEvent<{}>, newValue: number | number[]): void => {
+    if (player.current && duration) {
+      if (typeof newValue === 'number') player.current.seek((duration / 100) * newValue);
+    }
+  };
 
   return (
     <div className="nowplaying-center-container">
@@ -84,7 +91,9 @@ const NowplayingCenter: React.FC = () => {
           <div className="nowplaying-center-progress-current-container">
             <span className="nowplaying-center-progress-text">{formatTime(curTime)}</span>
           </div>
-          <Slider />
+          {/* TODO: Fix this properly */}
+          {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
+          <Slider value={(curTime * 100) / duration!} onChange={handleChange} />
           <div className="nowplaying-center-progress-total-container">
             <span className="nowplaying-center-progress-text">{formatTime(duration)}</span>
           </div>
