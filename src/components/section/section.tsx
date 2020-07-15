@@ -8,7 +8,7 @@ interface Props {
 }
 
 interface Songs {
-  id: number;
+  _id: string;
   name: string;
   artist: string;
   cover: string;
@@ -27,7 +27,8 @@ const Section: React.FC<Props> = ({ title, data }) => {
       </div>
       <div className="section-content">
         {data.map((song: Songs) => {
-          return <Card song={song} key={song.id} />;
+          // eslint-disable-next-line no-underscore-dangle
+          return <Card song={song} key={song._id} />;
         })}
       </div>
     </div>
