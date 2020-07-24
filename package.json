@@ -1,5 +1,6 @@
 {
   "name": "spotify-clone",
+  "homepage": "http://iakindev.github.io/spotify-clone",
   "version": "0.2.0",
   "private": true,
   "dependencies": {
@@ -39,7 +40,9 @@
     "coverage": "yarn run test --coverage",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "gen-icon-components": "svgr --typescript src/img --icon --replace-attr-values \"#000=currentColor\" -d src/components "
+    "gen-icon-components": "svgr --typescript src/img --icon --replace-attr-values \"#000=currentColor\" -d src/components",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "jest": {
     "snapshotSerializers": [
@@ -95,6 +98,7 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.5.0",
     "eslint": "^7.2.0",
+    "gh-pages": "^3.1.0",
     "node-sass": "^4.14.1",
     "prettier": "^2.0.5",
     "react-app-rewired": "^2.1.6",
