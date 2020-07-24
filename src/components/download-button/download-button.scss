@@ -1,0 +1,62 @@
+$color-white-active: #fff;
+$color-white-inactive: #b3b3b3;
+
+.download-button-container {
+  position: absolute;
+  bottom: -0.35px;
+  left: 0;
+  width: 232px;
+  height: 40px;
+
+  background: #040404;
+  cursor: pointer;
+
+  &:hover * {
+    color: $color-white-active;
+    transition: color 200ms linear;
+  }
+}
+
+.download-button-inner-container {
+  position: absolute;
+  top: calc(50% - 40px / 2);
+  left: calc(50% - 180px / 2);
+  width: 180px;
+  height: 40px;
+
+  background: #040404;
+}
+
+.download-button-icon-container {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  color: $color-white-inactive;
+  transition: color 200ms linear;
+}
+
+.download-button-icon {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  bottom: 15%;
+  left: 20%;
+}
+
+.download-button-text {
+  position: absolute;
+  top: 12px;
+  left: 36px;
+  width: 144px;
+  height: 16px;
+  color: $color-white-inactive;
+  font-family: 'Segoe UI';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 16px;
+  transition: color 200ms linear;
+}

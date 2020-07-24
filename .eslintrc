@@ -1,5 +1,7 @@
 {
-    "extends": [
-      "wesbos"
-    ]
+  "extends": ["@atolye15/eslint-config"],
+  "rules": {
+    "import/extensions": 0,
+    "react/jsx-props-no-spreading": 0
   }
+}

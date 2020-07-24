@@ -1,0 +1,72 @@
+$color-white-active: #fff;
+$color-white-inactive: #b3b3b3;
+
+.nowplaying-left-container {
+  position: absolute;
+  top: calc(50% - 90px / 2);
+  right: 70%;
+  left: 0%;
+  height: 90px;
+  background: #282828;
+}
+
+.nowplaying-left-cover-art {
+  position: absolute;
+  top: 17px;
+  left: 0;
+  width: 56px;
+  height: 56px;
+}
+
+.nowplaying-left-info {
+  position: absolute;
+  top: calc(50% - 56px / 2);
+  right: 14.4px;
+  left: 70px;
+  height: 56px;
+}
+
+.nowplaying-left-song-name {
+  position: absolute;
+  top: calc(50% - 20px / 2 - 8px);
+  right: 0%;
+  left: 0%;
+  height: 20px;
+
+  color: $color-white-active;
+
+  font-family: 'Segoe UI';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+
+  letter-spacing: -0.02em;
+  line-height: 20px;
+}
+
+.nowplaying-left-artist-name {
+  position: absolute;
+  top: calc(50% - 16px / 2 + 10px);
+  right: 0%;
+  left: 0%;
+  height: 16px;
+
+  color: $color-white-inactive;
+
+  font-family: 'Segoe UI';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+
+  letter-spacing: -0.02em;
+  line-height: 16px;
+}
+
+.nowplaying-left-like-button {
+  position: absolute;
+  top: calc(50% - 16.22px / 2 + 0.11px);
+  right: -0.22px;
+  width: 16.22px;
+  height: 16.22px;
+  cursor: pointer;
+}

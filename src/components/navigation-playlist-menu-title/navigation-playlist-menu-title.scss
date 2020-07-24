@@ -1,0 +1,30 @@
+$color-white-active: #fff;
+$color-white-inactive: #b3b3b3;
+$color-navbar-black: #040404;
+
+.menu-title {
+  top: 0;
+  left: 24px;
+  width: 184px;
+  height: 24px;
+  flex: none;
+  align-self: center;
+  order: 0;
+  margin-left: 24px;
+  color: $color-white-inactive;
+
+  font-family: 'Segoe UI';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 16px;
+}
+
+.story {
+  display: flex;
+  width: 232px;
+  flex-direction: column;
+  padding: 0;
+  background: $color-navbar-black;
+}
