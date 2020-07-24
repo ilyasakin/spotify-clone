@@ -3,7 +3,7 @@ import './nowplaying-center.scss';
 import ReactHowler from 'react-howler';
 import Slider from '@material-ui/core/Slider';
 import { ShuffleIcon, PreviousIcon, PlayIcon, NextIcon, RepeatIcon, PauseIcon } from '../icons';
-import { CurrentSong } from '../../context/CurrentSong';
+import CurrentSong from '../../context/CurrentSong';
 
 const formatTime = (duration: number | undefined): string => {
   if (duration) {
@@ -91,9 +91,9 @@ const NowplayingCenter: React.FC = () => {
           <div className="nowplaying-center-progress-current-container">
             <span className="nowplaying-center-progress-text">{formatTime(curTime)}</span>
           </div>
-          {/* TODO: Fix this properly */}
-          {/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
           <Slider
+            /* TODO: Fix this properly */
+            /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */
             value={(curTime * 100) / duration!}
             onChange={handleChange}
             onMouseDown={() => setPlaying(false)}

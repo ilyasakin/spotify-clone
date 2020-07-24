@@ -1,8 +1,10 @@
-import { createContext } from 'react';
+import { createContext, Dispatch, SetStateAction } from 'react';
 
 interface Props {
-  currentSong: Record<string, any>;
-  setCurrentSong: () => {};
+  currentSong: Record<string, never>;
+  setCurrentSong: Dispatch<SetStateAction<{}>>;
 }
-// eslint-disable-next-line import/prefer-default-export
-export const CurrentSong = createContext<Partial<Props>>({});
+
+const CurrentSong = createContext<Partial<Props>>({});
+
+export default CurrentSong;

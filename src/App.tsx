@@ -5,16 +5,15 @@ import Navbar from './components/navbar/navbar';
 import Nowplaying from './components/nowplaying/nowplaying';
 import Topbar from './components/topbar/topbar';
 import Main from './components/main/main';
-import { CurrentSong } from './context/CurrentSong';
+import CurrentSong from './context/CurrentSong';
 
 function App() {
-  const [currentSong, setCurrentSong] = useState<object>({});
+  const [currentSong, setCurrentSong] = useState({});
 
   return (
     <div>
       <Navbar />
       <Topbar />
-      // @ts-ignore
       <CurrentSong.Provider value={{ currentSong, setCurrentSong }}>
         <Nowplaying />
         <Main />

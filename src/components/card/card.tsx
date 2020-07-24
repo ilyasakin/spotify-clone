@@ -1,13 +1,10 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-// @ts-nocheck
 import React, { useContext } from 'react';
 import './card.scss';
 import { CardPlay } from '../icons';
-import { CurrentSong } from '../../context/CurrentSong';
+import CurrentSong from '../../context/CurrentSong';
 
 interface Props {
-  song: Record<string, any>;
+  song: { _id: string; name: string; artist: string; cover: string };
 }
 
 const Card: React.FC<Props> = ({ song }) => {
@@ -23,7 +20,13 @@ const Card: React.FC<Props> = ({ song }) => {
       </div>
       <span className="card-title">{song.name}</span>
       <span className="card-artist">{song.artist}</span>
-      <div className="card-fab" onClick={() => setCurrentSong(song)}>
+      <div
+        className="card-fab"
+        role="button"
+        tabIndex={0}
+        aria-hidden="true"
+        onClick={() => setCurrentSong?.(song)}
+      >
         <CardPlay className="card-fab-icon" />
       </div>
     </div>
