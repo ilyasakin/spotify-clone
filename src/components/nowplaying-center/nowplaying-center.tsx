@@ -93,6 +93,7 @@ const NowplayingCenter: React.FC = () => {
             axis="x"
             xstep={1}
             xmax={100}
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             x={(curTime * 100) / duration!}
             onChange={handleChange}
             onDragStart={() => setPlaying(false)}
