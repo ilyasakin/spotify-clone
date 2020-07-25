@@ -1,7 +1,7 @@
-import React, { useContext, useState, useRef, useEffect, ChangeEvent } from 'react';
+import React, { useContext, useState, useRef, useEffect } from 'react';
 import './nowplaying-center.scss';
 import ReactHowler from 'react-howler';
-import Slider from '@material-ui/core/Slider';
+import Slider from 'react-input-slider';
 import { ShuffleIcon, PreviousIcon, PlayIcon, NextIcon, RepeatIcon, PauseIcon } from '../icons';
 import CurrentSong from '../../context/CurrentSong';
 
@@ -24,7 +24,6 @@ const NowplayingCenter: React.FC = () => {
   const [duration, setDuration] = useState<number | undefined>(0);
   const [curTime, setCurTime] = useState(0);
   const player = useRef<ReactHowler | undefined>();
-
   useEffect(() => {
     const interval = setInterval(() => {
       try {
@@ -33,13 +32,13 @@ const NowplayingCenter: React.FC = () => {
         setCurTime(0);
       }
     }, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
-  // TODO: slide seeking
-  const handleChange = (event: ChangeEvent<{}>, newValue: number | number[]): void => {
+    return () => clearInterval(interval);
+  });
+
+  const handleChange = ({ x }: { x: number }): void => {
     if (player.current && duration) {
-      if (typeof newValue === 'number') player.current.seek((duration / 100) * newValue);
+      if (typeof x === 'number') player.current.seek((duration / 100) * x);
     }
   };
 
@@ -55,7 +54,7 @@ const NowplayingCenter: React.FC = () => {
             // @ts-ignore
             ref={player}
             onLoad={() => {
-              setDuration(player.current?.duration());
+              setDuration(player.current && player.current.duration());
               if (typeof player.current?.seek() === 'number') setCurTime(player.current?.seek());
             }}
           />
@@ -68,8 +67,7 @@ const NowplayingCenter: React.FC = () => {
           <div
             className="nowplaying-center-controls-play-pause"
             onClick={() => {
-              if (!isPlaying) setPlaying(true);
-              if (isPlaying) setPlaying(false);
+              setPlaying(!isPlaying);
             }}
             role="button"
             aria-hidden="true"
@@ -92,12 +90,37 @@ const NowplayingCenter: React.FC = () => {
             <span className="nowplaying-center-progress-text">{formatTime(curTime)}</span>
           </div>
           <Slider
-            /* TODO: Fix this properly */
-            /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */
-            value={(curTime * 100) / duration!}
+            axis="x"
+            xstep={1}
+            xmax={100}
+            x={(curTime * 100) / duration!}
             onChange={handleChange}
-            onMouseDown={() => setPlaying(false)}
-            onChangeCommitted={() => setPlaying(true)}
+            onDragStart={() => setPlaying(false)}
+            onDragEnd={() => {
+              setPlaying(true);
+            }}
+            styles={{
+              track: {
+                backgroundColor: '#535353',
+                right: '7.1%',
+                left: '7.1%',
+                width: 'calc(100% - 14.2%)',
+                height: '4px',
+                position: 'absolute',
+                alignSelf: 'center',
+                justifySelf: 'center',
+              },
+              thumb: {
+                height: 14,
+                width: 14,
+              },
+              active: {
+                backgroundColor: '#b3b3b3',
+                '&:hover': {
+                  backgroundColor: '#1db954',
+                },
+              },
+            }}
           />
           <div className="nowplaying-center-progress-total-container">
             <span className="nowplaying-center-progress-text">{formatTime(duration)}</span>
