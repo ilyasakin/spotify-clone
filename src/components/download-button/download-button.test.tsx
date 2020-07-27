@@ -1,9 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from './App';
+import DownloadButton from './download-button';
 
 it('runs correctly', () => {
-  const wrapper = shallow(<App />);
-
+  const wrapper = shallow(<DownloadButton />);
   expect(wrapper).toMatchSnapshot();
 });

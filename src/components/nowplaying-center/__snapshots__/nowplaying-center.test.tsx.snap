@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`runs correctly 1`] = `
+<div
+  className="nowplaying-center-container"
+>
+  <div
+    className="nowplaying-center-inner-container"
+  >
+    <div
+      className="nowplaying-center-controls"
+    >
+      <ReactHowler
+        format={Array []}
+        html5={true}
+        loop={false}
+        mute={false}
+        onEnd={[Function]}
+        onLoad={[Function]}
+        onLoadError={[Function]}
+        onPause={[Function]}
+        onPlay={[Function]}
+        onStop={[Function]}
+        onVolume={[Function]}
+        playing={false}
+        preload={true}
+        src="undefined/undefined"
+        volume={1}
+      />
+      <div
+        className="nowplaying-center-controls-shuffle"
+      >
+        <SvgShuffleIcon
+          className="nowplaying-center-controls-small-button"
+        />
+      </div>
+      <div
+        className="nowplaying-center-controls-previous"
+      >
+        <SvgPreviousIcon
+          className="nowplaying-center-controls-small-button"
+        />
+      </div>
+      <div
+        aria-hidden="true"
+        className="nowplaying-center-controls-play-pause"
+        onClick={[Function]}
+        role="button"
+      >
+        <SvgPlayIcon
+          className="nowplaying-center-controls-big-button"
+        />
+      </div>
+      <div
+        className="nowplaying-center-controls-next"
+      >
+        <SvgNextIcon
+          className="nowplaying-center-controls-small-button"
+        />
+      </div>
+      <div
+        className="nowplaying-center-controls-repeat"
+      >
+        <SvgRepeatIcon
+          className="nowplaying-center-controls-small-button"
+        />
+      </div>
+    </div>
+    <div
+      className="nowplaying-center-progress"
+    >
+      <div
+        className="nowplaying-center-progress-current-container"
+      >
+        <span
+          className="nowplaying-center-progress-text"
+        >
+          00:00
+        </span>
+      </div>
+      <Slider
+        axis="x"
+        disabled={false}
+        onChange={[Function]}
+        onDragEnd={[Function]}
+        onDragStart={[Function]}
+        styles={
+          Object {
+            "active": Object {
+              "&:hover": Object {
+                "backgroundColor": "#1db954",
+              },
+              "backgroundColor": "#b3b3b3",
+            },
+            "thumb": Object {
+              "height": 14,
+              "width": 14,
+            },
+            "track": Object {
+              "alignSelf": "center",
+              "backgroundColor": "#535353",
+              "height": "4px",
+              "justifySelf": "center",
+              "left": "7.1%",
+              "position": "absolute",
+              "right": "7.1%",
+              "width": "calc(100% - 14.2%)",
+            },
+          }
+        }
+        x={NaN}
+        xmax={100}
+        xmin={0}
+        xreverse={false}
+        xstep={1}
+        y={50}
+        ymax={100}
+        ymin={0}
+        yreverse={false}
+        ystep={1}
+      />
+      <div
+        className="nowplaying-center-progress-total-container"
+      >
+        <span
+          className="nowplaying-center-progress-text"
+        >
+          00:00
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

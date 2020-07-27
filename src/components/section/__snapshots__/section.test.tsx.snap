@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`runs correctly 1`] = `
+<div
+  className="section"
+>
+  <div
+    className="section-titlebar"
+  >
+    <div
+      className="section-title"
+    >
+      <span
+        className="section-title-text"
+      >
+        test
+      </span>
+    </div>
+    <div
+      className="section-titlebar-btn"
+    >
+      <span
+        className="section-titlebar-btn-text"
+      >
+        SEE ALL
+      </span>
+    </div>
+  </div>
+  <div
+    className="section-content"
+  >
+    <Card
+      key="test_id_1"
+      song={
+        Object {
+          "_id": "test_id_1",
+          "artist": "test_artist",
+          "cover": "",
+          "name": "test_name",
+        }
+      }
+    />
+    <Card
+      key="test_id_2"
+      song={
+        Object {
+          "_id": "test_id_2",
+          "artist": "test_artist",
+          "cover": "",
+          "name": "test_name",
+        }
+      }
+    />
+    <Card
+      key="test_id_3"
+      song={
+        Object {
+          "_id": "test_id_3",
+          "artist": "test_artist",
+          "cover": "",
+          "name": "test_name",
+        }
+      }
+    />
+  </div>
+</div>
+`;

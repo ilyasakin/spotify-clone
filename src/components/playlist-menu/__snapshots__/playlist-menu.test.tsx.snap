@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`runs correctly 1`] = `
+<div
+  className="playlist-menu"
+>
+  <NavigationPlaylistMenuTitle />
+  <NavigationPlaylistMenuItem
+    Icon={[Function]}
+    text="Create a playlist"
+  />
+  <NavigationPlaylistMenuItem
+    Icon={[Function]}
+    gradient={true}
+    text="Liked Songs"
+  />
+  <NavigationDivider />
+</div>
+`;

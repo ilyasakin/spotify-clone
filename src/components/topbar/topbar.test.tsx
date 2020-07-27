@@ -1,9 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from './App';
+import Topbar from './topbar';
 
 it('runs correctly', () => {
-  const wrapper = shallow(<App />);
-
+  const wrapper = shallow(<Topbar />);
   expect(wrapper).toMatchSnapshot();
 });

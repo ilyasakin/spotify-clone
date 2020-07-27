@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`runs correctly 1`] = `
+<div
+  className="topbar"
+>
+  <TopbarNavBtn
+    direction="left"
+  />
+  <TopbarNavBtn
+    direction="right"
+  />
+</div>
+`;

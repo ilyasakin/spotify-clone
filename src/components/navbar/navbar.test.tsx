@@ -1,9 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from './App';
+import Navbar from './navbar';
 
 it('runs correctly', () => {
-  const wrapper = shallow(<App />);
-
+  const wrapper = shallow(<Navbar />);
   expect(wrapper).toMatchSnapshot();
 });

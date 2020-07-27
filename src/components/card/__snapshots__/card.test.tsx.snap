@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`runs correctly 1`] = `
+<div
+  className="card-container"
+>
+  <div
+    className="card-img-container"
+  >
+    <img
+      alt=""
+      src="undefined/"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+  <span
+    className="card-title"
+  >
+    test_name
+  </span>
+  <span
+    className="card-artist"
+  >
+    test_artist
+  </span>
+  <div
+    aria-hidden="true"
+    className="card-fab"
+    onClick={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    <SvgCardPlay
+      className="card-fab-icon"
+    />
+  </div>
+</div>
+`;

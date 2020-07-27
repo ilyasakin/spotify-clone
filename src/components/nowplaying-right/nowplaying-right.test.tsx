@@ -1,9 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from './App';
+import NowPlayingRight from './nowplaying-right';
 
 it('runs correctly', () => {
-  const wrapper = shallow(<App />);
-
+  const wrapper = shallow(<NowPlayingRight />);
   expect(wrapper).toMatchSnapshot();
 });

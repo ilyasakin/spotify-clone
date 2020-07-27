@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`runs correctly 1`] = `
+<div
+  className="btn-container active"
+>
+  <SvgHomeActive
+    className="icon icon-active"
+  />
+  <span
+    className="text text-active"
+  >
+    test
+  </span>
+</div>
+`;

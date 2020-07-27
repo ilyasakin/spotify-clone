@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`runs correctly 1`] = `
+<div
+  className="playlist-list-item-container"
+>
+  <div
+    className="playlist-list-item-inner-frame"
+  >
+    <span
+      className="playlist-list-item-text"
+    >
+      test
+    </span>
+  </div>
+</div>
+`;
