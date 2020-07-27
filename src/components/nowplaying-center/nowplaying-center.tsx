@@ -4,6 +4,7 @@ import ReactHowler from 'react-howler';
 import Slider from 'react-input-slider';
 import { ShuffleIcon, PreviousIcon, PlayIcon, NextIcon, RepeatIcon, PauseIcon } from '../icons';
 import CurrentSong from '../../context/CurrentSong';
+import VolumeContext from '../../context/Volume';
 
 const formatTime = (duration: number | undefined): string => {
   if (duration) {
@@ -20,6 +21,7 @@ const formatTime = (duration: number | undefined): string => {
 
 const NowplayingCenter: React.FC = () => {
   const { currentSong } = useContext(CurrentSong);
+  const { volume } = useContext(VolumeContext);
   const [isPlaying, setPlaying] = useState(false);
   const [duration, setDuration] = useState<number | undefined>(0);
   const [curTime, setCurTime] = useState(0);
@@ -50,6 +52,7 @@ const NowplayingCenter: React.FC = () => {
             src={`${process.env.REACT_APP_BASE_URL}/${currentSong?.location}`}
             playing={isPlaying}
             html5
+            volume={volume}
             // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
             // @ts-ignore
             ref={player}
