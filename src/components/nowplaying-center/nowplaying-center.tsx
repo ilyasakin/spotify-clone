@@ -25,6 +25,8 @@ const NowplayingCenter: React.FC = () => {
   const [isPlaying, setPlaying] = useState(false);
   const [duration, setDuration] = useState<number | undefined>(0);
   const [curTime, setCurTime] = useState(0);
+  const [isSeeking, setSeeking] = useState(false);
+  const [dummyCurTime, setDummyCurTime] = useState(10);
   const player = useRef<ReactHowler | undefined>();
   useEffect(() => {
     const interval = setInterval(() => {
@@ -40,7 +42,10 @@ const NowplayingCenter: React.FC = () => {
 
   const handleChange = ({ x }: { x: number }): void => {
     if (player.current && duration) {
-      if (typeof x === 'number') player.current.seek((duration / 100) * x);
+      if (typeof x === 'number') {
+        setDummyCurTime(x);
+        player.current.seek((duration / 100) * x);
+      }
     }
   };
 
@@ -97,11 +102,15 @@ const NowplayingCenter: React.FC = () => {
             xstep={1}
             xmax={100}
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            x={(curTime * 100) / duration!}
+            x={!isSeeking ? (curTime * 100) / duration! : dummyCurTime}
             onChange={handleChange}
-            onDragStart={() => setPlaying(false)}
+            onDragStart={() => {
+              setPlaying(false);
+              setSeeking(true);
+            }}
             onDragEnd={() => {
               setPlaying(true);
+              setSeeking(false);
             }}
             styles={{
               track: {
