@@ -12,7 +12,16 @@ exports[`runs correctly 1`] = `
       }
     }
   >
-    <Nowplaying />
+    <ContextProvider
+      value={
+        Object {
+          "setVolume": [Function],
+          "volume": 1,
+        }
+      }
+    >
+      <Nowplaying />
+    </ContextProvider>
     <Main />
   </ContextProvider>
 </div>

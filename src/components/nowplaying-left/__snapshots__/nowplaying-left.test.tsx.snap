@@ -3,32 +3,5 @@
 exports[`runs correctly 1`] = `
 <div
   className="nowplaying-left-container"
->
-  <div
-    className="nowplaying-left-cover-art"
-  >
-    <img
-      alt=""
-      src="undefined/undefined"
-      style={
-        Object {
-          "width": "100%",
-        }
-      }
-    />
-  </div>
-  <div
-    className="nowplaying-left-info"
-  >
-    <span
-      className="nowplaying-left-song-name"
-    />
-    <span
-      className="nowplaying-left-artist-name"
-    />
-    <SvgPlaylistHeart
-      className="nowplaying-left-like-button"
-    />
-  </div>
-</div>
+/>
 `;
