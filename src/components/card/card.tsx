@@ -28,16 +28,15 @@ const Card: React.FC<Props> = ({ song }) => {
           {song.artist}
         </div>
       </div>
-      <div
+      <button
         className="card-fab"
-        role="button"
-        tabIndex={0}
+        tabIndex={0} // TODO
         aria-hidden="true"
         title="Play"
         onClick={() => setCurrentSong?.(song)}
       >
         <CardPlay className="card-fab-icon" />
-      </div>
+      </button>
     </div>
   );
 };
