@@ -1,0 +1,56 @@
+$color-active: #fff;
+$color-inactive: #fff;
+.container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 334px / 2 + 0.5px);
+  width: 334px;
+}
+
+.logo {
+  position: absolute;
+  top: 67px;
+  left: calc(50% - 164px / 2 - 0.5px);
+  width: 164px;
+  height: 50px;
+  color: $color-active;
+}
+
+.email-input {
+  position: absolute;
+  top: 149px;
+  left: 0;
+  width: 324px;
+  height: 12px;
+  padding-top: 10px;
+  padding-right: 5px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  background: #343434;
+  color: $color-inactive;
+  font-family: 'Segoe UI';
+  font-weight: 600;
+  &:focus {
+    background: #404040;
+  }
+}
+
+.passw-input {
+  position: absolute;
+  top: 205px;
+  left: 0;
+  width: 324px;
+  height: 12px;
+  padding-top: 10px;
+  padding-right: 5px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  background: #343434;
+  color: $color-inactive;
+  font-family: 'Segoe UI';
+  font-weight: 600;
+  &:focus {
+    background: #404040;
+  }
+}
