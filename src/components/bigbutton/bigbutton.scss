@@ -1,17 +1,14 @@
 $color-active: #fff;
+$color-inactive: #b3b3b3;
+$color-black: #000;
 
 .bigbutton {
   position: absolute;
-  top: 261px;
-  left: 124px;
   display: block;
-  width: 210px;
   min-width: 160px;
   padding: 16px 14px 18px;
   border: 1px solid transparent;
   margin-bottom: 0;
-  background-color: #1db954;
-  background-image: none;
   border-radius: 500px;
   border-width: 0;
   color: $color-active;
@@ -27,4 +24,19 @@ $color-active: #fff;
   transition-duration: 0.3s;
   transition-property: background-color, border-color, color, box-shadow, filter;
   white-space: normal;
+}
+
+.bigbutton-fill {
+  background-color: #1db954;
+  background-image: none;
+}
+
+.bigbutton-outline {
+  background-color: transparent;
+  box-shadow: inset 0 0 0 2px $color-inactive;
+  color: $color-inactive;
+  &:hover {
+    background-color: $color-inactive;
+    color: $color-black;
+  }
 }

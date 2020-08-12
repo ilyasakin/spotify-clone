@@ -50,9 +50,11 @@ const Login = () => {
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <BigButton text="Log In" />
+          <BigButton text="Log In" className="login-button" />
         </form>
         <LoginDivider />
+        <h4 className="dont-have-acc">Don&apos;t have an account?</h4>
+        <BigButton text="Sign up for Spotify" className="signup-button" variation="outline" />
       </div>
     </div>
   );

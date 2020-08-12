@@ -5,6 +5,7 @@ $color-inactive: #fff;
   top: 0;
   bottom: 0;
   left: calc(50% - 334px / 2 + 0.5px);
+  display: flex;
   width: 334px;
 }
 
@@ -53,4 +54,31 @@ $color-inactive: #fff;
   &:focus {
     background: #404040;
   }
+}
+
+.login-button {
+  position: absolute;
+  top: 261px;
+  left: 124px;
+  width: 210px;
+  height: 48px;
+}
+
+.signup-button {
+  position: absolute;
+  top: 407px;
+  left: 0;
+  width: 334px;
+  height: 48px;
+}
+
+.dont-have-acc {
+  position: absolute;
+  top: 362px;
+  width: 100%;
+  height: 21px;
+  color: $color-active;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
 }
