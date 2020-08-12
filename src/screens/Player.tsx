@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import '../styles/App.scss';
-import Navbar from '../components/navbar/navbar';
-import Nowplaying from '../components/nowplaying/nowplaying';
-import Topbar from '../components/topbar/topbar';
-import Main from '../components/main/main';
+import Navbar from '../components/Navbar/Navbar';
+import Nowplaying from '../components/Nowplaying/Nowplaying';
+import Topbar from '../components/Topbar/Topbar';
+import Main from '../components/Main/Main';
 import CurrentSong from '../context/CurrentSong';
 import Volume from '../context/Volume';
 

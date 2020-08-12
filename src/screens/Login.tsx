@@ -4,8 +4,8 @@ import '../styles/App.scss';
 import '../styles/Login.scss';
 import Logo from '../components/icons/Logo';
 import User from '../context/User';
-import BigButton from '../components/bigbutton/bigbutton';
-import LoginDivider from '../components/login-divider/login-divider';
+import BigButton from '../components/BigButton/BigButton';
+import LoginDivider from '../components/LoginDivider/LoginDivider';
 
 interface User {
   email: string;
