@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios, { AxiosResponse, AxiosError } from 'axios';
 import '../styles/App.scss';
 import '../styles/Login.scss';
 import Logo from '../components/icons/Logo';
+import User from '../context/User';
 
 interface User {
   email: string;
@@ -13,7 +14,7 @@ const Login = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState('');
-
+  const { user, setUser } = useContext(User);
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     axios
@@ -22,7 +23,9 @@ const Login = () => {
         password,
       })
       .then((res: AxiosResponse) => {
-        // setReturnedData(res);
+        // eslint-disable-next-line no-unused-expressions
+        setUser?.(res.data);
+        console.log(res.data);
       })
       .catch((res: AxiosError) => {
         setError(res?.response?.data.error);
@@ -46,8 +49,21 @@ const Login = () => {
       <p>{error}</p> */}
       <div className="container">
         <Logo className="logo" />
-        <input className="email-input" placeholder="Email" type="email" />
-        <input className="passw-input" placeholder="Password" type="password" />
+        <form onSubmit={handleSubmit}>
+          <input
+            className="email-input"
+            placeholder="Email"
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            className="passw-input"
+            placeholder="Password"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button>Sign In</button>
+        </form>
       </div>
     </div>
   );
