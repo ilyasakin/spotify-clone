@@ -7,6 +7,7 @@ import User from '../../context/User';
 const Main: React.FC = () => {
   const [data, setData] = useState([]);
   const { user } = useContext(User);
+
   useEffect(() => {
     const fetchData = async () => {
       const resp = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/music`, {
@@ -16,7 +17,7 @@ const Main: React.FC = () => {
     };
 
     fetchData();
-  }, []);
+  }, [user]);
 
   // eslint-disable-next-line no-console
   console.log(data);

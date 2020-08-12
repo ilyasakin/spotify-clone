@@ -1,0 +1,30 @@
+$color-active: #fff;
+
+.bigbutton {
+  position: absolute;
+  top: 261px;
+  left: 124px;
+  display: block;
+  width: 210px;
+  min-width: 160px;
+  padding: 16px 14px 18px;
+  border: 1px solid transparent;
+  margin-bottom: 0;
+  background-color: #1db954;
+  background-image: none;
+  border-radius: 500px;
+  border-width: 0;
+  color: $color-active;
+  cursor: pointer;
+  font-family: 'Segoe UI';
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transition-duration: 0.3s;
+  transition-property: background-color, border-color, color, box-shadow, filter;
+  white-space: normal;
+}
