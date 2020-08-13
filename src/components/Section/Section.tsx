@@ -16,7 +16,7 @@ interface Songs {
 
 const Section: React.FC<Props> = ({ title, data }) => {
   return (
-    <div className="section">
+    <div className="section" style={{ display: data.length < 1 ? 'none' : 'initial' }}>
       <div className="section-titlebar">
         <div className="section-title">
           <span className="section-title-text">{title}</span>
