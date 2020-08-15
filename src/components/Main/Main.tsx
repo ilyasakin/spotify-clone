@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import './Main.scss';
 import axios from 'axios';
+import { ImpulseSpinner } from 'react-spinners-kit';
 import Section from '../Section/Section';
 import User from '../../context/User';
 
@@ -24,7 +25,13 @@ const Main: React.FC = () => {
   return (
     <div className="main">
       <div className="main-padding">
-        <Section title="Songs" data={data} />
+        {data.length < 1 ? (
+          <div className="loading-indicator">
+            <ImpulseSpinner frontColor="#1db954" />
+          </div>
+        ) : (
+          <Section title="Songs" data={data} />
+        )}
       </div>
     </div>
   );
