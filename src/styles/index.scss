@@ -4,8 +4,21 @@ body {
     'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scrollbar-color: hsla(0, 0%, 100%, 0.3) transparent;
+  scrollbar-width: auto;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: hsla(0, 0%, 100%, 0.3);
+  transition: background-color 500ms linear;
+  &:hover {
+    background-color: hsla(0, 0%, 100%, 0.4);
+  }
 }
