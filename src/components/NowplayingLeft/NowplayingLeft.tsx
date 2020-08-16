@@ -1,10 +1,29 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import './NowplayingLeft.scss';
-import { PlaylistHeart } from '../icons';
+import Axios from 'axios';
+import { PlaylistHeart, PlaylistHeartOutline } from '../icons';
 import CurrentSong from '../../context/CurrentSong';
+import User from '../../context/User';
 
 const NowplayingLeft: React.FC = () => {
+  const { user } = useContext(User);
   const { currentSong } = useContext(CurrentSong);
+  const [isLiked, setLiked] = useState(false);
+
+  useEffect(() => {
+    Axios.post(
+      `${process.env.REACT_APP_BASE_URL}/api/users/isSongLiked`,
+      { id: currentSong?.id },
+      {
+        headers: { Authorization: `Bearer ${user?.token}` },
+      },
+    )
+      .then((res) => setLiked(res.data))
+      .catch(() => console.log('err'));
+  }, [currentSong, user]);
+
+  console.log(isLiked);
+  console.log(currentSong?.id);
   return (
     <div className="nowplaying-left-container">
       {currentSong && Object.keys(currentSong).length > 1 && (
@@ -22,7 +41,11 @@ const NowplayingLeft: React.FC = () => {
             </div>
             <div className="nowplaying-left-info-artist">{currentSong?.artist}</div>
           </div>
-          <PlaylistHeart className="nowplaying-left-like-button" />
+          {isLiked ? (
+            <PlaylistHeart className="nowplaying-left-like-button" />
+          ) : (
+            <PlaylistHeartOutline className="nowplaying-left-like-button" />
+          )}
         </>
       )}
     </div>

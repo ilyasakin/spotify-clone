@@ -63,4 +63,6 @@ $color-white-inactive: #b3b3b3;
 
 .nowplaying-left-like-button {
   align-self: center;
+  color: $color-white-active;
+  cursor: pointer;
 }
