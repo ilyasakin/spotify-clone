@@ -1,18 +1,16 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Main.scss';
 import axios from 'axios';
 import { ImpulseSpinner } from 'react-spinners-kit';
 import Section from '../Section/Section';
-import User from '../../context/User';
 
 const Main: React.FC = () => {
   const [data, setData] = useState([]);
-  const { user } = useContext(User);
 
   useEffect(() => {
     const fetchData = async () => {
       const resp = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/music`, {
-        headers: { Authorization: `Bearer ${user?.token}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem('__TOKEN')}` },
       });
       setData(resp.data);
     };

@@ -28,17 +28,21 @@ const NowplayingCenter: React.FC = () => {
   const [isSeeking, setSeeking] = useState(false);
   const [dummyCurTime, setDummyCurTime] = useState(10);
   const player = useRef<ReactHowler | undefined>();
+
   useEffect(() => {
     const interval = setInterval(() => {
       try {
-        if (typeof player.current?.seek() === 'number') setCurTime(player.current?.seek());
-      } catch {
+        const time = player.current?.seek();
+        if (typeof time === 'number') setCurTime(time);
+      } catch (err) {
         setCurTime(0);
+        // eslint-disable-next-line no-console
+        console.log(err);
       }
     }, 1000);
 
     return () => clearInterval(interval);
-  });
+  }, [player]);
 
   const handleChange = ({ x }: { x: number }): void => {
     if (player.current && duration) {
