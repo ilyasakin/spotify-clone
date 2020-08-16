@@ -14,27 +14,48 @@ interface User {
 
 const Login = () => {
   const [signUp, setSignUp] = useState(false);
-  const [, setUsername] = useState('');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [, setError] = useState('');
   const { setUser } = useContext(User);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    axios
-      .post(`${process.env.REACT_APP_BASE_URL}/api/users/signin`, {
-        email,
-        password,
-      })
-      .then((res: AxiosResponse) => {
-        // eslint-disable-next-line no-unused-expressions
-        setUser?.(res.data);
-      })
-      .catch((res: AxiosError) => {
-        setError(res?.response?.data.error);
-      });
+    switch (signUp) {
+      case false:
+        axios
+          .post(`${process.env.REACT_APP_BASE_URL}/api/users/signin`, {
+            email,
+            password,
+          })
+          .then((res: AxiosResponse) => {
+            // eslint-disable-next-line no-unused-expressions
+            setUser?.(res.data);
+          })
+          .catch((res: AxiosError) => {
+            setError(res?.response?.data.error);
+          });
+        break;
+      case true:
+        axios
+          .post(`${process.env.REACT_APP_BASE_URL}/api/users/signup`, {
+            name: username,
+            email,
+            password,
+          })
+          .then((res: AxiosResponse) => {
+            // eslint-disable-next-line no-unused-expressions
+            setUser?.(res.data);
+          })
+          .catch((res: AxiosError) => {
+            setError(res?.response?.data.error);
+          });
+        break;
+      default:
+        break;
+    }
   };
-
   return (
     <div style={{ backgroundColor: '#121212', height: '100vh' }}>
       <div className="container">
