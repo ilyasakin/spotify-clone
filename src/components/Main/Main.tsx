@@ -20,8 +20,6 @@ const Main: React.FC = () => {
     fetchData();
   }, []);
 
-  // eslint-disable-next-line no-console
-  console.log(data);
   return (
     <div className="main">
       <div className="main-padding">

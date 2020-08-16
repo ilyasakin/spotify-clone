@@ -20,7 +20,7 @@ const NowplayingLeft: React.FC = () => {
     )
       .then((res) => setLiked(res.data))
       // eslint-disable-next-line no-console
-      .catch((res) => console.log(res.data.error));
+      .catch((res) => console.log(res?.response?.data.error));
   }, [currentSong, user]);
 
   return (
@@ -41,9 +41,31 @@ const NowplayingLeft: React.FC = () => {
             <div className="nowplaying-left-info-artist">{currentSong?.artist}</div>
           </div>
           {isLiked ? (
-            <PlaylistHeart className="nowplaying-left-like-button" />
+            <PlaylistHeart
+              className="nowplaying-left-like-button"
+              onClick={() => {
+                Axios.post(
+                  `${process.env.REACT_APP_BASE_URL}/api/users/unlikeSong`,
+                  { id: currentSong?.id },
+                  {
+                    headers: { Authorization: `Bearer ${user?.token}` },
+                  },
+                ).then(() => setLiked(false));
+              }}
+            />
           ) : (
-            <PlaylistHeartOutline className="nowplaying-left-like-button" />
+            <PlaylistHeartOutline
+              className="nowplaying-left-like-button"
+              onClick={() => {
+                Axios.post(
+                  `${process.env.REACT_APP_BASE_URL}/api/users/likeSong`,
+                  { id: currentSong?.id },
+                  {
+                    headers: { Authorization: `Bearer ${user?.token}` },
+                  },
+                ).then(() => setLiked(true));
+              }}
+            />
           )}
         </>
       )}
