@@ -30,6 +30,7 @@ const Login = () => {
             password,
           })
           .then((res: AxiosResponse) => {
+            localStorage.setItem('__TOKEN', res.data.token);
             // eslint-disable-next-line no-unused-expressions
             setUser?.(res.data);
           })

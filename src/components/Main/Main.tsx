@@ -18,7 +18,7 @@ const Main: React.FC = () => {
     };
 
     fetchData();
-  }, [user]);
+  }, []);
 
   // eslint-disable-next-line no-console
   console.log(data);
