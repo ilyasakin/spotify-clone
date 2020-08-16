@@ -50,6 +50,10 @@ $color-navbar-black: #040404;
   height: 13.33px;
 }
 
+.white-color {
+  color: $color-white-active;
+}
+
 .playlist-menu-icon-gradient {
   background: linear-gradient(135deg, #450af5, #c4efd9);
 }
