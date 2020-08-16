@@ -13,6 +13,7 @@ interface User {
 }
 
 const Login = () => {
+  const [signUp, setSignUp] = useState(false);
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [, setError] = useState('');
@@ -36,25 +37,35 @@ const Login = () => {
   return (
     <div style={{ backgroundColor: '#121212', height: '100vh' }}>
       <div className="container">
-        <Logo className="logo" />
-        <form onSubmit={handleSubmit}>
-          <input
-            className="email-input"
-            placeholder="Email"
-            type="email"
-            onChange={(e) => setEmail(e.target.value)}
+        <div className="login-inner-container">
+          <Logo className="logo" />
+          <form
+            onSubmit={handleSubmit}
+            style={{ display: 'inherit', gap: 'inherit', flexDirection: 'inherit' }}
+          >
+            <input
+              className="spot-input"
+              placeholder="Email"
+              type="email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              className="spot-input"
+              placeholder="Password"
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <BigButton text="Log In" className="login-button" type="submit" />
+          </form>
+          <LoginDivider />
+          <h4 className="dont-have-acc">Don&apos;t have an account?</h4>
+          <BigButton
+            text="Sign up for Spotify"
+            className="signup-button"
+            variation="outline"
+            onClick={() => setSignUp(!signUp)}
           />
-          <input
-            className="passw-input"
-            placeholder="Password"
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <BigButton text="Log In" className="login-button" />
-        </form>
-        <LoginDivider />
-        <h4 className="dont-have-acc">Don&apos;t have an account?</h4>
-        <BigButton text="Sign up for Spotify" className="signup-button" variation="outline" />
+        </div>
       </div>
     </div>
   );
