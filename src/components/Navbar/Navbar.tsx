@@ -4,7 +4,6 @@ import LogoContainer from '../LogoContainer/LogoContainer';
 import NavigationMenu from '../NavigationMenu/NavigationMenu';
 import PlaylistMenu from '../PlaylistMenu/PlaylistMenu';
 import PlaylistList from '../Playlist/Playlist';
-import DownloadButton from '../DownloadButton/DownloadButton';
 
 const Navbar: React.FC = () => {
   return (
@@ -13,7 +12,6 @@ const Navbar: React.FC = () => {
       <NavigationMenu />
       <PlaylistMenu />
       <PlaylistList />
-      <DownloadButton />
     </div>
   );
 };
