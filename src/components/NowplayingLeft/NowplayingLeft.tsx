@@ -19,11 +19,10 @@ const NowplayingLeft: React.FC = () => {
       },
     )
       .then((res) => setLiked(res.data))
-      .catch(() => console.log('err'));
+      // eslint-disable-next-line no-console
+      .catch((res) => console.log(res.data.error));
   }, [currentSong, user]);
 
-  console.log(isLiked);
-  console.log(currentSong?.id);
   return (
     <div className="nowplaying-left-container">
       {currentSong && Object.keys(currentSong).length > 1 && (
