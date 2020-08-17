@@ -18,7 +18,7 @@ function App() {
         setUser({ ...res.data, token });
       });
     }
-  });
+  }, []);
 
   return (
     <div>

@@ -21,7 +21,7 @@ const NowplayingLeft: React.FC = () => {
       .then((res) => setLiked(res.data))
       // eslint-disable-next-line no-console
       .catch((res) => console.log(res?.response?.data.error));
-  }, [currentSong, user]);
+  }, [currentSong]);
 
   return (
     <div className="nowplaying-left-container">

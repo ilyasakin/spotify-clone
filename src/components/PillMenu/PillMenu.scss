@@ -16,6 +16,9 @@ $color-active: #fff;
   font-size: 14px;
   letter-spacing: 0.015em;
   line-height: 20px;
+  &:hover {
+    background-color: #282828;
+  }
 }
 
 .pill-menu-img {
@@ -36,4 +39,14 @@ $color-active: #fff;
   pointer-events: none;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.pill-menu-drop-down-icon {
+  width: 10px;
+  height: 5px;
+  margin-right: 8px;
+}
+
+.pill-menu-list {
+  margin-top: 40px;
 }
