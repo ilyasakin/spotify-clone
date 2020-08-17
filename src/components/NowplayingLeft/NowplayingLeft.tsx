@@ -11,11 +11,12 @@ const NowplayingLeft: React.FC = () => {
   const [isLiked, setLiked] = useState(false);
 
   useEffect(() => {
+    const token = localStorage.getItem('__TOKEN');
     Axios.post(
       `${process.env.REACT_APP_BASE_URL}/api/users/isSongLiked`,
       { id: currentSong?.id },
       {
-        headers: { Authorization: `Bearer ${user?.token}` },
+        headers: { Authorization: `Bearer ${token}` },
       },
     )
       .then((res) => setLiked(res.data))
