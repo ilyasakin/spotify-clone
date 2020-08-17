@@ -34,7 +34,7 @@ $color-inactive: #fff;
 .login-button {
   width: 210px;
   height: 48px;
-  align-self: end;
+  margin-left: auto;
 }
 
 .signup-button {
@@ -57,8 +57,8 @@ $color-inactive: #fff;
   display: flex;
   width: 334px;
   height: calc(100% - 67px);
-  gap: 24px;
   flex-direction: column;
+  row-gap: 24px;
 }
 
 .have-an-acc {
