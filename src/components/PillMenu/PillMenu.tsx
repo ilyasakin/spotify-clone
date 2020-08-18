@@ -19,6 +19,7 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
   const darkTheme = createMuiTheme({
     palette: {
       type: 'dark',
+      background: { paper: '#282828' },
     },
   });
 
