@@ -28,6 +28,7 @@ const NowplayingCenter: React.FC = () => {
   const [isSeeking, setSeeking] = useState(false);
   const [dummyCurTime, setDummyCurTime] = useState(10);
   const player = useRef<ReactHowler | undefined>();
+  const [onSlider, setOnSlider] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -101,44 +102,49 @@ const NowplayingCenter: React.FC = () => {
           <div className="nowplaying-center-progress-current-container">
             <span className="nowplaying-center-progress-text">{formatTime(curTime)}</span>
           </div>
-          <Slider
-            axis="x"
-            xstep={1}
-            xmax={100}
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            x={!isSeeking ? (curTime * 100) / duration! : dummyCurTime}
-            onChange={handleChange}
-            onDragStart={() => {
-              setPlaying(false);
-              setSeeking(true);
-            }}
-            onDragEnd={() => {
-              setPlaying(true);
-              setSeeking(false);
-            }}
-            styles={{
-              track: {
-                backgroundColor: '#535353',
-                right: '7.1%',
-                left: '7.1%',
-                width: 'calc(100% - 14.2%)',
-                height: '4px',
-                position: 'absolute',
-                alignSelf: 'center',
-                justifySelf: 'center',
-              },
-              thumb: {
-                height: 14,
-                width: 14,
-              },
-              active: {
-                backgroundColor: '#b3b3b3',
-                '&:hover': {
-                  backgroundColor: '#1db954',
+          <div
+            style={{ alignSelf: 'center', justifySelf: 'center', height: '4px', width: '100%' }}
+            onMouseEnter={() => setOnSlider(true)}
+            onMouseLeave={() => setOnSlider(false)}
+          >
+            <Slider
+              axis="x"
+              xstep={1}
+              xmax={100}
+              // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+              x={!isSeeking ? (curTime * 100) / duration! : dummyCurTime}
+              onChange={handleChange}
+              onDragStart={() => {
+                setPlaying(false);
+                setSeeking(true);
+              }}
+              onDragEnd={() => {
+                setPlaying(true);
+                setSeeking(false);
+              }}
+              styles={{
+                track: {
+                  backgroundColor: '#535353',
+                  right: '7.1%',
+                  left: '7.1%',
+                  width: 'calc(100% - 14.2%)',
+                  height: '4px',
+                  position: 'absolute',
                 },
-              },
-            }}
-          />
+                thumb: {
+                  height: 12,
+                  width: 12,
+                  visibility: onSlider ? 'visible' : 'hidden',
+                },
+                active: {
+                  backgroundColor: '#b3b3b3',
+                  '&:hover': {
+                    backgroundColor: '#1db954',
+                  },
+                },
+              }}
+            />
+          </div>
           <div className="nowplaying-center-progress-total-container">
             <span className="nowplaying-center-progress-text">{formatTime(duration)}</span>
           </div>
