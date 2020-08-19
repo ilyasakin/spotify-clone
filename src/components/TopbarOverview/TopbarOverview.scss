@@ -1,10 +1,10 @@
 .topbar-overview-container {
+  display: flex;
   max-width: 970px;
   height: 80px;
-  margin: 0 auto;
   padding: 0 15px;
+  margin: 0 auto;
   background: #000;
-  display: flex;
 }
 
 .topbar-overview-logo {
