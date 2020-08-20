@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { hot } from 'react-hot-loader/root';
 import './styles/App.scss';
 import Axios from 'axios';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Player from './screens/Player';
 import Login from './screens/Login';
 import UserContext from './context/User';
