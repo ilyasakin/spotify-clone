@@ -4,7 +4,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { ArrowDropDown } from '../icons';
 import User from '../../context/User';
 
@@ -32,6 +32,7 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
     setAnchorEl(null);
   };
 
+  const history = useHistory();
   return (
     <>
       <button
@@ -66,6 +67,7 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
               });
               localStorage.removeItem('__TOKEN');
               setUser?.({});
+              history.push('/');
             }}
           >
             <span className="pill-menu-list-text">Logout</span>

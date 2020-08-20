@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import axios, { AxiosResponse, AxiosError } from 'axios';
 import '../styles/App.scss';
 import '../styles/Login.scss';
+import { useHistory } from 'react-router-dom';
 import Logo from '../components/icons/Logo';
 import User from '../context/User';
 import BigButton from '../components/BigButton/BigButton';
@@ -19,6 +20,7 @@ const Login = () => {
   const [password, setPassword] = useState<string>('');
   const [, setError] = useState('');
   const { setUser } = useContext(User);
+  const history = useHistory();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,6 +35,7 @@ const Login = () => {
             localStorage.setItem('__TOKEN', res.data.token);
             // eslint-disable-next-line no-unused-expressions
             setUser?.(res.data);
+            history.push('/player');
           })
           .catch((res: AxiosError) => {
             setError(res?.response?.data.error);
@@ -48,6 +51,7 @@ const Login = () => {
           .then((res: AxiosResponse) => {
             // eslint-disable-next-line no-unused-expressions
             setUser?.(res.data);
+            history.push('/player');
           })
           .catch((res: AxiosError) => {
             setError(res?.response?.data.error);
@@ -117,7 +121,7 @@ const Login = () => {
                 <BigButton text="Sign up" />
               </form>
               <h3 className="have-an-acc">
-                Have an account?{' '}
+                Have an account?
                 <button className="spot-link" onClick={() => setSignUp(false)}>
                   Sign In
                 </button>
