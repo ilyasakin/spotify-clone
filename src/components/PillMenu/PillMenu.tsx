@@ -4,6 +4,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
 import { ArrowDropDown } from '../icons';
 import User from '../../context/User';
 
@@ -52,7 +53,7 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
           onClose={handleClose}
           className="pill-menu-list"
         >
-          <MenuItem onClick={handleClose}>
+          <MenuItem component={Link} to="/overview">
             <span className="pill-menu-list-text">Account</span>
           </MenuItem>
           <MenuItem onClick={handleClose} divider>
