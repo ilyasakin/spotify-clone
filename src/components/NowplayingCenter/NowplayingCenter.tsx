@@ -137,10 +137,7 @@ const NowplayingCenter: React.FC = () => {
                   visibility: onSlider ? 'visible' : 'hidden',
                 },
                 active: {
-                  backgroundColor: '#b3b3b3',
-                  '&:hover': {
-                    backgroundColor: '#1db954',
-                  },
+                  backgroundColor: onSlider ? '#1db954' : '#b3b3b3',
                 },
               }}
             />
