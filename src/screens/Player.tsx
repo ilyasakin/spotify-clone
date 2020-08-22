@@ -9,7 +9,15 @@ import Volume from '../context/Volume';
 
 const Player = () => {
   const [currentSong, setCurrentSong] = useState({});
-  const [volume, setVolume] = useState(1);
+
+  const initialVolume = () => {
+    const volume = localStorage.getItem('VOLUME');
+    if (volume !== null) {
+      return parseFloat(volume);
+    }
+    return 1;
+  };
+  const [volume, setVolume] = useState(initialVolume());
 
   return (
     <div>

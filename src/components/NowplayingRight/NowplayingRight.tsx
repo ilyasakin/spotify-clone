@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './NowplayingRight.scss';
 import Slider from 'react-input-slider';
 import { Playlist, Devices, Volume } from '../icons';
@@ -6,6 +6,11 @@ import VolumeContext from '../../context/Volume';
 
 const NowplayingRight: React.FC = () => {
   const { volume, setVolume } = useContext(VolumeContext);
+
+  useEffect(() => {
+    if (volume !== undefined) localStorage.setItem('VOLUME', volume?.toString());
+  }, [volume]);
+
   return (
     <div className="nowplaying-right-container">
       <div className="nowplaying-right-playlist">
