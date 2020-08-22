@@ -32,18 +32,20 @@ const NowplayingCenter: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      try {
-        const time = player.current?.seek();
-        if (typeof time === 'number') setCurTime(time);
-      } catch (err) {
-        setCurTime(0);
-        // eslint-disable-next-line no-console
-        console.log(err);
+      if (currentSong && Object.keys(currentSong).length > 1) {
+        try {
+          const time = player.current?.seek();
+          if (typeof time === 'number') setCurTime(time);
+        } catch (err) {
+          setCurTime(0);
+          // eslint-disable-next-line no-console
+          console.log(err);
+        }
       }
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [player]);
+  }, [player, currentSong]);
 
   const handleChange = ({ x }: { x: number }): void => {
     if (player.current && duration) {
