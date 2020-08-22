@@ -1,0 +1,40 @@
+$color-active: #fff;
+
+.overview-menu-item-container {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  padding: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.025);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.005);
+  margin: 0;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  border-top-color: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  &:hover .overview-menu-item-indicator {
+    opacity: 1;
+  }
+}
+
+.overview-menu-item-text {
+  position: relative;
+  padding: 15px 15px 15px 30px;
+  color: $color-active;
+  font-family: 'Segoe UI';
+  font-weight: 600;
+}
+
+.overview-menu-item-indicator {
+  position: absolute;
+  left: 0;
+  width: 5px;
+  height: 54px;
+  background-color: #1ed760;
+  opacity: 0;
+}
+
+.overview-menu-item-indicate {
+  opacity: 1;
+}
