@@ -29,7 +29,7 @@ function App() {
       <Router basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route exact path="/">
-            <Login />
+            {toPlayer ? <Redirect to="/player" /> : <Login />}
           </Route>
           <Route path="/overview">
             <Overview />
