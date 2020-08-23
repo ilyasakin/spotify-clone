@@ -8,6 +8,7 @@ import CurrentSong from '../context/CurrentSong';
 import Volume from '../context/Volume';
 
 const Player = () => {
+  document.title = 'Spotify';
   const [currentSong, setCurrentSong] = useState({});
 
   const initialVolume = () => {

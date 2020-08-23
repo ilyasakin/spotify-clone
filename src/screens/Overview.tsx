@@ -13,6 +13,7 @@ import OverviewTableItem from '../components/OverviewTableItem/OverviewTableItem
 import BigButton from '../components/BigButton/BigButton';
 
 const Overview = () => {
+  document.title = 'Account Overview - Spotify';
   const { user, setUser } = useContext(User);
   const history = useHistory();
 

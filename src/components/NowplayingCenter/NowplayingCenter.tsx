@@ -47,6 +47,14 @@ const NowplayingCenter: React.FC = () => {
     return () => clearInterval(interval);
   }, [player, currentSong]);
 
+  useEffect(() => {
+    if (isPlaying && currentSong && Object.keys(currentSong).length > 1) {
+      document.title = `${currentSong.name} · ${currentSong.artist}`;
+    } else {
+      document.title = 'Spotify';
+    }
+  }, [isPlaying, currentSong]);
+
   const handleChange = ({ x }: { x: number }): void => {
     if (player.current && duration) {
       if (typeof x === 'number') {

@@ -14,6 +14,7 @@ interface User {
 }
 
 const Login = () => {
+  document.title = 'Login - Spotify';
   const [signUp, setSignUp] = useState(false);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState<string>('');
