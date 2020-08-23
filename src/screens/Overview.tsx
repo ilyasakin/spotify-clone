@@ -11,7 +11,6 @@ import User from '../context/User';
 import OverviewTable from '../components/OverviewTable/OverviewTable';
 import OverviewTableItem from '../components/OverviewTableItem/OverviewTableItem';
 import BigButton from '../components/BigButton/BigButton';
-import Auth from '../components/Auth/Auth';
 
 const Overview = () => {
   document.title = 'Account Overview - Spotify';
@@ -19,62 +18,60 @@ const Overview = () => {
   const history = useHistory();
 
   return (
-    <Auth>
-      <div className="overview-background" style={{ height: '100%' }}>
-        <TopbarOverview />
-        <div className="overview-wrapper">
-          <HeroOverview
-            HeroTitle="Hello!"
-            HeroBody="Want to edit your profile? Find an old playlist? Put off work for a while? You can do it all here."
-          />
-          <div className="overview-page-wrapper">
-            <div className="overview-sidebar">
-              <img
-                src="https://via.placeholder.com/64"
-                alt=""
-                style={{
-                  margin: '30px auto',
-                  display: 'block',
-                  width: '64px',
-                  height: '64px',
-                  borderRadius: '50%',
-                }}
-              />
-              <OverviewMenuItem text="Account overview" indicator />
-              <OverviewMenuItem text="Edit profile" />
-            </div>
-            <OverviewPage>
-              <h1 className="overview-page-title">Account overview</h1>
-              <h3 className="overview-page-subtitle">Profile</h3>
-              <OverviewTable>
-                <OverviewTableItem label="Username" info={user?.name} />
-                <OverviewTableItem label="Email" info={user?.email} />
-              </OverviewTable>
-              <BigButton text="Edit Profile" variation="pop" className="overview-big-button" />
-              <h3 className="overview-page-subtitle">Signout everywhere</h3>
-              <p className="overview-paragraph">
-                Sign out wherever you have Spotify open, including the web, mobile, desktop or any
-                other devices.
-              </p>
-              <BigButton
-                text="Sign out everywhere"
-                variation="pop"
-                className="overview-big-button"
-                onClick={() => {
-                  Axios.post(`${process.env.REACT_APP_BASE_URL}/api/users/logoutall`, null, {
-                    headers: { Authorization: `Bearer ${localStorage.getItem('__TOKEN')}` },
-                  }).then(() => {
-                    localStorage.removeItem('__TOKEN');
-                    setUser?.({});
-                    history.push('/');
-                  });
-                }}
-              />
-            </OverviewPage>
+    <div className="overview-background" style={{ height: '100%' }}>
+      <TopbarOverview />
+      <div className="overview-wrapper">
+        <HeroOverview
+          HeroTitle="Hello!"
+          HeroBody="Want to edit your profile? Find an old playlist? Put off work for a while? You can do it all here."
+        />
+        <div className="overview-page-wrapper">
+          <div className="overview-sidebar">
+            <img
+              src="https://via.placeholder.com/64"
+              alt=""
+              style={{
+                margin: '30px auto',
+                display: 'block',
+                width: '64px',
+                height: '64px',
+                borderRadius: '50%',
+              }}
+            />
+            <OverviewMenuItem text="Account overview" indicator />
+            <OverviewMenuItem text="Edit profile" />
           </div>
+          <OverviewPage>
+            <h1 className="overview-page-title">Account overview</h1>
+            <h3 className="overview-page-subtitle">Profile</h3>
+            <OverviewTable>
+              <OverviewTableItem label="Username" info={user?.name} />
+              <OverviewTableItem label="Email" info={user?.email} />
+            </OverviewTable>
+            <BigButton text="Edit Profile" variation="pop" className="overview-big-button" />
+            <h3 className="overview-page-subtitle">Signout everywhere</h3>
+            <p className="overview-paragraph">
+              Sign out wherever you have Spotify open, including the web, mobile, desktop or any
+              other devices.
+            </p>
+            <BigButton
+              text="Sign out everywhere"
+              variation="pop"
+              className="overview-big-button"
+              onClick={() => {
+                Axios.post(`${process.env.REACT_APP_BASE_URL}/api/users/logoutall`, null, {
+                  headers: { Authorization: `Bearer ${localStorage.getItem('__TOKEN')}` },
+                }).then(() => {
+                  localStorage.removeItem('__TOKEN');
+                  setUser?.({});
+                  history.push('/');
+                });
+              }}
+            />
+          </OverviewPage>
         </div>
       </div>
-    </Auth>
+    </div>
   );
 };
 

@@ -6,6 +6,7 @@ import Player from './screens/Player';
 import Login from './screens/Login';
 import UserContext from './context/User';
 import Overview from './screens/Overview';
+import Auth from './components/Auth/Auth';
 
 function App() {
   const [user, setUser] = useState<{ email?: string; name?: string; token?: string }>({});
@@ -20,12 +21,14 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/overview">
-            <Overview />
-          </Route>
-          <Route path="/player">
-            <Player />
-          </Route>
+          <Auth>
+            <Route path="/overview">
+              <Overview />
+            </Route>
+            <Route path="/player">
+              <Player />
+            </Route>
+          </Auth>
         </Switch>
       </Router>
     </UserContext.Provider>
