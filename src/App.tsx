@@ -12,7 +12,7 @@ function App() {
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <Switch>
           <Route exact path="/">
             <Redirect to="/login" />
