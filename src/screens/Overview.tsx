@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import '../styles/App.scss';
 import '../styles/Overview.scss';
+import { useHistory } from 'react-router-dom';
+import Axios from 'axios';
 import TopbarOverview from '../components/TopbarOverview/TopbarOverview';
 import HeroOverview from '../components/HeroOverview/HeroOverview';
 import OverviewMenuItem from '../components/OverviewMenuItem/OverviewMenuItem';
@@ -11,10 +13,11 @@ import OverviewTableItem from '../components/OverviewTableItem/OverviewTableItem
 import BigButton from '../components/BigButton/BigButton';
 
 const Overview = () => {
-  const { user } = useContext(User);
+  const { user, setUser } = useContext(User);
+  const history = useHistory();
 
   return (
-    <div className="overview-background" style={{ height: '100vh' }}>
+    <div className="overview-background" style={{ height: '100%' }}>
       <TopbarOverview />
       <div className="overview-wrapper">
         <HeroOverview
@@ -44,7 +47,26 @@ const Overview = () => {
               <OverviewTableItem label="Username" info={user?.name} />
               <OverviewTableItem label="Email" info={user?.email} />
             </OverviewTable>
-            <BigButton text="Edit Profile" variation="pop" className="overview-bigbutton" />
+            <BigButton text="Edit Profile" variation="pop" className="overview-big-button" />
+            <h3 className="overview-page-subtitle">Signout everywhere</h3>
+            <p className="overview-paragraph">
+              Sign out wherever you have Spotify open, including the web, mobile, desktop or any
+              other devices.
+            </p>
+            <BigButton
+              text="Sign out everywhere"
+              variation="pop"
+              className="overview-big-button"
+              onClick={() => {
+                Axios.post(`${process.env.REACT_APP_BASE_URL}/api/users/logoutall`, null, {
+                  headers: { Authorization: `Bearer ${localStorage.getItem('__TOKEN')}` },
+                }).then(() => {
+                  localStorage.removeItem('__TOKEN');
+                  setUser?.({});
+                  history.push('/');
+                });
+              }}
+            />
           </OverviewPage>
         </div>
       </div>
