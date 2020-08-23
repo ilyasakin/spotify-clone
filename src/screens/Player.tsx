@@ -6,6 +6,7 @@ import Topbar from '../components/Topbar/Topbar';
 import Main from '../components/Main/Main';
 import CurrentSong from '../context/CurrentSong';
 import Volume from '../context/Volume';
+import Auth from '../components/Auth/Auth';
 
 const Player = () => {
   document.title = 'Spotify';
@@ -21,7 +22,7 @@ const Player = () => {
   const [volume, setVolume] = useState(initialVolume());
 
   return (
-    <div>
+    <Auth>
       <Navbar />
       <Topbar />
       <CurrentSong.Provider value={{ currentSong, setCurrentSong }}>
@@ -30,7 +31,7 @@ const Player = () => {
         </Volume.Provider>
         <Main />
       </CurrentSong.Provider>
-    </div>
+    </Auth>
   );
 };
 

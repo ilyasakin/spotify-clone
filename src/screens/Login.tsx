@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import axios, { AxiosResponse, AxiosError } from 'axios';
 import '../styles/App.scss';
 import '../styles/Login.scss';
@@ -22,6 +22,11 @@ const Login = () => {
   const [, setError] = useState('');
   const { setUser } = useContext(User);
   const history = useHistory();
+
+  useEffect(() => {
+    const token = localStorage.getItem('__TOKEN');
+    if (token) history.push('/player');
+  }, [history]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -62,6 +67,7 @@ const Login = () => {
         break;
     }
   };
+
   return (
     <div style={{ backgroundColor: '#121212', height: '100vh' }}>
       <div className="container">
