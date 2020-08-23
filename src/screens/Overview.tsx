@@ -6,6 +6,9 @@ import HeroOverview from '../components/HeroOverview/HeroOverview';
 import OverviewMenuItem from '../components/OverviewMenuItem/OverviewMenuItem';
 import OverviewPage from '../components/OverviewPage/OverviewPage';
 import User from '../context/User';
+import OverviewTable from '../components/OverviewTable/OverviewTable';
+import OverviewTableItem from '../components/OverviewTableItem/OverviewTableItem';
+import BigButton from '../components/BigButton/BigButton';
 
 const Overview = () => {
   const { user } = useContext(User);
@@ -35,10 +38,13 @@ const Overview = () => {
             <OverviewMenuItem text="Edit profile" />
           </div>
           <OverviewPage>
-            <h1 style={{ padding: '0px 0px 0.67em' }}>Account Overview</h1>
-            <h3>Profile</h3>
-            <h5>Username: {user?.name}</h5>
-            <h5>Email: {user?.email}</h5>
+            <h1 className="overview-page-title">Account overview</h1>
+            <h3 className="overview-page-subtitle">Profile</h3>
+            <OverviewTable>
+              <OverviewTableItem label="Username" info={user?.name} />
+              <OverviewTableItem label="Email" info={user?.email} />
+            </OverviewTable>
+            <BigButton text="Edit Profile" variation="pop" className="overview-bigbutton" />
           </OverviewPage>
         </div>
       </div>

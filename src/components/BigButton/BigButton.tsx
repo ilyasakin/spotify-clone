@@ -5,15 +5,13 @@ import '../../styles/Login.scss';
 const BigButton: React.FC<{
   text: string;
   className?: string;
-  variation?: 'fill' | 'outline';
+  variation?: 'fill' | 'outline' | 'pop';
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset' | undefined;
 }> = ({ text, className, variation, onClick, type }) => {
   return (
     <button
-      className={`bigbutton ${className || ''} ${
-        variation === 'outline' ? 'bigbutton-outline' : 'bigbutton-fill'
-      }`}
+      className={`bigbutton bigbutton-${variation} ${className || ''}`}
       onClick={onClick}
       type={type}
     >

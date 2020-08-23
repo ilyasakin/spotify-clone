@@ -1,6 +1,7 @@
 $color-active: #fff;
 $color-inactive: #b3b3b3;
 $color-black: #000;
+$color-gray-alt: #757575;
 
 .bigbutton {
   display: block;
@@ -20,8 +21,6 @@ $color-black: #000;
   text-align: center;
   text-transform: uppercase;
   touch-action: manipulation;
-  transition-duration: 0.3s;
-  transition-property: background-color, border-color, color, box-shadow, filter;
   white-space: normal;
 }
 
@@ -34,8 +33,21 @@ $color-black: #000;
   background-color: transparent;
   box-shadow: inset 0 0 0 2px $color-inactive;
   color: $color-inactive;
+  transition-duration: 0.3s;
+  transition-property: background-color, border-color, color, box-shadow, filter;
   &:hover {
     background-color: $color-inactive;
     color: $color-black;
+  }
+}
+
+.bigbutton-pop {
+  border: 2px solid $color-gray-alt;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: $color-gray-alt;
+  &:hover {
+    border: 2px solid $color-black;
+    color: $color-black;
+    transform: scale(1.04);
   }
 }
