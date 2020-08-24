@@ -1,5 +1,6 @@
 $color-active: #fff;
 $color-inactive: #fff;
+
 .container {
   position: absolute;
   top: 0;
@@ -16,7 +17,7 @@ $color-inactive: #fff;
 }
 
 .spot-input {
-  width: 344px;
+  width: 334px;
   height: 32px;
   padding-top: 10px;
   padding-right: 5px;
@@ -79,4 +80,34 @@ $color-inactive: #fff;
   &:hover {
     color: rgb(30, 215, 96);
   }
+}
+
+.datepicker {
+  padding-right: 5px;
+  padding-left: 5px;
+  border: none;
+  background: #343434;
+  color: $color-inactive;
+  font-family: 'Segoe UI';
+  font-weight: 600;
+}
+
+.react-date-picker__wrapper {
+  // stylelint-disable
+  border: none !important;
+}
+
+.react-date-picker__inputGroup__input {
+  color: $color-active;
+}
+
+.react-date-picker__button {
+  filter: invert(100%);
+  &:hover {
+    filter: invert(50%);
+  }
+}
+
+.subtitle {
+  color: $color-active;
 }

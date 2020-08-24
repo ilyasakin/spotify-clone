@@ -3,6 +3,8 @@ import axios, { AxiosResponse, AxiosError } from 'axios';
 import '../styles/App.scss';
 import '../styles/Login.scss';
 import { useHistory } from 'react-router-dom';
+import CountryList from 'country-list';
+import DatePicker from 'react-date-picker';
 import Logo from '../components/icons/Logo';
 import User from '../context/User';
 import BigButton from '../components/BigButton/BigButton';
@@ -22,6 +24,8 @@ const Login = () => {
   const [, setError] = useState('');
   const { setUser } = useContext(User);
   const history = useHistory();
+  const [selectedCountry, setCountry] = useState('');
+  const [birthDate, setBirthDate] = useState<Date | Date[]>(new Date());
 
   useEffect(() => {
     const token = localStorage.getItem('__TOKEN');
@@ -53,6 +57,8 @@ const Login = () => {
             name: username,
             email,
             password,
+            birthDate,
+            country: selectedCountry,
           })
           .then((res: AxiosResponse) => {
             // eslint-disable-next-line no-unused-expressions
@@ -125,6 +131,25 @@ const Login = () => {
                   type="password"
                   onChange={(e) => setPassword(e.target.value)}
                 />
+                <h5 className="subtitle">Date of birth</h5>
+                <DatePicker
+                  value={birthDate}
+                  onChange={(e: Date | Date[]) => setBirthDate(e)}
+                  className="datepicker"
+                />
+                <h5 className="subtitle">Country</h5>
+                <select
+                  id="countries"
+                  className="spot-input"
+                  style={{ paddingTop: '5px', paddingBottom: '5px' }}
+                  onChange={(e) => setCountry(e.currentTarget.value)}
+                >
+                  {CountryList.getNames().map((country) => (
+                    <option key={country} value={country}>
+                      {country}
+                    </option>
+                  ))}
+                </select>
                 <BigButton text="Sign up" />
               </form>
               <h3 className="have-an-acc">
