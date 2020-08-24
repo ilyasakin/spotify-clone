@@ -1,7 +1,7 @@
 import { createContext, Dispatch, SetStateAction } from 'react';
 
 interface Props {
-  user: { email?: string; name?: string; token?: string };
+  user: { email?: string; name?: string; birthDate?: string; country?: string; token?: string };
   setUser: Dispatch<SetStateAction<{}>>;
 }
 

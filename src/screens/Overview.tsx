@@ -3,6 +3,7 @@ import '../styles/App.scss';
 import '../styles/Overview.scss';
 import { useHistory } from 'react-router-dom';
 import Axios from 'axios';
+import moment from 'moment';
 import TopbarOverview from '../components/TopbarOverview/TopbarOverview';
 import HeroOverview from '../components/HeroOverview/HeroOverview';
 import OverviewMenuItem from '../components/OverviewMenuItem/OverviewMenuItem';
@@ -16,6 +17,14 @@ const Overview = () => {
   document.title = 'Account Overview - Spotify';
   const { user, setUser } = useContext(User);
   const history = useHistory();
+
+  const parseDate = (date: string | undefined): string => {
+    if (date) {
+      const d = moment(Date.parse(date));
+      return d.format('MMMM DD, YYYY');
+    }
+    return 'Not found';
+  };
 
   return (
     <div className="overview-background" style={{ height: '100%' }}>
@@ -47,6 +56,8 @@ const Overview = () => {
             <OverviewTable>
               <OverviewTableItem label="Username" info={user?.name} />
               <OverviewTableItem label="Email" info={user?.email} />
+              <OverviewTableItem label="Date of birth" info={parseDate(user?.birthDate)} />
+              <OverviewTableItem label="Country" info={user?.country} />
             </OverviewTable>
             <BigButton text="Edit Profile" variation="pop" className="overview-big-button" />
             <h3 className="overview-page-subtitle">Signout everywhere</h3>
