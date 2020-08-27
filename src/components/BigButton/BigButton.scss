@@ -4,8 +4,10 @@ $color-black: #000;
 $color-gray-alt: #757575;
 
 .bigbutton {
-  display: block;
+  display: flex;
   min-width: 160px;
+  align-items: center;
+  justify-content: center;
   padding: 16px 14px 18px;
   border: 1px solid transparent;
   margin-bottom: 0;

@@ -26,6 +26,7 @@ const Login = () => {
   const history = useHistory();
   const [selectedCountry, setCountry] = useState('');
   const [birthDate, setBirthDate] = useState<Date | Date[]>(new Date());
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('__TOKEN');
@@ -34,6 +35,7 @@ const Login = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     switch (signUp) {
       case false:
         axios
@@ -43,11 +45,13 @@ const Login = () => {
           })
           .then((res: AxiosResponse) => {
             localStorage.setItem('__TOKEN', res.data.token);
+            setLoading(false);
             // eslint-disable-next-line no-unused-expressions
             setUser?.(res.data);
             history.push('/player');
           })
           .catch((res: AxiosError) => {
+            setLoading(false);
             setError(res?.response?.data.error);
           });
         break;
@@ -61,11 +65,13 @@ const Login = () => {
             country: selectedCountry,
           })
           .then((res: AxiosResponse) => {
+            setLoading(false);
             // eslint-disable-next-line no-unused-expressions
             setUser?.(res.data);
             history.push('/player');
           })
           .catch((res: AxiosError) => {
+            setLoading(false);
             setError(res?.response?.data.error);
           });
         break;
@@ -97,7 +103,12 @@ const Login = () => {
                   type="password"
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <BigButton text="Log In" className="login-button" type="submit" />
+                <BigButton
+                  text="Log In"
+                  className="login-button"
+                  type="submit"
+                  loading={isLoading}
+                />
               </form>
               <LoginDivider />
               <h4 className="dont-have-acc">Don&apos;t have an account?</h4>
@@ -150,7 +161,7 @@ const Login = () => {
                     </option>
                   ))}
                 </select>
-                <BigButton text="Sign up" />
+                <BigButton text="Sign up" loading={isLoading} />
               </form>
               <h3 className="have-an-acc">
                 Have an account?
