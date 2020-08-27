@@ -5,6 +5,7 @@ import Slider from 'react-input-slider';
 import { ShuffleIcon, PreviousIcon, PlayIcon, NextIcon, RepeatIcon, PauseIcon } from '../icons';
 import CurrentSong from '../../context/CurrentSong';
 import VolumeContext from '../../context/Volume';
+import PlayingStatus from '../../context/PlayingStatus';
 
 const formatTime = (duration: number | undefined): string => {
   if (duration) {
@@ -22,7 +23,7 @@ const formatTime = (duration: number | undefined): string => {
 const NowplayingCenter: React.FC = () => {
   const { currentSong } = useContext(CurrentSong);
   const { volume } = useContext(VolumeContext);
-  const [isPlaying, setPlaying] = useState(false);
+  const { playing, setPlaying } = useContext(PlayingStatus);
   const [duration, setDuration] = useState<number | undefined>(0);
   const [curTime, setCurTime] = useState(0);
   const [isSeeking, setSeeking] = useState(false);
@@ -48,12 +49,12 @@ const NowplayingCenter: React.FC = () => {
   }, [player, currentSong]);
 
   useEffect(() => {
-    if (isPlaying && currentSong && Object.keys(currentSong).length > 1) {
+    if (playing && currentSong && Object.keys(currentSong).length > 1) {
       document.title = `${currentSong.name} · ${currentSong.artist}`;
     } else {
       document.title = 'Spotify';
     }
-  }, [isPlaying, currentSong]);
+  }, [playing, currentSong]);
 
   const handleChange = ({ x }: { x: number }): void => {
     if (player.current && duration) {
@@ -70,7 +71,7 @@ const NowplayingCenter: React.FC = () => {
         <div className="nowplaying-center-controls">
           <ReactHowler
             src={`${process.env.REACT_APP_BASE_URL}/${currentSong?.location}`}
-            playing={isPlaying}
+            playing={playing}
             html5
             volume={volume}
             // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
@@ -90,12 +91,12 @@ const NowplayingCenter: React.FC = () => {
           <div
             className="nowplaying-center-controls-play-pause"
             onClick={() => {
-              setPlaying(!isPlaying);
+              setPlaying?.(!playing);
             }}
             role="button"
             aria-hidden="true"
           >
-            {!isPlaying ? (
+            {!playing ? (
               <PlayIcon className="nowplaying-center-controls-big-button" />
             ) : (
               <PauseIcon className="nowplaying-center-controls-big-button" />
@@ -125,11 +126,11 @@ const NowplayingCenter: React.FC = () => {
               x={!isSeeking ? (curTime * 100) / duration! : dummyCurTime}
               onChange={handleChange}
               onDragStart={() => {
-                setPlaying(false);
+                setPlaying?.(false);
                 setSeeking(true);
               }}
               onDragEnd={() => {
-                setPlaying(true);
+                setPlaying?.(true);
                 setSeeking(false);
               }}
               styles={{

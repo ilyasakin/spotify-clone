@@ -19,6 +19,10 @@ $color-inactive: #b3b3b3;
   }
 }
 
+.card-fab-visible {
+  opacity: 1;
+}
+
 .card-fab-icon {
   position: absolute;
   top: calc(50% - 16px / 2);
