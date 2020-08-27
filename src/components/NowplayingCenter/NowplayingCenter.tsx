@@ -30,6 +30,7 @@ const NowplayingCenter: React.FC = () => {
   const [dummyCurTime, setDummyCurTime] = useState(10);
   const player = useRef<ReactHowler | undefined>();
   const [onSlider, setOnSlider] = useState(false);
+  const [loop, setLoop] = useState(localStorage.getItem('LOOP') === 'true');
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -56,6 +57,10 @@ const NowplayingCenter: React.FC = () => {
     }
   }, [playing, currentSong]);
 
+  useEffect(() => {
+    localStorage.setItem('LOOP', loop.toString());
+  }, [loop]);
+
   const handleChange = ({ x }: { x: number }): void => {
     if (player.current && duration) {
       if (typeof x === 'number') {
@@ -81,6 +86,7 @@ const NowplayingCenter: React.FC = () => {
               setDuration(player.current && player.current.duration());
               if (typeof player.current?.seek() === 'number') setCurTime(player.current?.seek());
             }}
+            loop={loop}
           />
           <div className="nowplaying-center-controls-shuffle">
             <ShuffleIcon className="nowplaying-center-controls-small-button" />
@@ -105,7 +111,16 @@ const NowplayingCenter: React.FC = () => {
           <div className="nowplaying-center-controls-next">
             <NextIcon className="nowplaying-center-controls-small-button" />
           </div>
-          <div className="nowplaying-center-controls-repeat">
+          <div
+            className={`nowplaying-center-controls-repeat ${
+              loop ? 'nowplaying-center-controls-active' : ''
+            }`}
+            onClick={() => {
+              setLoop?.(!loop);
+            }}
+            role="button"
+            aria-hidden="true"
+          >
             <RepeatIcon className="nowplaying-center-controls-small-button" />
           </div>
         </div>

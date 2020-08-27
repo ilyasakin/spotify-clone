@@ -4,6 +4,7 @@
 $color-white-active: #fff;
 $color-white-inactive: #b3b3b3;
 $color-gray: #535353;
+$color-green: #1db954;
 
 .nowplaying-center-container {
   position: absolute;
@@ -38,6 +39,10 @@ $color-gray: #535353;
   div:hover {
     opacity: 1;
   }
+}
+
+.nowplaying-center-controls-active {
+  color: $color-green;
 }
 
 .nowplaying-center-controls-shuffle {
