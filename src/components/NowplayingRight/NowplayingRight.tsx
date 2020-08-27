@@ -7,6 +7,7 @@ import VolumeContext from '../../context/Volume';
 const NowplayingRight: React.FC = () => {
   const { volume, setVolume } = useContext(VolumeContext);
   const [onSlider, setOnSlider] = useState(false);
+  const [isSliding, setSliding] = useState(false);
 
   useEffect(() => {
     if (volume !== undefined) localStorage.setItem('VOLUME', volume?.toString());
@@ -29,6 +30,8 @@ const NowplayingRight: React.FC = () => {
           xmax={1}
           xstep={0.1}
           x={volume}
+          onDragStart={() => setSliding(true)}
+          onDragEnd={() => setSliding(false)}
           onChange={({ x }) => setVolume?.(x)}
           styles={{
             track: {
@@ -43,10 +46,10 @@ const NowplayingRight: React.FC = () => {
             thumb: {
               height: 12,
               width: 12,
-              visibility: onSlider ? 'visible' : 'hidden',
+              visibility: onSlider || isSliding ? 'visible' : 'hidden',
             },
             active: {
-              backgroundColor: onSlider ? '#1db954' : '#b3b3b3',
+              backgroundColor: onSlider || isSliding ? '#1db954' : '#b3b3b3',
             },
           }}
         />

@@ -144,10 +144,10 @@ const NowplayingCenter: React.FC = () => {
                 thumb: {
                   height: 12,
                   width: 12,
-                  visibility: onSlider ? 'visible' : 'hidden',
+                  visibility: onSlider || isSeeking ? 'visible' : 'hidden',
                 },
                 active: {
-                  backgroundColor: onSlider ? '#1db954' : '#b3b3b3',
+                  backgroundColor: onSlider || isSeeking ? '#1db954' : '#b3b3b3',
                 },
               }}
             />
