@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react';
-import Axios from 'axios';
+import Axios, { AxiosError, AxiosResponse } from 'axios';
 import { useHistory } from 'react-router-dom';
 import User from '../../context/User';
 import Loading from '../Loading/Loading';
@@ -15,11 +15,15 @@ const Auth: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       Axios.get(`${process.env.REACT_APP_BASE_URL}/api/users/me`, {
         headers: { Authorization: `Bearer ${token}` },
       })
-        .then((res) => {
+        .then((res: AxiosResponse) => {
           setUser?.({ ...res.data, token });
           setPass(true);
         })
-        .catch(() => {
+        .catch((res: AxiosError) => {
+          if (res.response?.status === 401) {
+            localStorage.removeItem('__TOKEN');
+            setUser?.({});
+          }
           history.push('/login');
         });
     } else {
