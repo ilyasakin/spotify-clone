@@ -74,10 +74,10 @@ const NowplayingCenter: React.FC = () => {
     <div className="nowplaying-center-container">
       <div className="nowplaying-center-inner-container">
         <div className="nowplaying-center-controls">
+          {/* TODO: Switch to pure howlerjs */}
           <ReactHowler
             src={`${process.env.REACT_APP_BASE_URL}/${currentSong?.location}`}
             playing={playing}
-            html5
             volume={volume}
             // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
             // @ts-ignore
