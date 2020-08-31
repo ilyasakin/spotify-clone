@@ -20,6 +20,7 @@ const Auth: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           setPass(true);
         })
         .catch((res: AxiosError) => {
+          // Better way to do this?
           if (res.response?.status === 401) {
             localStorage.removeItem('__TOKEN');
             setUser?.({});
