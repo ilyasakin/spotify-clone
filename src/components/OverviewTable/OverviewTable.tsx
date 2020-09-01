@@ -8,7 +8,7 @@ const OverviewTable: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         <col style={{ width: '50%' }} />
         <col style={{ width: '50%' }} />
       </colgroup>
-      {children}
+      <tbody>{children}</tbody>
     </table>
   );
 };
