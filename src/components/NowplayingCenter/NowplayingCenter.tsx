@@ -86,8 +86,12 @@ const NowplayingCenter: React.FC = () => {
               setDuration(player.current && player.current.duration());
               if (typeof player.current?.seek() === 'number') setCurTime(player.current?.seek());
             }}
-            html5
             loop={loop}
+            xhr={{
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem('__TOKEN')}`,
+              },
+            }}
           />
           <div className="nowplaying-center-controls-shuffle">
             <ShuffleIcon className="nowplaying-center-controls-small-button" />
