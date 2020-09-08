@@ -13,7 +13,9 @@ const SignIn = () => {
   const history = useHistory();
   const [, setError] = useState('');
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
     axios
       .post(`${process.env.REACT_APP_BASE_URL}/api/users/signin`, {
         email,
