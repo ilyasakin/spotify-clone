@@ -8,6 +8,7 @@ import User from '../../context/User';
 import BigButton from '../../components/BigButton/BigButton';
 
 const Account = () => {
+  document.title = 'Account Overview - Spotify';
   const { user, setUser } = useContext(User);
   const history = useHistory();
   const match = useRouteMatch();

@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Edit = () => {
+  document.title = 'Edit Profile - Spotify';
   return (
     <>
       <h1 className="overview-page-title">Edit profile</h1>
