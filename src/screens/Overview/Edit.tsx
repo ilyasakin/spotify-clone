@@ -1,24 +1,15 @@
 import React from 'react';
+import BigInput from '../../components/BigInput/BigInput';
 
 const Edit = () => {
   document.title = 'Edit Profile - Spotify';
   return (
     <>
-      <h1 className="overview-page-title">Edit profile</h1>
-      <label htmlFor="email" className="overview-page-label">
-        Email
-      </label>
-      <input type="text" id="email" className="overview-big-input" />
-      <label htmlFor="username" className="overview-page-label">
-        Username
-      </label>
-      <input type="text" id="username" className="overview-big-input" />
-      <label htmlFor="country" className="overview-page-label">
-        Country
-      </label>
-      <select id="country" className="overview-big-input">
+      <BigInput label="Email" />
+      <BigInput label="Username" />
+      <BigInput label="Country" select>
         <option>Test</option>
-      </select>
+      </BigInput>
     </>
   );
 };
