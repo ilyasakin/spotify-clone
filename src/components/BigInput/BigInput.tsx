@@ -5,9 +5,10 @@ interface Props {
   select?: boolean;
   label: string;
   children?: React.ReactNode;
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void;
 }
 
-const BigInput: React.FC<Props> = ({ select, label, children }) => {
+const BigInput: React.FC<Props> = ({ select, label, children, onChange }) => {
   switch (select) {
     case false:
       return (
@@ -15,7 +16,12 @@ const BigInput: React.FC<Props> = ({ select, label, children }) => {
           <label htmlFor={label.toLowerCase()} className="overview-page-label">
             {label}
           </label>
-          <input type="text" id={label.toLowerCase()} className="overview-big-input" />
+          <input
+            type="text"
+            id={label.toLowerCase()}
+            className="overview-big-input"
+            onChange={onChange}
+          />
         </>
       );
     case true:
@@ -24,7 +30,7 @@ const BigInput: React.FC<Props> = ({ select, label, children }) => {
           <label htmlFor={label.toLowerCase()} className="overview-page-label">
             {label}
           </label>
-          <select id={label.toLowerCase()} className="overview-big-input">
+          <select id={label.toLowerCase()} className="overview-big-input" onChange={onChange}>
             {children}
           </select>
         </>
