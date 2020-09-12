@@ -1,16 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useHistory, useRouteMatch } from 'react-router-dom';
+import Axios from 'axios';
 import OverviewMenuItem from '../../components/OverviewMenuItem/OverviewMenuItem';
 import { Home2, Pen } from '../../components/icons';
 
 const Sidebar = () => {
   const history = useHistory();
   const match = useRouteMatch();
+  const [avatar, setAvatar] = useState(undefined);
 
+  useEffect(() => {
+    const fetchAvatar = async () => {
+      const response = await Axios.get(`${process.env.REACT_APP_BASE_URL}/api/users/myavatar`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('__TOKEN')}` },
+      });
+      if (response.data !== '') {
+        setAvatar(response.data);
+      }
+    };
+
+    fetchAvatar();
+  }, []);
   return (
     <div className="overview-sidebar">
       <img
-        src="https://via.placeholder.com/64"
+        src={`${
+          avatar
+            ? `data:image/png;base64, ${avatar}`
+            : `${process.env.REACT_APP_BASE_URL}/assets/images/avatar.png`
+        }`}
         alt=""
         style={{
           margin: '30px auto',

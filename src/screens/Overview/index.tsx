@@ -10,7 +10,6 @@ import Edit from './Edit';
 import Sidebar from './Sidebar';
 
 const Overview = () => {
-  document.title = 'Account Overview - Spotify';
   const match = useRouteMatch();
 
   return (

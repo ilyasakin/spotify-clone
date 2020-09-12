@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './PillMenu.scss';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -14,6 +14,7 @@ interface Props {
 }
 
 const PillMenu: React.FC<Props> = ({ className, Text }) => {
+  const [avatar, setAvatar] = useState(undefined);
   const { setUser } = useContext(User);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -33,6 +34,20 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
   };
 
   const history = useHistory();
+
+  useEffect(() => {
+    const fetchAvatar = async () => {
+      const response = await Axios.get(`${process.env.REACT_APP_BASE_URL}/api/users/myavatar`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('__TOKEN')}` },
+      });
+      if (response.data !== '') {
+        setAvatar(response.data);
+      }
+    };
+
+    fetchAvatar();
+  }, []);
+
   return (
     <>
       <button
@@ -41,7 +56,15 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        <img className="pill-menu-img" alt="avatar" src="https://via.placeholder.com/28" />
+        <img
+          className="pill-menu-img"
+          alt="avatar"
+          src={
+            avatar
+              ? `data:image/png;base64, ${avatar}`
+              : `${process.env.REACT_APP_BASE_URL}/assets/images/avatar.png`
+          }
+        />
         <span className="pill-menu-text">{Text || ''}</span>
         <ArrowDropDown className="pill-menu-drop-down-icon" />
       </button>
@@ -62,7 +85,7 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
           </MenuItem>
           <MenuItem
             onClick={() => {
-              Axios.post(`${process.env.REACT_APP_BASE_URL}/users/logout`, null, {
+              Axios.post(`${process.env.REACT_APP_BASE_URL}/api/users/logout`, null, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('__TOKEN')}` },
               });
               localStorage.removeItem('__TOKEN');
