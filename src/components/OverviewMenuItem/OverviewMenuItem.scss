@@ -20,6 +20,7 @@ $color-active: #fff;
 
 .overview-menu-item-text {
   position: relative;
+  display: flex;
   padding: 15px 15px 15px 30px;
   color: $color-active;
   font-family: 'Segoe UI';
@@ -37,4 +38,11 @@ $color-active: #fff;
 
 .overview-menu-item-indicate {
   opacity: 1;
+}
+
+.overview-menu-item-icon {
+  width: 20.8px;
+  height: 20.8px;
+  align-self: center;
+  margin-right: 15px;
 }
