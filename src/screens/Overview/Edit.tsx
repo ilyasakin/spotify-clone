@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import CountryList from 'country-list';
 import BigInput from '../../components/BigInput/BigInput';
 import BigButton from '../../components/BigButton/BigButton';
+import User from '../../context/User';
 
 const Edit = () => {
   document.title = 'Edit Profile - Spotify';
-  const [, setEmail] = useState('');
-  const [, setUname] = useState('');
-  const [, setCountry] = useState('');
+  const { user } = useContext(User);
+  const [email, setEmail] = useState(user?.email);
+  const [uname, setUname] = useState(user?.name);
+  const [country, setCountry] = useState(user?.country);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -20,10 +23,19 @@ const Edit = () => {
         onSubmit={handleSubmit}
         style={{ display: 'inherit', gap: 'inherit', flexDirection: 'inherit' }}
       >
-        <BigInput label="Email" onChange={(e) => setEmail(e.target.value)} />
-        <BigInput label="Username" onChange={(e) => setUname(e.target.value)} />
-        <BigInput label="Country" select onChange={(e) => setCountry(e.target.value)}>
-          <option>Test</option>
+        <BigInput label="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <BigInput label="Username" value={uname} onChange={(e) => setUname(e.target.value)} />
+        <BigInput
+          label="Country"
+          value={country}
+          select
+          onChange={(e) => setCountry(e.target.value)}
+        >
+          {CountryList.getNames().map((c) => (
+            <option key={c} value={c}>
+              {country}
+            </option>
+          ))}
         </BigInput>
         <BigButton text="Save" className="overview-ml-auto" loading={loading} />
       </form>
