@@ -38,7 +38,7 @@ const Edit = () => {
             </option>
           ))}
         </BigInput>
-        <BigButton text="Save" className="overview-ml-auto" loading={loading} />
+        <BigButton text="Save" className="overview-save-button" loading={loading} />
       </form>
     </>
   );
