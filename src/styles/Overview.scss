@@ -22,11 +22,13 @@ $color-gray-alt: #757575;
 }
 
 .overview-sidebar {
-  display: block;
-  width: auto;
+  display: none;
   min-height: 100%;
   flex-basis: 25%;
-  visibility: visible;
+  @media screen and (min-width: 768px) {
+    display: block;
+    width: auto;
+  }
 }
 
 .overview-page-title {
