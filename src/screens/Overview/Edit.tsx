@@ -19,6 +19,7 @@ const Edit = () => {
 
   return (
     <>
+      <h1 className="overview-page-title">Edit profile</h1>
       <form
         onSubmit={handleSubmit}
         style={{ display: 'inherit', gap: 'inherit', flexDirection: 'inherit' }}
