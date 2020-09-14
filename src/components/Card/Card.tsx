@@ -1,5 +1,8 @@
 import React, { useContext } from 'react';
 import './Card.scss';
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// @ts-ignore
+import ImageFadeIn from 'react-image-fade-in';
 import { CardPlay, CardPause } from '../icons';
 import CurrentSong from '../../context/CurrentSong';
 import PlayingStatus from '../../context/PlayingStatus';
@@ -15,9 +18,8 @@ const Card: React.FC<Props> = ({ song }) => {
   return (
     <div className="card-content">
       <div className="card-cover-container">
-        <img
+        <ImageFadeIn
           className="card-cover"
-          alt=""
           src={`${process.env.REACT_APP_BASE_URL}/${song.cover}`}
         />
       </div>
