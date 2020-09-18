@@ -2,3 +2,4 @@ public
 build
 react-app-env.d.ts
 coverage
+craco.config.js

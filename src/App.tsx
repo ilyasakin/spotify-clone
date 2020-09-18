@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { hot } from 'react-hot-loader/root';
 import './styles/App.scss';
 import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Player from './screens/Player';
@@ -35,4 +34,4 @@ function App() {
   );
 }
 
-export default hot(App);
+export default App;
