@@ -1,7 +1,7 @@
 $color-active: #fff;
 $color-inactive: #fff;
 
-.container {
+.login-container {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -94,6 +94,7 @@ $color-inactive: #fff;
 
 .react-date-picker__wrapper {
   // stylelint-disable
+  background: #343434 !important;
   border: none !important;
 }
 

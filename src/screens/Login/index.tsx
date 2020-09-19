@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../../styles/App.scss';
-import '../../styles/Login.scoped.scss';
+import '../../styles/Login.scss';
 import { useHistory } from 'react-router-dom';
 
 import Logo from '../../components/icons/Logo';
@@ -25,7 +25,7 @@ const Login = () => {
 
   return (
     <div style={{ backgroundColor: '#121212', height: '100vh' }}>
-      <div className="container">
+      <div className="login-container">
         <div className="login-inner-container">
           <Logo className="logo" />
           {/* TODO: Make this route instead of a state */}

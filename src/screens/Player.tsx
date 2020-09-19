@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/App.scss';
-import '../styles/Player.scoped.scss';
+import '../styles/Player.scss';
 import Navbar from '../components/Navbar/Navbar';
 import Nowplaying from '../components/Nowplaying/Nowplaying';
 import Topbar from '../components/Topbar/Topbar';
