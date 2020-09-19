@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`runs correctly 1`] = `
+<div
+  className="navbar"
+>
+  <SvgLogo
+    className="logo"
+  />
+  <NavigationMenu />
+  <PlaylistMenu />
+  <PlaylistList />
+</div>
+`;

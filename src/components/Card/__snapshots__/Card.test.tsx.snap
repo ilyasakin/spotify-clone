@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`runs correctly 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="cover-container"
+  >
+    <ImageFadeIn
+      className="cover"
+      loadAsBackgroundImage={false}
+      opacityTransition={0.5}
+      src="undefined/"
+    />
+  </div>
+  <div
+    className="info"
+  >
+    <div
+      className="title-container"
+    >
+      <span
+        className="title"
+        title="test_name"
+      >
+        test_name
+      </span>
+    </div>
+    <div
+      className="description"
+      title="test_artist"
+    >
+      test_artist
+    </div>
+  </div>
+  <button
+    aria-hidden="true"
+    className="fab "
+    onClick={[Function]}
+    tabIndex={0}
+    title="Play"
+  >
+    <SvgCardPlay
+      className="fab-icon"
+    />
+  </button>
+</div>
+`;

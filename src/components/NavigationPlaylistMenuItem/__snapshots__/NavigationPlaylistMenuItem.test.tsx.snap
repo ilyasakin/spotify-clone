@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`runs correctly 1`] = `
+<div
+  className="playlist-menu-item"
+>
+  <div
+    className="icon-container gradient"
+  >
+    <SvgPlaylistHeart
+      className="icon white-color"
+    />
+  </div>
+  <span
+    className="text"
+  >
+    test_text
+  </span>
+</div>
+`;

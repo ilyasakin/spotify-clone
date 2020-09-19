@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`runs correctly 1`] = `
+<div
+  className="nowplaying-center-container"
+>
+  <ReactHowler
+    format={Array []}
+    html5={false}
+    loop={false}
+    mute={false}
+    onEnd={[Function]}
+    onLoad={[Function]}
+    onLoadError={[Function]}
+    onPause={[Function]}
+    onPlay={[Function]}
+    onStop={[Function]}
+    onVolume={[Function]}
+    playing={true}
+    preload={true}
+    src="undefined/undefined"
+    volume={1}
+    xhr={
+      Object {
+        "headers": Object {
+          "Authorization": "Bearer null",
+        },
+      }
+    }
+  />
+  <div
+    className="controls"
+  >
+    <div
+      className="control-item"
+    >
+      <SvgShuffleIcon
+        className="small-button"
+      />
+    </div>
+    <div
+      className="control-item"
+    >
+      <SvgPreviousIcon
+        className="small-button"
+      />
+    </div>
+    <div
+      aria-hidden="true"
+      className="control-item"
+      onClick={[Function]}
+      role="button"
+    >
+      <SvgPlayIcon
+        className="big-button"
+      />
+    </div>
+    <div
+      className="control-item"
+    >
+      <SvgNextIcon
+        className="small-button"
+      />
+    </div>
+    <div
+      aria-hidden="true"
+      className="control-item "
+      onClick={[Function]}
+      role="button"
+    >
+      <SvgRepeatIcon
+        className="small-button"
+      />
+    </div>
+  </div>
+  <div
+    className="progress"
+  >
+    <div
+      className="progress-with-number"
+    >
+      00:00
+    </div>
+    <div
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "display": "flex",
+          "flex": 1,
+          "justifySelf": "center",
+        }
+      }
+    >
+      <Slider
+        axis="x"
+        disabled={false}
+        onChange={[Function]}
+        onDragEnd={[Function]}
+        onDragStart={[Function]}
+        styles={
+          Object {
+            "active": Object {
+              "backgroundColor": "#b3b3b3",
+            },
+            "thumb": Object {
+              "height": 12,
+              "visibility": "hidden",
+              "width": 12,
+            },
+            "track": Object {
+              "alignSelf": "center",
+              "backgroundColor": "#535353",
+              "height": "4px",
+              "width": "100%",
+            },
+          }
+        }
+        x={NaN}
+        xmax={100}
+        xmin={0}
+        xreverse={false}
+        xstep={1}
+        y={50}
+        ymax={100}
+        ymin={0}
+        yreverse={false}
+        ystep={1}
+      />
+    </div>
+    <div
+      className="progress-with-number"
+    >
+      00:00
+    </div>
+  </div>
+</div>
+`;

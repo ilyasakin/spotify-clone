@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`runs correctly 1`] = `
+<div
+  className="nowplaying-right-container"
+>
+  <div
+    className="icon-container"
+  >
+    <SvgPlaylist
+      className="icon"
+    />
+  </div>
+  <div
+    className="icon-container"
+  >
+    <SvgDevices
+      className="icon"
+    />
+  </div>
+  <div
+    className="icon-container"
+  >
+    <SvgVolume
+      className="icon"
+    />
+  </div>
+  <div
+    className="slider-container"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <Slider
+      axis="x"
+      disabled={false}
+      onChange={[Function]}
+      onDragEnd={[Function]}
+      onDragStart={[Function]}
+      styles={
+        Object {
+          "active": Object {
+            "backgroundColor": "#b3b3b3",
+          },
+          "thumb": Object {
+            "height": 12,
+            "visibility": "hidden",
+            "width": 12,
+          },
+          "track": Object {
+            "backgroundColor": "#535353",
+            "borderRadius": 2,
+            "height": 4,
+            "width": 84,
+          },
+        }
+      }
+      x={50}
+      xmax={1}
+      xmin={0}
+      xreverse={false}
+      xstep={0.1}
+      y={50}
+      ymax={100}
+      ymin={0}
+      yreverse={false}
+      ystep={1}
+    />
+  </div>
+</div>
+`;

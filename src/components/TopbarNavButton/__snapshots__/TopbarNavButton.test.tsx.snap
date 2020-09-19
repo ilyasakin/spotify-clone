@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`runs correctly for left 1`] = `
+<div
+  className="nav-back"
+>
+  <SvgBack
+    className="nav-icon"
+  />
+</div>
+`;
+
+exports[`runs correctly for right 1`] = `
+<div
+  className="nav-forward"
+>
+  <SvgForward
+    className="nav-icon"
+  />
+</div>
+`;

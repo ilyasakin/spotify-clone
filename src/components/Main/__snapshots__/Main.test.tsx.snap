@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`runs correctly 1`] = `
+<div
+  className="main"
+>
+  <div
+    className="loading-indicator"
+  >
+    <Component
+      backColor="#4b4c56"
+      frontColor="#1db954"
+      loading={true}
+      size={40}
+      sizeUnit="px"
+    />
+  </div>
+</div>
+`;

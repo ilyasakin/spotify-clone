@@ -13,6 +13,6 @@ it('runs correctly', () => {
       title="test"
     />,
   );
-  expect(wrapper.find('.section-content').children()).toHaveLength(3);
+  expect(wrapper.find('.content').children()).toHaveLength(3);
   expect(wrapper).toMatchSnapshot();
 });
