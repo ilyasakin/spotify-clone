@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import './PillMenu.scss';
+import './PillMenu.scoped.scss';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
@@ -57,7 +57,7 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
         onClick={handleClick}
       >
         <img
-          className="pill-menu-img"
+          className="image"
           alt="avatar"
           src={
             avatar
@@ -65,8 +65,8 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
               : `${process.env.REACT_APP_BASE_URL}/assets/images/avatar.png`
           }
         />
-        <span className="pill-menu-text">{Text || ''}</span>
-        <ArrowDropDown className="pill-menu-drop-down-icon" />
+        <span className="text">{Text || ''}</span>
+        <ArrowDropDown className="dropdown-icon" />
       </button>
       <ThemeProvider theme={darkTheme}>
         <Menu
@@ -78,10 +78,10 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
           className="pill-menu-list"
         >
           <MenuItem component={Link} to="/overview">
-            <span className="pill-menu-list-text">Account</span>
+            <span className="list-text">Account</span>
           </MenuItem>
           <MenuItem onClick={handleClose} divider>
-            <span className="pill-menu-list-text">Profile</span>
+            <span className="list-text">Profile</span>
           </MenuItem>
           <MenuItem
             onClick={() => {
@@ -93,7 +93,7 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
               history.push('/');
             }}
           >
-            <span className="pill-menu-list-text">Logout</span>
+            <span className="list-text">Logout</span>
           </MenuItem>
         </Menu>
       </ThemeProvider>

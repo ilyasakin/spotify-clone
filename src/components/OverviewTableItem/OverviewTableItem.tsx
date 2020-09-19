@@ -1,11 +1,11 @@
 import React from 'react';
-import './OverviewTableItem.scss';
+import './OverviewTableItem.scoped.scss';
 
 const OverviewTableItem: React.FC<{ label: string; info?: string }> = ({ label, info }) => {
   return (
     <tr style={{ borderBottom: '1px solid rgb(238, 238, 238)' }}>
-      <td className="overview-table-item-label">{label}</td>
-      <td className="overview-table-item-info">{info}</td>
+      <td className="label">{label}</td>
+      <td className="info">{info}</td>
     </tr>
   );
 };

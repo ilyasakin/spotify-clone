@@ -1,0 +1,96 @@
+/* stylelint-disable declaration-no-important */
+/* stylelint-disable declaration-property-value-blacklist */
+
+$color-white-active: #fff;
+$color-white-inactive: #b3b3b3;
+$color-gray: #535353;
+$color-green: #1db954;
+
+.nowplaying-center-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 0.5em;
+  padding-bottom: 1em;
+  background: #282828;
+}
+
+.controls {
+  display: flex;
+  height: 32px;
+  gap: 16px;
+  flex-direction: row;
+  justify-content: center;
+  color: $color-white-active;
+
+  div {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 200ms linear;
+  }
+
+  div:hover {
+    opacity: 1;
+  }
+}
+
+.control-active {
+  color: $color-green;
+}
+
+.control-item {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress {
+  display: flex;
+  height: 16px;
+  flex-direction: row;
+}
+
+.progress-with-number {
+  display: flex;
+  width: 40px;
+  height: 16px;
+  align-self: center;
+  justify-content: center;
+  color: $color-white-inactive;
+  font-family: 'Segoe UI';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 16px;
+}
+
+.small-button {
+  width: 16.22px;
+  height: 16.22px;
+}
+
+.big-button {
+  width: 32px;
+  height: 32px;
+}
+
+.MuiSlider-rail {
+  height: 4px !important;
+  border-radius: 2px !important;
+}
+
+.MuiSlider-root {
+  width: initial !important;
+  height: 4px !important;
+  padding: 0 !important;
+  color: $color-gray !important;
+}
+
+.MuiSlider-track {
+  height: 4px !important;
+  border-radius: 2px !important;
+}

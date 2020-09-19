@@ -11,15 +11,11 @@ const TopbarNavBtn: React.FC<Props> = ({ direction }) => {
     <div
       className={
         // eslint-disable-next-line no-nested-ternary
-        direction === 'left'
-          ? 'topbar-nav-back'
-          : direction === 'right'
-          ? 'topbar-nav-forward'
-          : undefined
+        direction === 'left' ? 'nav-back' : direction === 'right' ? 'nav-forward' : undefined
       }
     >
-      {direction === 'left' && <Back className="topbar-nav-icon" />}
-      {direction === 'right' && <Forward className="topbar-nav-icon" />}
+      {direction === 'left' && <Back className="nav-icon" />}
+      {direction === 'right' && <Forward className="nav-icon" />}
     </div>
   );
 };

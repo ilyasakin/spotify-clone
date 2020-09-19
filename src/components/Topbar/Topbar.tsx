@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import './Topbar.scss';
+import './Topbar.scoped.scss';
 import TopbarNavBtn from '../TopbarNavButton/TopbarNavButton';
 import PillMenu from '../PillMenu/PillMenu';
 import User from '../../context/User';
@@ -9,8 +9,11 @@ const Topbar: React.FC = () => {
 
   return (
     <div className="topbar">
-      <TopbarNavBtn direction="left" />
-      <TopbarNavBtn direction="right" />
+      <div className="nav-buttons">
+        <TopbarNavBtn direction="left" />
+        <TopbarNavBtn direction="right" />
+      </div>
+
       <PillMenu className="user-menu" Text={user?.name || 'Unknown User'} />
     </div>
   );

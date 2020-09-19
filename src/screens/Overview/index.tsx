@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../styles/App.scss';
-import '../../styles/Overview.scss';
+import '../../styles/Overview.scoped.scss';
 import { Route, Switch, Redirect, useRouteMatch } from 'react-router-dom';
 import TopbarOverview from '../../components/TopbarOverview/TopbarOverview';
 import HeroOverview from '../../components/HeroOverview/HeroOverview';

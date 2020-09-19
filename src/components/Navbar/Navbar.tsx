@@ -1,14 +1,14 @@
 import React from 'react';
-import './Navbar.scss';
-import LogoContainer from '../LogoContainer/LogoContainer';
+import './Navbar.scoped.scss';
 import NavigationMenu from '../NavigationMenu/NavigationMenu';
 import PlaylistMenu from '../PlaylistMenu/PlaylistMenu';
 import PlaylistList from '../Playlist/Playlist';
+import { Logo } from '../icons';
 
 const Navbar: React.FC = () => {
   return (
     <div className="navbar">
-      <LogoContainer />
+      <Logo className="logo" />
       <NavigationMenu />
       <PlaylistMenu />
       <PlaylistList />

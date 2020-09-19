@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/App.scss';
+import '../styles/Player.scoped.scss';
 import Navbar from '../components/Navbar/Navbar';
 import Nowplaying from '../components/Nowplaying/Nowplaying';
 import Topbar from '../components/Topbar/Topbar';
@@ -23,18 +24,22 @@ const Player = () => {
   const [volume, setVolume] = useState(initialVolume());
 
   return (
-    <>
-      <Navbar />
-      <Topbar />
-      <CurrentSong.Provider value={{ currentSong, setCurrentSong }}>
-        <PlayingStatus.Provider value={{ playing, setPlaying }}>
-          <Volume.Provider value={{ volume, setVolume }}>
+    <CurrentSong.Provider value={{ currentSong, setCurrentSong }}>
+      <PlayingStatus.Provider value={{ playing, setPlaying }}>
+        <Volume.Provider value={{ volume, setVolume }}>
+          <div className="main-container">
+            <div className="nav-content">
+              <Navbar />
+              <div className="topbar-main">
+                <Topbar />
+                <Main />
+              </div>
+            </div>
             <Nowplaying />
-          </Volume.Provider>
-          <Main />
-        </PlayingStatus.Provider>
-      </CurrentSong.Provider>
-    </>
+          </div>
+        </Volume.Provider>
+      </PlayingStatus.Provider>
+    </CurrentSong.Provider>
   );
 };
 

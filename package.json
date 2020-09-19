@@ -29,6 +29,7 @@
     "@material-ui/styles": "^4.10.0",
     "axios": "^0.20.0",
     "country-list": "^2.2.0",
+    "craco-plugin-scoped-css": "^1.1.0",
     "dotenv": "^8.2.0",
     "moment": "^2.27.0",
     "react": "^16.13.1",

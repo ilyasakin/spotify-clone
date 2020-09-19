@@ -1,5 +1,5 @@
 import React from 'react';
-import './Playlist.scss';
+import './Playlist.scoped.scss';
 import NavigationPlaylistListItem from '../NavigationPlaylistItem/NavigationPlaylistItem';
 
 const PlaylistList: React.FC = () => {

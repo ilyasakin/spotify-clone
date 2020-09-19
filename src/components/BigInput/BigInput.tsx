@@ -1,5 +1,5 @@
 import React from 'react';
-import './BigInput.scss';
+import './BigInput.scoped.scss';
 
 interface Props {
   select?: boolean;
@@ -13,34 +13,29 @@ const BigInput: React.FC<Props> = ({ select, label, children, onChange, value })
   switch (select) {
     case false:
       return (
-        <>
-          <label htmlFor={label.toLowerCase()} className="overview-page-label">
+        <div>
+          <label htmlFor={label.toLowerCase()} className="label">
             {label}
           </label>
           <input
             type="text"
             id={label.toLowerCase()}
-            className="overview-big-input"
+            className="input"
             onChange={onChange}
             value={value}
           />
-        </>
+        </div>
       );
     case true:
       return (
-        <>
-          <label htmlFor={label.toLowerCase()} className="overview-page-label">
+        <div>
+          <label htmlFor={label.toLowerCase()} className="label">
             {label}
           </label>
-          <select
-            id={label.toLowerCase()}
-            className="overview-big-input"
-            onChange={onChange}
-            value={value}
-          >
+          <select id={label.toLowerCase()} className="input" onChange={onChange} value={value}>
             {children}
           </select>
-        </>
+        </div>
       );
     default:
       return <h3>Invalid</h3>;

@@ -1,5 +1,5 @@
 import React from 'react';
-import './NavigationMenu.scss';
+import './NavigationMenu.scoped.scss';
 import NavigationButton from '../NavigationButton/NavigationButton';
 import { HomeActive, Search, Library } from '../icons';
 

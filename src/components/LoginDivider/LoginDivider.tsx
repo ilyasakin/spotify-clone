@@ -1,6 +1,6 @@
 import React from 'react';
-import './LoginDivider.scss';
+import './LoginDivider.scoped.scss';
 
-const LoginDivider = () => <div className="login-divider" />;
+const LoginDivider = () => <div className="divider" />;
 
 export default LoginDivider;

@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import './NowplayingLeft.scss';
+import './NowplayingLeft.scoped.scss';
 import Axios from 'axios';
 import { PlaylistHeart, PlaylistHeartOutline } from '../icons';
 import CurrentSong from '../../context/CurrentSong';
@@ -28,22 +28,22 @@ const NowplayingLeft: React.FC = () => {
     <div className="nowplaying-left-container">
       {currentSong && Object.keys(currentSong).length > 1 && (
         <>
-          <div className="nowplaying-left-cover-container">
+          <div className="cover-container">
             <img
-              className="nowplaying-left-cover-art"
+              className="cover-art"
               src={`${process.env.REACT_APP_BASE_URL}/${currentSong?.cover}`}
               alt=""
             />
           </div>
-          <div className="nowplaying-left-info-area">
-            <div className="nowplaying-left-info-title">
+          <div className="info">
+            <div className="title">
               <span>{currentSong?.name}</span>
             </div>
-            <div className="nowplaying-left-info-artist">{currentSong?.artist}</div>
+            <div className="artist">{currentSong?.artist}</div>
           </div>
           {isLiked ? (
             <PlaylistHeart
-              className="nowplaying-left-like-button"
+              className="like-button"
               onClick={() => {
                 Axios.post(
                   `${process.env.REACT_APP_BASE_URL}/api/users/unlikeSong`,
@@ -56,7 +56,7 @@ const NowplayingLeft: React.FC = () => {
             />
           ) : (
             <PlaylistHeartOutline
-              className="nowplaying-left-like-button"
+              className="like-button"
               onClick={() => {
                 Axios.post(
                   `${process.env.REACT_APP_BASE_URL}/api/users/likeSong`,

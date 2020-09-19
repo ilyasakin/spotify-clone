@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './Main.scss';
+import './Main.scoped.scss';
 import axios from 'axios';
 import { ImpulseSpinner } from 'react-spinners-kit';
 import Section from '../Section/Section';
@@ -20,15 +20,13 @@ const Main: React.FC = () => {
 
   return (
     <div className="main">
-      <div className="main-padding">
-        {data.length < 1 ? (
-          <div className="loading-indicator">
-            <ImpulseSpinner frontColor="#1db954" />
-          </div>
-        ) : (
-          <Section title="Songs" data={data} />
-        )}
-      </div>
+      {data.length < 1 ? (
+        <div className="loading-indicator">
+          <ImpulseSpinner frontColor="#1db954" />
+        </div>
+      ) : (
+        <Section title="Songs" data={data} />
+      )}
     </div>
   );
 };

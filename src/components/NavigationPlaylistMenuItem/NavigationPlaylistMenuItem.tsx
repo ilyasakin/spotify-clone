@@ -1,5 +1,5 @@
 import React from 'react';
-import './NavigationPlaylistMenuItem.scss';
+import './NavigationPlaylistMenuItem.scoped.scss';
 
 interface Props {
   text: string;
@@ -9,15 +9,11 @@ interface Props {
 
 const NavigationPlaylistMenuItem: React.FC<Props> = ({ Icon, text, gradient }) => {
   return (
-    <div className="btn-container-playlist-item">
-      <div className="playlist-menu-inner-frame">
-        <div
-          className={`playlist-menu-icon-container ${gradient && 'playlist-menu-icon-gradient'}`}
-        >
-          <Icon className={`playlist-menu-icon ${gradient ? 'white-color' : ''}`} />
-        </div>
-        <span className="playlist-menu-text">{text}</span>
+    <div className="playlist-menu-item">
+      <div className={`icon-container ${gradient && 'gradient'}`}>
+        <Icon className={`icon ${gradient ? 'white-color' : ''}`} />
       </div>
+      <span className="text">{text}</span>
     </div>
   );
 };

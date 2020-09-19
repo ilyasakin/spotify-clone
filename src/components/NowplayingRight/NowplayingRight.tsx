@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import './NowplayingRight.scss';
+import './NowplayingRight.scoped.scss';
 import Slider from 'react-input-slider';
 import { Playlist, Devices, Volume } from '../icons';
 import VolumeContext from '../../context/Volume';
@@ -15,16 +15,20 @@ const NowplayingRight: React.FC = () => {
 
   return (
     <div className="nowplaying-right-container">
-      <div className="nowplaying-right-playlist">
-        <Playlist className="nowplaying-right-icon" />
+      <div className="icon-container">
+        <Playlist className="icon" />
       </div>
-      <div className="nowplaying-right-devices">
-        <Devices className="nowplaying-right-icon-devices" />
+      <div className="icon-container">
+        <Devices className="icon" />
       </div>
-      <div className="nowplaying-right-volume">
-        <Volume className="nowplaying-right-icon" />
+      <div className="icon-container">
+        <Volume className="icon" />
       </div>
-      <div onMouseEnter={() => setOnSlider(true)} onMouseLeave={() => setOnSlider(false)}>
+      <div
+        className="slider-container"
+        onMouseEnter={() => setOnSlider(true)}
+        onMouseLeave={() => setOnSlider(false)}
+      >
         <Slider
           axis="x"
           xmax={1}
@@ -35,9 +39,6 @@ const NowplayingRight: React.FC = () => {
           onChange={({ x }) => setVolume?.(x)}
           styles={{
             track: {
-              position: 'absolute',
-              top: 'calc(50% - 4px / 2)',
-              right: 0.4,
               width: 84,
               height: 4,
               backgroundColor: '#535353',

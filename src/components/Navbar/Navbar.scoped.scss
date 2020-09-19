@@ -1,0 +1,19 @@
+.navbar {
+  bottom: 89px;
+  display: flex;
+  width: 14.5em;
+  gap: 16px;
+  flex-direction: column;
+  background-color: #040404;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.logo {
+  width: 131px;
+  height: 40px;
+  margin-top: 24px;
+  margin-left: 24px;
+}

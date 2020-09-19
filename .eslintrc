@@ -3,6 +3,7 @@
   "rules": {
     "import/extensions": 0,
     "react/jsx-props-no-spreading": 0,
-    "jsx-a11y/label-has-associated-control": ["error", { "assert": "either" }]
+    "jsx-a11y/label-has-associated-control": ["error", { "assert": "either" }],
+    "no-underscore-dangle": "off"
   }
 }

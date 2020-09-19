@@ -1,0 +1,42 @@
+$color-white-active: #fff;
+$color-white-inactive: #b3b3b3;
+
+.nowplaying-right-container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1em 0;
+  background: #282828;
+}
+
+.volume-bar {
+  width: 84px;
+  height: 4px;
+  background: #535353;
+  border-radius: 2px;
+}
+
+.icon-container {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 16.22px;
+  height: 16.22px;
+  color: $color-white-inactive;
+  cursor: pointer;
+  &:hover {
+    color: $color-white-active;
+  }
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+}

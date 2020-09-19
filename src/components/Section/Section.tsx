@@ -1,5 +1,5 @@
 import React from 'react';
-import './Section.scss';
+import './Section.scoped.scss';
 import Card from '../Card/Card';
 
 interface Props {
@@ -17,15 +17,11 @@ interface Songs {
 const Section: React.FC<Props> = ({ title, data }) => {
   return (
     <div className="section">
-      <div className="section-titlebar">
-        <div className="section-title">
-          <span className="section-title-text">{title}</span>
-        </div>
-        <div className="section-titlebar-btn">
-          <span className="section-titlebar-btn-text">SEE ALL</span>
-        </div>
+      <div className="titlebar">
+        <div className="title">{title}</div>
+        <div className="titlebar-button">SEE ALL</div>
       </div>
-      <div className="section-content">
+      <div className="content">
         {data.map((song: Songs) => {
           // eslint-disable-next-line no-underscore-dangle
           return <Card song={song} key={song._id} />;

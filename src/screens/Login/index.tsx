@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../../styles/App.scss';
-import '../../styles/Login.scss';
+import '../../styles/Login.scoped.scss';
 import { useHistory } from 'react-router-dom';
 
 import Logo from '../../components/icons/Logo';

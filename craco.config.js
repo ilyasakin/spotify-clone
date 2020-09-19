@@ -1,7 +1,10 @@
-const fastRefreshCracoPlugin = require('craco-fast-refresh');
-
 module.exports = () => {
   return {
-    plugins: [{ plugin: fastRefreshCracoPlugin }],
+    plugins: [
+      { plugin: require('craco-fast-refresh') },
+      {
+        plugin: require('craco-plugin-scoped-css'),
+      },
+    ],
   };
 };
