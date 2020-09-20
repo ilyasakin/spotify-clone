@@ -91,37 +91,47 @@ const NowplayingCenter: React.FC = () => {
           },
         }}
       />
-      <div className="controls">
-        <div className="control-item">
-          <ShuffleIcon className="small-button" />
-        </div>
-        <div className="control-item">
-          <PreviousIcon className="small-button" />
-        </div>
-        <div
-          className="control-item"
-          onClick={() => {
-            setPlaying?.(!playing);
-          }}
-          role="button"
-          aria-hidden="true"
-        >
-          {!playing ? <PlayIcon className="big-button" /> : <PauseIcon className="big-button" />}
-        </div>
-        <div className="control-item">
-          <NextIcon className="small-button" />
-        </div>
-        <div
-          className={`control-item ${loop ? 'control-active' : ''}`}
-          onClick={() => {
-            setLoop?.(!loop);
-          }}
-          role="button"
-          aria-hidden="true"
-        >
-          <RepeatIcon className="small-button" />
+      <div className="controls-and-other">
+        {currentSong?.cover && (
+          <div className="cover-container">
+            <img
+              className="cover"
+              src={`${process.env.REACT_APP_BASE_URL}/${currentSong?.cover}`}
+              alt="cover"
+            />
+          </div>
+        )}
+
+        <div className="controls">
+          <button className="control-item">
+            <ShuffleIcon className="small-button" />
+          </button>
+          <button className="control-item">
+            <PreviousIcon className="small-button" />
+          </button>
+          <button
+            className="control-item"
+            onClick={() => {
+              setPlaying?.(!playing);
+            }}
+            aria-hidden="true"
+          >
+            {!playing ? <PlayIcon className="big-button" /> : <PauseIcon className="big-button" />}
+          </button>
+          <button className="control-item">
+            <NextIcon className="small-button" />
+          </button>
+          <button
+            className={`control-item ${loop ? 'control-active' : ''}`}
+            onClick={() => {
+              setLoop?.(!loop);
+            }}
+          >
+            <RepeatIcon className="small-button" />
+          </button>
         </div>
       </div>
+
       <div className="progress">
         <div className="progress-with-number">{formatTime(curTime)}</div>
         <div
@@ -139,8 +149,7 @@ const NowplayingCenter: React.FC = () => {
             axis="x"
             xstep={1}
             xmax={100}
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            x={!isSeeking ? (curTime * 100) / duration! : dummyCurTime}
+            x={!isSeeking && duration ? (curTime * 100) / duration : dummyCurTime}
             onChange={handleChange}
             onDragStart={() => {
               setPlaying?.(false);

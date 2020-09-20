@@ -6,6 +6,10 @@ $color-white-inactive: #b3b3b3;
   flex: 1;
   padding: 1em 0;
   font-family: 'Segoe UI';
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .cover-container {

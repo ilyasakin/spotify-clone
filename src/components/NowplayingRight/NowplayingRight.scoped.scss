@@ -9,6 +9,10 @@ $color-white-inactive: #b3b3b3;
   justify-content: flex-end;
   padding: 1em 0;
   background: #282828;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .volume-bar {
