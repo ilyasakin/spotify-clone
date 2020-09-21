@@ -2,4 +2,16 @@
   display: flex;
   flex-direction: column;
   padding: 0 8px;
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    padding: 8px 0;
+    border-top: 1px solid;
+  }
+}
+
+.bottom-menu {
+  @media (min-width: 768px) {
+    display: none;
+  }
 }
