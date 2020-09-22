@@ -6,19 +6,19 @@
     "runtime-main.js": "/spotify-clone/static/js/runtime-main.f1339594.js",
     "runtime-main.js.map": "/spotify-clone/static/js/runtime-main.f1339594.js.map",
     "static/css/2.5f24e744.chunk.css": "/spotify-clone/static/css/2.5f24e744.chunk.css",
-    "static/js/2.037c18d2.chunk.js": "/spotify-clone/static/js/2.037c18d2.chunk.js",
-    "static/js/2.037c18d2.chunk.js.map": "/spotify-clone/static/js/2.037c18d2.chunk.js.map",
+    "static/js/2.7ec66f5f.chunk.js": "/spotify-clone/static/js/2.7ec66f5f.chunk.js",
+    "static/js/2.7ec66f5f.chunk.js.map": "/spotify-clone/static/js/2.7ec66f5f.chunk.js.map",
     "index.html": "/spotify-clone/index.html",
-    "precache-manifest.10e30e8c98ae6e7d56e824dd93e4a84b.js": "/spotify-clone/precache-manifest.10e30e8c98ae6e7d56e824dd93e4a84b.js",
+    "precache-manifest.99866d484b990545dc89eb03393a32da.js": "/spotify-clone/precache-manifest.99866d484b990545dc89eb03393a32da.js",
     "service-worker.js": "/spotify-clone/service-worker.js",
     "static/css/2.5f24e744.chunk.css.map": "/spotify-clone/static/css/2.5f24e744.chunk.css.map",
     "static/css/main.3ae56ff7.chunk.css.map": "/spotify-clone/static/css/main.3ae56ff7.chunk.css.map",
-    "static/js/2.037c18d2.chunk.js.LICENSE.txt": "/spotify-clone/static/js/2.037c18d2.chunk.js.LICENSE.txt"
+    "static/js/2.7ec66f5f.chunk.js.LICENSE.txt": "/spotify-clone/static/js/2.7ec66f5f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f1339594.js",
     "static/css/2.5f24e744.chunk.css",
-    "static/js/2.037c18d2.chunk.js",
+    "static/js/2.7ec66f5f.chunk.js",
     "static/css/main.3ae56ff7.chunk.css",
     "static/js/main.6ffc6b7b.chunk.js"
   ]
