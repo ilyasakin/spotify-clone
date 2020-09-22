@@ -14,16 +14,23 @@ $color-green: #1db954;
   padding-top: 0.5em;
   padding-bottom: 1em;
   background: #282828;
+  
+  @media (max-width: 768px) {
+    padding-top: 0;
+    padding-bottom: 0;
+    flex-direction: column-reverse;
+  }
 }
 
 .controls-and-other {
   display: flex;
   flex-direction: row;
+  height: 4em;
+  align-items: center;
 }
 
 .cover-container {
-  width: 32px;
-  height: 32px;
+  height: 100%;
   background-color: $color-white-active;
 
   .cover {
@@ -44,6 +51,10 @@ $color-green: #1db954;
   flex-direction: row;
   justify-content: center;
   color: $color-white-active;
+
+  @media (max-width:768px) {
+    padding: 0 1em;
+  }
 }
 
 .control-active {
@@ -65,12 +76,54 @@ $color-green: #1db954;
   &:hover {
     opacity: 1;
   }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.control-play {
+  display: flex;
 }
 
 .progress {
   display: flex;
   height: 16px;
   flex-direction: row;
+
+  @media (max-width:768px) {
+    height: 0px;
+  }  
+}
+
+.mobile {
+  font-size: small;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  flex: 1;
+  justify-content: space-between;
+  
+  .current-song {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+
+    .artist {
+      color: $color-white-inactive;
+    }
+  }
+
+  .like-button {
+    height: 18px;
+    width: 18px;
+  }
+
+
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 }
 
 .progress-with-number {
@@ -86,6 +139,10 @@ $color-green: #1db954;
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 16px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .small-button {

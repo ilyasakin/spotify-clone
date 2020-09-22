@@ -2,7 +2,7 @@ import React, { useContext, useState, useRef, useEffect } from 'react';
 import './NowplayingCenter.scoped.scss';
 import ReactHowler from 'react-howler';
 import Slider from 'react-input-slider';
-import { ShuffleIcon, PreviousIcon, PlayIcon, NextIcon, RepeatIcon, PauseIcon } from '../icons';
+import { ShuffleIcon, PreviousIcon, PlayIcon, NextIcon, RepeatIcon, PauseIcon, PlaylistHeartOutline } from '../icons';
 import CurrentSong from '../../context/CurrentSong';
 import VolumeContext from '../../context/Volume';
 import PlayingStatus from '../../context/PlayingStatus';
@@ -103,6 +103,15 @@ const NowplayingCenter: React.FC = () => {
         )}
 
         <div className="controls">
+          {/* Mobile view info */}
+          <div className="mobile">
+            <div className="current-song">
+              <span>{currentSong?.name}</span>
+              <span>·</span>
+              <span className="artist">{currentSong?.artist}</span>
+            </div>
+            <PlaylistHeartOutline className="like-button" />
+          </div>
           <button className="control-item">
             <ShuffleIcon className="small-button" />
           </button>
@@ -110,7 +119,7 @@ const NowplayingCenter: React.FC = () => {
             <PreviousIcon className="small-button" />
           </button>
           <button
-            className="control-item"
+            className="control-item control-play"
             onClick={() => {
               setPlaying?.(!playing);
             }}
