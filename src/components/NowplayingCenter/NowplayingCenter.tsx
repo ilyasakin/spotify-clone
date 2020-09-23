@@ -2,7 +2,15 @@ import React, { useContext, useState, useRef, useEffect } from 'react';
 import './NowplayingCenter.scoped.scss';
 import ReactHowler from 'react-howler';
 import Slider from 'react-input-slider';
-import { ShuffleIcon, PreviousIcon, PlayIcon, NextIcon, RepeatIcon, PauseIcon, PlaylistHeartOutline } from '../icons';
+import {
+  ShuffleIcon,
+  PreviousIcon,
+  PlayIcon,
+  NextIcon,
+  RepeatIcon,
+  PauseIcon,
+  PlaylistHeartOutline,
+} from '../icons';
 import CurrentSong from '../../context/CurrentSong';
 import VolumeContext from '../../context/Volume';
 import PlayingStatus from '../../context/PlayingStatus';

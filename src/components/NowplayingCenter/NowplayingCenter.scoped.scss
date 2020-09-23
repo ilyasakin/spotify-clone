@@ -14,18 +14,18 @@ $color-green: #1db954;
   padding-top: 0.5em;
   padding-bottom: 1em;
   background: #282828;
-  
+
   @media (max-width: 768px) {
+    flex-direction: column-reverse;
     padding-top: 0;
     padding-bottom: 0;
-    flex-direction: column-reverse;
   }
 }
 
 .controls-and-other {
   display: flex;
-  flex-direction: row;
   height: 4em;
+  flex-direction: row;
   align-items: center;
 }
 
@@ -34,7 +34,6 @@ $color-green: #1db954;
   background-color: $color-white-active;
 
   .cover {
-    width: 100%;
     height: 100%;
   }
 
@@ -52,7 +51,7 @@ $color-green: #1db954;
   justify-content: center;
   color: $color-white-active;
 
-  @media (max-width:768px) {
+  @media (max-width: 768px) {
     padding: 0 1em;
   }
 }
@@ -91,23 +90,23 @@ $color-green: #1db954;
   height: 16px;
   flex-direction: row;
 
-  @media (max-width:768px) {
-    height: 0px;
-  }  
+  @media (max-width: 768px) {
+    height: 0;
+  }
 }
 
 .mobile {
-  font-size: small;
   display: flex;
-  align-items: center;
-  font-weight: 600;
   flex: 1;
+  align-items: center;
   justify-content: space-between;
-  
+  font-size: small;
+  font-weight: 600;
+
   .current-song {
     display: flex;
-    flex-direction: row;
     gap: 4px;
+    flex-direction: row;
 
     .artist {
       color: $color-white-inactive;
@@ -115,11 +114,9 @@ $color-green: #1db954;
   }
 
   .like-button {
-    height: 18px;
     width: 18px;
+    height: 18px;
   }
-
-
 
   @media (min-width: 768px) {
     display: none;
