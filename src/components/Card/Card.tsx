@@ -20,10 +20,8 @@ const Card: React.FC<Props> = ({ song }) => {
         <ImageFadeIn className="cover" src={`${process.env.REACT_APP_BASE_URL}/${song.cover}`} />
       </div>
       <div className="info">
-        <div className="title-container">
-          <span className="title" title={song.name}>
-            {song.name}
-          </span>
+        <div className="title" title={song.name}>
+          {song.name}
         </div>
         <div className="description" title={song.artist}>
           {song.artist}

@@ -25,6 +25,10 @@ $color-active: #fff;
   line-height: 28px;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 }
 
 .titlebar-button {
