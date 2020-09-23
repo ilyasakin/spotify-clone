@@ -1,5 +1,5 @@
 import React from 'react';
-import './NavigationButton.scoped.scss';
+import './NavButton.scoped.scss';
 
 interface Props {
   text: string;
@@ -7,7 +7,7 @@ interface Props {
   active?: boolean;
 }
 
-const NavigationButton: React.FC<Props> = ({ Icon, text, active }) => {
+const NavButton: React.FC<Props> = ({ Icon, text, active }) => {
   return (
     <div className={`navigation-button ${active && 'active'}`}>
       <Icon className={`icon ${active && 'icon-active'}`} />
@@ -16,4 +16,4 @@ const NavigationButton: React.FC<Props> = ({ Icon, text, active }) => {
   );
 };
 
-export default NavigationButton;
+export default NavButton;

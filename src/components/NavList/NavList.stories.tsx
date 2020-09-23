@@ -1,5 +1,5 @@
 import React from 'react';
-import PlaylistList from './Playlist';
+import PlaylistList from './NavList';
 
 export default {
   title: 'Playlist List',

@@ -1,11 +1,11 @@
 import React from 'react';
-import './NavigationPlaylistItem.scoped.scss';
+import './NavListItem.scoped.scss';
 
 interface Props {
   text: string;
 }
 
-const NavigationPlaylistListItem: React.FC<Props> = ({ text }) => {
+const NavListItem: React.FC<Props> = ({ text }) => {
   return (
     <div className="playlist-item">
       <span className="text">{text}</span>
@@ -13,4 +13,4 @@ const NavigationPlaylistListItem: React.FC<Props> = ({ text }) => {
   );
 };
 
-export default NavigationPlaylistListItem;
+export default NavListItem;

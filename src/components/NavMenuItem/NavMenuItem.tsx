@@ -1,5 +1,5 @@
 import React from 'react';
-import './NavigationPlaylistMenuItem.scoped.scss';
+import './NavMenuItem.scoped.scss';
 
 interface Props {
   text: string;
@@ -7,7 +7,7 @@ interface Props {
   gradient?: boolean;
 }
 
-const NavigationPlaylistMenuItem: React.FC<Props> = ({ Icon, text, gradient }) => {
+const NavMenuItem: React.FC<Props> = ({ Icon, text, gradient }) => {
   return (
     <div className="playlist-menu-item">
       <div className={`icon-container ${gradient && 'gradient'}`}>
@@ -18,4 +18,4 @@ const NavigationPlaylistMenuItem: React.FC<Props> = ({ Icon, text, gradient }) =
   );
 };
 
-export default NavigationPlaylistMenuItem;
+export default NavMenuItem;

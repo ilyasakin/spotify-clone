@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import PlaylistMenu from './PlaylistMenu';
+import NavListItem from './NavListItem';
 
 it('runs correctly', () => {
-  const wrapper = shallow(<PlaylistMenu />);
+  const wrapper = shallow(<NavListItem text="test" />);
   expect(wrapper).toMatchSnapshot();
 });

@@ -1,10 +1,10 @@
 import React from 'react';
-import NavigationDivider from './NavigationDivider';
+import NavDivider from './NavDivider';
 
 export default {
   title: 'NavigationDivider',
 };
 
 export const navigationDivider = () => {
-  return <NavigationDivider />;
+  return <NavDivider />;
 };
