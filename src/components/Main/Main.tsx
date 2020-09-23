@@ -3,9 +3,10 @@ import './Main.scoped.scss';
 import axios from 'axios';
 import { ImpulseSpinner } from 'react-spinners-kit';
 import Section from '../Section/Section';
+import Song from '../../types/Song';
 
 const Main: React.FC = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Song[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {

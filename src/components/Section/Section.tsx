@@ -1,17 +1,11 @@
 import React from 'react';
 import './Section.scoped.scss';
 import Card from '../Card/Card';
+import Song from '../../types/Song';
 
 interface Props {
   title: string;
-  data: Array<Songs>;
-}
-
-interface Songs {
-  _id: string;
-  name: string;
-  artist: string;
-  cover: string;
+  data: Song[];
 }
 
 const Section: React.FC<Props> = ({ title, data }) => {
@@ -22,8 +16,7 @@ const Section: React.FC<Props> = ({ title, data }) => {
         <div className="titlebar-button">SEE ALL</div>
       </div>
       <div className="content">
-        {data.map((song: Songs) => {
-          // eslint-disable-next-line no-underscore-dangle
+        {data.map((song: Song) => {
           return <Card song={song} key={song._id} />;
         })}
       </div>

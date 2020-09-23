@@ -1,14 +1,8 @@
 import { createContext, Dispatch, SetStateAction } from 'react';
+import Song from '../types/Song';
 
 interface Props {
-  currentSong: {
-    _id?: string;
-    id?: number;
-    name?: string;
-    artist?: string;
-    cover?: string;
-    location?: string;
-  };
+  currentSong: Song;
   setCurrentSong: Dispatch<SetStateAction<{}>>;
 }
 

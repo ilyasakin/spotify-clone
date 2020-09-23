@@ -4,9 +4,10 @@ import ImageFadeIn from 'react-image-fade-in';
 import { CardPlay, CardPause } from '../icons';
 import CurrentSong from '../../context/CurrentSong';
 import PlayingStatus from '../../context/PlayingStatus';
+import Song from '../../types/Song';
 
 interface Props {
-  song: { _id: string; name: string; artist: string; cover: string };
+  song: Song;
 }
 
 const Card: React.FC<Props> = ({ song }) => {
