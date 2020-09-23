@@ -99,7 +99,7 @@ const NowplayingCenter: React.FC = () => {
           },
         }}
       />
-      <div className="controls-and-other">
+      <div className={`controls-and-other ${currentSong?._id ? 'controls-and-other-show' : ''}`}>
         {currentSong?.cover && (
           <div className="cover-container">
             <img
@@ -149,7 +149,7 @@ const NowplayingCenter: React.FC = () => {
         </div>
       </div>
 
-      <div className="progress">
+      <div className={`progress ${currentSong?._id ? 'progress-show' : ''}`}>
         <div className="progress-with-number">{formatTime(curTime)}</div>
         <div
           style={{

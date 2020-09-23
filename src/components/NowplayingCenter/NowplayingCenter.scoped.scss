@@ -24,9 +24,21 @@ $color-green: #1db954;
 
 .controls-and-other {
   display: flex;
+  overflow: hidden;
   height: 4em;
   flex-direction: row;
   align-items: center;
+
+  @media (max-width: 768px) {
+    height: 0;
+    transition: height 100ms ease-in;
+  }
+}
+
+.controls-and-other-show {
+  @media (max-width: 768px) {
+    height: 4em;
+  }
 }
 
 .cover-container {
@@ -91,7 +103,14 @@ $color-green: #1db954;
   flex-direction: row;
 
   @media (max-width: 768px) {
+    display: none;
     height: 0;
+  }
+}
+
+.progress-show {
+  @media (max-width: 768px) {
+    display: flex;
   }
 }
 
