@@ -1,10 +1,12 @@
+@import '../../styles/color-palette';
+
 .topbar {
   display: flex;
   height: 60px;
   flex-direction: row;
   justify-content: space-between;
   padding: 16px 32px;
-  background: #121212;
+  background: $color-black-3;
 }
 
 .nav-buttons {

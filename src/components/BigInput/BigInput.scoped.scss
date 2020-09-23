@@ -1,3 +1,5 @@
+@import '../../styles/color-palette';
+
 .input {
   display: block;
   width: 100%;
@@ -6,9 +8,9 @@
   border: 0;
   margin-top: 0;
   appearance: none;
-  background-color: rgb(255, 255, 255);
+  background-color: $color-white-1;
   background-image: none;
-  border-color: rgb(195, 195, 195);
+  border-color: $color-gray-4;
   border-radius: 4px;
   border-style: solid;
   border-width: 2px;

@@ -1,10 +1,7 @@
 /* stylelint-disable declaration-no-important */
 /* stylelint-disable declaration-property-value-blacklist */
 
-$color-white-active: #fff;
-$color-white-inactive: #b3b3b3;
-$color-gray: #535353;
-$color-green: #1db954;
+@import '../../styles/color-palette';
 
 .nowplaying-center-container {
   display: flex;
@@ -13,7 +10,7 @@ $color-green: #1db954;
   justify-content: space-between;
   padding-top: 0.5em;
   padding-bottom: 1em;
-  background: #282828;
+  background: $color-black-4;
 
   @media (max-width: 768px) {
     flex-direction: column-reverse;
@@ -43,7 +40,7 @@ $color-green: #1db954;
 
 .cover-container {
   height: 100%;
-  background-color: $color-white-active;
+  background-color: $color-white-1;
 
   .cover {
     height: 100%;
@@ -61,7 +58,7 @@ $color-green: #1db954;
   flex: 1;
   flex-direction: row;
   justify-content: center;
-  color: $color-white-active;
+  color: $color-white-1;
 
   @media (max-width: 768px) {
     padding: 0 1em;
@@ -69,7 +66,7 @@ $color-green: #1db954;
 }
 
 .control-active {
-  color: $color-green;
+  color: $color-spotify-green;
 }
 
 .control-item {
@@ -79,7 +76,7 @@ $color-green: #1db954;
   align-items: center;
   justify-content: center;
   background: transparent;
-  color: $color-white-active;
+  color: $color-white-1;
   cursor: pointer;
   opacity: 0.7;
   transition: opacity 200ms linear;
@@ -128,7 +125,7 @@ $color-green: #1db954;
     flex-direction: row;
 
     .artist {
-      color: $color-white-inactive;
+      color: $color-gray-3;
     }
   }
 
@@ -148,7 +145,7 @@ $color-green: #1db954;
   height: 16px;
   align-self: center;
   justify-content: center;
-  color: $color-white-inactive;
+  color: $color-gray-3;
   font-family: 'Segoe UI';
   font-size: 12px;
   font-style: normal;
@@ -180,7 +177,7 @@ $color-green: #1db954;
   width: initial !important;
   height: 4px !important;
   padding: 0 !important;
-  color: $color-gray !important;
+  color: $color-gray-2 !important;
 }
 
 .MuiSlider-track {

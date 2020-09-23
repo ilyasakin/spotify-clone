@@ -1,5 +1,4 @@
-$color-active: #fff;
-$color-inactive: #b3b3b3;
+@import '../../styles/color-palette';
 
 .card {
   position: relative;
@@ -11,7 +10,7 @@ $color-inactive: #b3b3b3;
   flex: 1;
   flex-direction: column;
   padding: 20px 20px 16px;
-  background: #282828;
+  background: $color-black-4;
   border-radius: 8px;
   font-family: 'Segoe UI';
 
@@ -39,7 +38,7 @@ $color-inactive: #b3b3b3;
   @media (min-width: 768px) {
     right: 16px;
     bottom: 16px;
-    background-color: #1db954;
+    background-color: $color-spotify-green;
     border-radius: 500px;
 
     &:hover {
@@ -69,7 +68,7 @@ $color-inactive: #b3b3b3;
   left: calc(50% - 16px / 2);
   width: 16px;
   height: 16px;
-  color: $color-active;
+  color: $color-white-1;
 
   @media (max-width: 768px) {
     display: none;
@@ -100,7 +99,7 @@ $color-inactive: #b3b3b3;
   display: inline-block;
   overflow: hidden;
   max-width: 100%;
-  color: $color-active;
+  color: $color-white-1;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: normal;
@@ -112,7 +111,7 @@ $color-inactive: #b3b3b3;
 
 .description {
   overflow: hidden;
-  color: $color-inactive;
+  color: $color-gray-3;
   font-size: 11px;
   font-weight: 400;
   letter-spacing: normal;

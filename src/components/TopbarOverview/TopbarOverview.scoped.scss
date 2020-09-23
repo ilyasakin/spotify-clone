@@ -1,5 +1,4 @@
-$color-active: #fff;
-$color-spotify: #1ed760;
+@import '../../styles/color-palette';
 
 .topbar-overview-container {
   display: flex;
@@ -7,7 +6,7 @@ $color-spotify: #1ed760;
   height: 80px;
   padding: 0 15px;
   margin: 0 auto;
-  background: #000;
+  background: $color-black-1;
 }
 
 .logo {
@@ -23,13 +22,14 @@ $color-spotify: #1ed760;
 .nav-button {
   padding: 28px 17px;
   background-color: transparent;
-  color: $color-active;
+  color: $color-white-1;
   cursor: pointer;
   font-family: 'Segoe UI';
   font-size: 16px;
   font-weight: 600;
   line-height: 1.5;
+
   &:hover {
-    color: $color-spotify;
+    color: $color-spotify-green;
   }
 }

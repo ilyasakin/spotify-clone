@@ -1,8 +1,10 @@
+@import '../../styles/color-palette';
+
 .divider {
   display: block;
   width: 334px;
   box-sizing: border-box;
-  border-top: 1px solid #d9dadc;
+  border-top: 1px solid $color-gray-4;
   margin: 15px 0;
   line-height: 1px;
   text-align: center;

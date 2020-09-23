@@ -1,9 +1,11 @@
+@import '../../styles/color-palette';
+
 .nowplaying {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 0 16px;
-  background: #282828;
+  background: $color-black-4;
 
   @media (max-width: 768px) {
     flex-direction: column;

@@ -1,5 +1,4 @@
-$color-active: #fff;
-$color-inactive: #b3b3b3;
+@import '../../styles/color-palette';
 
 .nav-back {
   display: flex;
@@ -10,8 +9,9 @@ $color-inactive: #b3b3b3;
   background: rgba(0, 0, 0, 0.7);
   border-radius: 16px;
   cursor: pointer;
+
   &:hover .topbar-nav-icon {
-    color: $color-active;
+    color: $color-white-1;
   }
 }
 
@@ -24,14 +24,15 @@ $color-inactive: #b3b3b3;
   background: rgba(0, 0, 0, 0.7);
   border-radius: 16px;
   cursor: pointer;
+
   &:hover .nav-icon {
-    color: $color-active;
+    color: $color-white-1;
   }
 }
 
 .nav-icon {
   width: 10.17px;
   height: 16.35px;
-  color: $color-inactive;
+  color: $color-gray-3;
   transition: color 200ms linear;
 }

@@ -1,7 +1,9 @@
+@import '../../styles/color-palette';
+
 .divider {
   height: 0;
   padding-right: 24px;
   padding-left: 24px;
-  border: 1px solid #b3b3b3;
+  border: 1px solid $color-gray-3;
   margin-top: 8px;
 }

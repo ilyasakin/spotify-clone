@@ -1,3 +1,5 @@
+@import '../../styles/color-palette';
+
 .main {
   position: relative;
   display: grid;
@@ -6,7 +8,7 @@
   padding-top: 16px;
   padding-right: 32px;
   padding-left: 32px;
-  background: #121212;
+  background: $color-black-3;
   overflow-y: scroll;
   row-gap: 32px;
 }

@@ -1,4 +1,4 @@
-$color-active: #fff;
+@import '../../styles/color-palette';
 
 .overview-menu-item-container {
   position: relative;
@@ -13,6 +13,7 @@ $color-active: #fff;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
+
   &:hover .overview-menu-item-indicator {
     opacity: 1;
   }
@@ -22,7 +23,7 @@ $color-active: #fff;
   position: relative;
   display: flex;
   padding: 15px 15px 15px 30px;
-  color: $color-active;
+  color: $color-white-1;
   font-family: 'Segoe UI';
   font-weight: 600;
 }
@@ -32,7 +33,7 @@ $color-active: #fff;
   left: 0;
   width: 5px;
   height: 54px;
-  background-color: #1ed760;
+  background-color: $color-spotify-green;
   opacity: 0;
 }
 

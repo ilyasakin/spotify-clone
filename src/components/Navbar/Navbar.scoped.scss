@@ -1,10 +1,12 @@
+@import '../../styles/color-palette';
+
 .navbar {
   bottom: 89px;
   display: flex;
   width: 14.5em;
   gap: 16px;
   flex-direction: column;
-  background-color: #040404;
+  background-color: $color-black-2;
 
   @media (max-width: 768px) {
     display: none;

@@ -1,13 +1,11 @@
-$color-white-active: #fff;
-$color-white-inactive: #b3b3b3;
-$color-navbar-black: #040404;
+@import '../../styles/color-palette';
 
 .playlist-menu-item {
   display: flex;
   width: 100%;
   height: 42px;
   align-items: center;
-  background: $color-navbar-black;
+  background: $color-black-2;
   cursor: pointer;
 
   &:hover .icon-container {
@@ -16,7 +14,7 @@ $color-navbar-black: #040404;
   }
 
   &:hover .text {
-    color: $color-white-active;
+    color: $color-gray-3;
     transition: color 200ms linear;
   }
 }
@@ -27,7 +25,7 @@ $color-navbar-black: #040404;
   height: 32px;
   align-items: center;
   justify-content: center;
-  background: $color-white-active;
+  background: $color-white-1;
   opacity: 0.7;
   transition: opacity 200ms linear;
 }
@@ -38,7 +36,7 @@ $color-navbar-black: #040404;
 }
 
 .white-color {
-  color: $color-white-active;
+  color: $color-white-1;
 }
 
 .gradient {
@@ -48,7 +46,7 @@ $color-navbar-black: #040404;
 .text {
   height: 16px;
   margin-left: 16px;
-  color: $color-white-inactive;
+  color: $color-gray-3;
   font-family: 'Segoe UI';
   font-size: 12px;
   font-style: normal;

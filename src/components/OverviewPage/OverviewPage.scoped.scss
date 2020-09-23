@@ -1,4 +1,4 @@
-$color-active: #fff;
+@import '../../styles/color-palette';
 
 .overview-page-container {
   display: flex;
@@ -7,5 +7,5 @@ $color-active: #fff;
   flex: 1;
   flex-direction: column;
   padding: 48px;
-  background-color: $color-active;
+  background-color: $color-white-1;
 }
