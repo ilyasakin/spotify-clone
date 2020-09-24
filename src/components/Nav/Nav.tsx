@@ -2,7 +2,7 @@ import React from 'react';
 import './Nav.scoped.scss';
 import { useHistory } from 'react-router-dom';
 import NavButton from '../NavButton/NavButton';
-import { HomeActive, Search, Library } from '../icons';
+import { HomeActive, Search, Library, Home, SearchActive, LibraryActive } from '../icons';
 
 interface Props {
   bottom?: boolean;
@@ -14,19 +14,19 @@ const Nav: React.FC<Props> = ({ bottom }) => {
   return (
     <div className={`navigation-menu ${bottom ? 'bottom-menu' : ''}`}>
       <NavButton
-        Icon={HomeActive}
+        Icon={history.location.pathname === '/player/home' ? HomeActive : Home}
         text="Home"
         onClick={() => history.push('/player/home')}
         active={history.location.pathname === '/player/home'}
       />
       <NavButton
-        Icon={Search}
+        Icon={history.location.pathname === '/player/search' ? SearchActive : Search}
         text="Search"
         onClick={() => history.push('/player/search')}
         active={history.location.pathname === '/player/search'}
       />
       <NavButton
-        Icon={Library}
+        Icon={history.location.pathname === '/player/library' ? LibraryActive : Library}
         text="Library"
         active={history.location.pathname === '/player/location'}
       />
