@@ -8,12 +8,7 @@ interface Props {
 
 const TopbarNavBtn: React.FC<Props> = ({ direction }) => {
   return (
-    <div
-      className={
-        // eslint-disable-next-line no-nested-ternary
-        direction === 'left' ? 'nav-back' : direction === 'right' ? 'nav-forward' : undefined
-      }
-    >
+    <div className="nav-button">
       {direction === 'left' && <Back className="nav-icon" />}
       {direction === 'right' && <Forward className="nav-icon" />}
     </div>
