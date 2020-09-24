@@ -5,14 +5,15 @@ interface Props {
   text: string;
   Icon: React.FC<{ className: string }>;
   active?: boolean;
+  onClick?: () => void;
 }
 
-const NavButton: React.FC<Props> = ({ Icon, text, active }) => {
+const NavButton: React.FC<Props> = ({ Icon, text, active, onClick }) => {
   return (
-    <div className={`navigation-button ${active && 'active'}`}>
+    <button className={`navigation-button ${active && 'active'}`} onClick={onClick}>
       <Icon className={`icon ${active && 'icon-active'}`} />
       <span className={`text ${active && 'text-active'}`}>{text}</span>
-    </div>
+    </button>
   );
 };
 

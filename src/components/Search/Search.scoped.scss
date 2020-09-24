@@ -1,0 +1,21 @@
+@import '../../styles/color-palette';
+
+.search {
+  position: relative;
+  display: grid;
+  grid-auto-rows: 1fr;
+  flex: 1;
+  padding-top: 16px;
+  padding-right: 32px;
+  padding-left: 32px;
+  background: $color-black-3;
+  overflow-y: scroll;
+  row-gap: 32px;
+}
+
+// .loading-indicator {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   margin: -20px 0 0 -4px;
+// }
