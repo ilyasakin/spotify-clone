@@ -11,8 +11,8 @@
 
 .nav-buttons {
   display: flex;
-  width: 4em;
-  justify-content: space-between;
+  gap: 16px;
+  flex-direction: row;
 }
 
 .user-menu {

@@ -1,9 +1,10 @@
 @import '../../styles/color-palette';
 
 .divider {
-  height: 0;
+  height: 1px;
   padding-right: 24px;
   padding-left: 24px;
-  border: 1px solid $color-gray-3;
+  border: none;
   margin-top: 8px;
+  background-color: $color-black-4;
 }

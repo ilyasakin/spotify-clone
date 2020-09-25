@@ -10,8 +10,10 @@ const Navbar: React.FC = () => {
     <div className="navbar">
       <Logo className="logo" />
       <Nav />
-      <NavMenu />
-      <NavList />
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 24, marginTop: 24 }}>
+        <NavMenu className="nav-menu" />
+        <NavList />
+      </div>
     </div>
   );
 };

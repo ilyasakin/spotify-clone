@@ -4,7 +4,6 @@
   bottom: 89px;
   display: flex;
   width: 14.5em;
-  gap: 16px;
   flex-direction: column;
   background-color: $color-black-2;
 
@@ -18,5 +17,6 @@
   height: 40px;
   align-self: baseline;
   margin-top: 24px;
+  margin-bottom: 18px;
   margin-left: 24px;
 }
