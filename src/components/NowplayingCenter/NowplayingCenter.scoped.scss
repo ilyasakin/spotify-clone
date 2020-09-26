@@ -5,13 +5,12 @@
 
 .nowplaying-center-container {
   display: flex;
-  flex: 1;
+  flex-basis: 40%;
   flex-direction: column;
   justify-content: space-between;
   padding-top: 0.5em;
   padding-bottom: 1em;
   background: $color-black-4;
-
   @media (max-width: 768px) {
     flex-direction: column-reverse;
     padding-top: 0;
@@ -149,7 +148,6 @@
   font-family: 'Segoe UI';
   font-size: 12px;
   font-style: normal;
-  font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 16px;
 
