@@ -24,34 +24,32 @@ const Login = () => {
   }, [history]);
 
   return (
-    <div style={{ backgroundColor: '#121212', height: '100vh' }}>
-      <div className="login-container">
-        <div className="login-inner-container">
-          <Logo className="logo" />
-          {/* TODO: Make this route instead of a state */}
-          {!signUp ? (
-            <>
-              <SignIn />
-              <h4 className="dont-have-acc">Don&apos;t have an account?</h4>
-              <BigButton
-                text="Sign up for Spotify"
-                className="signup-button"
-                variation="outline"
-                onClick={() => setSignUp(!signUp)}
-              />
-            </>
-          ) : (
-            <>
-              <SignUp />
-              <h3 className="have-an-acc">
-                Have an account?
-                <button className="spot-link" onClick={() => setSignUp(false)}>
-                  Sign In
-                </button>
-              </h3>
-            </>
-          )}
-        </div>
+    <div className="login-container">
+      <div className="login-inner-container">
+        <Logo className="logo" />
+        {/* TODO: Make this route instead of a state */}
+        {!signUp ? (
+          <>
+            <SignIn />
+            <h4 className="dont-have-acc">Don&apos;t have an account?</h4>
+            <BigButton
+              text="Sign up for Spotify"
+              className="signup-button"
+              variation="outline"
+              onClick={() => setSignUp(!signUp)}
+            />
+          </>
+        ) : (
+          <>
+            <SignUp />
+            <h3 className="have-an-acc">
+              Have an account?
+              <button className="spot-link" onClick={() => setSignUp(false)}>
+                Sign In
+              </button>
+            </h3>
+          </>
+        )}
       </div>
     </div>
   );
