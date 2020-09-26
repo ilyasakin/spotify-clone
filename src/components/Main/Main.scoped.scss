@@ -2,14 +2,16 @@
 
 .main {
   position: relative;
-  display: grid;
-  grid-auto-rows: 1fr;
-  flex: 1;
+  display: flex;
+  overflow: auto;
+  height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
   padding-top: 16px;
   padding-right: 32px;
   padding-left: 32px;
   background: $color-black-3;
-  overflow-y: scroll;
+  overflow-y: auto;
   row-gap: 32px;
 
   @media (max-width: 768px) {
