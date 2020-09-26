@@ -5,6 +5,10 @@
   height: 300px;
   flex-direction: column;
   background: $color-black-3;
+
+  @media (max-width: 768px) {
+    height: 200px;
+  }
 }
 
 .titlebar {

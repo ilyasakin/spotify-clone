@@ -7,6 +7,7 @@ import CurrentSong from '../../context/CurrentSong';
 import VolumeContext from '../../context/Volume';
 import PlayingStatus from '../../context/PlayingStatus';
 import LikeButton from '../LikeButton/LikeButton';
+import RecentlyPlayed from '../../context/RecentlyPlayed';
 
 const formatTime = (duration: number | undefined): string => {
   if (duration) {
@@ -22,8 +23,12 @@ const formatTime = (duration: number | undefined): string => {
 };
 
 const NowplayingCenter: React.FC = () => {
+  // Needs  cleaning
+
   const { currentSong } = useContext(CurrentSong);
   const { volume } = useContext(VolumeContext);
+  const { recentlyPlayed, setRecentlyPlayed } = useContext(RecentlyPlayed);
+
   const { playing, setPlaying } = useContext(PlayingStatus);
   const [duration, setDuration] = useState<number | undefined>(0);
   const [curTime, setCurTime] = useState(0);
@@ -51,12 +56,21 @@ const NowplayingCenter: React.FC = () => {
   }, [player, currentSong]);
 
   useEffect(() => {
+    // For changing title based on the song
     if (playing && currentSong && Object.keys(currentSong).length > 1) {
       document.title = `${currentSong.name} · ${currentSong.artist}`;
     } else {
       document.title = 'Spotify';
     }
   }, [playing, currentSong]);
+
+  useEffect(() => {
+    // Add to recently played if song is playing and it is not in recently played
+    if (playing && currentSong && recentlyPlayed && !recentlyPlayed?.includes(currentSong)) {
+      setRecentlyPlayed?.([...recentlyPlayed, currentSong]);
+      // TODO: Send this data to back-end
+    }
+  }, [playing, currentSong, recentlyPlayed, setRecentlyPlayed]);
 
   useEffect(() => {
     localStorage.setItem('LOOP', loop.toString());

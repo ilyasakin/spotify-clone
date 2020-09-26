@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Main.scoped.scss';
 import axios from 'axios';
 import { ImpulseSpinner } from 'react-spinners-kit';
 import Section from '../Section/Section';
 import Song from '../../types/Song';
+import RecentlyPlayed from '../../context/RecentlyPlayed';
 
 const Main: React.FC = () => {
+  const { recentlyPlayed } = useContext(RecentlyPlayed);
   const [data, setData] = useState<Song[]>([]);
 
   useEffect(() => {
@@ -27,6 +29,9 @@ const Main: React.FC = () => {
         </div>
       ) : (
         <Section title="Songs" data={data} />
+      )}
+      {recentlyPlayed && recentlyPlayed.length >= 1 && (
+        <Section title="Recently Played" data={recentlyPlayed} />
       )}
     </div>
   );
