@@ -25,15 +25,15 @@ const formatTime = (duration: number | undefined): string => {
 const NowplayingCenter: React.FC = () => {
   // Needs  cleaning
 
+  const { recentlyPlayed, setRecentlyPlayed } = useContext(RecentlyPlayed);
+  const { playing, setPlaying } = useContext(PlayingStatus);
   const { currentSong } = useContext(CurrentSong);
   const { volume } = useContext(VolumeContext);
-  const { recentlyPlayed, setRecentlyPlayed } = useContext(RecentlyPlayed);
 
-  const { playing, setPlaying } = useContext(PlayingStatus);
   const [duration, setDuration] = useState<number | undefined>(0);
   const [curTime, setCurTime] = useState(0);
   const [isSeeking, setSeeking] = useState(false);
-  const [dummyCurTime, setDummyCurTime] = useState(10);
+  const [dummyCurTime, setDummyCurTime] = useState(0);
   const player = useRef<ReactHowler | undefined>();
   const [onSlider, setOnSlider] = useState(false);
   const [loop, setLoop] = useState(localStorage.getItem('LOOP') === 'true');
@@ -44,10 +44,8 @@ const NowplayingCenter: React.FC = () => {
         try {
           const time = player.current?.seek();
           if (typeof time === 'number') setCurTime(time);
-        } catch (err) {
+        } catch {
           setCurTime(0);
-          // eslint-disable-next-line no-console
-          console.log(err);
         }
       }
     }, 1000);
@@ -66,8 +64,8 @@ const NowplayingCenter: React.FC = () => {
 
   useEffect(() => {
     // Add to recently played if song is playing and it is not in recently played
-    if (playing && currentSong && recentlyPlayed && !recentlyPlayed?.includes(currentSong)) {
-      setRecentlyPlayed?.([...recentlyPlayed, currentSong]);
+    if (playing && currentSong && !recentlyPlayed?.includes(currentSong)) {
+      if (recentlyPlayed) setRecentlyPlayed?.([...recentlyPlayed, currentSong]);
       // TODO: Send this data to back-end
     }
   }, [playing, currentSong, recentlyPlayed, setRecentlyPlayed]);
@@ -78,7 +76,7 @@ const NowplayingCenter: React.FC = () => {
 
   const handleChange = ({ x }: { x: number }): void => {
     if (player.current && duration) {
-      if (typeof x === 'number') {
+      if (x ?? 0) {
         setDummyCurTime(x);
         player.current.seek((duration / 100) * x);
       }
@@ -87,7 +85,6 @@ const NowplayingCenter: React.FC = () => {
 
   return (
     <div className="nowplaying-center-container">
-      {/* TODO: Switch to pure howlerjs */}
       <ReactHowler
         src={`${process.env.REACT_APP_BASE_URL}/${currentSong?.location}`}
         playing={playing}
@@ -96,8 +93,8 @@ const NowplayingCenter: React.FC = () => {
         // @ts-ignore
         ref={player}
         onLoad={() => {
-          setDuration(player.current && player.current.duration());
-          if (typeof player.current?.seek() === 'number') setCurTime(player.current?.seek());
+          setDuration(player.current?.duration());
+          setCurTime(player.current?.seek() ?? 0);
         }}
         loop={loop}
         xhr={{
@@ -127,29 +124,31 @@ const NowplayingCenter: React.FC = () => {
             </div>
             <LikeButton />
           </div>
+
+          {/* Shuffle */}
           <button className="control-item">
             <ShuffleIcon className="small-button" />
           </button>
+
+          {/* Previous */}
           <button className="control-item">
             <PreviousIcon className="small-button" />
           </button>
-          <button
-            className="control-item control-play"
-            onClick={() => {
-              setPlaying?.(!playing);
-            }}
-            aria-hidden="true"
-          >
+
+          {/* Play-Pause */}
+          <button className="control-item control-play" onClick={() => setPlaying?.(!playing)}>
             {!playing ? <PlayIcon className="big-button" /> : <PauseIcon className="big-button" />}
           </button>
+
+          {/* Next */}
           <button className="control-item">
             <NextIcon className="small-button" />
           </button>
+
+          {/* Loop */}
           <button
             className={`control-item ${loop ? 'control-active' : ''}`}
-            onClick={() => {
-              setLoop?.(!loop);
-            }}
+            onClick={() => setLoop?.(!loop)}
           >
             <RepeatIcon className="small-button" />
           </button>
@@ -190,11 +189,13 @@ const NowplayingCenter: React.FC = () => {
                 alignSelf: 'center',
                 width: '100%',
               },
+
               thumb: {
                 height: 12,
                 width: 12,
                 visibility: onSlider || isSeeking ? 'visible' : 'hidden',
               },
+
               active: {
                 backgroundColor: onSlider || isSeeking ? '#1db954' : '#b3b3b3',
               },
