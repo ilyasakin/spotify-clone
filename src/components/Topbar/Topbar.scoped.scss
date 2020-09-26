@@ -7,6 +7,10 @@
   justify-content: space-between;
   padding: 16px 32px;
   background: #090909;
+
+  @media (max-width: 768px) {
+    padding: 16px;
+  }
 }
 
 .nav-buttons {
