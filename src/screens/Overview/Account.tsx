@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import moment from 'moment';
+import { format } from 'date-fns';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import axios from 'axios';
 import OverviewTable from '../../components/OverviewTable/OverviewTable';
@@ -15,8 +15,7 @@ const Account = () => {
 
   const parseDate = (date: string | undefined): string => {
     if (date) {
-      const d = moment(Date.parse(date));
-      return d.format('MMMM DD, YYYY');
+      return format(Date.parse(date), 'MMMM dd, yyyy');
     }
     return 'Not found';
   };
