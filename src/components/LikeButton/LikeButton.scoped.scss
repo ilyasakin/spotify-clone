@@ -1,0 +1,12 @@
+@import '../../styles/color-palette';
+
+.like-button {
+  align-self: center;
+  color: $color-white-1;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 18px;
+    height: 18px;
+  }
+}

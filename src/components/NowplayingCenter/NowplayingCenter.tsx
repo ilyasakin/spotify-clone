@@ -2,18 +2,11 @@ import React, { useContext, useState, useRef, useEffect } from 'react';
 import './NowplayingCenter.scoped.scss';
 import ReactHowler from 'react-howler';
 import Slider from 'react-input-slider';
-import {
-  ShuffleIcon,
-  PreviousIcon,
-  PlayIcon,
-  NextIcon,
-  RepeatIcon,
-  PauseIcon,
-  PlaylistHeartOutline,
-} from '../icons';
+import { ShuffleIcon, PreviousIcon, PlayIcon, NextIcon, RepeatIcon, PauseIcon } from '../icons';
 import CurrentSong from '../../context/CurrentSong';
 import VolumeContext from '../../context/Volume';
 import PlayingStatus from '../../context/PlayingStatus';
+import LikeButton from '../LikeButton/LikeButton';
 
 const formatTime = (duration: number | undefined): string => {
   if (duration) {
@@ -118,7 +111,7 @@ const NowplayingCenter: React.FC = () => {
               <span>·</span>
               <span className="artist">{currentSong?.artist}</span>
             </div>
-            <PlaylistHeartOutline className="like-button" />
+            <LikeButton />
           </div>
           <button className="control-item">
             <ShuffleIcon className="small-button" />
