@@ -11,6 +11,11 @@
   background: $color-black-3;
   overflow-y: scroll;
   row-gap: 32px;
+
+  @media (max-width: 768px) {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
 }
 
 .loading-indicator {
