@@ -26,9 +26,50 @@
   line-height: 20px;
 }
 
+.bar {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  animation: sound 0ms -800ms linear infinite alternate;
+  background: $color-spotify-green;
+}
+
+@keyframes sound {
+  0% {
+    height: 3px;
+    opacity: 0.35;
+  }
+  100% {
+    height: 16px;
+    opacity: 1;
+  }
+}
+
+.bar:nth-child(1) {
+  left: 1px;
+  animation-duration: 474ms;
+}
+.bar:nth-child(2) {
+  left: 5px;
+  animation-duration: 433ms;
+}
+.bar:nth-child(3) {
+  left: 9px;
+  animation-duration: 407ms;
+}
+.bar:nth-child(4) {
+  left: 13px;
+  animation-duration: 458ms;
+}
+.bar:nth-child(5) {
+  left: 17px;
+  animation-duration: 400ms;
+}
+
 .cover {
   height: 100%;
 }
+
 .song-info {
   .name {
     color: $color-white-1;
