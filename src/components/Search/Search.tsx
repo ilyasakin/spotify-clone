@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Search.scoped.scss';
+import SearchContext from '../../context/Search';
 
 const Search: React.FC = () => {
-  return <div className="search" />;
+  const { search } = useContext(SearchContext);
+
+  return (
+    <div className="search">
+      <h1>{search}</h1>
+    </div>
+  );
 };
 
 export default Search;

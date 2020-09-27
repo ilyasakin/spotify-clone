@@ -3,9 +3,10 @@
 .topbar {
   display: flex;
   height: 60px;
+  gap: 16px;
   flex-direction: row;
-  justify-content: space-between;
-  padding: 16px 32px;
+  align-items: center;
+  padding: 8px 32px;
   background: #090909;
 
   @media (max-width: 768px) {
@@ -17,8 +18,9 @@
   display: flex;
   gap: 16px;
   flex-direction: row;
+  padding: 8px 0;
 }
 
-.user-menu {
-  align-self: center;
+.searchbar-container {
+  flex: 1;
 }
