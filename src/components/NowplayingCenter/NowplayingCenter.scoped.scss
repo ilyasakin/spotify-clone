@@ -133,6 +133,18 @@
   }
 }
 
+.mobile-play-pause {
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.desktop-play-pause {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
 .progress-with-number {
   display: flex;
   width: 40px;
