@@ -28,10 +28,12 @@ const Main: React.FC = () => {
           <ImpulseSpinner frontColor="#1db954" />
         </div>
       ) : (
-        <Section title="Songs" data={data} />
-      )}
-      {recentlyPlayed && recentlyPlayed.length >= 1 && (
-        <Section title="Recently Played" data={recentlyPlayed} noSeeAll />
+        <>
+          <Section title="Songs" data={data} />
+          {recentlyPlayed && recentlyPlayed.length >= 1 && (
+            <Section title="Recently Played" data={recentlyPlayed} noSeeAll />
+          )}
+        </>
       )}
     </div>
   );
