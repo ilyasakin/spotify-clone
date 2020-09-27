@@ -1,0 +1,53 @@
+@import '../../styles/color-palette';
+
+.list-item {
+  display: flex;
+  height: 56px;
+  box-sizing: border-box;
+  gap: 16px;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+
+    div {
+      color: $color-white-1;
+    }
+  }
+}
+
+.id {
+  color: $color-gray-3;
+  font-size: 14px;
+  letter-spacing: 0.015em;
+  line-height: 20px;
+}
+
+.song-info {
+  .name {
+    color: $color-white-1;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 24px;
+    text-transform: none;
+  }
+
+  .artist {
+    color: $color-gray-3;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 16px;
+    text-transform: none;
+  }
+}
+
+.rest {
+  display: flex;
+  flex: 1;
+  justify-content: right;
+}
