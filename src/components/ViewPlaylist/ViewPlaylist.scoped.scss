@@ -2,13 +2,12 @@
 
 .view-playlist {
   position: relative;
-  display: grid;
-  grid-auto-rows: 1fr;
+  display: flex;
   flex: 1;
+  flex-direction: column;
   padding-top: 16px;
   padding-right: 32px;
   padding-left: 32px;
   background: $color-black-3;
   overflow-y: scroll;
-  row-gap: 32px;
 }

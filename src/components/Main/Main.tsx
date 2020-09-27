@@ -31,7 +31,7 @@ const Main: React.FC = () => {
         <Section title="Songs" data={data} />
       )}
       {recentlyPlayed && recentlyPlayed.length >= 1 && (
-        <Section title="Recently Played" data={recentlyPlayed} />
+        <Section title="Recently Played" data={recentlyPlayed} noSeeAll />
       )}
     </div>
   );

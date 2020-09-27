@@ -8,6 +8,7 @@ import Topbar from '../components/Topbar/Topbar';
 import Main from '../components/Main/Main';
 import Search from '../components/Search/Search';
 import CombinedProvider from '../components/CombinedProvider/CombinedProvider';
+import ViewPlaylist from '../components/ViewPlaylist/ViewPlaylist';
 
 const Player = () => {
   document.title = 'Spotify';
@@ -27,6 +28,9 @@ const Player = () => {
               </Route>
               <Route path={`${match.path}/search`}>
                 <Search />
+              </Route>
+              <Route path={`${match.path}/playlist`}>
+                <ViewPlaylist />
               </Route>
               <Route path={`${match.path}/`}>
                 <Redirect to={`${match.url}/home`} />
