@@ -18,7 +18,7 @@ const ListItem: React.FC<Props> = ({ song, index }) => (
       <div className="artist">{song.artist}</div>
     </div>
     <div className="rest">
-      <LikeButton />
+      <LikeButton forSong={song} />
     </div>
   </div>
 );

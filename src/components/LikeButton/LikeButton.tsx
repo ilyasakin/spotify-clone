@@ -1,12 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Axios from 'axios';
-import CurrentSong from '../../context/CurrentSong';
 import { PlaylistHeart, PlaylistHeartOutline } from '../icons';
 import User from '../../context/User';
 import './LikeButton.scoped.scss';
+import Song from '../../types/Song';
 
-const LikeButton: React.FC = () => {
-  const { currentSong } = useContext(CurrentSong);
+interface Props {
+  forSong?: Song;
+}
+
+const LikeButton: React.FC<Props> = ({ forSong }) => {
   const { user } = useContext(User);
   const [isLiked, setLiked] = useState(false);
 
@@ -14,7 +17,7 @@ const LikeButton: React.FC = () => {
     const token = localStorage.getItem('__TOKEN');
     Axios.post(
       `${process.env.REACT_APP_BASE_URL}/api/users/isSongLiked`,
-      { id: currentSong?.id },
+      { id: forSong?.id },
       {
         headers: { Authorization: `Bearer ${token}` },
       },
@@ -22,7 +25,7 @@ const LikeButton: React.FC = () => {
       .then((res) => setLiked(res.data))
       // eslint-disable-next-line no-console
       .catch((res) => console.log(res?.response?.data.error));
-  }, [currentSong]);
+  }, [forSong]);
 
   return (
     <>
@@ -32,7 +35,7 @@ const LikeButton: React.FC = () => {
           onClick={() => {
             Axios.post(
               `${process.env.REACT_APP_BASE_URL}/api/users/unlikeSong`,
-              { id: currentSong?.id },
+              { id: forSong?.id },
               {
                 headers: { Authorization: `Bearer ${user?.token}` },
               },
@@ -45,7 +48,7 @@ const LikeButton: React.FC = () => {
           onClick={() => {
             Axios.post(
               `${process.env.REACT_APP_BASE_URL}/api/users/likeSong`,
-              { id: currentSong?.id },
+              { id: forSong?.id },
               {
                 headers: { Authorization: `Bearer ${user?.token}` },
               },

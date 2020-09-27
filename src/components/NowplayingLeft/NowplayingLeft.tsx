@@ -24,7 +24,7 @@ const NowplayingLeft: React.FC = () => {
             <div className="artist">{currentSong?.artist}</div>
           </div>
           {/*  */}
-          <LikeButton />
+          <LikeButton forSong={currentSong} />
         </>
       )}
     </div>

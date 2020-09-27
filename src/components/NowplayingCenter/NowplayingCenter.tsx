@@ -122,7 +122,7 @@ const NowplayingCenter: React.FC = () => {
               <span>·</span>
               <span className="artist">{currentSong?.artist}</span>
             </div>
-            <LikeButton />
+            <LikeButton forSong={currentSong} />
           </div>
 
           {/* Shuffle */}
