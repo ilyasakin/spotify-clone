@@ -20,6 +20,7 @@
 }
 
 .id {
+  width: 12px;
   color: $color-gray-3;
   font-size: 14px;
   letter-spacing: 0.015em;
@@ -32,6 +33,22 @@
   height: 3px;
   animation: sound 0ms -800ms linear infinite alternate;
   background: $color-spotify-green;
+
+  &:nth-child(1) {
+    animation-duration: 474ms;
+  }
+
+  &:nth-child(2) {
+    animation-duration: 433ms;
+  }
+
+  &:nth-child(3) {
+    animation-duration: 407ms;
+  }
+
+  &:nth-child(4) {
+    animation-duration: 458ms;
+  }
 }
 
 @keyframes sound {
@@ -43,27 +60,6 @@
     height: 16px;
     opacity: 1;
   }
-}
-
-.bar:nth-child(1) {
-  left: 1px;
-  animation-duration: 474ms;
-}
-.bar:nth-child(2) {
-  left: 5px;
-  animation-duration: 433ms;
-}
-.bar:nth-child(3) {
-  left: 9px;
-  animation-duration: 407ms;
-}
-.bar:nth-child(4) {
-  left: 13px;
-  animation-duration: 458ms;
-}
-.bar:nth-child(5) {
-  left: 17px;
-  animation-duration: 400ms;
 }
 
 .cover {
