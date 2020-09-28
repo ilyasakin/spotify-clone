@@ -61,9 +61,7 @@ const ListItem: React.FC<Props> = ({ song, index }) => {
         <div className="name">{song.name}</div>
         <div className="artist">{song.artist}</div>
       </div>
-      <div className="rest">
-        <LikeButton forSong={song} />
-      </div>
+      <div className="rest">{!onHover || <LikeButton forSong={song} />}</div>
     </div>
   );
 };
