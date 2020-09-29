@@ -24,7 +24,6 @@ const SignIn = () => {
       .then((res: AxiosResponse) => {
         localStorage.setItem('__TOKEN', res.data.token);
         setLoading(false);
-        // eslint-disable-next-line no-unused-expressions
         setUser?.(res.data);
         history.push('/player');
       })

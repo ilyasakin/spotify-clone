@@ -30,7 +30,6 @@ const SignUp = () => {
       })
       .then((res: AxiosResponse) => {
         setLoading(false);
-        // eslint-disable-next-line no-unused-expressions
         setUser?.(res.data);
         history.push('/player');
       })
