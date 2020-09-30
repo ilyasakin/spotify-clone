@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './NowplayingRight.scoped.scss';
 import Slider from 'react-input-slider';
-import { Playlist, Devices, Volume } from '../icons';
+import { Playlist, Devices, VolumeUp, VolumeMute, VolumeDown } from '../icons';
 import VolumeContext from '../../context/Volume';
 
 const NowplayingRight: React.FC = () => {
@@ -12,6 +12,15 @@ const NowplayingRight: React.FC = () => {
   useEffect(() => {
     if (volume !== undefined) localStorage.setItem('VOLUME', volume?.toString());
   }, [volume]);
+
+  const Volume: React.FC<{ className: string }> = ({ className }) => {
+    if (volume !== undefined) {
+      if (volume === 0) return <VolumeMute className={className} />;
+      if (volume <= 0.5) return <VolumeDown className={className} />;
+      if (volume > 0.5) return <VolumeUp className={className} />;
+    }
+    return null;
+  };
 
   return (
     <div className="nowplaying-right-container">

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-function SvgVolume(props: React.SVGProps<SVGSVGElement>) {
+function SvgVolumeDown(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 14 16" fill="none" {...props}>
       <path
@@ -11,4 +11,4 @@ function SvgVolume(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default SvgVolume;
+export default SvgVolumeDown;
