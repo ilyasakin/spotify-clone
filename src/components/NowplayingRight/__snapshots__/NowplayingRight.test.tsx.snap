@@ -21,7 +21,7 @@ exports[`runs correctly 1`] = `
   <div
     className="icon-container"
   >
-    <SvgVolume
+    <Volume
       className="icon"
     />
   </div>

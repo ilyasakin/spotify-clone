@@ -7,5 +7,8 @@ exports[`runs correctly 1`] = `
   <NowplayingLeft />
   <NowplayingCenter />
   <NowplayingRight />
+  <Nav
+    bottom={true}
+  />
 </div>
 `;

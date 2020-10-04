@@ -2,6 +2,8 @@
 
 exports[`runs correctly 1`] = `
 <div
-  className="divider"
-/>
+  className="search"
+>
+  <h1 />
+</div>
 `;

@@ -12,11 +12,12 @@ exports[`runs correctly 1`] = `
     >
       test
     </div>
-    <div
+    <button
       className="titlebar-button"
+      onClick={[Function]}
     >
       SEE ALL
-    </div>
+    </button>
   </div>
   <div
     className="content"

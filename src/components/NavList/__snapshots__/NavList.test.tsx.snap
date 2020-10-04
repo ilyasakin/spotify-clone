@@ -4,13 +4,13 @@ exports[`runs correctly 1`] = `
 <div
   className="playlist-list"
 >
-  <NavigationPlaylistListItem
+  <NavListItem
     text="playlist placeholder"
   />
-  <NavigationPlaylistListItem
+  <NavListItem
     text="playlist placeholder"
   />
-  <NavigationPlaylistListItem
+  <NavListItem
     text="playlist placeholder"
   />
 </div>

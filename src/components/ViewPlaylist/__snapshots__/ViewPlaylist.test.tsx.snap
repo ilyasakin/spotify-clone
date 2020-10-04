@@ -2,6 +2,6 @@
 
 exports[`runs correctly 1`] = `
 <div
-  className="nowplaying-left-container"
+  className="view-playlist"
 />
 `;

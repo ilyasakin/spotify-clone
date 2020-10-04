@@ -29,52 +29,71 @@ exports[`runs correctly 1`] = `
     }
   />
   <div
-    className="controls"
+    className="controls-and-other "
   >
     <div
-      className="control-item"
+      className="controls"
     >
-      <SvgShuffleIcon
-        className="small-button"
-      />
-    </div>
-    <div
-      className="control-item"
-    >
-      <SvgPreviousIcon
-        className="small-button"
-      />
-    </div>
-    <div
-      aria-hidden="true"
-      className="control-item"
-      onClick={[Function]}
-      role="button"
-    >
-      <SvgPlayIcon
-        className="big-button"
-      />
-    </div>
-    <div
-      className="control-item"
-    >
-      <SvgNextIcon
-        className="small-button"
-      />
-    </div>
-    <div
-      aria-hidden="true"
-      className="control-item "
-      onClick={[Function]}
-      role="button"
-    >
-      <SvgRepeatIcon
-        className="small-button"
-      />
+      <div
+        className="mobile"
+      >
+        <div
+          className="current-song"
+        >
+          <span />
+          <span>
+            ·
+          </span>
+          <span
+            className="artist"
+          />
+        </div>
+        <LikeButton />
+      </div>
+      <button
+        className="control-item"
+      >
+        <SvgShuffleIcon
+          className="small-button"
+        />
+      </button>
+      <button
+        className="control-item"
+      >
+        <SvgPreviousIcon
+          className="small-button"
+        />
+      </button>
+      <button
+        className="control-item control-play"
+        onClick={[Function]}
+      >
+        <SvgPlayIcon
+          className="big-button desktop-play-pause"
+        />
+        <SvgCardPlay
+          className="big-button mobile-play-pause"
+        />
+      </button>
+      <button
+        className="control-item"
+      >
+        <SvgNextIcon
+          className="small-button"
+        />
+      </button>
+      <button
+        className="control-item "
+        onClick={[Function]}
+      >
+        <SvgRepeatIcon
+          className="small-button"
+        />
+      </button>
     </div>
   </div>
   <div
-    className="progress"
+    className="progress "
   >
     <div
       className="progress-with-number"
@@ -118,7 +137,7 @@ exports[`runs correctly 1`] = `
             },
           }
         }
-        x={NaN}
+        x={0}
         xmax={100}
         xmin={0}
         xreverse={false}

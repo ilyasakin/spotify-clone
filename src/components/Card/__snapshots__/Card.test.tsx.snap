@@ -18,14 +18,10 @@ exports[`runs correctly 1`] = `
     className="info"
   >
     <div
-      className="title-container"
+      className="title"
+      title="test_name"
     >
-      <span
-        className="title"
-        title="test_name"
-      >
-        test_name
-      </span>
+      test_name
     </div>
     <div
       className="description"

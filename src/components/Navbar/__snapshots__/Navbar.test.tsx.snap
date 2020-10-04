@@ -7,8 +7,21 @@ exports[`runs correctly 1`] = `
   <SvgLogo
     className="logo"
   />
-  <NavigationMenu />
-  <PlaylistMenu />
-  <PlaylistList />
+  <Nav />
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
+        "gap": 24,
+        "marginTop": 24,
+      }
+    }
+  >
+    <NavMenu
+      className="nav-menu"
+    />
+    <NavList />
+  </div>
 </div>
 `;

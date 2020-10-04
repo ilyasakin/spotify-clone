@@ -2,18 +2,22 @@
 
 exports[`runs correctly 1`] = `
 <div
-  className="playlist-menu"
+  className="playlist-menu "
 >
-  <NavigationPlaylistMenuTitle />
-  <NavigationPlaylistMenuItem
+  <div
+    className="menu-title"
+  >
+    PLAYLISTS
+  </div>
+  <NavMenuItem
     Icon={[Function]}
     text="Create a playlist"
   />
-  <NavigationPlaylistMenuItem
+  <NavMenuItem
     Icon={[Function]}
     gradient={true}
     text="Liked Songs"
   />
-  <NavigationDivider />
+  <NavDivider />
 </div>
 `;
