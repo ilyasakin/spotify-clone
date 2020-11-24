@@ -55,7 +55,10 @@
   width: 334px;
   flex-direction: column;
   margin-top: 67px;
-  row-gap: 24px;
+
+  *:not(:first-child) {
+    margin-top: 24px;
+  }
 }
 
 .have-an-acc {
