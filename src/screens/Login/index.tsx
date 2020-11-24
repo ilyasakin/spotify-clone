@@ -8,11 +8,6 @@ import BigButton from '../../components/BigButton/BigButton';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 
-interface User {
-  email: string;
-  password: string;
-}
-
 const Login = () => {
   document.title = 'Login - Spotify';
   const [signUp, setSignUp] = useState(false);
