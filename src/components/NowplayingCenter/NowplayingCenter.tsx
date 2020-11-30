@@ -2,16 +2,8 @@ import React, { useContext, useState, useRef, useEffect } from 'react';
 import './NowplayingCenter.scoped.scss';
 import ReactHowler from 'react-howler';
 import Slider from 'react-input-slider';
-import {
-  ShuffleIcon,
-  PreviousIcon,
-  PlayIcon,
-  NextIcon,
-  RepeatIcon,
-  PauseIcon,
-  CardPlay,
-  CardPause,
-} from '../icons';
+import { TrackPreviousIcon, TrackNextIcon, LoopIcon, ShuffleIcon } from '@modulz/radix-icons';
+import { PlayIcon, PauseIcon, CardPlay, CardPause } from '../icons';
 import CurrentSong from '../../context/CurrentSong';
 import VolumeContext from '../../context/Volume';
 import PlayingStatus from '../../context/PlayingStatus';
@@ -141,7 +133,7 @@ const NowplayingCenter: React.FC = () => {
 
           {/* Previous */}
           <button className="control-item">
-            <PreviousIcon className="small-button" />
+            <TrackPreviousIcon className="small-button" />
           </button>
 
           {/* Play-Pause */}
@@ -162,7 +154,7 @@ const NowplayingCenter: React.FC = () => {
 
           {/* Next */}
           <button className="control-item">
-            <NextIcon className="small-button" />
+            <TrackNextIcon className="small-button" />
           </button>
 
           {/* Loop */}
@@ -170,7 +162,7 @@ const NowplayingCenter: React.FC = () => {
             className={`control-item ${loop ? 'control-active' : ''}`}
             onClick={() => setLoop?.(!loop)}
           >
-            <RepeatIcon className="small-button" />
+            <LoopIcon className="small-button" />
           </button>
         </div>
       </div>
