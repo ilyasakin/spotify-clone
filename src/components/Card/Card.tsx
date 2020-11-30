@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import './Card.scoped.scss';
 import ImageFadeIn from 'react-image-fade-in';
-import { CardPlay, CardPause } from '../icons';
+import { PlayFill, PauseFill } from '../icons';
 import CurrentSong from '../../context/CurrentSong';
 import PlayingStatus from '../../context/PlayingStatus';
 import Song from '../../types/Song';
@@ -41,9 +41,9 @@ const Card: React.FC<Props> = ({ song }) => {
         }}
       >
         {currentSong?._id === song._id && playing ? (
-          <CardPause className="fab-icon" />
+          <PauseFill className="fab-icon" />
         ) : (
-          <CardPlay className="fab-icon" />
+          <PlayFill className="fab-icon" />
         )}
       </button>
     </div>

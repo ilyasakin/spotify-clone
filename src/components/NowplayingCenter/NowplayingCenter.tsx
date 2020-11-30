@@ -3,7 +3,7 @@ import './NowplayingCenter.scoped.scss';
 import ReactHowler from 'react-howler';
 import Slider from 'react-input-slider';
 import { TrackPreviousIcon, TrackNextIcon, LoopIcon, ShuffleIcon } from '@modulz/radix-icons';
-import { PlayIcon, PauseIcon, CardPlay, CardPause } from '../icons';
+import { PlayIcon, PauseIcon, PlayFill, PauseFill } from '../icons';
 import CurrentSong from '../../context/CurrentSong';
 import VolumeContext from '../../context/Volume';
 import PlayingStatus from '../../context/PlayingStatus';
@@ -142,12 +142,12 @@ const NowplayingCenter: React.FC = () => {
             {!playing ? (
               <>
                 <PlayIcon className="big-button desktop-play-pause" />
-                <CardPlay className="big-button mobile-play-pause" />
+                <PlayFill className="big-button mobile-play-pause" />
               </>
             ) : (
               <>
                 <PauseIcon className="big-button desktop-play-pause" />
-                <CardPause className="big-button mobile-play-pause" />
+                <PauseFill className="big-button mobile-play-pause" />
               </>
             )}
           </button>

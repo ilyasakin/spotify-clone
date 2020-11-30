@@ -3,7 +3,7 @@ import ImageFadeIn from 'react-image-fade-in';
 import CurrentSong from '../../context/CurrentSong';
 import PlayingStatus from '../../context/PlayingStatus';
 import Song from '../../types/Song';
-import { CardPause, CardPlay } from '../icons';
+import { PauseFill, PlayFill } from '../icons';
 import LikeButton from '../LikeButton/LikeButton';
 import './ListItem.scoped.scss';
 
@@ -40,14 +40,14 @@ const ListItem: React.FC<Props> = ({ song, index }) => {
         ) : (
           <>
             {!playing || currentSong !== song ? (
-              <CardPlay
+              <PlayFill
                 onClick={() => {
                   setCurrentSong?.(song);
                   setPlaying?.(true);
                 }}
               />
             ) : (
-              <CardPause
+              <PauseFill
                 onClick={() => {
                   setPlaying?.(false);
                 }}
