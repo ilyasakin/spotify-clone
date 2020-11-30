@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useHistory, useRouteMatch } from 'react-router-dom';
 import Axios from 'axios';
 import OverviewMenuItem from '../../components/OverviewMenuItem/OverviewMenuItem';
-import { Home2, Pen } from '../../components/icons';
+import { HomeAlt, Pen } from '../../components/icons';
 
 const Sidebar = () => {
   const history = useHistory();
@@ -40,7 +40,7 @@ const Sidebar = () => {
       />
       <Link to={`${match.path}/account`} style={{ textDecoration: 'none' }}>
         <OverviewMenuItem
-          Icon={Home2}
+          Icon={HomeAlt}
           text="Account overview"
           indicator={history.location.pathname === '/overview/account' && true}
         />

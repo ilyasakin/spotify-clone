@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-function SvgHome2(props: React.SVGProps<SVGSVGElement>) {
+function SvgHomeAlt(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 21 21" fill="none" {...props}>
       <path
@@ -11,4 +11,4 @@ function SvgHome2(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default SvgHome2;
+export default SvgHomeAlt;
