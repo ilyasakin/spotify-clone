@@ -34,7 +34,7 @@ const Edit = () => {
         >
           {CountryList.getNames().map((c) => (
             <option key={c} value={c}>
-              {country}
+              {c}
             </option>
           ))}
         </BigInput>
