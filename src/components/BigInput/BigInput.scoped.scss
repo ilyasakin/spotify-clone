@@ -20,6 +20,11 @@
   font-weight: 400;
   letter-spacing: 0;
   line-height: 24px;
+  outline: none;
+
+  &:focus {
+    border-color: $color-spotify-green;
+  }
 }
 
 .label {
