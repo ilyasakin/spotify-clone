@@ -20,6 +20,10 @@
   text-transform: uppercase;
   touch-action: manipulation;
   white-space: normal;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .fill {
