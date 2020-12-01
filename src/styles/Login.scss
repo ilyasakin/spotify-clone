@@ -25,8 +25,11 @@
   background: #343434;
   color: $color-white-1;
   font-weight: 600;
+  outline: none;
+
   &:focus {
     background: #404040;
+    box-shadow: 0 0 0 calc(1px) $color-black-4;
   }
 }
 
