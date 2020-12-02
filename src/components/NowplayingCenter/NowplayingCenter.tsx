@@ -38,8 +38,10 @@ const NowplayingCenter: React.FC = () => {
   const player = useRef<ReactHowler | undefined>();
   const [onSlider, setOnSlider] = useState(false);
   const [loop, setLoop] = useState(localStorage.getItem('LOOP') === 'true');
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
+    if (currentSong && Object.keys(currentSong).length > 1) setLoading(true);
     const interval = setInterval(() => {
       if (currentSong && Object.keys(currentSong).length > 1) {
         try {
@@ -96,6 +98,7 @@ const NowplayingCenter: React.FC = () => {
         onLoad={() => {
           setDuration(player.current?.duration());
           setCurTime(player.current?.seek() ?? 0);
+          setLoading(false);
         }}
         loop={loop}
         xhr={{
@@ -144,6 +147,7 @@ const NowplayingCenter: React.FC = () => {
             ) : (
               <PauseFill className="big-button play-pause" />
             )}
+            <div className={`big-button play-pause-spinner ${isLoading ? 'spin' : ''}`} />
           </button>
 
           {/* Next */}

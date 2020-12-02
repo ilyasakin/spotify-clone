@@ -94,6 +94,7 @@
 }
 
 .control-play {
+  position: relative;
   display: flex;
 }
 
@@ -139,9 +140,23 @@
 
 .play-pause {
   padding: 0.4rem;
+}
+
+.play-pause-spinner {
+  position: absolute;
+  border: 1px solid currentColor;
   border-radius: 999px;
-  border-style: solid;
-  border-width: 1px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation: spin 1s ease-in-out infinite;
+  border-top-color: transparent;
 }
 
 .progress-with-number {
