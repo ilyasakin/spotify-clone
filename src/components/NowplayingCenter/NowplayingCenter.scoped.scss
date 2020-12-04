@@ -64,10 +64,6 @@
   }
 }
 
-.control-active {
-  color: $color-spotify-green;
-}
-
 .control-item {
   display: flex;
   width: 32px;
@@ -78,7 +74,7 @@
   color: $color-white-1;
   cursor: pointer;
   opacity: 0.7;
-  transition: opacity 200ms linear;
+  transition: opacity 200ms linear, color 200ms linear;
 
   &:hover {
     opacity: 1;
@@ -91,6 +87,10 @@
   @media (max-width: 768px) {
     display: none;
   }
+}
+
+.control-active {
+  color: $color-spotify-green;
 }
 
 .control-play {
