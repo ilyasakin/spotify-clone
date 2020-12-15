@@ -3,7 +3,7 @@
 .searchbar {
   display: flex;
   overflow: hidden;
-  width: 368px;
+  max-width: 368px;
   height: 40px;
   align-items: center;
   background-color: $color-white-1;
@@ -16,7 +16,7 @@
   }
 
   input {
-    width: 320px;
+    max-width: 320px;
     height: 40px;
     padding: 6px 48px 6px 0;
     font-size: 14px;

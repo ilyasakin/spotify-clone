@@ -41,12 +41,20 @@
   pointer-events: none;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .dropdown-icon {
   width: 10px;
   height: 5px;
   margin-right: 8px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .pill-menu-list {
