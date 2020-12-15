@@ -7,7 +7,7 @@
   background: $color-black-3;
 
   @media (max-width: 768px) {
-    height: 220px;
+    height: 248px;
   }
 }
 
@@ -57,8 +57,14 @@
   overflow-y: hidden;
 
   @media (max-width: 768px) {
-    height: 200px;
-    grid-template-columns: repeat(auto-fill, 124px);
-    column-gap: 8px;
+    display: flex;
+    height: 100%;
+    column-gap: unset;
+    overflow-x: scroll;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
+    }
   }
 }

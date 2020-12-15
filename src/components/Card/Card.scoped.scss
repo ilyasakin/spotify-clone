@@ -3,6 +3,7 @@
 .card {
   position: relative;
   display: flex;
+  min-width: 124px;
   max-width: 194px;
   height: 251px;
   box-sizing: border-box;
@@ -12,6 +13,10 @@
   background: $color-black-4;
   border-radius: 4px;
   transition: background-color 0.3s ease;
+
+  &:not(:first-child) {
+    margin-left: 8px;
+  }
 
   @media (min-width: 768px) {
     &:hover {
