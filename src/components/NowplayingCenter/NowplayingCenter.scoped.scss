@@ -140,12 +140,21 @@
 
 .play-pause {
   padding: 0.4rem;
+
+  @media (max-width: 768px) {
+    padding: 0;
+  }
 }
 
 .play-pause-spinner {
   position: absolute;
   border: 1px solid currentColor;
   border-radius: 999px;
+
+  @media (max-width: 768px) {
+    padding: 0;
+    border: 0;
+  }
 }
 
 @keyframes spin {
