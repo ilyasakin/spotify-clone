@@ -48,7 +48,7 @@ const Search: React.FC = () => {
   return (
     <div className="search">
       {result.map((song: Song, index) => {
-        return <ListItem song={song} index={index + 1} />;
+        return <ListItem song={song} index={index + 1} key={`search-${song.name}`} />;
       })}
     </div>
   );
