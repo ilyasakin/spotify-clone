@@ -12,6 +12,21 @@
   overflow-y: scroll;
 }
 
+.no-result {
+  align-items: center;
+  justify-content: center;
+
+  &-text {
+    color: $color-white-1;
+    font-size: 2rem;
+  }
+
+  &-image {
+    width: 300px;
+    height: 300px;
+  }
+}
+
 // .loading-indicator {
 //   position: absolute;
 //   top: 50%;
