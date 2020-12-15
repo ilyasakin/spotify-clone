@@ -1,25 +1,26 @@
 {
   "files": {
-    "main.css": "/spotify-clone/static/css/main.8931c6da.chunk.css",
-    "main.js": "/spotify-clone/static/js/main.da92b77f.chunk.js",
-    "main.js.map": "/spotify-clone/static/js/main.da92b77f.chunk.js.map",
+    "main.css": "/spotify-clone/static/css/main.689dafa8.chunk.css",
+    "main.js": "/spotify-clone/static/js/main.4dcfd093.chunk.js",
+    "main.js.map": "/spotify-clone/static/js/main.4dcfd093.chunk.js.map",
     "runtime-main.js": "/spotify-clone/static/js/runtime-main.f1339594.js",
     "runtime-main.js.map": "/spotify-clone/static/js/runtime-main.f1339594.js.map",
     "static/css/2.5f24e744.chunk.css": "/spotify-clone/static/css/2.5f24e744.chunk.css",
-    "static/js/2.369c50f4.chunk.js": "/spotify-clone/static/js/2.369c50f4.chunk.js",
-    "static/js/2.369c50f4.chunk.js.map": "/spotify-clone/static/js/2.369c50f4.chunk.js.map",
+    "static/js/2.9d078e09.chunk.js": "/spotify-clone/static/js/2.9d078e09.chunk.js",
+    "static/js/2.9d078e09.chunk.js.map": "/spotify-clone/static/js/2.9d078e09.chunk.js.map",
     "index.html": "/spotify-clone/index.html",
-    "precache-manifest.a14f83e9fe81395ba50714e7e16f8ac0.js": "/spotify-clone/precache-manifest.a14f83e9fe81395ba50714e7e16f8ac0.js",
+    "precache-manifest.b85483bf2532e814d9dbe3293b02ec01.js": "/spotify-clone/precache-manifest.b85483bf2532e814d9dbe3293b02ec01.js",
     "service-worker.js": "/spotify-clone/service-worker.js",
     "static/css/2.5f24e744.chunk.css.map": "/spotify-clone/static/css/2.5f24e744.chunk.css.map",
-    "static/css/main.8931c6da.chunk.css.map": "/spotify-clone/static/css/main.8931c6da.chunk.css.map",
-    "static/js/2.369c50f4.chunk.js.LICENSE.txt": "/spotify-clone/static/js/2.369c50f4.chunk.js.LICENSE.txt"
+    "static/css/main.689dafa8.chunk.css.map": "/spotify-clone/static/css/main.689dafa8.chunk.css.map",
+    "static/js/2.9d078e09.chunk.js.LICENSE.txt": "/spotify-clone/static/js/2.9d078e09.chunk.js.LICENSE.txt",
+    "static/media/no-result.4918a0a9.svg": "/spotify-clone/static/media/no-result.4918a0a9.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.f1339594.js",
     "static/css/2.5f24e744.chunk.css",
-    "static/js/2.369c50f4.chunk.js",
-    "static/css/main.8931c6da.chunk.css",
-    "static/js/main.da92b77f.chunk.js"
+    "static/js/2.9d078e09.chunk.js",
+    "static/css/main.689dafa8.chunk.css",
+    "static/js/main.4dcfd093.chunk.js"
   ]
 }
