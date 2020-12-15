@@ -61,6 +61,7 @@
     height: 100%;
     column-gap: unset;
     overflow-x: scroll;
+    scroll-snap-type: x mandatory;
     scrollbar-width: none;
 
     &::-webkit-scrollbar {
