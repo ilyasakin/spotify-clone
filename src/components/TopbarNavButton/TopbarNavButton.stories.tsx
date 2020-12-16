@@ -1,11 +1,10 @@
-import React from 'react';
 import TopbarNavBtn from './TopbarNavButton';
 
 export default {
   title: 'Topbar Nav Button',
 };
 
-export const topbarNavBtn = () => {
+export const topbarNavBtn: React.FC = () => {
   return (
     <div style={{ height: 300, position: 'relative' }}>
       <TopbarNavBtn direction="left" />

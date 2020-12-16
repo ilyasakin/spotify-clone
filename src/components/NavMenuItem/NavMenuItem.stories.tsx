@@ -1,4 +1,3 @@
-import React from 'react';
 import NavMenuItem from './NavMenuItem';
 import { PlaylistHeart, PlaylistPlus } from '../icons';
 
@@ -6,7 +5,7 @@ export default {
   title: 'NavigationPlaylistMenuItem',
 };
 
-export const navigationPlaylistMenuItem = () => {
+export const navigationPlaylistMenuItem: React.FC = () => {
   return (
     <div>
       <NavMenuItem text="Create a playlist" Icon={PlaylistPlus} />

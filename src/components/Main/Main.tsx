@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './Main.scoped.scss';
 import axios from 'axios';
 import { ImpulseSpinner } from 'react-spinners-kit';

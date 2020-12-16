@@ -1,4 +1,3 @@
-import React from 'react';
 import './OverviewMenuItem.scss';
 
 interface Props {

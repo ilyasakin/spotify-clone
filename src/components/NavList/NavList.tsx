@@ -1,4 +1,3 @@
-import React from 'react';
 import './NavList.scoped.scss';
 import NavListItem from '../NavListItem/NavListItem';
 

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import './Card.scoped.scss';
 import ImageFadeIn from 'react-image-fade-in';
 import { PlayFill, PauseFill } from '../icons';

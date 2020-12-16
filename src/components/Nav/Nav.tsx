@@ -1,4 +1,3 @@
-import React from 'react';
 import './Nav.scoped.scss';
 import { useHistory } from 'react-router-dom';
 import NavButton from '../NavButton/NavButton';

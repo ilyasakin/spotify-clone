@@ -1,4 +1,3 @@
-import React from 'react';
 import './TopbarNavButton.scss';
 import { Back, Forward } from '../icons';
 

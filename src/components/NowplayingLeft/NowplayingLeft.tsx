@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import './NowplayingLeft.scoped.scss';
 import CurrentSong from '../../context/CurrentSong';
 import LikeButton from '../LikeButton/LikeButton';

@@ -1,4 +1,3 @@
-import React from 'react';
 import '../styles/App.scss';
 import '../styles/Player.scss';
 import { Redirect, Route, Switch, useRouteMatch } from 'react-router-dom';
@@ -10,7 +9,7 @@ import Search from '../components/Search/Search';
 import CombinedProvider from '../components/CombinedProvider/CombinedProvider';
 import ViewPlaylist from '../components/ViewPlaylist/ViewPlaylist';
 
-const Player = () => {
+const Player: React.FC = () => {
   document.title = 'Spotify';
 
   const match = useRouteMatch();

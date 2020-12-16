@@ -1,4 +1,3 @@
-import React from 'react';
 import './Navbar.scoped.scss';
 import Nav from '../Nav/Nav';
 import NavMenu from '../NavMenu/NavMenu';

@@ -1,4 +1,3 @@
-import React from 'react';
 import './OverviewPage.scoped.scss';
 
 const OverviewPage: React.FC<{ children: React.ReactNode }> = ({ children }) => {

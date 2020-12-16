@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { format } from 'date-fns';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import axios from 'axios';
@@ -7,7 +7,7 @@ import OverviewTableItem from '../../components/OverviewTableItem/OverviewTableI
 import User from '../../context/User';
 import BigButton from '../../components/BigButton/BigButton';
 
-const Account = () => {
+const Account: React.FC = () => {
   document.title = 'Account Overview - Spotify';
   const { user, setUser } = useContext(User);
   const history = useHistory();

@@ -1,4 +1,3 @@
-import React from 'react';
 import './HeroOverview.scoped.scss';
 
 const HeroOverview: React.FC<{ HeroTitle: string; HeroBody: string }> = ({

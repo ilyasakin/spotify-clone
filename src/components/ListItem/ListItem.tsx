@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import ImageFadeIn from 'react-image-fade-in';
 import CurrentSong from '../../context/CurrentSong';
 import PlayingStatus from '../../context/PlayingStatus';

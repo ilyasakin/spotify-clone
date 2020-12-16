@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../../styles/App.scss';
 import '../../styles/Login.scss';
 import { useHistory } from 'react-router-dom';
@@ -8,7 +8,7 @@ import BigButton from '../../components/BigButton/BigButton';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 
-const Login = () => {
+const Login: React.FC = () => {
   document.title = 'Login - Spotify';
   const [signUp, setSignUp] = useState(false);
   const history = useHistory();

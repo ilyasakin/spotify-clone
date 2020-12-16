@@ -1,11 +1,11 @@
-import React from 'react';
+
 import NowplayingLeft from './nowplaying-left';
 
 export default {
   title: 'Now Playing Left',
 };
 
-export const nowplayingLeft = () => {
+export const nowplayingLeft: React.FC = () => {
   return (
     <div style={{ position: 'relative', top: 40 }}>
       <NowplayingLeft songName="song name" artistName="artist name" />

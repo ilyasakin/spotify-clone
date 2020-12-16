@@ -1,9 +1,8 @@
-import React from 'react';
 import './TopbarOverview.scoped.scss';
 import { useHistory } from 'react-router-dom';
 import { Logo } from '../icons';
 
-const TopbarOverview = () => {
+const TopbarOverview: React.FC = () => {
   const history = useHistory();
 
   return (

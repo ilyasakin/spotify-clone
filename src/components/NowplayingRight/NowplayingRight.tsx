@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './NowplayingRight.scoped.scss';
 import Slider from 'react-input-slider';
 import {

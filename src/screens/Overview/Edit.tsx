@@ -1,10 +1,10 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import CountryList from 'country-list';
 import BigInput from '../../components/BigInput/BigInput';
 import BigButton from '../../components/BigButton/BigButton';
 import User from '../../context/User';
 
-const Edit = () => {
+const Edit: React.FC = () => {
   document.title = 'Edit Profile - Spotify';
   const { user } = useContext(User);
   const [email, setEmail] = useState(user?.email);

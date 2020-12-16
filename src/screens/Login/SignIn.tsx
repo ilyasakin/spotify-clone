@@ -1,11 +1,11 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import axios, { AxiosResponse, AxiosError } from 'axios';
 import { useHistory } from 'react-router-dom';
 import User from '../../context/User';
 import LoginDivider from '../../components/LoginDivider/LoginDivider';
 import BigButton from '../../components/BigButton/BigButton';
 
-const SignIn = () => {
+const SignIn: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setLoading] = useState(false);

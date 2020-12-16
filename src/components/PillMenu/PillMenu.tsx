@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import './PillMenu.scoped.scss';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -16,7 +16,7 @@ interface Props {
 const PillMenu: React.FC<Props> = ({ className, Text }) => {
   const [avatar, setAvatar] = useState(undefined);
   const { setUser } = useContext(User);
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const darkTheme = createMuiTheme({
     palette: {

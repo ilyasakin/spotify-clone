@@ -1,4 +1,3 @@
-import React from 'react';
 import './Nowplaying.scoped.scss';
 import NowplayingLeft from '../NowplayingLeft/NowplayingLeft';
 import NowplayingRight from '../NowplayingRight/NowplayingRight';

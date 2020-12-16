@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Search } from '../icons';
 import './SearchBar.scoped.scss';
 import SearchContext from '../../context/Search';

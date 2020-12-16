@@ -1,4 +1,3 @@
-import React from 'react';
 import './OverviewTableItem.scoped.scss';
 
 const OverviewTableItem: React.FC<{ label: string; info?: string }> = ({ label, info }) => {

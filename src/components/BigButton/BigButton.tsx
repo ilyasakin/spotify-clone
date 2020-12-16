@@ -1,4 +1,3 @@
-import React from 'react';
 import './BigButton.scoped.scss';
 import { CircleSpinner } from 'react-spinners-kit';
 

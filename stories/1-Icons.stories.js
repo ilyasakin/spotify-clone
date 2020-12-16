@@ -1,5 +1,3 @@
-import React from 'react';
-
 import * as Icons from '../src/components/icons';
 import '../src/styles/storybook/icons.scss';
 

@@ -1,10 +1,9 @@
-import React from 'react';
 import Search from './Search';
 
 export default {
   title: 'Search',
 };
 
-export const search = () => {
+export const search: React.FC = () => {
   return <Search />;
 };

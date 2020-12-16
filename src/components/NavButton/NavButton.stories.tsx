@@ -1,4 +1,3 @@
-import React from 'react';
 import NavButton from './NavButton';
 import { Home, HomeActive, Search, SearchActive, Library, LibraryActive } from '../icons';
 
@@ -6,7 +5,7 @@ export default {
   title: 'NavigationButton',
 };
 
-export const navigationButton = () => {
+export const navigationButton: React.FC = () => {
   return (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)' }}>
       <div style={{ display: 'grid', rowGap: 10 }}>

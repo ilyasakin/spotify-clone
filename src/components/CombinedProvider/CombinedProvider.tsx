@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import CurrentSong from '../../context/CurrentSong';
 import Volume from '../../context/Volume';
 import PlayingStatus from '../../context/PlayingStatus';

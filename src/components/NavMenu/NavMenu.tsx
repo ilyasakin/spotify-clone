@@ -1,4 +1,3 @@
-import React from 'react';
 import './NavMenu.scss';
 import NavMenuItem from '../NavMenuItem/NavMenuItem';
 import NavDivider from '../NavDivider/NavDivider';

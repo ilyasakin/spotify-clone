@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Axios from 'axios';
 import { PlaylistHeart, PlaylistHeartOutline } from '../icons';
 import User from '../../context/User';

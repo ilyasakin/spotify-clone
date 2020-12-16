@@ -1,4 +1,3 @@
-import React from 'react';
 import './OverviewTable.scoped.scss';
 
 const OverviewTable: React.FC<{ children: React.ReactNode }> = ({ children }) => {

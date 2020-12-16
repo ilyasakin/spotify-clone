@@ -1,4 +1,3 @@
-import React from 'react';
 import '../../styles/App.scss';
 import '../../styles/Overview.scss';
 import { Route, Switch, Redirect, useRouteMatch } from 'react-router-dom';
@@ -9,7 +8,7 @@ import Account from './Account';
 import Edit from './Edit';
 import Sidebar from './Sidebar';
 
-const Overview = () => {
+const Overview: React.FC = () => {
   const match = useRouteMatch();
 
   return (

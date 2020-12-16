@@ -1,10 +1,11 @@
 import { createContext, Dispatch, SetStateAction } from 'react';
+import User from '../types/User';
 
 interface Props {
-  user: { email?: string; name?: string; birthDate?: string; country?: string; token?: string };
-  setUser: Dispatch<SetStateAction<{}>>;
+  user: User;
+  setUser: Dispatch<SetStateAction<User>>;
 }
 
-const User = createContext<Partial<Props>>({});
+const UserContext = createContext<Partial<Props>>({});
 
-export default User;
+export default UserContext;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './ViewPlaylist.scoped.scss';
 // import queryString from 'query-string';
 // import { useLocation } from 'react-router-dom';

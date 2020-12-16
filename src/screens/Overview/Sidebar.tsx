@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useHistory, useRouteMatch } from 'react-router-dom';
 import Axios from 'axios';
 import OverviewMenuItem from '../../components/OverviewMenuItem/OverviewMenuItem';
 import { HomeAlt, Pen } from '../../components/icons';
 
-const Sidebar = () => {
+const Sidebar: React.FC = () => {
   const history = useHistory();
   const match = useRouteMatch();
   const [avatar, setAvatar] = useState(undefined);

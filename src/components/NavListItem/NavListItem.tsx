@@ -1,4 +1,3 @@
-import React from 'react';
 import './NavListItem.scoped.scss';
 
 interface Props {

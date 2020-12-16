@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef, useEffect } from 'react';
+import { useContext, useState, useRef, useEffect } from 'react';
 import './NowplayingCenter.scoped.scss';
 import ReactHowler from 'react-howler';
 import Slider from 'react-input-slider';
@@ -92,7 +92,7 @@ const NowplayingCenter: React.FC = () => {
         src={`${process.env.REACT_APP_BASE_URL}/${currentSong?.location}`}
         playing={playing}
         volume={volume}
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         ref={player}
         onLoad={() => {

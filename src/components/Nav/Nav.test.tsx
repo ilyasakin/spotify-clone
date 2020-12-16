@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import { HashRouter } from 'react-router-dom';
 import Nav from './Nav';

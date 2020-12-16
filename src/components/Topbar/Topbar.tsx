@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import './Topbar.scoped.scss';
 import { useLocation } from 'react-router-dom';
 import TopbarNavBtn from '../TopbarNavButton/TopbarNavButton';

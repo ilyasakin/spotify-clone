@@ -1,11 +1,10 @@
-import React from 'react';
 import Card from './Card';
 
 export default {
   title: 'Card',
 };
 
-export const card = () => {
+export const card: React.FC = () => {
   return (
     <div
       style={{

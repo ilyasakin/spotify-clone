@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import axios, { AxiosResponse, AxiosError } from 'axios';
 import { useHistory } from 'react-router-dom';
 import DatePicker from 'react-date-picker';
@@ -6,7 +6,7 @@ import CountryList from 'country-list';
 import User from '../../context/User';
 import BigButton from '../../components/BigButton/BigButton';
 
-const SignUp = () => {
+const SignUp: React.FC = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

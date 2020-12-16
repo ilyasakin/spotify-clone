@@ -1,4 +1,3 @@
-import React from 'react';
 import './Section.scoped.scss';
 import { useHistory } from 'react-router-dom';
 import Card from '../Card/Card';
