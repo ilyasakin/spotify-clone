@@ -1,12 +1,8 @@
 import { configure, addDecorator } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
+import StoryRouter from 'storybook-react-router';
 
-// automatically import all files ending in *.stories.tsx
-const req = require.context('../src/components', true, /.stories.tsx$/);
+addDecorator(StoryRouter());
 
-function loadStories() {
-  addDecorator(withInfo);
-  req.keys().forEach(req);
-}
-
-configure(loadStories, module);
+export const parameters = {
+  actions: { argTypesRegex: '^on[A-Z].*' },
+};

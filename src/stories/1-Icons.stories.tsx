@@ -1,11 +1,11 @@
-import * as Icons from '../src/components/icons';
-import '../src/styles/storybook/icons.scss';
+import * as Icons from '../components/icons';
+import '../styles/storybook/icons.scss';
 
 export default {
   title: 'Icons',
 };
 
-export const Icon = () => (
+export const Icon: React.FC = () => (
   <div className="view">
     <Icons.Back />
     <Icons.Forward />
@@ -18,13 +18,7 @@ export const Icon = () => (
     <Icons.PlaylistPlus />
     <Icons.PlaylistHeart style={{ backgroundColor: '#000' }} />
     <Icons.DownloadIcon />
-    <Icons.ShuffleIcon />
-    <Icons.PreviousIcon />
-    <Icons.PlayIcon />
-    <Icons.NextIcon />
-    <Icons.RepeatIcon />
     <Icons.Playlist />
     <Icons.Devices />
-    <Icons.Volume />
   </div>
 );
