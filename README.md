@@ -8,7 +8,7 @@ This project is exists because I wanted to have a "real world-ish" application e
 
 ### II - Run the API anywhere you want
 
-### III - Clone this repository (no sh\*t)
+### III - Clone this repository
 
 ### IV - Create two files named `.env.development.local` and `.env.production.local`. Enter your API URL in both of them like: `REACT_APP_BASE_URL=YOUR_API_URL`
 
