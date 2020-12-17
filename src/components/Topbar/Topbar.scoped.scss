@@ -3,7 +3,6 @@
 .topbar {
   display: flex;
   height: 60px;
-  gap: 16px;
   flex-direction: row;
   align-items: center;
   padding: 8px 32px;
@@ -19,8 +18,15 @@
   gap: 16px;
   flex-direction: row;
   padding: 8px 0;
+  padding-right: 16px;
+
+  @media (max-width: 768px) {
+    width: 20%;
+    padding-right: 4px;
+  }
 }
 
 .searchbar-container {
-  flex: 1;
+  width: 70%;
+  padding: 0 8px;
 }

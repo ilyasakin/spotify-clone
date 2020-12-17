@@ -56,17 +56,15 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        <div className="image-cover">
-          <img
-            className="image"
-            alt="avatar"
-            src={
-              avatar
-                ? `data:image/png;base64, ${avatar}`
-                : `${process.env.REACT_APP_BASE_URL}/assets/images/avatar.png`
-            }
-          />
-        </div>
+        <img
+          className="image"
+          alt="avatar"
+          src={
+            avatar
+              ? `data:image/png;base64, ${avatar}`
+              : `${process.env.REACT_APP_BASE_URL}/assets/images/avatar.png`
+          }
+        />
 
         <span className="text">{Text || ''}</span>
         <ArrowDropDown className="dropdown-icon" />
