@@ -12,7 +12,7 @@ const Sidebar: React.FC = () => {
 
   useEffect(() => {
     const fetchAvatar = async () => {
-      const response = await Axios.get(`${process.env.REACT_APP_BASE_URL}/api/users/myavatar`, {
+      const response = await Axios.get(`${process.env.REACT_APP_BASE_URL}/v1/users/myavatar`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('__TOKEN')}` },
       });
       if (response.data !== '') {

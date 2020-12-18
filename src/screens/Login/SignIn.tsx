@@ -18,7 +18,7 @@ const SignIn: React.FC = () => {
     e.preventDefault();
     setLoading(true);
     axios
-      .post(`${process.env.REACT_APP_BASE_URL}/api/users/signin`, {
+      .post(`${process.env.REACT_APP_BASE_URL}/v1/users/signin`, {
         email,
         password,
       })

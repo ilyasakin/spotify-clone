@@ -16,7 +16,7 @@ const Search: React.FC = () => {
     const fetchData = async () => {
       setLoading(true);
       const response = await Axios.get(
-        `${process.env.REACT_APP_BASE_URL}/api/music/search/${search}`,
+        `${process.env.REACT_APP_BASE_URL}/v1/music/search/${search}`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem('__TOKEN')}` },
         },

@@ -13,7 +13,7 @@ const ViewPlaylist: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const resp = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/music`, {
+      const resp = await axios.get(`${process.env.REACT_APP_BASE_URL}/v1/music`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('__TOKEN')}` },
       });
       setData(resp.data);

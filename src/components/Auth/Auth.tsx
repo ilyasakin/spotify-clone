@@ -12,7 +12,7 @@ const Auth: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('__TOKEN');
     if (token) {
-      Axios.get(`${process.env.REACT_APP_BASE_URL}/api/users/me`, {
+      Axios.get(`${process.env.REACT_APP_BASE_URL}/v1/users/me`, {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((res: AxiosResponse) => {

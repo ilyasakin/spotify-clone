@@ -36,7 +36,7 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
 
   useEffect(() => {
     const fetchAvatar = async () => {
-      const response = await Axios.get(`${process.env.REACT_APP_BASE_URL}/api/users/myavatar`, {
+      const response = await Axios.get(`${process.env.REACT_APP_BASE_URL}/v1/users/myavatar`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('__TOKEN')}` },
       });
       if (response.data !== '') {
@@ -85,7 +85,7 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
           </MenuItem>
           <MenuItem
             onClick={() => {
-              Axios.post(`${process.env.REACT_APP_BASE_URL}/api/users/logout`, null, {
+              Axios.post(`${process.env.REACT_APP_BASE_URL}/v1/users/logout`, null, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('__TOKEN')}` },
               });
               localStorage.removeItem('__TOKEN');

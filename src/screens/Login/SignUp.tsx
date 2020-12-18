@@ -22,7 +22,7 @@ const SignUp: React.FC = () => {
     e.preventDefault();
     setLoading(true);
     axios
-      .post(`${process.env.REACT_APP_BASE_URL}/api/users/signup`, {
+      .post(`${process.env.REACT_APP_BASE_URL}/v1/users/signup`, {
         name: username,
         email,
         password,

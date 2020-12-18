@@ -48,7 +48,7 @@ const Account: React.FC = () => {
         className={styles['overview-big-button']}
         onClick={() => {
           axios
-            .post(`${process.env.REACT_APP_BASE_URL}/api/users/logoutall`, null, {
+            .post(`${process.env.REACT_APP_BASE_URL}/v1/users/logoutall`, null, {
               headers: { Authorization: `Bearer ${localStorage.getItem('__TOKEN')}` },
             })
             .then(() => {
