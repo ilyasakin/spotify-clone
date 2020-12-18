@@ -3,6 +3,7 @@ import CountryList from 'country-list';
 import BigInput from '../../components/BigInput/BigInput';
 import BigButton from '../../components/BigButton/BigButton';
 import User from '../../context/User';
+import styles from '../../styles/Overview.module.scss';
 
 const Edit: React.FC = () => {
   document.title = 'Edit Profile - Spotify';
@@ -19,7 +20,7 @@ const Edit: React.FC = () => {
 
   return (
     <>
-      <h1 className="overview-page-title">Edit profile</h1>
+      <h1 className={styles['overview-page-title']}>Edit profile</h1>
       <form
         onSubmit={handleSubmit}
         style={{ display: 'inherit', gap: 'inherit', flexDirection: 'inherit' }}
@@ -38,7 +39,7 @@ const Edit: React.FC = () => {
             </option>
           ))}
         </BigInput>
-        <BigButton text="Save" className="overview-save-button" loading={loading} />
+        <BigButton text="Save" className={styles['overview-save-button']} loading={loading} />
       </form>
     </>
   );

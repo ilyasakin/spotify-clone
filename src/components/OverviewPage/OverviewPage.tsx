@@ -1,7 +1,7 @@
-import './OverviewPage.scoped.scss';
+import styles from './OverviewPage.module.scss';
 
 const OverviewPage: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return <div className="overview-page-container">{children}</div>;
+  return <div className={styles['overview-page-container']}>{children}</div>;
 };
 
 export default OverviewPage;

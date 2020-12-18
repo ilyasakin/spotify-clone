@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import './Topbar.scoped.scss';
 import { useLocation } from 'react-router-dom';
+import styles from './Topbar.module.scss';
 import TopbarNavBtn from '../TopbarNavButton/TopbarNavButton';
 import PillMenu from '../PillMenu/PillMenu';
 import User from '../../context/User';
@@ -11,15 +11,15 @@ const Topbar: React.FC = () => {
   const location = useLocation();
 
   return (
-    <div className="topbar">
-      <div className="nav-buttons">
+    <div className={styles.topbar}>
+      <div className={styles['nav-buttons']}>
         <TopbarNavBtn direction="left" />
         <TopbarNavBtn direction="right" />
       </div>
-      <div className="searchbar-container">
+      <div className={styles['searchbar-container']}>
         {location.pathname === '/player/search' && <SearchBar />}
       </div>
-      <PillMenu className="user-menu" Text={user?.name || 'Unknown User'} />
+      <PillMenu className={styles['user-menu']} Text={user?.name || 'Unknown User'} />
     </div>
   );
 };

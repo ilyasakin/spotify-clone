@@ -1,6 +1,6 @@
 import '../../styles/App.scss';
-import '../../styles/Overview.scss';
 import { Route, Switch, Redirect, useRouteMatch } from 'react-router-dom';
+import styles from '../../styles/Overview.module.scss';
 import TopbarOverview from '../../components/TopbarOverview/TopbarOverview';
 import HeroOverview from '../../components/HeroOverview/HeroOverview';
 import OverviewPage from '../../components/OverviewPage/OverviewPage';
@@ -12,14 +12,14 @@ const Overview: React.FC = () => {
   const match = useRouteMatch();
 
   return (
-    <div className="overview-background" style={{ height: '100%' }}>
+    <div className={styles['overview-background']} style={{ height: '100%' }}>
       <TopbarOverview />
-      <div className="overview-wrapper">
+      <div className={styles['overview-wrapper']}>
         <HeroOverview
           HeroTitle="Hello!"
           HeroBody="Want to edit your profile? Find an old playlist? Put off work for a while? You can do it all here."
         />
-        <div className="overview-page-wrapper">
+        <div className={styles['overview-page-wrapper']}>
           <Sidebar />
           <OverviewPage>
             <Switch>

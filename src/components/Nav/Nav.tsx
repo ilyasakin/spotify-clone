@@ -1,5 +1,5 @@
-import './Nav.scoped.scss';
 import { useHistory } from 'react-router-dom';
+import styles from './Nav.module.scss';
 import NavButton from '../NavButton/NavButton';
 import { HomeActive, Search, Library, Home, SearchActive, LibraryActive } from '../icons';
 
@@ -11,7 +11,7 @@ const Nav: React.FC<Props> = ({ bottom }) => {
   const history = useHistory();
 
   return (
-    <div className={`navigation-menu ${bottom ? 'bottom-menu' : ''}`}>
+    <div className={`${styles['navigation-menu']} ${bottom ? styles['bottom-menu'] : ''}`}>
       <NavButton
         Icon={history.location.pathname === '/player/home' ? HomeActive : Home}
         text="Home"

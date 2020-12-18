@@ -5,6 +5,7 @@ import DatePicker from 'react-date-picker';
 import CountryList from 'country-list';
 import User from '../../context/User';
 import BigButton from '../../components/BigButton/BigButton';
+import styles from '../../styles/Login.module.scss';
 
 const SignUp: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -45,32 +46,32 @@ const SignUp: React.FC = () => {
         style={{ display: 'inherit', gap: 'inherit', flexDirection: 'inherit' }}
       >
         <input
-          className="spot-input"
+          className={styles['spot-input']}
           placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
-          className="spot-input"
+          className={styles['spot-input']}
           placeholder="Email"
           type="email"
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
-          className="spot-input"
+          className={styles['spot-input']}
           placeholder="Password"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <h5 className="subtitle">Date of birth</h5>
+        <h5 className={styles.subtitle}>Date of birth</h5>
         <DatePicker
           value={birthDate}
           onChange={(e: Date | Date[]) => setBirthDate(e)}
           className="datepicker"
         />
-        <h5 className="subtitle">Country</h5>
+        <h5 className={styles.subtitle}>Country</h5>
         <select
           id="countries"
-          className="spot-input"
+          className={styles['spot-input']}
           style={{ paddingTop: '5px', paddingBottom: '5px' }}
           onChange={(e) => setCountry(e.currentTarget.value)}
         >

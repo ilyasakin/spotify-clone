@@ -6,6 +6,7 @@ import OverviewTable from '../../components/OverviewTable/OverviewTable';
 import OverviewTableItem from '../../components/OverviewTableItem/OverviewTableItem';
 import User from '../../context/User';
 import BigButton from '../../components/BigButton/BigButton';
+import styles from '../../styles/Overview.module.scss';
 
 const Account: React.FC = () => {
   document.title = 'Account Overview - Spotify';
@@ -22,8 +23,8 @@ const Account: React.FC = () => {
 
   return (
     <>
-      <h1 className="overview-page-title">Account overview</h1>
-      <h3 className="overview-page-subtitle">Profile</h3>
+      <h1 className={styles['overview-page-title']}>Account overview</h1>
+      <h3 className={styles['overview-page-subtitle']}>Profile</h3>
       <OverviewTable>
         <OverviewTableItem label="Username" info={user?.name} />
         <OverviewTableItem label="Email" info={user?.email} />
@@ -33,18 +34,18 @@ const Account: React.FC = () => {
       <BigButton
         text="Edit Profile"
         variation="pop"
-        className="overview-big-button"
+        className={styles['overview-big-button']}
         onClick={() => history.push(`${match.path}/edit`)}
       />
-      <h3 className="overview-page-subtitle">Signout everywhere</h3>
-      <p className="overview-paragraph">
+      <h3 className={styles['overview-page-subtitle']}>Signout everywhere</h3>
+      <p className={styles['overview-paragraph']}>
         Sign out wherever you have Spotify open, including the web, mobile, desktop or any other
         devices.
       </p>
       <BigButton
         text="Sign out everywhere"
         variation="pop"
-        className="overview-big-button"
+        className={styles['overview-big-button']}
         onClick={() => {
           axios
             .post(`${process.env.REACT_APP_BASE_URL}/api/users/logoutall`, null, {

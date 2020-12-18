@@ -5,7 +5,7 @@ import PlayingStatus from '../../context/PlayingStatus';
 import Song from '../../types/Song';
 import { PauseFill, PlayFill } from '../icons';
 import LikeButton from '../LikeButton/LikeButton';
-import './ListItem.scoped.scss';
+import styles from './ListItem.module.scss';
 
 interface Props {
   song: Song;
@@ -19,19 +19,19 @@ const ListItem: React.FC<Props> = ({ song, index }) => {
 
   return (
     <div
-      className="list-item"
+      className={styles['list-item']}
       onMouseEnter={() => setOnHover(true)}
       onMouseLeave={() => setOnHover(false)}
     >
-      <div className="id">
+      <div className={styles.id}>
         {!onHover ? (
           <>
             {currentSong === song && playing ? (
               <div>
-                <div className="bar" />
-                <div className="bar" />
-                <div className="bar" />
-                <div className="bar" />
+                <div className={styles.bar} />
+                <div className={styles.bar} />
+                <div className={styles.bar} />
+                <div className={styles.bar} />
               </div>
             ) : (
               index
@@ -56,12 +56,15 @@ const ListItem: React.FC<Props> = ({ song, index }) => {
           </>
         )}
       </div>
-      <ImageFadeIn className="cover" src={`${process.env.REACT_APP_BASE_URL}/${song.cover}`} />
-      <div className="song-info">
-        <div className="name">{song.name}</div>
-        <div className="artist">{song.artist}</div>
+      <ImageFadeIn
+        className={styles.cover}
+        src={`${process.env.REACT_APP_BASE_URL}/${song.cover}`}
+      />
+      <div className={styles['song-info']}>
+        <div className={styles.name}>{song.name}</div>
+        <div className={styles.artist}>{song.artist}</div>
       </div>
-      <div className="rest">{!onHover || <LikeButton forSong={song} />}</div>
+      <div className={styles.rest}>{!onHover || <LikeButton forSong={song} />}</div>
     </div>
   );
 };

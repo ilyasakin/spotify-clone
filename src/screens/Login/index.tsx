@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import '../../styles/App.scss';
-import '../../styles/Login.scss';
 import { useHistory } from 'react-router-dom';
+import styles from '../../styles/Login.module.scss';
 
 import Logo from '../../components/icons/Logo';
 import BigButton from '../../components/BigButton/BigButton';
@@ -19,17 +19,17 @@ const Login: React.FC = () => {
   }, [history]);
 
   return (
-    <div className="login-container">
-      <div className="login-inner-container">
-        <Logo className="logo" />
+    <div className={styles['login-container']}>
+      <div className={styles['login-inner-container']}>
+        <Logo className={styles.logo} />
         {/* TODO: Make this route instead of a state */}
         {!signUp ? (
           <>
             <SignIn />
-            <h4 className="dont-have-acc">Don&apos;t have an account?</h4>
+            <h4 className={styles['dont-have-acc']}>Don&apos;t have an account?</h4>
             <BigButton
               text="Sign up for Spotify"
-              className="signup-button"
+              className={styles['signup-button']}
               variation="outline"
               onClick={() => setSignUp(!signUp)}
             />
@@ -37,9 +37,9 @@ const Login: React.FC = () => {
         ) : (
           <>
             <SignUp />
-            <h3 className="have-an-acc">
+            <h3 className={styles['have-an-acc']}>
               Have an account?
-              <button className="spot-link" onClick={() => setSignUp(false)}>
+              <button className={styles['spot-link']} onClick={() => setSignUp(false)}>
                 Sign In
               </button>
             </h3>

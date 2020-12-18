@@ -1,10 +1,9 @@
 import { useState, useContext, useEffect } from 'react';
-import './PillMenu.scoped.scss';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import { Menu, MenuItem } from '@material-ui/core';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
+import styles from './PillMenu.module.scss';
 import { ArrowDropDown } from '../icons';
 import User from '../../context/User';
 
@@ -51,13 +50,13 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
   return (
     <>
       <button
-        className={`pill-menu ${className || ''}`}
+        className={`${styles['pill-menu']} ${className || ''}`}
         aria-controls="simple-menu"
         aria-haspopup="true"
         onClick={handleClick}
       >
         <img
-          className="image"
+          className={styles.image}
           alt="avatar"
           src={
             avatar
@@ -66,8 +65,8 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
           }
         />
 
-        <span className="text">{Text || ''}</span>
-        <ArrowDropDown className="dropdown-icon" />
+        <span className={styles.text}>{Text || ''}</span>
+        <ArrowDropDown className={styles['dropdown-icon']} />
       </button>
       <ThemeProvider theme={darkTheme}>
         <Menu
@@ -76,13 +75,13 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
           keepMounted
           open={Boolean(anchorEl)}
           onClose={handleClose}
-          className="pill-menu-list"
+          className={styles['pill-menu-list']}
         >
           <MenuItem component={Link} to="/overview">
-            <span className="list-text">Account</span>
+            <span className={styles['list-text']}>Account</span>
           </MenuItem>
           <MenuItem onClick={handleClose} divider>
-            <span className="list-text">Profile</span>
+            <span className={styles['list-text']}>Profile</span>
           </MenuItem>
           <MenuItem
             onClick={() => {
@@ -94,7 +93,7 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
               history.push('/');
             }}
           >
-            <span className="list-text">Logout</span>
+            <span className={styles['list-text']}>Logout</span>
           </MenuItem>
         </Menu>
       </ThemeProvider>

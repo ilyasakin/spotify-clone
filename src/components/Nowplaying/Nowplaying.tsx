@@ -1,4 +1,4 @@
-import './Nowplaying.scoped.scss';
+import styles from './Nowplaying.module.scss';
 import NowplayingLeft from '../NowplayingLeft/NowplayingLeft';
 import NowplayingRight from '../NowplayingRight/NowplayingRight';
 import NowplayingCenter from '../NowplayingCenter/NowplayingCenter';
@@ -6,7 +6,7 @@ import Nav from '../Nav/Nav';
 
 const Nowplaying: React.FC = () => {
   return (
-    <div className="nowplaying">
+    <div className={styles.nowplaying}>
       <NowplayingLeft />
       <NowplayingCenter />
       <NowplayingRight />

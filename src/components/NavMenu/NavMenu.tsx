@@ -1,4 +1,4 @@
-import './NavMenu.scss';
+import styles from './NavMenu.module.scss';
 import NavMenuItem from '../NavMenuItem/NavMenuItem';
 import NavDivider from '../NavDivider/NavDivider';
 import { PlaylistHeart, PlaylistPlus } from '../icons';
@@ -9,8 +9,8 @@ interface Props {
 
 const NavMenu: React.FC<Props> = ({ className }) => {
   return (
-    <div className={`playlist-menu ${className}`}>
-      <div className="menu-title">PLAYLISTS</div>
+    <div className={`${styles['playlist-menu']} ${className}`}>
+      <div className={styles['menu-title']}>PLAYLISTS</div>
       <NavMenuItem text="Create a playlist" Icon={PlaylistPlus} />
       <NavMenuItem text="Liked Songs" Icon={PlaylistHeart} gradient />
       <NavDivider />

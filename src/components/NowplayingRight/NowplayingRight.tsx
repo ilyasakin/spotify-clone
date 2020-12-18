@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from 'react';
-import './NowplayingRight.scoped.scss';
 import Slider from 'react-input-slider';
 import {
   SpeakerLoudIcon,
@@ -7,6 +6,7 @@ import {
   SpeakerQuietIcon,
   SpeakerOffIcon,
 } from '@modulz/radix-icons';
+import styles from './NowplayingRight.module.scss';
 import { Playlist, Devices } from '../icons';
 import VolumeContext from '../../context/Volume';
 
@@ -30,18 +30,18 @@ const NowplayingRight: React.FC = () => {
   };
 
   return (
-    <div className="nowplaying-right-container">
-      <div className="icon-container">
-        <Playlist className="icon" />
+    <div className={styles['nowplaying-right-container']}>
+      <div className={styles['icon-container']}>
+        <Playlist className={styles.icon} />
       </div>
-      <div className="icon-container">
-        <Devices className="icon" />
+      <div className={styles['icon-container']}>
+        <Devices className={styles.icon} />
       </div>
-      <div className="icon-container">
-        <Volume className="icon" />
+      <div className={styles['icon-container']}>
+        <Volume className={styles.icon} />
       </div>
       <div
-        className="slider-container"
+        className={styles['slider-container']}
         onMouseEnter={() => setOnSlider(true)}
         onMouseLeave={() => setOnSlider(false)}
       >

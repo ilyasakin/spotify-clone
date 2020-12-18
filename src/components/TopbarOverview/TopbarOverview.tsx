@@ -1,5 +1,5 @@
-import './TopbarOverview.scoped.scss';
 import { useHistory } from 'react-router-dom';
+import styles from './TopbarOverview.module.scss';
 import { Logo } from '../icons';
 
 const TopbarOverview: React.FC = () => {
@@ -7,12 +7,12 @@ const TopbarOverview: React.FC = () => {
 
   return (
     <div style={{ backgroundColor: '#000' }}>
-      <div className="topbar-overview-container">
-        <Logo className="logo" />
-        <nav className="nav" role="navigation">
-          <ul className="nav-list">
+      <div className={styles['topbar-overview-container']}>
+        <Logo className={styles.logo} />
+        <nav className={styles.nav} role="navigation">
+          <ul className={styles['nav-list']}>
             <li>
-              <button className="nav-button" onClick={() => history.push('/player')}>
+              <button className={styles['nav-button']} onClick={() => history.push('/player')}>
                 Player
               </button>
             </li>

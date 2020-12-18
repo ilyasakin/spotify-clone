@@ -1,4 +1,4 @@
-import './TopbarNavButton.scss';
+import styles from './TopbarNavButton.module.scss';
 import { Back, Forward } from '../icons';
 
 interface Props {
@@ -7,9 +7,9 @@ interface Props {
 
 const TopbarNavBtn: React.FC<Props> = ({ direction }) => {
   return (
-    <div className="nav-button">
-      {direction === 'left' && <Back className="nav-icon" />}
-      {direction === 'right' && <Forward className="nav-icon" />}
+    <div className={styles['nav-button']}>
+      {direction === 'left' && <Back className={styles['nav-icon']} />}
+      {direction === 'right' && <Forward className={styles['nav-icon']} />}
     </div>
   );
 };

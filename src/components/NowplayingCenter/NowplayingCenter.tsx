@@ -1,8 +1,8 @@
 import { useContext, useState, useRef, useEffect } from 'react';
-import './NowplayingCenter.scoped.scss';
 import ReactHowler from 'react-howler';
 import Slider from 'react-input-slider';
 import { TrackPreviousIcon, TrackNextIcon, LoopIcon, ShuffleIcon } from '@modulz/radix-icons';
+import styles from './NowplayingCenter.module.scss';
 import { PlayFill, PauseFill } from '../icons';
 import CurrentSong from '../../context/CurrentSong';
 import VolumeContext from '../../context/Volume';
@@ -87,7 +87,7 @@ const NowplayingCenter: React.FC = () => {
   };
 
   return (
-    <div className="nowplaying-center-container">
+    <div className={styles['nowplaying-center-container']}>
       <ReactHowler
         src={`${process.env.REACT_APP_BASE_URL}/${currentSong?.location}`}
         playing={playing}
@@ -107,66 +107,77 @@ const NowplayingCenter: React.FC = () => {
           },
         }}
       />
-      <div className={`controls-and-other ${currentSong?._id ? 'controls-and-other-show' : ''}`}>
+      <div
+        className={`${styles['controls-and-other']} ${
+          currentSong?._id ? styles['controls-and-other-show'] : ''
+        }`}
+      >
         {currentSong?.cover && (
-          <div className="cover-container">
+          <div className={styles['cover-container']}>
             <img
-              className="cover"
+              className={styles.cover}
               src={`${process.env.REACT_APP_BASE_URL}/${currentSong?.cover}`}
               alt="cover"
             />
           </div>
         )}
 
-        <div className="controls">
+        <div className={styles.controls}>
           {/* Mobile view info */}
-          <div className="mobile">
-            <div className="current-song">
+          <div className={styles.mobile}>
+            <div className={styles['current-song']}>
               <span>{currentSong?.name}</span>
               <span>·</span>
-              <span className="artist">{currentSong?.artist}</span>
+              <span className={styles.artist}>{currentSong?.artist}</span>
             </div>
             <LikeButton forSong={currentSong} />
           </div>
 
           {/* Shuffle */}
-          <button className="control-item">
-            <ShuffleIcon className="small-button" />
+          <button className={styles['control-item']}>
+            <ShuffleIcon className={styles['small-button']} />
           </button>
 
           {/* Previous */}
-          <button className="control-item">
-            <TrackPreviousIcon className="small-button" />
+          <button className={styles['control-item']}>
+            <TrackPreviousIcon className={styles['small-button']} />
           </button>
 
           {/* Play-Pause */}
-          <button className="control-item control-play" onClick={() => setPlaying?.(!playing)}>
+          <button
+            className={`${styles['control-item']} ${styles['control-play']}`}
+            onClick={() => setPlaying?.(!playing)}
+          >
             {/* Might change this */}
             {!playing ? (
-              <PlayFill className="big-button play-pause" />
+              <PlayFill className={`${styles['big-button']} ${styles['play-pause']}`} />
             ) : (
-              <PauseFill className="big-button play-pause" />
+              <PauseFill className={`${styles['big-button']} ${styles['play-pause']}`} />
             )}
-            <div className={`big-button play-pause-spinner ${isLoading ? 'spin' : ''}`} />
+            <div
+              className={`${styles['big-button']} ${styles['play-pause-spinner']} ${
+                isLoading ? styles.spin : ''
+              }`}
+            />
           </button>
 
           {/* Next */}
-          <button className="control-item">
-            <TrackNextIcon className="small-button" />
+          <button className={styles['control-item']}>
+            <TrackNextIcon className={styles['small-button']} />
           </button>
 
           {/* Loop */}
           <button
-            className={`control-item ${loop ? 'control-active' : ''}`}
+            className={`${styles['control-item']} ${loop ? styles['control-active'] : ''}`}
             onClick={() => setLoop?.(!loop)}
           >
-            <LoopIcon className="small-button" />
+            <LoopIcon className={styles['small-button']} />
           </button>
         </div>
       </div>
 
-      <div className={`progress ${currentSong?._id ? 'progress-show' : ''}`}>
-        <div className="progress-with-number">{formatTime(curTime)}</div>
+      <div className={`${styles.progress} ${currentSong?._id ? styles['progress-show'] : ''}`}>
+        <div className={styles['progress-with-number']}>{formatTime(curTime)}</div>
         <div
           style={{
             alignSelf: 'center',
@@ -212,7 +223,7 @@ const NowplayingCenter: React.FC = () => {
             }}
           />
         </div>
-        <div className="progress-with-number">{formatTime(duration)}</div>
+        <div className={styles['progress-with-number']}>{formatTime(duration)}</div>
       </div>
     </div>
   );

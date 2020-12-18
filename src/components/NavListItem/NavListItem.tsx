@@ -1,4 +1,4 @@
-import './NavListItem.scoped.scss';
+import styles from './NavListItem.module.scss';
 
 interface Props {
   text: string;
@@ -6,8 +6,8 @@ interface Props {
 
 const NavListItem: React.FC<Props> = ({ text }) => {
   return (
-    <div className="playlist-item">
-      <span className="text">{text}</span>
+    <div className={styles['playlist-item']}>
+      <span className={styles.text}>{text}</span>
     </div>
   );
 };

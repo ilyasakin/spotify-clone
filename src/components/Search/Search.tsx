@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
-import './Search.scoped.scss';
 import Axios from 'axios';
 import { ImpulseSpinner } from 'react-spinners-kit';
+import styles from './Search.module.scss';
 import SearchContext from '../../context/Search';
 import Song from '../../types/Song';
 import ListItem from '../ListItem/ListItem';
@@ -31,7 +31,7 @@ const Search: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="search no-result">
+      <div className={`${styles.search} ${styles['no-result']}`}>
         <ImpulseSpinner frontColor="#1db954" />
       </div>
     );
@@ -39,14 +39,14 @@ const Search: React.FC = () => {
 
   if (result.length === 0) {
     return (
-      <div className="search no-result">
-        <NoResult className="no-result-image" />
+      <div className={`${styles.search} ${styles['no-result']}`}>
+        <NoResult className={styles['no-result-image']} />
       </div>
     );
   }
 
   return (
-    <div className="search">
+    <div className={styles.search}>
       {result.map((song: Song, index) => {
         return <ListItem song={song} index={index + 1} key={`search-${song.name}`} />;
       })}

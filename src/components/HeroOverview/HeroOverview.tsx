@@ -1,14 +1,14 @@
-import './HeroOverview.scoped.scss';
+import styles from './HeroOverview.module.scss';
 
 const HeroOverview: React.FC<{ HeroTitle: string; HeroBody: string }> = ({
   HeroTitle,
   HeroBody,
 }) => {
   return (
-    <div className="hero">
+    <div className={styles.hero}>
       <div style={{ alignSelf: 'center' }}>
-        <h2 className="title">{HeroTitle}</h2>
-        <p className="body">{HeroBody}</p>
+        <h2 className={styles.title}>{HeroTitle}</h2>
+        <p className={styles.body}>{HeroBody}</p>
       </div>
     </div>
   );

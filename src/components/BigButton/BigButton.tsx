@@ -1,5 +1,5 @@
-import './BigButton.scoped.scss';
 import { CircleSpinner } from 'react-spinners-kit';
+import styles from './BigButton.module.scss';
 
 const BigButton: React.FC<{
   text: string;
@@ -10,7 +10,15 @@ const BigButton: React.FC<{
   loading?: boolean;
 }> = ({ text, className, variation, onClick, type, loading }) => {
   return (
-    <button className={`bigbutton ${variation} ${className}`} onClick={onClick} type={type}>
+    <button
+      className={`${styles.bigbutton}
+      ${variation === 'outline' ? styles.outline : ''} 
+      ${variation === 'fill' ? styles.fill : ''} 
+      ${variation === 'pop' ? styles.pop : ''} 
+      ${className}`}
+      onClick={onClick}
+      type={type}
+    >
       {loading ? <CircleSpinner /> : text}
     </button>
   );

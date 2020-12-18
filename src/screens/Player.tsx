@@ -1,6 +1,6 @@
 import '../styles/App.scss';
-import '../styles/Player.scss';
 import { Redirect, Route, Switch, useRouteMatch } from 'react-router-dom';
+import styles from '../styles/Player.module.scss';
 import Navbar from '../components/Navbar/Navbar';
 import Nowplaying from '../components/Nowplaying/Nowplaying';
 import Topbar from '../components/Topbar/Topbar';
@@ -16,10 +16,10 @@ const Player: React.FC = () => {
 
   return (
     <CombinedProvider>
-      <div className="main-container">
-        <div className="nav-content">
+      <div className={styles['main-container']}>
+        <div className={styles['nav-content']}>
           <Navbar />
-          <div className="topbar-main">
+          <div className={styles['topbar-main']}>
             <Topbar />
             <Switch>
               <Route path={`${match.path}/home`}>

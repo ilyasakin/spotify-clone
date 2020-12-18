@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
-import './Main.scoped.scss';
 import axios from 'axios';
 import { ImpulseSpinner } from 'react-spinners-kit';
+import styles from './Main.module.scss';
 import Section from '../Section/Section';
 import Song from '../../types/Song';
 import RecentlyPlayed from '../../context/RecentlyPlayed';
@@ -22,9 +22,9 @@ const Main: React.FC = () => {
   }, []);
 
   return (
-    <div className="main">
+    <div className={styles.main}>
       {data.length < 1 ? (
-        <div className="loading-indicator">
+        <div className={styles['loading-indicator']}>
           <ImpulseSpinner frontColor="#1db954" />
         </div>
       ) : (

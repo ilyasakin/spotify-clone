@@ -1,7 +1,7 @@
-import './NavDivider.scoped.scss';
+import styles from './NavDivider.module.scss';
 
 const NavDivider: React.FC = () => {
-  return <hr className="divider" />;
+  return <hr className={styles.divider} />;
 };
 
 export default NavDivider;

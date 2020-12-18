@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import User from '../../context/User';
 import LoginDivider from '../../components/LoginDivider/LoginDivider';
 import BigButton from '../../components/BigButton/BigButton';
+import styles from '../../styles/Login.module.scss';
 
 const SignIn: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -39,18 +40,23 @@ const SignIn: React.FC = () => {
         style={{ display: 'inherit', gap: 'inherit', flexDirection: 'inherit' }}
       >
         <input
-          className="spot-input"
+          className={styles['spot-input']}
           placeholder="Email"
           type="email"
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
-          className="spot-input"
+          className={styles['spot-input']}
           placeholder="Password"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <BigButton text="Log In" className="login-button" type="submit" loading={isLoading} />
+        <BigButton
+          text="Log In"
+          className={styles['login-button']}
+          type="submit"
+          loading={isLoading}
+        />
       </form>
       <LoginDivider />
     </>

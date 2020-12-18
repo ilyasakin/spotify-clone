@@ -1,5 +1,5 @@
-import './Section.scoped.scss';
 import { useHistory } from 'react-router-dom';
+import styles from './Section.module.scss';
 import Card from '../Card/Card';
 import Song from '../../types/Song';
 
@@ -14,16 +14,19 @@ const Section: React.FC<Props> = ({ title, data, noSeeAll }) => {
   const history = useHistory();
 
   return (
-    <div className="section">
-      <div className="titlebar">
-        <div className="title">{title}</div>
+    <div className={styles.section}>
+      <div className={styles.titlebar}>
+        <div className={styles.title}>{title}</div>
         {!noSeeAll && (
-          <button className="titlebar-button" onClick={() => history.push('/player/playlist')}>
+          <button
+            className={styles['titlebar-button']}
+            onClick={() => history.push('/player/playlist')}
+          >
             SEE ALL
           </button>
         )}
       </div>
-      <div className="content">
+      <div className={styles.content}>
         {data.map((song: Song) => {
           return <Card song={song} key={song._id} />;
         })}

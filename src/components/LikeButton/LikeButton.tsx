@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import Axios from 'axios';
 import { PlaylistHeart, PlaylistHeartOutline } from '../icons';
 import User from '../../context/User';
-import './LikeButton.scoped.scss';
+import styles from './LikeButton.module.scss';
 import Song from '../../types/Song';
 
 interface Props {
@@ -31,7 +31,7 @@ const LikeButton: React.FC<Props> = ({ forSong }) => {
     <>
       {isLiked ? (
         <PlaylistHeart
-          className="like-button"
+          className={styles['like-button']}
           onClick={() => {
             Axios.post(
               `${process.env.REACT_APP_BASE_URL}/api/users/unlikeSong`,
@@ -44,7 +44,7 @@ const LikeButton: React.FC<Props> = ({ forSong }) => {
         />
       ) : (
         <PlaylistHeartOutline
-          className="like-button"
+          className={styles['like-button']}
           onClick={() => {
             Axios.post(
               `${process.env.REACT_APP_BASE_URL}/api/users/likeSong`,

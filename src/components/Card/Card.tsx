@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import './Card.scoped.scss';
 import ImageFadeIn from 'react-image-fade-in';
+import styles from './Card.module.scss';
 import { PlayFill, PauseFill } from '../icons';
 import CurrentSong from '../../context/CurrentSong';
 import PlayingStatus from '../../context/PlayingStatus';
@@ -15,20 +15,25 @@ const Card: React.FC<Props> = ({ song }) => {
   const { playing, setPlaying } = useContext(PlayingStatus);
 
   return (
-    <div className="card">
-      <div className="cover-container">
-        <ImageFadeIn className="cover" src={`${process.env.REACT_APP_BASE_URL}/${song.cover}`} />
+    <div className={styles.card}>
+      <div className={styles['cover-container']}>
+        <ImageFadeIn
+          className={styles.cover}
+          src={`${process.env.REACT_APP_BASE_URL}/${song.cover}`}
+        />
       </div>
-      <div className="info">
-        <div className="title" title={song.name}>
+      <div className={styles.info}>
+        <div className={styles.title} title={song.name}>
           {song.name}
         </div>
-        <div className="description" title={song.artist}>
+        <div className={styles.description} title={song.artist}>
           {song.artist}
         </div>
       </div>
       <button
-        className={`fab ${currentSong?._id === song._id && playing ? 'fab-visible' : ''}`}
+        className={`${styles.fab} ${
+          currentSong?._id === song._id && playing ? styles['fab-visible'] : ''
+        }`}
         tabIndex={0} // TODO
         aria-hidden="true"
         title="Play"
@@ -41,9 +46,9 @@ const Card: React.FC<Props> = ({ song }) => {
         }}
       >
         {currentSong?._id === song._id && playing ? (
-          <PauseFill className="fab-icon" />
+          <PauseFill className={styles['fab-icon']} />
         ) : (
-          <PlayFill className="fab-icon" />
+          <PlayFill className={styles['fab-icon']} />
         )}
       </button>
     </div>

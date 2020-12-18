@@ -1,4 +1,4 @@
-import './NavMenuItem.scoped.scss';
+import styles from './NavMenuItem.module.scss';
 
 interface Props {
   text: string;
@@ -8,11 +8,11 @@ interface Props {
 
 const NavMenuItem: React.FC<Props> = ({ Icon, text, gradient }) => {
   return (
-    <div className="playlist-menu-item">
-      <div className={`icon-container ${gradient && 'gradient'}`}>
-        <Icon className={`icon ${gradient ? 'white-color' : ''}`} />
+    <div className={styles['playlist-menu-item']}>
+      <div className={`${styles['icon-container']} ${gradient ? styles.gradient : ''}`}>
+        <Icon className={`${styles.icon} ${gradient ? styles['white-color'] : ''}`} />
       </div>
-      <span className="text">{text}</span>
+      <span className={styles.text}>{text}</span>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { Link, useHistory, useRouteMatch } from 'react-router-dom';
 import Axios from 'axios';
 import OverviewMenuItem from '../../components/OverviewMenuItem/OverviewMenuItem';
 import { HomeAlt, Pen } from '../../components/icons';
+import styles from '../../styles/Overview.module.scss';
 
 const Sidebar: React.FC = () => {
   const history = useHistory();
@@ -22,7 +23,7 @@ const Sidebar: React.FC = () => {
     fetchAvatar();
   }, []);
   return (
-    <div className="overview-sidebar">
+    <div className={styles['overview-sidebar']}>
       <img
         src={`${
           avatar

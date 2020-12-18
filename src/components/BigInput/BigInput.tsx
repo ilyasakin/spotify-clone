@@ -1,4 +1,4 @@
-import './BigInput.scoped.scss';
+import styles from './BigInput.module.scss';
 
 interface Props {
   select?: boolean;
@@ -13,13 +13,13 @@ const BigInput: React.FC<Props> = ({ select, label, children, onChange, value })
     case false:
       return (
         <div>
-          <label htmlFor={label.toLowerCase()} className="label">
+          <label htmlFor={label.toLowerCase()} className={styles.label}>
             {label}
           </label>
           <input
             type="text"
             id={label.toLowerCase()}
-            className="input"
+            className={styles.input}
             onChange={onChange}
             value={value}
           />
@@ -28,10 +28,15 @@ const BigInput: React.FC<Props> = ({ select, label, children, onChange, value })
     case true:
       return (
         <div>
-          <label htmlFor={label.toLowerCase()} className="label">
+          <label htmlFor={label.toLowerCase()} className={styles.label}>
             {label}
           </label>
-          <select id={label.toLowerCase()} className="input" onChange={onChange} value={value}>
+          <select
+            id={label.toLowerCase()}
+            className={styles.input}
+            onChange={onChange}
+            value={value}
+          >
             {children}
           </select>
         </div>
