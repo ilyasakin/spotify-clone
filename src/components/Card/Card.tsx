@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import ImageFadeIn from 'react-image-fade-in';
-import isURL from 'validator/lib/isURL';
+import isURL from 'validator/es/lib/isURL';
 import styles from './Card.module.scss';
 import { PlayFill, PauseFill } from '../icons';
 import CurrentSong from '../../context/CurrentSong';
