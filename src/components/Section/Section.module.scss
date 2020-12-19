@@ -56,6 +56,10 @@
   column-gap: 16px;
   overflow-y: hidden;
 
+  &::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+
   @media (max-width: 768px) {
     display: flex;
     height: 100%;
@@ -63,9 +67,5 @@
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-      display: none; /* Safari and Chrome */
-    }
   }
 }

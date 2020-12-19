@@ -15,10 +15,6 @@
   scroll-snap-align: start;
   transition: background-color 0.3s ease;
 
-  &:not(:first-child) {
-    margin-left: 8px;
-  }
-
   @media (min-width: 768px) {
     &:hover {
       background: $color-black-5;
@@ -39,6 +35,10 @@
     padding: 0;
     background: transparent;
     border-radius: 0;
+
+    &:not(:first-child) {
+      margin-left: 8px;
+    }
   }
 }
 
