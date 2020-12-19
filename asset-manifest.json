@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/spotify-clone/static/css/main.b8b33d65.chunk.css",
-    "main.js": "/spotify-clone/static/js/main.3692f0ec.chunk.js",
-    "main.js.map": "/spotify-clone/static/js/main.3692f0ec.chunk.js.map",
+    "main.css": "/spotify-clone/static/css/main.14bda09c.chunk.css",
+    "main.js": "/spotify-clone/static/js/main.76342301.chunk.js",
+    "main.js.map": "/spotify-clone/static/js/main.76342301.chunk.js.map",
     "runtime-main.js": "/spotify-clone/static/js/runtime-main.9c1d8a02.js",
     "runtime-main.js.map": "/spotify-clone/static/js/runtime-main.9c1d8a02.js.map",
     "static/css/2.9c6b934b.chunk.css": "/spotify-clone/static/css/2.9c6b934b.chunk.css",
-    "static/js/2.cf2d4e1c.chunk.js": "/spotify-clone/static/js/2.cf2d4e1c.chunk.js",
-    "static/js/2.cf2d4e1c.chunk.js.map": "/spotify-clone/static/js/2.cf2d4e1c.chunk.js.map",
+    "static/js/2.30b64708.chunk.js": "/spotify-clone/static/js/2.30b64708.chunk.js",
+    "static/js/2.30b64708.chunk.js.map": "/spotify-clone/static/js/2.30b64708.chunk.js.map",
     "index.html": "/spotify-clone/index.html",
     "static/css/2.9c6b934b.chunk.css.map": "/spotify-clone/static/css/2.9c6b934b.chunk.css.map",
-    "static/css/main.b8b33d65.chunk.css.map": "/spotify-clone/static/css/main.b8b33d65.chunk.css.map",
-    "static/js/2.cf2d4e1c.chunk.js.LICENSE.txt": "/spotify-clone/static/js/2.cf2d4e1c.chunk.js.LICENSE.txt",
+    "static/css/main.14bda09c.chunk.css.map": "/spotify-clone/static/css/main.14bda09c.chunk.css.map",
+    "static/js/2.30b64708.chunk.js.LICENSE.txt": "/spotify-clone/static/js/2.30b64708.chunk.js.LICENSE.txt",
     "static/media/no-result.d667aada.svg": "/spotify-clone/static/media/no-result.d667aada.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.9c1d8a02.js",
     "static/css/2.9c6b934b.chunk.css",
-    "static/js/2.cf2d4e1c.chunk.js",
-    "static/css/main.b8b33d65.chunk.css",
-    "static/js/main.3692f0ec.chunk.js"
+    "static/js/2.30b64708.chunk.js",
+    "static/css/main.14bda09c.chunk.css",
+    "static/js/main.76342301.chunk.js"
   ]
 }
