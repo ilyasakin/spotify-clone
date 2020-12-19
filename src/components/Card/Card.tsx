@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import ImageFadeIn from 'react-image-fade-in';
+import isURL from 'validator/lib/isURL';
 import styles from './Card.module.scss';
 import { PlayFill, PauseFill } from '../icons';
 import CurrentSong from '../../context/CurrentSong';
@@ -19,7 +20,11 @@ const Card: React.FC<Props> = ({ song }) => {
       <div className={styles['cover-container']}>
         <ImageFadeIn
           className={styles.cover}
-          src={`${process.env.REACT_APP_BASE_URL}/${song.cover}`}
+          src={
+            song.cover && !isURL(song.cover)
+              ? `${process.env.REACT_APP_BASE_URL}/${song.cover}`
+              : song.cover
+          }
         />
       </div>
       <div className={styles.info}>

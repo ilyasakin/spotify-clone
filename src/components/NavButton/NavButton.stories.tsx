@@ -2,7 +2,7 @@ import NavButton from './NavButton';
 import { Home, HomeActive, Search, SearchActive, Library, LibraryActive } from '../icons';
 
 export default {
-  title: 'NavigationButton',
+  title: 'Navigation Button',
 };
 
 export const navigationButton: React.FC = () => {

@@ -1,7 +1,7 @@
 import PlaylistList from './NavList';
 
 export default {
-  title: 'Playlist List',
+  title: 'Playlist',
 };
 
-export const playlistList: React.FC = () => <PlaylistList />;
+export const playlist: React.FC = () => <PlaylistList />;

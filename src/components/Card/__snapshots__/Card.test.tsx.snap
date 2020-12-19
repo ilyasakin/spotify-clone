@@ -11,7 +11,7 @@ exports[`runs correctly 1`] = `
       className="cover"
       loadAsBackgroundImage={false}
       opacityTransition={0.5}
-      src="undefined/"
+      src="https://via.placeholder.com/1000"
     />
   </div>
   <div
@@ -37,7 +37,7 @@ exports[`runs correctly 1`] = `
     tabIndex={0}
     title="Play"
   >
-    <SvgCardPlay
+    <SvgPlayFill
       className="fab-icon"
     />
   </button>

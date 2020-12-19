@@ -1,10 +1,10 @@
 import TopbarNavBtn from './TopbarNavButton';
 
 export default {
-  title: 'Topbar Nav Button',
+  title: 'Topbar Navigation Button',
 };
 
-export const topbarNavBtn: React.FC = () => {
+export const topbarNavigationButton: React.FC = () => {
   return (
     <div style={{ height: 300, position: 'relative' }}>
       <TopbarNavBtn direction="left" />

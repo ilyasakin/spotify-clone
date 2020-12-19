@@ -1,9 +1,9 @@
 import NavListItem from './NavListItem';
 
 export default {
-  title: 'NavigationPlaylistListItem',
+  title: 'Navigation List Item',
 };
 
-export const navigationPlaylistListItem: React.FC = () => {
+export const navigationListItem: React.FC = () => {
   return <NavListItem text="placeholder playlist" />;
 };

@@ -4,6 +4,6 @@ export default {
   title: 'Now Playing Right',
 };
 
-export const nowplayingRight: React.FC = () => {
+export const nowPlayingRight: React.FC = () => {
   return <NowplayingRight />;
 };

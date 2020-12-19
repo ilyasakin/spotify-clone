@@ -1,7 +1,7 @@
 import NavMenu from './NavMenu';
 
 export default {
-  title: 'Playlist Menu',
+  title: 'Playlists Menu',
 };
 
-export const playlistMenu: React.FC = () => <NavMenu />;
+export const playlistsMenu: React.FC = () => <NavMenu />;
