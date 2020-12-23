@@ -1,21 +1,19 @@
 import '../styles/App.scss';
 import { Redirect, Route, Switch, useRouteMatch } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
 import styles from '../styles/Player.module.scss';
 import Navbar from '../components/Navbar/Navbar';
 import Nowplaying from '../components/Nowplaying/Nowplaying';
 import Topbar from '../components/Topbar/Topbar';
 import Main from '../components/Main/Main';
 import CombinedProvider from '../components/CombinedProvider/CombinedProvider';
-import Loading from '../components/Loading/Loading';
+import Search from '../components/Search/Search';
+import ViewPlaylist from '../components/ViewPlaylist/ViewPlaylist';
 
 const Player: React.FC = () => {
   document.title = 'Spotify';
 
   const match = useRouteMatch();
 
-  const SearchLazy = lazy(() => import('../components/Search/Search'));
-  const ViewPlaylistLazy = lazy(() => import('../components/ViewPlaylist/ViewPlaylist'));
   return (
     <CombinedProvider>
       <div className={styles['main-container']}>
@@ -28,14 +26,10 @@ const Player: React.FC = () => {
                 <Main />
               </Route>
               <Route path={`${match.path}/search`}>
-                <Suspense fallback={<Loading />}>
-                  <SearchLazy />
-                </Suspense>
+                <Search />
               </Route>
               <Route path={`${match.path}/playlist`}>
-                <Suspense fallback={<Loading />}>
-                  <ViewPlaylistLazy />
-                </Suspense>
+                <ViewPlaylist />
               </Route>
               <Route path={`${match.path}/`}>
                 <Redirect to={`${match.url}/home`} />
