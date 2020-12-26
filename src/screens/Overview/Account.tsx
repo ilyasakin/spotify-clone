@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { format } from 'date-fns';
-import { useHistory, useRouteMatch } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import OverviewTable from '../../components/OverviewTable/OverviewTable';
 import OverviewTableItem from '../../components/OverviewTableItem/OverviewTableItem';
@@ -12,7 +12,6 @@ const Account: React.FC = () => {
   document.title = 'Account Overview - Spotify';
   const { user, setUser } = useContext(User);
   const history = useHistory();
-  const match = useRouteMatch();
 
   const parseDate = (date: string | undefined): string => {
     if (date) {
@@ -35,7 +34,7 @@ const Account: React.FC = () => {
         text="Edit Profile"
         variation="pop"
         className={styles['overview-big-button']}
-        onClick={() => history.push(`${match.path}/edit`)}
+        onClick={() => history.push(`/overview/edit`)}
       />
       <h3 className={styles['overview-page-subtitle']}>Signout everywhere</h3>
       <p className={styles['overview-paragraph']}>
