@@ -7,7 +7,7 @@ import {
   SpeakerOffIcon,
 } from '@modulz/radix-icons';
 import styles from './NowplayingRight.module.scss';
-import { Playlist, Devices } from '../icons';
+// import { Playlist, Devices } from '../icons';
 import VolumeContext from '../../context/Volume';
 
 const NowplayingRight: React.FC = () => {
@@ -31,12 +31,12 @@ const NowplayingRight: React.FC = () => {
 
   return (
     <div className={styles['nowplaying-right-container']}>
-      <div className={styles['icon-container']}>
+      {/* <div className={styles['icon-container']}>
         <Playlist className={styles.icon} />
-      </div>
-      <div className={styles['icon-container']}>
+      </div> */}
+      {/* <div className={styles['icon-container']}>
         <Devices className={styles.icon} />
-      </div>
+      </div> */}
       <div className={styles['icon-container']}>
         <Volume className={styles.icon} />
       </div>
