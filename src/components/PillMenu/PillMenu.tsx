@@ -80,9 +80,9 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
           <MenuItem component={Link} to="/overview">
             <span className={styles['list-text']}>Account</span>
           </MenuItem>
-          <MenuItem onClick={handleClose} divider>
+          {/* <MenuItem onClick={handleClose} divider>
             <span className={styles['list-text']}>Profile</span>
-          </MenuItem>
+          </MenuItem> */}
           <MenuItem
             onClick={() => {
               Axios.post(`${process.env.REACT_APP_BASE_URL}/v1/users/logout`, null, {
