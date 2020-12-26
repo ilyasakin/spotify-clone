@@ -8,6 +8,7 @@ import Main from '../components/Main/Main';
 import CombinedProvider from '../components/CombinedProvider/CombinedProvider';
 import Search from '../components/Search/Search';
 import ViewPlaylist from '../components/ViewPlaylist/ViewPlaylist';
+import LikedSongs from '../components/LikedSongs/LikedSongs';
 
 const Player: React.FC = () => {
   document.title = 'Spotify';
@@ -30,6 +31,9 @@ const Player: React.FC = () => {
               </Route>
               <Route path={`${match.path}/playlist`}>
                 <ViewPlaylist />
+              </Route>
+              <Route path={`${match.path}/liked-songs`}>
+                <LikedSongs />
               </Route>
               <Route path={`${match.path}/`}>
                 <Redirect to={`${match.url}/home`} />
