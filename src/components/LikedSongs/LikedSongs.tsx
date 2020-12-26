@@ -1,20 +1,29 @@
-import { /** useEffect, */ useState } from 'react';
+import { /** useEffect, */ useEffect, useState } from 'react';
 // import axios from 'axios';
 import { ImpulseSpinner } from 'react-spinners-kit';
+import Axios from 'axios';
 import styles from './LikedSongs.module.scss';
 import Song from '../../types/Song';
 import ListItem from '../ListItem/ListItem';
 import { ReactComponent as NoResult } from '../../assets/images/no-result.svg';
 
 const LikedSongs: React.FC = () => {
-  const [loading] = useState(false);
-  const [result] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState([]);
 
-  //   useEffect(() => {
-  //     const fetchData = async () => {
-  //       const response = await axios.get();
-  //     };
-  //   }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      const response = await Axios.get(`${process.env.REACT_APP_BASE_URL}/v1/music/likedSongs`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('__TOKEN')}` },
+      });
+
+      setLoading(false);
+      setResult(response.data);
+    };
+
+    fetchData();
+  }, []);
 
   if (loading) {
     return (
