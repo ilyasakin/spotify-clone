@@ -2,7 +2,7 @@ import { useHistory } from 'react-router-dom';
 import styles from './NavMenu.module.scss';
 import NavMenuItem from '../NavMenuItem/NavMenuItem';
 import NavDivider from '../NavDivider/NavDivider';
-import { PlaylistHeart, PlaylistPlus } from '../icons';
+import { PlaylistHeart /** , PlaylistPlus */ } from '../icons';
 
 interface Props {
   className?: string;
@@ -14,12 +14,12 @@ const NavMenu: React.FC<Props> = ({ className }) => {
   return (
     <div className={`${styles['playlist-menu']} ${className}`}>
       <div className={styles['menu-title']}>PLAYLISTS</div>
-      <NavMenuItem
+      {/* <NavMenuItem
         text="Create a playlist"
         Icon={PlaylistPlus}
         // eslint-disable-next-line no-console
         onClick={() => console.log('Create Songs')}
-      />
+      /> */}
       <NavMenuItem
         text="Liked Songs"
         Icon={PlaylistHeart}
