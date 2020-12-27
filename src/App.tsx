@@ -23,12 +23,12 @@ const App: React.FC = () => {
           </Route>
           <Auth>
             <Route path="/overview">
-              <Suspense fallback={<Loading />}>
+              <Suspense fallback={<Loading message="Loading Overview" />}>
                 <OverviewLazy />
               </Suspense>
             </Route>
             <Route path="/player">
-              <Suspense fallback={<Loading />}>
+              <Suspense fallback={<Loading message="Loading Player" />}>
                 <PlayerLazy />
               </Suspense>
             </Route>

@@ -32,7 +32,7 @@ const Auth: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     }
   }, [history, setUser]);
 
-  return <>{pass ? children : <Loading />}</>;
+  return <>{pass ? children : <Loading message="Connecting to Server" />}</>;
 };
 
 export default Auth;
