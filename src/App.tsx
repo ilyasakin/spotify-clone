@@ -4,7 +4,7 @@ import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import Login from './screens/Login';
 import UserContext from './context/User';
 import Auth from './components/Auth/Auth';
-import Loading from './components/Loading/Loading';
+import Loading from './screens/Loading/Loading';
 
 const App: React.FC = () => {
   const [user, setUser] = useState<{ email?: string; name?: string; token?: string }>({});

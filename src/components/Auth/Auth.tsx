@@ -2,7 +2,7 @@ import { useEffect, useContext, useState } from 'react';
 import Axios, { AxiosError, AxiosResponse } from 'axios';
 import { useHistory } from 'react-router-dom';
 import User from '../../context/User';
-import Loading from '../Loading/Loading';
+import Loading from '../../screens/Loading/Loading';
 
 const Auth: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { setUser } = useContext(User);
