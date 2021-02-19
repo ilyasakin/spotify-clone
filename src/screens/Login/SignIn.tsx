@@ -10,6 +10,7 @@ const SignIn: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setLoading] = useState(false);
+  const [isDemoLoading, setDemoLoading] = useState(false);
   const { setUser } = useContext(User);
   const history = useHistory();
   const [, setError] = useState('');
@@ -33,6 +34,24 @@ const SignIn: React.FC = () => {
         setError(res?.response?.data.error);
       });
   };
+
+  const handleDemoLogin = async () => {
+    setDemoLoading(true);
+    try {
+      const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/v1/users/signin`, {
+        email: 'guest@guest.com',
+        password: 'guestguest',
+      });
+      localStorage.setItem('__TOKEN', res.data.token);
+      setDemoLoading(false);
+      setUser?.(res.data);
+      history.push('/player');
+    } catch (error) {
+      setDemoLoading(false);
+      setError(error?.response?.data.error);
+    }
+  };
+
   return (
     <>
       <form
@@ -58,6 +77,13 @@ const SignIn: React.FC = () => {
           loading={isLoading}
         />
       </form>
+      <BigButton
+        text="Demo User"
+        className={styles['demo-login-button']}
+        type="submit"
+        loading={isDemoLoading}
+        onClick={() => handleDemoLogin()}
+      />
       <LoginDivider />
     </>
   );
