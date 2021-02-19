@@ -18,12 +18,12 @@ const Login: React.FC = () => {
     if (token) history.push('/player');
   }, [history]);
 
-  return (
-    <div className={styles['login-container']}>
-      <div className={styles['login-inner-container']}>
-        <Logo className={styles.logo} />
-        {/* TODO: Make this route instead of a state */}
-        {!signUp ? (
+  /* TODO: Make this route instead of a state */
+  if (!signUp) {
+    return (
+      <div className={styles['login-container']}>
+        <div className={styles['login-inner-container']}>
+          <Logo className={styles.logo} />
           <>
             <SignIn />
             <h4 className={styles['dont-have-acc']}>Don&apos;t have an account?</h4>
@@ -34,17 +34,25 @@ const Login: React.FC = () => {
               onClick={() => setSignUp(!signUp)}
             />
           </>
-        ) : (
-          <>
-            <SignUp />
-            <h3 className={styles['have-an-acc']}>
-              Have an account?
-              <button className={styles['spot-link']} onClick={() => setSignUp(false)}>
-                Sign In
-              </button>
-            </h3>
-          </>
-        )}
+        </div>
+      </div>
+    );
+  }
+
+  /* TODO: Make this route instead of a state */
+  return (
+    <div className={styles['login-container']}>
+      <div className={styles['login-inner-container']}>
+        <Logo className={styles.logo} />
+        <>
+          <SignUp />
+          <h3 className={styles['have-an-acc']}>
+            Have an account?
+            <button className={styles['spot-link']} onClick={() => setSignUp(false)}>
+              Sign In
+            </button>
+          </h3>
+        </>
       </div>
     </div>
   );
