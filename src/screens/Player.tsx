@@ -30,6 +30,7 @@ const Player: React.FC = () => {
 
     fetchData();
   }, []);
+
   return (
     <CombinedProvider>
       <div className={styles['main-container']}>
