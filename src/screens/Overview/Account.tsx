@@ -18,6 +18,16 @@ const Account: React.FC = () => {
     return format(Date.parse(date), 'MMMM dd, yyyy');
   };
 
+  const handleSignoutEverywhere = async () => {
+    await axios.post(`${process.env.REACT_APP_BASE_URL}/v1/users/logoutall`, null, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('__TOKEN')}` },
+    });
+
+    localStorage.removeItem('__TOKEN');
+    setUser?.({});
+    history.push('/');
+  };
+
   return (
     <>
       <h1 className={styles['overview-page-title']}>Account overview</h1>
@@ -43,17 +53,7 @@ const Account: React.FC = () => {
         text="Sign out everywhere"
         variation="pop"
         className={styles['overview-big-button']}
-        onClick={() => {
-          axios
-            .post(`${process.env.REACT_APP_BASE_URL}/v1/users/logoutall`, null, {
-              headers: { Authorization: `Bearer ${localStorage.getItem('__TOKEN')}` },
-            })
-            .then(() => {
-              localStorage.removeItem('__TOKEN');
-              setUser?.({});
-              history.push('/');
-            });
-        }}
+        onClick={() => handleSignoutEverywhere()}
       />
     </>
   );
