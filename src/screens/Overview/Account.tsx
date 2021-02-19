@@ -2,8 +2,8 @@ import { useContext } from 'react';
 import { format } from 'date-fns';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import OverviewTable from '../../components/Table/Table';
-import OverviewTableItem from '../../components/TableItem/TableItem';
+import Table from '../../components/Table/Table';
+import TableItem from '../../components/TableItem/TableItem';
 import User from '../../context/User';
 import BigButton from '../../components/BigButton/BigButton';
 import styles from '../../styles/Overview.module.scss';
@@ -14,22 +14,20 @@ const Account: React.FC = () => {
   const history = useHistory();
 
   const parseDate = (date: string | undefined): string => {
-    if (date) {
-      return format(Date.parse(date), 'MMMM dd, yyyy');
-    }
-    return 'Not found';
+    if (!date) return 'Not found';
+    return format(Date.parse(date), 'MMMM dd, yyyy');
   };
 
   return (
     <>
       <h1 className={styles['overview-page-title']}>Account overview</h1>
       <h3 className={styles['overview-page-subtitle']}>Profile</h3>
-      <OverviewTable>
-        <OverviewTableItem label="Username" info={user?.name} />
-        <OverviewTableItem label="Email" info={user?.email} />
-        <OverviewTableItem label="Date of birth" info={parseDate(user?.birthDate)} />
-        <OverviewTableItem label="Country" info={user?.country} />
-      </OverviewTable>
+      <Table>
+        <TableItem label="Username" info={user?.name} />
+        <TableItem label="Email" info={user?.email} />
+        <TableItem label="Date of birth" info={parseDate(user?.birthDate)} />
+        <TableItem label="Country" info={user?.country} />
+      </Table>
       <BigButton
         text="Edit Profile"
         variation="pop"

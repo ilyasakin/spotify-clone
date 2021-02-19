@@ -14,50 +14,50 @@ const LikeButton: React.FC<Props> = ({ forSong }) => {
   const [isLiked, setLiked] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem('__TOKEN');
-    Axios.post(
-      `${process.env.REACT_APP_BASE_URL}/v1/users/isSongLiked`,
-      { id: forSong?.id },
-      {
-        headers: { Authorization: `Bearer ${token}` },
-      },
-    )
-      .then((res) => setLiked(res.data))
-      // eslint-disable-next-line no-console
-      .catch((res) => console.log(res?.response?.data.error));
+    const fetchIsLiked = async () => {
+      const token = localStorage.getItem('__TOKEN');
+      const response = await Axios.post(
+        `${process.env.REACT_APP_BASE_URL}/v1/users/isSongLiked`,
+        { id: forSong?.id },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        },
+      );
+      setLiked(response.data);
+    };
+
+    fetchIsLiked();
   }, [forSong]);
 
-  return (
-    <>
-      {isLiked ? (
-        <PlaylistHeart
-          className={styles['like-button']}
-          onClick={() => {
-            Axios.post(
-              `${process.env.REACT_APP_BASE_URL}/v1/users/unlikeSong`,
-              { id: forSong?.id },
-              {
-                headers: { Authorization: `Bearer ${user?.token}` },
-              },
-            ).then(() => setLiked(false));
-          }}
-        />
-      ) : (
-        <PlaylistHeartOutline
-          className={styles['like-button']}
-          onClick={() => {
-            Axios.post(
-              `${process.env.REACT_APP_BASE_URL}/v1/users/likeSong`,
-              { id: forSong?.id },
-              {
-                headers: { Authorization: `Bearer ${user?.token}` },
-              },
-            ).then(() => setLiked(true));
-          }}
-        />
-      )}
-    </>
-  );
+  const handleUnlike = async () => {
+    await Axios.post(
+      `${process.env.REACT_APP_BASE_URL}/v1/users/unlikeSong`,
+      { id: forSong?.id },
+      {
+        headers: { Authorization: `Bearer ${user?.token}` },
+      },
+    );
+
+    setLiked(false);
+  };
+
+  const handleLike = async () => {
+    await Axios.post(
+      `${process.env.REACT_APP_BASE_URL}/v1/users/likeSong`,
+      { id: forSong?.id },
+      {
+        headers: { Authorization: `Bearer ${user?.token}` },
+      },
+    );
+
+    setLiked(true);
+  };
+
+  if (isLiked) {
+    return <PlaylistHeart className={styles['like-button']} onClick={() => handleUnlike()} />;
+  }
+
+  return <PlaylistHeartOutline className={styles['like-button']} onClick={() => handleLike()} />;
 };
 
 export default LikeButton;
