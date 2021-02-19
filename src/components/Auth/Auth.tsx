@@ -1,5 +1,5 @@
 import { useEffect, useContext, useState } from 'react';
-import Axios, { AxiosError, AxiosResponse } from 'axios';
+import Axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import User from '../../context/User';
 import Loading from '../../screens/Loading/Loading';
@@ -10,29 +10,38 @@ const Auth: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const history = useHistory();
 
   useEffect(() => {
-    const token = localStorage.getItem('__TOKEN');
-    if (token) {
-      Axios.get(`${process.env.REACT_APP_BASE_URL}/v1/users/me`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-        .then((res: AxiosResponse) => {
-          setUser?.({ ...res.data, token });
-          setPass(true);
-        })
-        .catch((res: AxiosError) => {
-          // Better way to do this?
-          if (res.response?.status === 401) {
-            localStorage.removeItem('__TOKEN');
-            setUser?.({});
-          }
-          history.push('/login');
+    const fetchUser = async () => {
+      const token = localStorage.getItem('__TOKEN');
+
+      if (!token) {
+        return history.push('/login');
+      }
+
+      try {
+        const user = await Axios.get(`${process.env.REACT_APP_BASE_URL}/v1/users/me`, {
+          headers: { Authorization: `Bearer ${token}` },
         });
-    } else {
-      history.push('/login');
-    }
+        setUser?.({ ...user.data, token });
+        return setPass(true);
+      } catch (error) {
+        if (error.response?.status !== 401) {
+          return history.push('/login');
+        }
+
+        localStorage.removeItem('__TOKEN');
+        setUser?.({});
+        return history.push('/login');
+      }
+    };
+
+    fetchUser();
   }, [history, setUser]);
 
-  return <>{pass ? children : <Loading message="Connecting to Server" />}</>;
+  if (!pass) {
+    return <Loading message="Connecting to Server" />;
+  }
+
+  return <>{children}</>;
 };
 
 export default Auth;
