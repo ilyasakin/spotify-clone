@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import axios, { AxiosResponse, AxiosError } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { useHistory } from 'react-router-dom';
 import User from '../../context/User';
 import LoginDivider from '../../components/LoginDivider/LoginDivider';
@@ -18,21 +18,22 @@ const SignIn: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    axios
-      .post(`${process.env.REACT_APP_BASE_URL}/v1/users/signin`, {
-        email,
-        password,
-      })
-      .then((res: AxiosResponse) => {
-        localStorage.setItem('__TOKEN', res.data.token);
-        setLoading(false);
-        setUser?.(res.data);
-        history.push('/player');
-      })
-      .catch((res: AxiosError) => {
-        setLoading(false);
-        setError(res?.response?.data.error);
-      });
+    try {
+      const res: AxiosResponse = await axios.post(
+        `${process.env.REACT_APP_BASE_URL}/v1/users/signin`,
+        {
+          email,
+          password,
+        },
+      );
+      localStorage.setItem('__TOKEN', res.data.token);
+      setLoading(false);
+      setUser?.(res.data);
+      history.push('/player');
+    } catch (error) {
+      setLoading(false);
+      setError(error);
+    }
   };
 
   const handleDemoLogin = async () => {
@@ -48,7 +49,7 @@ const SignIn: React.FC = () => {
       history.push('/player');
     } catch (error) {
       setDemoLoading(false);
-      setError(error?.response?.data.error);
+      setError(error);
     }
   };
 
