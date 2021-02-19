@@ -1,6 +1,6 @@
-import styles from './OverviewTableItem.module.scss';
+import styles from './TableItem.module.scss';
 
-const OverviewTableItem: React.FC<{ label: string; info?: string }> = ({ label, info }) => {
+const TableItem: React.FC<{ label: string; info?: string }> = ({ label, info }) => {
   return (
     <tr style={{ borderBottom: '1px solid rgb(238, 238, 238)' }}>
       <td className={styles.label}>{label}</td>
@@ -9,4 +9,4 @@ const OverviewTableItem: React.FC<{ label: string; info?: string }> = ({ label, 
   );
 };
 
-export default OverviewTableItem;
+export default TableItem;

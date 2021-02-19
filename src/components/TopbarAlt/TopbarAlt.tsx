@@ -1,8 +1,8 @@
 import { useHistory } from 'react-router-dom';
-import styles from './TopbarOverview.module.scss';
+import styles from './TopbarAlt.module.scss';
 import { Logo } from '../icons';
 
-const TopbarOverview: React.FC = () => {
+const TopbarAlt: React.FC = () => {
   const history = useHistory();
 
   return (
@@ -23,4 +23,4 @@ const TopbarOverview: React.FC = () => {
   );
 };
 
-export default TopbarOverview;
+export default TopbarAlt;

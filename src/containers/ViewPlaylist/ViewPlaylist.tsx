@@ -3,7 +3,7 @@ import './ViewPlaylist.scoped.scss';
 // import queryString from 'query-string';
 // import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-import ListItem from '../ListItem/ListItem';
+import ListItem from '../../components/ListItem/ListItem';
 import Song from '../../types/Song';
 
 const ViewPlaylist: React.FC = () => {

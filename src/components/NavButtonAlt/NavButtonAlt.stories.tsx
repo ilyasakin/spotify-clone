@@ -1,4 +1,4 @@
-import TopbarNavBtn from './TopbarNavButton';
+import NavButtonAlt from './NavButtonAlt';
 
 export default {
   title: 'Topbar Navigation Button',
@@ -7,8 +7,8 @@ export default {
 export const topbarNavigationButton: React.FC = () => {
   return (
     <div style={{ height: 300, position: 'relative' }}>
-      <TopbarNavBtn direction="left" />
-      <TopbarNavBtn direction="right" />
+      <NavButtonAlt direction="left" />
+      <NavButtonAlt direction="right" />
     </div>
   );
 };

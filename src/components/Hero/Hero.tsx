@@ -1,9 +1,6 @@
-import styles from './HeroOverview.module.scss';
+import styles from './Hero.module.scss';
 
-const HeroOverview: React.FC<{ HeroTitle: string; HeroBody: string }> = ({
-  HeroTitle,
-  HeroBody,
-}) => {
+const Hero: React.FC<{ HeroTitle: string; HeroBody: string }> = ({ HeroTitle, HeroBody }) => {
   return (
     <div className={styles.hero}>
       <div style={{ alignSelf: 'center' }}>
@@ -14,4 +11,4 @@ const HeroOverview: React.FC<{ HeroTitle: string; HeroBody: string }> = ({
   );
 };
 
-export default HeroOverview;
+export default Hero;

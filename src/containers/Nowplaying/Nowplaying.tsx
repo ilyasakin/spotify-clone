@@ -1,8 +1,8 @@
 import styles from './Nowplaying.module.scss';
-import NowplayingLeft from '../NowplayingLeft/NowplayingLeft';
-import NowplayingRight from '../NowplayingRight/NowplayingRight';
-import NowplayingCenter from '../NowplayingCenter/NowplayingCenter';
-import Nav from '../Nav/Nav';
+import NowplayingLeft from '../../components/NowplayingLeft/NowplayingLeft';
+import NowplayingRight from '../../components/NowplayingRight/NowplayingRight';
+import NowplayingCenter from '../../components/NowplayingCenter/NowplayingCenter';
+import Nav from '../../components/Nav/Nav';
 
 const Nowplaying: React.FC = () => {
   return (

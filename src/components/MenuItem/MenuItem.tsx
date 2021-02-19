@@ -1,4 +1,4 @@
-import styles from './OverviewMenuItem.module.scss';
+import styles from './MenuItem.module.scss';
 
 interface Props {
   text: string;
@@ -6,7 +6,7 @@ interface Props {
   Icon?: React.FC<{ className?: string }>;
 }
 
-const OverviewMenuItem: React.FC<Props> = ({ text, indicator, Icon }) => {
+const MenuItem: React.FC<Props> = ({ text, indicator, Icon }) => {
   return (
     <div className={styles['overview-menu-item-container']} role="button">
       <div
@@ -22,4 +22,4 @@ const OverviewMenuItem: React.FC<Props> = ({ text, indicator, Icon }) => {
   );
 };
 
-export default OverviewMenuItem;
+export default MenuItem;

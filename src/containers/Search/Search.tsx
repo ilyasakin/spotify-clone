@@ -4,7 +4,7 @@ import { ImpulseSpinner } from 'react-spinners-kit';
 import styles from './Search.module.scss';
 import SearchContext from '../../context/Search';
 import Song from '../../types/Song';
-import ListItem from '../ListItem/ListItem';
+import ListItem from '../../components/ListItem/ListItem';
 import { ReactComponent as NoResult } from '../../assets/images/no-result.svg';
 
 const Search: React.FC = () => {

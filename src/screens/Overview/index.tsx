@@ -1,9 +1,9 @@
 import '../../styles/App.scss';
 import { Route, Switch, Redirect, useRouteMatch } from 'react-router-dom';
 import styles from '../../styles/Overview.module.scss';
-import TopbarOverview from '../../components/TopbarOverview/TopbarOverview';
-import HeroOverview from '../../components/HeroOverview/HeroOverview';
-import OverviewPage from '../../components/OverviewPage/OverviewPage';
+import TopbarAlt from '../../components/TopbarAlt/TopbarAlt';
+import HeroOverview from '../../components/Hero/Hero';
+import Page from '../../containers/Page/Page';
 import Account from './Account';
 import Edit from './Edit';
 import Sidebar from './Sidebar';
@@ -13,7 +13,7 @@ const Overview: React.FC = () => {
 
   return (
     <div className={styles['overview-background']} style={{ height: '100%' }}>
-      <TopbarOverview />
+      <TopbarAlt />
       <div className={styles['overview-wrapper']}>
         <HeroOverview
           HeroTitle="Hello!"
@@ -21,7 +21,7 @@ const Overview: React.FC = () => {
         />
         <div className={styles['overview-page-wrapper']}>
           <Sidebar />
-          <OverviewPage>
+          <Page>
             <Switch>
               <Route path={`${match.path}/account`}>
                 <Account />
@@ -33,7 +33,7 @@ const Overview: React.FC = () => {
                 <Redirect to={`${match.url}/account`} />
               </Route>
             </Switch>
-          </OverviewPage>
+          </Page>
           {/* TODO: FOOTER */}
         </div>
       </div>

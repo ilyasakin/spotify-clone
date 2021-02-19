@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useHistory, useRouteMatch } from 'react-router-dom';
 import Axios from 'axios';
-import OverviewMenuItem from '../../components/OverviewMenuItem/OverviewMenuItem';
+import MenuItem from '../../components/MenuItem/MenuItem';
 import { HomeAlt, Pen } from '../../components/icons';
 import styles from '../../styles/Overview.module.scss';
 
@@ -40,14 +40,14 @@ const Sidebar: React.FC = () => {
         }}
       />
       <Link to={`${match.path}/account`} style={{ textDecoration: 'none' }}>
-        <OverviewMenuItem
+        <MenuItem
           Icon={HomeAlt}
           text="Account overview"
           indicator={history.location.pathname === '/overview/account' && true}
         />
       </Link>
       <Link to={`${match.path}/edit`} style={{ textDecoration: 'none' }}>
-        <OverviewMenuItem
+        <MenuItem
           Icon={Pen}
           text="Edit profile"
           indicator={history.location.pathname === '/overview/edit' && true}

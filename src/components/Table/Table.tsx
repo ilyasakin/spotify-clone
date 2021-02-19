@@ -1,6 +1,6 @@
-import styles from './OverviewTable.module.scss';
+import styles from './Table.module.scss';
 
-const OverviewTable: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const Table: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <table className={styles['overview-table']}>
       <colgroup>
@@ -12,4 +12,4 @@ const OverviewTable: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   );
 };
 
-export default OverviewTable;
+export default Table;

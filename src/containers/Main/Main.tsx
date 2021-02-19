@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { ImpulseSpinner } from 'react-spinners-kit';
 import styles from './Main.module.scss';
-import Section from '../Section/Section';
+import Section from '../../components/Section/Section';
 import Song from '../../types/Song';
 import RecentlyPlayed from '../../context/RecentlyPlayed';
 
