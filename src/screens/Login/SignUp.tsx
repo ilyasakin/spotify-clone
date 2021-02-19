@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import axios, { AxiosResponse, AxiosError } from 'axios';
+import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import DatePicker from 'react-date-picker';
 import CountryList from 'country-list';
@@ -20,25 +20,27 @@ const SignUp: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    axios
-      .post(`${process.env.REACT_APP_BASE_URL}/v1/users/signup`, {
+
+    try {
+      setLoading(true);
+
+      const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/v1/users/signup`, {
         name: username,
         email,
         password,
         birthDate,
         country: selectedCountry,
-      })
-      .then((res: AxiosResponse) => {
-        setLoading(false);
-        setUser?.(res.data);
-        history.push('/player');
-      })
-      .catch((res: AxiosError) => {
-        setLoading(false);
-        setError(res?.response?.data.error);
       });
+
+      setLoading(false);
+      setUser?.(response.data);
+      history.push('/player');
+    } catch (error) {
+      setLoading(false);
+      setError(error?.response?.data.error);
+    }
   };
+
   return (
     <>
       <form
