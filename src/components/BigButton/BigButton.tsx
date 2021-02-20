@@ -1,14 +1,16 @@
 import { CircleSpinner } from 'react-spinners-kit';
 import styles from './BigButton.module.scss';
 
-const BigButton: React.FC<{
+interface Props {
   text: string;
   className?: string;
   variation?: 'fill' | 'outline' | 'pop';
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset' | undefined;
   loading?: boolean;
-}> = ({ text, className, variation, onClick, type, loading }) => {
+}
+
+const BigButton: React.FC<Props> = ({ text, className, variation, onClick, type, loading }) => {
   return (
     <button
       className={`${styles.bigbutton}
