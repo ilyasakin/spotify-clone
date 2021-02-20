@@ -93,15 +93,15 @@ const NowplayingCenter: React.FC = () => {
         src={`${process.env.REACT_APP_BASE_URL}/${currentSong?.location}`}
         playing={playing}
         volume={volume}
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        ref={player}
+        ref={player as React.RefObject<ReactHowler>}
         onLoad={() => {
           setDuration(player.current?.duration());
           setCurTime(player.current?.seek() ?? 0);
           setLoading(false);
         }}
         loop={loop}
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         xhr={{
           headers: {
             Authorization: `Bearer ${localStorage.getItem('__TOKEN')}`,
