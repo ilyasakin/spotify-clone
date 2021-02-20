@@ -11,16 +11,17 @@ import LikeButton from '../LikeButton/LikeButton';
 import RecentlyPlayed from '../../context/RecentlyPlayed';
 
 const formatTime = (duration: number | undefined): string => {
-  if (duration) {
-    const minutes: number = Math.floor(duration / 60);
-    let formattedMinutes: string = minutes.toString();
-    const seconds: number = Math.floor(duration - minutes * 60);
-    let formattedSeconds: string = seconds.toString();
-    if (/^\d$/.test(minutes.toString())) formattedMinutes = `0${minutes}`;
-    if (/^\d$/.test(seconds.toString())) formattedSeconds = `0${seconds}`;
-    return `${formattedMinutes}:${formattedSeconds}`;
+  if (!duration) {
+    return '00:00';
   }
-  return '00:00';
+
+  const minutes: number = Math.floor(duration / 60);
+  let formattedMinutes: string = minutes.toString();
+  const seconds: number = Math.floor(duration - minutes * 60);
+  let formattedSeconds: string = seconds.toString();
+  if (/^\d$/.test(minutes.toString())) formattedMinutes = `0${minutes}`;
+  if (/^\d$/.test(seconds.toString())) formattedSeconds = `0${seconds}`;
+  return `${formattedMinutes}:${formattedSeconds}`;
 };
 
 const NowplayingCenter: React.FC = () => {
