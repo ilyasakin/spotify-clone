@@ -36,7 +36,7 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
 
   useEffect(() => {
     const fetchAvatar = async () => {
-      const response = await Axios.get(`${process.env.REACT_APP_BASE_URL}/v1/users/myavatar`, {
+      const response = await Axios.get(`${process.env.REACT_APP_BASE_URL}/v1/users/my-avatar`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('__TOKEN')}` },
       });
       if (response.data !== '') {

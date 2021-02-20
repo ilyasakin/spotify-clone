@@ -14,7 +14,7 @@ const LikedSongs: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const response = await Axios.get(`${process.env.REACT_APP_BASE_URL}/v1/music/likedSongs`, {
+      const response = await Axios.get(`${process.env.REACT_APP_BASE_URL}/v1/music/liked-songs`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('__TOKEN')}` },
       });
 

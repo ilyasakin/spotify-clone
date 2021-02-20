@@ -20,7 +20,7 @@ const SignIn: React.FC = () => {
     setLoading(true);
     try {
       const res: AxiosResponse = await axios.post(
-        `${process.env.REACT_APP_BASE_URL}/v1/users/signin`,
+        `${process.env.REACT_APP_BASE_URL}/v1/users/sign-in`,
         {
           email,
           password,
@@ -39,7 +39,7 @@ const SignIn: React.FC = () => {
   const handleDemoLogin = async () => {
     setDemoLoading(true);
     try {
-      const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/v1/users/signin`, {
+      const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/v1/users/sign-in`, {
         email: 'guest@guest.com',
         password: 'guestguest',
       });

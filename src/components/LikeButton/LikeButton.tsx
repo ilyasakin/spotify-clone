@@ -17,7 +17,7 @@ const LikeButton: React.FC<Props> = ({ forSong }) => {
     const fetchIsLiked = async () => {
       const token = localStorage.getItem('__TOKEN');
       const response = await Axios.post(
-        `${process.env.REACT_APP_BASE_URL}/v1/users/isSongLiked`,
+        `${process.env.REACT_APP_BASE_URL}/v1/users/is-song-liked`,
         { id: forSong?.id },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -31,7 +31,7 @@ const LikeButton: React.FC<Props> = ({ forSong }) => {
 
   const handleUnlike = async () => {
     await Axios.post(
-      `${process.env.REACT_APP_BASE_URL}/v1/users/unlikeSong`,
+      `${process.env.REACT_APP_BASE_URL}/v1/users/unlike-song`,
       { id: forSong?.id },
       {
         headers: { Authorization: `Bearer ${user?.token}` },
@@ -43,7 +43,7 @@ const LikeButton: React.FC<Props> = ({ forSong }) => {
 
   const handleLike = async () => {
     await Axios.post(
-      `${process.env.REACT_APP_BASE_URL}/v1/users/likeSong`,
+      `${process.env.REACT_APP_BASE_URL}/v1/users/like-song`,
       { id: forSong?.id },
       {
         headers: { Authorization: `Bearer ${user?.token}` },

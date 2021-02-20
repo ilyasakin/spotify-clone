@@ -19,7 +19,7 @@ const Account: React.FC = () => {
   };
 
   const handleSignoutEverywhere = async () => {
-    await axios.post(`${process.env.REACT_APP_BASE_URL}/v1/users/logoutall`, null, {
+    await axios.post(`${process.env.REACT_APP_BASE_URL}/v1/users/logout-all`, null, {
       headers: { Authorization: `Bearer ${localStorage.getItem('__TOKEN')}` },
     });
 
