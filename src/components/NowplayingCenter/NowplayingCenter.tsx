@@ -11,16 +11,17 @@ import LikeButton from '../LikeButton/LikeButton';
 import RecentlyPlayed from '../../context/RecentlyPlayed';
 
 const formatTime = (duration: number | undefined): string => {
-  if (duration) {
-    const minutes: number = Math.floor(duration / 60);
-    let formattedMinutes: string = minutes.toString();
-    const seconds: number = Math.floor(duration - minutes * 60);
-    let formattedSeconds: string = seconds.toString();
-    if (/^\d$/.test(minutes.toString())) formattedMinutes = `0${minutes}`;
-    if (/^\d$/.test(seconds.toString())) formattedSeconds = `0${seconds}`;
-    return `${formattedMinutes}:${formattedSeconds}`;
+  if (!duration) {
+    return '00:00';
   }
-  return '00:00';
+
+  const minutes: number = Math.floor(duration / 60);
+  let formattedMinutes: string = minutes.toString();
+  const seconds: number = Math.floor(duration - minutes * 60);
+  let formattedSeconds: string = seconds.toString();
+  if (/^\d$/.test(minutes.toString())) formattedMinutes = `0${minutes}`;
+  if (/^\d$/.test(seconds.toString())) formattedSeconds = `0${seconds}`;
+  return `${formattedMinutes}:${formattedSeconds}`;
 };
 
 const NowplayingCenter: React.FC = () => {
@@ -92,15 +93,15 @@ const NowplayingCenter: React.FC = () => {
         src={`${process.env.REACT_APP_BASE_URL}/${currentSong?.location}`}
         playing={playing}
         volume={volume}
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        ref={player}
+        ref={player as React.RefObject<ReactHowler>}
         onLoad={() => {
           setDuration(player.current?.duration());
           setCurTime(player.current?.seek() ?? 0);
           setLoading(false);
         }}
         loop={loop}
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         xhr={{
           headers: {
             Authorization: `Bearer ${localStorage.getItem('__TOKEN')}`,
