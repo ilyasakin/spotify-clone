@@ -17,6 +17,8 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
   const { setUser } = useContext(User);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
+  const history = useHistory();
+
   const darkTheme = createMuiTheme({
     palette: {
       type: 'dark',
@@ -32,7 +34,14 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
     setAnchorEl(null);
   };
 
-  const history = useHistory();
+  const handleLogout = async () => {
+    await Axios.post(`${process.env.REACT_APP_BASE_URL}/v1/users/logout`, null, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('__TOKEN')}` },
+    });
+    localStorage.removeItem('__TOKEN');
+    setUser?.({});
+    history.push('/');
+  };
 
   useEffect(() => {
     const fetchAvatar = async () => {
@@ -80,19 +89,7 @@ const PillMenu: React.FC<Props> = ({ className, Text }) => {
           <MenuItem component={Link} to="/overview">
             <span className={styles['list-text']}>Account</span>
           </MenuItem>
-          {/* <MenuItem onClick={handleClose} divider>
-            <span className={styles['list-text']}>Profile</span>
-          </MenuItem> */}
-          <MenuItem
-            onClick={() => {
-              Axios.post(`${process.env.REACT_APP_BASE_URL}/v1/users/logout`, null, {
-                headers: { Authorization: `Bearer ${localStorage.getItem('__TOKEN')}` },
-              });
-              localStorage.removeItem('__TOKEN');
-              setUser?.({});
-              history.push('/');
-            }}
-          >
+          <MenuItem onClick={() => handleLogout()}>
             <span className={styles['list-text']}>Logout</span>
           </MenuItem>
         </Menu>
