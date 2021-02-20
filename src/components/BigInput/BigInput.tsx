@@ -9,41 +9,33 @@ interface Props {
 }
 
 const BigInput: React.FC<Props> = ({ select, label, children, onChange, value }) => {
-  switch (select) {
-    case false:
-      return (
-        <div>
-          <label htmlFor={label.toLowerCase()} className={styles.label}>
-            {label}
-          </label>
-          <input
-            type="text"
-            id={label.toLowerCase()}
-            className={styles.input}
-            onChange={onChange}
-            value={value}
-          />
-        </div>
-      );
-    case true:
-      return (
-        <div>
-          <label htmlFor={label.toLowerCase()} className={styles.label}>
-            {label}
-          </label>
-          <select
-            id={label.toLowerCase()}
-            className={styles.input}
-            onChange={onChange}
-            value={value}
-          >
-            {children}
-          </select>
-        </div>
-      );
-    default:
-      return <h3>Invalid</h3>;
+  if (!select) {
+    return (
+      <div>
+        <label htmlFor={label.toLowerCase()} className={styles.label}>
+          {label}
+        </label>
+        <input
+          type="text"
+          id={label.toLowerCase()}
+          className={styles.input}
+          onChange={onChange}
+          value={value}
+        />
+      </div>
+    );
   }
+
+  return (
+    <div>
+      <label htmlFor={label.toLowerCase()} className={styles.label}>
+        {label}
+      </label>
+      <select id={label.toLowerCase()} className={styles.input} onChange={onChange} value={value}>
+        {children}
+      </select>
+    </div>
+  );
 };
 
 BigInput.defaultProps = {
